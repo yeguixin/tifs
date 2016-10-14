@@ -1,0 +1,104 @@
+%
+%\documentclass[conference]{IEEEtran}
+%
+%\hyphenation{op-tical net-works semi-conduc-tor}
+%\usepackage{graphicx}
+%\usepackage{subfigure}
+%\usepackage{amsmath}
+%\usepackage{multirow}
+%\usepackage{multicol}
+%\usepackage{float}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{hyperref}
+%\usepackage{cite}
+%\usepackage{balance}
+%\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+%\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%%\usepackage{setspace}
+%%\usepackage{epsfig,graphics,subfigure,psfrag,amsmath,amssymb}
+%
+%\begin{document}
+%
+%\title{Take Care of Your Hands: A Novel Attack on Graphical Unlock Passwords }
+%
+%
+%\maketitle
+%
+%\begin{abstract}
+%
+%\end{abstract}
+%
+%% no keywords
+%\begin{IEEEkeywords}
+\section{Background}
+    \subsection{Android Pattern Lock}
+        Pattern lock is widely used to protect sensitive information and perform authentication on
+        Android touch-screen devices. To unlock a device protected with pattern lock, the user is asked to draw a predefined sequence of connected dots on a pattern grid\footnote{In this paper we use the Android default pattern grid with $3 \times 3$ dots, unless otherwise stated.}.
+        %The path traced by the fingertip on the dots is referred as a locking pattern.
+        Figure~\ref{fig:fig2} (e) shows a pattern which consists of seven dots on a $3 \times 3$ grid.
+        To form a
+        pattern, the user starts by selecting one dot as the
+        starting point and then swiping over multiple dots of the grid until the fingertip is lifted from the screen.
+        There are several rules for creating an Android pattern: (1) a pattern must consist
+        of at least four dots; (2) each dot can only be visited once; and (3) a previously unvisited dot will
+        become visited if it is part of a horizontal, vertical or diagonal
+        line segment of the pattern. Taking into account these constraints, the total number of possible patterns
+        on a $3\times3$ grid is 389,112~\cite{uellenbeck2013quantifying}.
+        Given the large number of possible patterns, performing brute-force attacks on
+        Android pattern lock is ineffective, because by default the device will be
+        automatically locked after five failed tries.
+        
+\begin{figure*}[!ht]
+    \centering
+    \includegraphics[width=\textwidth]{fig/overview.pdf}
+    \vspace{-4mm}
+    \caption{Overview of the attack.
+     Our system takes in a video segment that records the unlocking process (a). The adversary first marks two areas of interest on the first video frame (b): one contains the fingertip involved in pattern drawing, and the other contains part of the device. Our system then tries to track the fingertip's location w.r.t. to the device.
+     The tracking algorithm produces a fingertip movement trajectory from the camera's perspective (c) which is then transformed to the user's perspective (d). Finally, the resulted trajectory in (d) is mapped to several candidate patterns (e) to be tested on the target device (f). }
+    \label{fig:fig2}
+    \vspace{-3mm}
+\end{figure*}
+
+    \subsection{Threat Model}
+    \label{sec:scenarios}
+        In our threat model, we assume an adversary wants to access some sensitive information from or to install malware on a target device that is protected by pattern lock.
+        This type of attacks is mostly likely to be performed by an attacker
+         who can physically access to the
+        target device for a short period of time (e.g. via  attending a meeting or party where the user presents). To quickly gain access to the device without raising suspicion, the attacker would like to obtain the user's locking
+        pattern in advance. %He can do so with the help of someone (who is likely to be a stranger to the user) to film how the
+        %user unlocks the device.
+        The attack starts from filming how the user unlocks the device. Video recording can be done on-site or ahead of time (probably with the help of someone).
+        The video will then be processed to identify a small number of patterns to be tested on the target device.
+        Because filming can be carried out in from a distance of as far as 2.5 meters using a mobile phone camera and the camera does not need to directly face the target device, this activity often will not be noticed by the user.
+        Moreover, given that many users
+         use the same pattern across devices and applications, the pattern obtained from one device could also be used to break the user's other devices.  \emph{The goal of this paper is to
+        demonstrate the feasibility of a new attack and its implications to
+        the use of pattern lock.}
+
+        \noindent \textbf{Examples of Filming Scenarios} Figure~\ref{fig:fig1} illustrates three scenarios where filming can be
+        performed without raising suspicion to many users. For all the examples presented in Figure~\ref{fig:fig1}, the
+        filming camera had a left- or right-front view angle from the target device and did not directly face the screen of the target device. Due to the filming distance (2-3 meters), the recoded video typically does not have a clear vision of
+        the content displayed on the screen.  This observation can be confirmed by the video snapshot placing
+        alongside each scenario, where it is impossible to identify the content shown on the screen.
+        The examples given in Figure~\ref{fig:fig1} are some of the day-to-day
+        scenarios where security of the user's device can be compromised under
+        our attack.
+
+        \noindent \textbf{Assumptions}
+        Our attack requires the video footage to have a vision of the user's
+        fingertip involved in pattern drawing and part of the device (e.g. an edge of a phone).
+        We believe this is a reasonable assumption because in practice many users often do not fully cover their fingers and the entire device when drawing a pattern.
+        This is particularly true when holding a large-screen device by hands.
+        To launch the
+        attack, the attacker needs to know the layout of the grid, e.g. whether it is
+        a $3 \times 3$ or a $6 \times 6$ grid. Our approach is to generate a set of
+        candidate patterns for each of the Android pattern grids and the attacker can simply decide
+        which set of candidate patterns to use after seeing the target device (at the time the
+        layout of the grid will become available). However, unlike prior work on
+        video-based attacks on keystroke based authentication~\cite{shukla2014beware}, our approach does not
+        require having knowledge of the console's geometry. In other words, the size
+        of the screen or the position of the pattern grid  on the screen does not
+        affect the accuracy of our attack. We also assume the video does not need to
+        capture any content displayed on the screen. This assumption makes previous
+        video-based attacks on pattern lock~\cite{aviv2010smudge} inapplicable.

@@ -1,0 +1,75 @@
+\section{Related Work}
+Our work lies at the intersection between computer vision based attacks and
+cracking graphical- and touch-based authentication methods. This work brings
+together techniques developed in the domain of computer vision and motion
+tracking to develop a new attack. %Our work is the first attempt
+%of reconstructing a locking pattern from a video footage without
+%capturing the content displayed on the screen.
+
+
+
+\noindent \textbf{Computer Vision-based Attacks} No work has targeted using video
+footage to crack Android pattern lock and this is the first to do so. Our work is inspired by the work
+presented by Shukla \emph{et al.}~\cite{shukla2014beware} on video-based attacks of
+PIN-based passwords. In addition to addressing the new challenges highlighted in Section~\ref{sec:intro}, our work differs to their approach in
+two ways.
+Firstly, we target a different authentication method, i.e. graphical-based passwords are fundamentally different from PIN-based passwords. %Secondly, we
+%exploit the geometry information exposed by fingertip movement to identify candidate patterns.
+Secondly, our approach does not require knowledge of the size of the screen or the grid.
+Other work in the area including~\cite{yue2014blind} which attacks PIN-based passwords by analyzing how the screen brightness changes when entering a password.
+But the subtle changes of the screen brightness can be dramatically affected by the lighting condition. This restricts the application of their approach.
+There is a body of work using reflections to recover information typed by the user~\cite{kuhn2002compromising,xu2013seeing,raguram2011ispy,backes2009tempest}. These schemes require having a clear vision of the content displayed on the screen while our approach does not have such a requirement. 
+
+ %\FIXME{Talk about other computer vision based attacks}
+\noindent \textbf{Cracking Graphical-based Passwords} Adam \emph{et al.} demonstrated that it is possible to reconstruct a locking pattern by analyzing the oily residues left on the screen~\cite{aviv2010smudge}.
+ This method is highly restricted as oily residues can be messed up by any on-screen activities after pattern drawing.
+Zhang \emph{et al.} exploit the WiFi signal interferences caused by finger motions to recover patterns~\cite{zhang2016privacy}. Their method requires a complex setup and is highly sensitive to moving objects of the environment
+because the WiFI signal can be disrupted by a moving object.
+%Thus, this attack can only recognize the pattern that trained in advance and other moving objects will greatly disrupt the WiFi signal, making this attack ill-suites for many  scenario.
+
+\noindent \textbf{Attacks on Touch-based Authentication}
+%\FIXME{See: When Kids' Toys Breach Mobile Phone Security, CCS 13 and other papers}
+Ballard \emph{et al.} implemented a forgery attack on handwriting
+authentication~\cite{ballard2007forgery}. Using a small number of training
+examples, they achieve a high success rate for this attack. More recently,
+Serwadda \emph{et al.} show that a simple robot can achieve high penetration
+rates against touch-based authentication systems by analyzing on-screen gestures including
+swiping and zooming~\cite{serwadda2013kids}.
+In this paper, we present a new, video-based attack for graphical-based passwords.
+Research in this area all demonstrates the need for a closer look of the security risks of touch-based authentication.
+
+
+
+\noindent \textbf{Study of Android Pattern Lock}
+Uellebenk \emph{et al.} study how people use Android pattern lock on
+a daily basis~\cite{uellenbeck2013quantifying}.  They found that although there
+is a large number of Android patterns, in
+practice many people only use a small set of them due to users' bias in
+generating patterns. L{\o}ge explored the correlation between
+human's characteristics (e.g. ages and genders) and the choice of
+patterns~\cite{alpnorway}. Her study shows that users have a bias in selecting the
+starting dot to form a pattern and people tend to use complex patterns
+for sensitive applications.
+
+\noindent \textbf{Motion Tracking} In addition to TLD, there are other methods proposed in the past for tracking object
+motions. Some of them apply image analysis to track the hand and gesture
+motions from video
+footage~\cite{Yang:2002:EMT:605089.605095,Stenger:2006:MHT:1159166.1159342,
+citeulike:13091082}. In this paper we do not seek to advance the field of
+motion tracking. Instead we demonstrate that a new attack can be built
+using classical motion tracking algorithms. We show that the attack presented in 
+this work can be a serious threat for Android pattern lock. %This has never been attempted in
+%prior work on motion tracking.
+
+    %\FIXED{The security of user password has already triggered a widely attention. Researchers have proposed lots of side-channel attacks that can get user's privacy data such as account and passwords with unexpected ways. In this section, we list six kinds of such side-channel attacks and the most related works with our work.}
+%    \begin{enumerate}[(1)]
+%        \item \emph{Acoustic emanation attack.} Emanations produced by electronic devices have long been a topic of concern in the security and privacy communities. Researchers have shown that attackers can reconstruct the text by acoustic emanations because differentiating sound is emanated by different keys while the victims use keyboard to type the text. Asonov~\cite{asonov2004keyboard} performs this kind of attack by employing a neural network to recognize the key being pressed. As an improvement, Zhuang~\cite{zhuang2009keyboard} employs the attack to infer the text typed by using a combination of machine learning algorithms and speech recognition techniques. Differ from ~\cite{asonov2004keyboard,zhuang2009keyboard}, Berger et al. proposes a dictionary attack without any training~\cite{berger2006dictionary}, which combines signal processing with efficient data structures and algorithms. However it limits to the length of word and the number of repeated characters within the word.
+%        \item \emph{Electromagnetic radiation attack.} As an unintentional signals emanations of electronic equipment, electromagnetic radiation, mentioned in the open literature as early as 1967~\cite{highland1986electromagnetic}, is also a potential computer security risk. Eck ~\cite{van1985electromagnetic} demonstrates the possibility of "eavesdropping" on video display units by picking up and decoding the electromagnetic interference produced by this type of equipment. Kuhn~\cite{kuhn2002optical} shows that the intensity of the light emitted by a raster-scan screen can be used to read cathode-ray tube (CRT) display at a distance. The further research studied by him~\cite{kuhn2004electromagnetic} introduced modern flat-panel displays can be easily vulnerable by maximizing the leaking signal strength with some modern video interfaces.
+%        \item \emph{Brute-force attack.} As early as 1979 \cite{morris1979password}, researcher has realized that the text-based passwords can be available by so-called dictionary attacks due to the limited digits of passwords~\cite{morris1979password}. Narayanan~\cite{narayanan2005fast} proposes the time-space tradeoff based on the Markov model and achieves the fast dictionary attacks.
+%        \item \emph{Wi-Fi attack.} With the widely usage of wireless signal, Zhang~\cite{zhang2016privacy} proposes a system that can snoop the Android pattern lock by leveraging the impact of finger motion on the Wi-Fi signal while drawing the pattern lock. Thus, this attack can only recognize the pattern that trained in advance and other moving objects will greatly disturb the excepted Wi-Fi signal, making this attack performed poor in practical attacking scenario.
+%        \item \emph{Computer vision based attack.} Such attacks have emerged as a new way of attacking text-based passwords on touched screen system. Prior works leverage the reflection of objects to infer what the user types on the touched screen for recovering the passwords~\cite{kuhn2002compromising,xu2013seeing,raguram2011ispy,backes2009tempest}. However, their approaches relies on the usage of digital single-len reflex camera to film the content of user's input (e.g., chats, accounts or passwords), making this kind of attack easy to be found. Shukla et al. leverage the spatio-temporal dynamic of the hands to infer the pin based passwords~\cite{shukla2014beware}. Similarly, Yue et al. identify the pin based passwords by light diffusion surrounding touched keys~\cite{yue2014blind}. However, their methods need to know the layout of the keyboard (such as the size of each key and the location of each key on the keypad). Adam et al. proposes a smudge attack on Android pattern lock by filming the image that contains the residual smudges after drawing the pattern lock~\cite{aviv2010smudge}. But such approach have the strong assumption that the attacker have the possession of the device for full controlling the lighting and camera condition to extract the smudgy information of pattern lock. The aforementioned assumptions, however, do not hold for pattern hock, making the prior work infeasible for attacking pattern-based lock.
+%        \item \emph{Other side-channel attack.} ~\cite{song2001timing} presents another novel attack method, which develops an attacker system named herbivore. It tries to predict user's key sequences from the inter-keystroke timings information by monitoring SSH sessions. The similar work is proposed by Kune~\cite{foo2010timing}. In his work, the password space can be reduced by analyzing the timing delay between acoustic feedback pulses. For the soft keyboard on the touch screen, however, the emanation attacks, such as sound or electromagnetic emanation, may be ineffective for inferring confidential information. To this case, TouchLogger proposed by Cai~\cite{cai2011touchlogger} can infer confidential information on the touch screen with the motion sensors being equipped by the smartphone.
+%    \end{enumerate}
+%
+%    \FIXED{In our work, we present a novel computer vision based attack that cracks the Android pattern lock based on the video unnoticeable filmed with an ordinary mobile camera. Unlike prior computer vision based attacks~\cite{shukla2014beware, yue2014blind}, our approach do not need to know the layout of the keyboard . Also, differ from the most related works~\cite{zhang2016privacy,aviv2010smudge} that can only crack those patterns trained in advance in certain environment, our work can identify the correct pattern lock by analyzing the identity information of fingertip motion. To some extent, our work have not the strong assumption as~\cite{aviv2010smudge} (attacker must full control of the device). On the contrary, our work only need to know the filming angle, which is the light weight assumption because filming angle can be estimated by the attacker or can be calculated by a standard vision algorithm~\cite{werner2011indoor}.}
+%

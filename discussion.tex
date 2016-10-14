@@ -1,0 +1,62 @@
+\section{Discussions}
+
+\subsection{Potential Countermeasures}
+
+The success of our attack depends on three factors: (1)
+knowledge of the pattern grid; (2) a decent
+quality video footage allowing the algorithm to track the fingertip movement;
+(3) successfully identifying a video segment that captures the entire process of pattern drawing.
+
+
+For the first factor, the attacker can obtain relevant information via analyzing a device installed with the same operating system and applications as the target.
+Randomization techniques such as 
+randomized pictures~\cite{biddle2012graphical,hossein2015fortifying} could be a solution for the first factor.
+However, randomization-based solutions often come at the cost of poorer
+usability. This can prevent them to be used at a large scale.
+Regarding the second factor, there are ways, such as
+KALEIDO~\cite{zhang2015kaleido}, to prevent unauthorized videotaping by
+dynamically changing the colour and brightness of the screen to confuse the
+filming camera. A non-technical solution for this aspect would be to educate users to
+fully cover their fingers when drawing a pattern. But doing this on a large-screen device could be awkward especially when the device is held by one hand.
+For the third factor, the attacker's solution depends on the type of the pattern. For a screen lock, pattern drawing is the first activity (except
+for receiving a phone call or making an emergency call) when the device is
+retrieved. Therefore, identifying the video segment is straightforward. When
+the pattern is used by applications, we have observed that users typically
+pause for a few seconds before or after entering the pattern. Therefore, an experienced attacker should also be able
+to identify the video segment in case our automatic algorithm (presented in
+Section~\ref{sec:identify}) fails to do so. A potential countermeasure is to mix 
+pattern unlocking with other on-screen activities. For examples, before and
+after pattern drawing, the system can ask the user to type in a sentence
+using a Swype-like method or
+to draw some graphical shapes. The problem of this approach is it may annoy users by asking 
+them to do more, especially for screen unlocking -- an activity that is performed 
+many times a day.
+
+%De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
+
+
+\subsection{Implications}
+While pattern lock is preferable by many users~\cite{androidstudy}, this     work shows
+that it is vulnerable under video-based attacks. Our attack
+is able to break most patterns in five attempts. Considering Android
+allows five failed attempts before automatically locking the device, our work
+shows that this default threshold is unsafe. We demonstrated that, in contrast to many users'
+perception, complex patterns actually do not provide stronger protection over simple patterns under our attack.
+
+It is worth mentioning that our approach is only one of the many attacking
+methods that researchers have demonstrated. Examples of these attacks include
+video-based attacks on keystroke-based authentication~\cite{shukla2014beware,yue2014blind}, sensor-based attacks for
+pattern lock~\cite{zhang2016privacy}. Authentication methods that combine different
+authentication methods~\cite{de2012touch,stefan2012robustness,lingsecure,mannan2007using} to constantly checks the user's identity could be
+a solution. %However, due to stealthiness and diversity of
+%such attacks, there may not exist an ``one-size-fits-all" solution.
+
+
+
+   % \FIXED{In this section, we discuss some possible defense strategies against video-based attacks proposed in this paper. For other attack approaches introduced in related work, there are some other defense strategies. In order to protect the text-based passwords, randomized keyboard \cite{hoanca2005screen,shin2010device,kim2012keypad}have been proposed against computer vision based attacks.}
+%
+%    \FIXED{Indeed, there are also some other authentication approaches immune to video-based attack. With the widely use of various diversity of sensors embed into smartphones, Shahzad \cite{shahzad2013secure} propose a protection approach by multiple information collected by sensor such as gyroscope and accelerator. This defense approach, unfortunately, seems to be attacked by Serwadda \cite{serwadda2013kids}, who proposed a new attack method for multi-authenticated information produced by sensors. In addition, biometric-rich locking mechanisms have been proposed \cite{kalal2012tracking,hoanca2005screen}. The successful use of fingerprint authentication on iPhone is a positive example for preventing the video-based attack. But recently researcher points that fingerprint can be forged~\cite{shin2009dictionary}, making the fingerprint authentication mechanism is also unsafe.}
+%
+%    \FIXED{To prevent the video from filming secretly, Lan Z proposes the KALEIDO~\cite{zhang2015kaleido}, a system that prevents unauthorized users from recording a high-quality redisplay on a screen by taking full use of light difference between the screen-eye channel and the screen-camera channel. Thus, in our further work, based on such limited disparities, we can design a system that prevent the attacker from implementing video-based attacks. Specifically, to obstruct the video filming, the certain frequency of light can be launched by touch-screen during drawing the pattern lock.}
+%
+%    \FIXED{With the advent of new technologies, however, there are still some novel attack methods arouse. Due to stealthiness and diversity of such attacks. There are not a uniform countermeasure to protect our private data from leakage. The best approach for protecting privacy is enhance safety consciousness and if possible, do not input your private information in public places.}
