@@ -1,0 +1,24 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: TIFS.aux
+The style file: IEEEtranS.bst
+Database file #1: refs.bib
+-- IEEEtranS.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Sorting version - not for normal IEEE work.
+Warning--empty year in backes2009tempest
+Warning--empty year in balzarotti2008clearshot
+Warning--empty year in DBLP:conf/soups/2014
+Warning--empty year in de2012touch
+Warning--empty year in egelman2014you
+Warning--empty year in lingsecure
+Warning--empty year in raguram2011ispy
+Warning--empty year in serwadda2013kids
+Warning--empty year in shukla2014beware
+Warning--empty year in hossein2015fortifying
+Warning--empty year in uellenbeck2013quantifying
+Warning--empty year in vonZezschwitz:2015:EDB:2702123.2702202
+Warning--empty year in xu2013seeing
+Warning--empty year in zhang2015kaleido
+
+Done.
+(There were 14 warnings)

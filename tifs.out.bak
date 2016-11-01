@@ -1,0 +1,39 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Background}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Android Pattern Lock}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Threat Model}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Overview of Our Attack}{}% 5
+\BOOKMARK [1][-]{section.4}{Implementation Details}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Video preprocessing }{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Track fingertip locations}{section.4}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Generate The Fingertip Movement Trajectory}{subsection.4.2}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Camera Shake Calibration}{subsection.4.2}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Noisy Points Calibration}{subsection.4.2}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Filming angle transformation}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.4}{Identify and rank candidate patterns}{section.4}% 13
+\BOOKMARK [3][-]{subsubsection.4.4.1}{Extracting Structure Information}{subsection.4.4}% 14
+\BOOKMARK [3][-]{subsubsection.4.4.2}{Map the Tracked Trajectory to Candidate Patterns}{subsection.4.4}% 15
+\BOOKMARK [1][-]{section.5}{Experimental Setup }{}% 16
+\BOOKMARK [2][-]{subsection.5.1}{Data Collection}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.2}{Pattern Complexity Classification}{section.5}% 18
+\BOOKMARK [2][-]{subsection.5.3}{Video Recording and Preprocessing}{section.5}% 19
+\BOOKMARK [1][-]{section.6}{Experimental Results}{}% 20
+\BOOKMARK [2][-]{subsection.6.1}{Overall Success Rate }{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.2}{Impact of Filming Distances }{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.3}{Impact of Camera Shake}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.4}{Impact of Lighting Conditions }{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.5}{Impact of Filming Angle Estimation }{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.6}{Impact of Different Targets and Cameras}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.7}{Inferring Patterns with Eyes}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.8}{Evaluation on Other Pattern Grids}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Discussions}{}% 29
+\BOOKMARK [2][-]{subsection.7.1}{Potential Countermeasures}{section.7}% 30
+\BOOKMARK [2][-]{subsection.7.2}{Implications}{section.7}% 31
+\BOOKMARK [1][-]{section.8}{Related Work}{}% 32
+\BOOKMARK [1][-]{section.9}{Conclusions}{}% 33
+\BOOKMARK [1][-]{section*.1}{Appendix A: Proof of the First Zonklar Equation}{}% 34
+\BOOKMARK [1][-]{section*.2}{Appendix B}{}% 35
+\BOOKMARK [1][-]{IEEEbiography.0}{Biographies}{}% 36
+\BOOKMARK [2][-]{IEEEbiography.1}{Michael Shell}{IEEEbiography.0}% 37
+\BOOKMARK [2][-]{IEEEbiography.2}{John Doe}{IEEEbiography.0}% 38
+\BOOKMARK [2][-]{IEEEbiography.3}{Jane Doe}{IEEEbiography.0}% 39

@@ -293,13 +293,16 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         candidate patterns. By contrast, processing the same video
          with camera-shake calibration  produces Figure~\ref{fig:camera_shake_illu} (b). Clearly, this figure is more
         alike the correct pattern.
-   
+
+        \subsubsection{Noisy Points Calibration}
+            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract uncorrect geometric information of fingertip movement.
+
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.4\textwidth]{fig/line_detection.pdf}
     \caption{Filming angle calculation. The filming angle, $\theta$, is the angle between the edge line of the device and a vertical line.}
         \label{fig:line_detection}
-\end{figure}     
+\end{figure}
 \subsection{Filming angle transformation}
 \label{sec:transformation}
 In practice, the filming camera will not directly face the target device to avoid the filming activity to be noticed by the user. As a result, the
@@ -610,14 +613,14 @@ For each video frame, our algorithm individually calculates the filming angle an
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[b]{0.18\textwidth}
+                \begin{minipage}[t]{0.185\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
                 \centering \footnotesize (a) line direction number
                 \end{minipage}
             }
             \hspace{0.2cm}
             \subfigure{
-                \begin{minipage}[b]{0.215\textwidth}
+                \begin{minipage}[t]{0.215\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
                 \centering \footnotesize (b) numbering line segment of the tracked trajectory
                 \end{minipage}
