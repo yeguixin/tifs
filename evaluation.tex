@@ -310,11 +310,48 @@
     \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when there is
     an error of 10 degrees.
 
-    \subsection{Impact of Different Targets and Cameras}
+    \subsection{\FIXED{Impact of Different Targets and Cameras}}
     \noindent \textbf{Result 6:} \emph{The size of smartphone touch-screen and brands of mobile camera had little effect on the success rate.}
+
+    Intuitively, the success rate may be influenced by the size of touch-screen as well as the brands of phone cameras. To evaluate this effection, we ask 10 participants to randomly select 60 patterns (30 patterns for each category). We use IPhone6, Xiaomi MI4, Vivo X7, Samsung Note4 to record unlock videos while the patterns are drawn on IPhone4S\footnote{Participants draw patterns on the login interface of Alipay installed on the phone as Apple operating system do not support pattern lock authentication mechanism.}, Huawei Honor7 and Samsung Galaxy Tab E. The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of touch-screen and Table~\ref{tab:camera-parameters} presents the parameters of camera used in this experiment.
     
-    Intuitively, the success rate may be influenced by the size of touch-screen as well as the brands of phone cameras. To evaluate this effection, we use IPhone6, MI4, Vivo, Nexus7 to record unlock videos while the patterns are drawn on MI4, Meizu2 and Nexus7.  The distance is 2m away from the tester during record the unlocking process. Table ? shows the size of touch-screen and the parameters of camera used in this experiment.
-    
+    \FIXED{Here analyze experimental results.}
+
+    \begin{table}[!t]
+            \centering
+            \caption{Touch-screen sizes for the test phones}
+            \label{tab:screen-size}
+            \scriptsize
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \diagbox[dir=SE]{Size}{Brands}& IPhone4S & Honor7 & Samsung Tab \\
+                \hline
+                Height(cm)$\times$Width(cm) & $11.5\times5.9$ & $14.3\times7.2$ & $24.2\times15.0$ \\
+                \hline
+            \end{tabular}
+            %\vspace{-4mm}
+    \end{table}
+
+    \begin{table}[!t]
+            \centering
+            \caption{The main parameters for the phone camera}
+            \label{tab:camera-parameters}
+            \small
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \diagbox[dir=SE]{Parm}{Brands}& IPhone6 & Vivo X7 & MI4 & Note4 \\
+                \hline
+                Frame Rate (fps) & $30$ & $30$& $30$ & 30 \\
+                \hline
+                Pixels & 800w & 1300w & 1300w & 1600w \\
+                \hline 
+                Focus & 1200w & 1200w & 1200w & 1200w \\
+                \hline
+                Sensitivity & 1200w & 1200w & 1200w & 1200w \\
+                \hline
+            \end{tabular}
+    \end{table}
+
     \subsection{Inferring Patterns with Eyes}
 
     \noindent \textbf{Result 7:} \emph{Our attacking methodology significantly outperform direct observation techniques.}
@@ -411,5 +448,12 @@
         \times 3$ grid. Overall, our attack can crack over 75\% (up to 95\%)
         of the patterns within five attempts. One of the purposes of introducing
         pattern grids with more dots is to allow users to use more complex
-        patterns. However, this experiment suggests that complex patterns remain less security on
-         these grids under our attack.
+        patterns. However, this experiment suggests that complex patterns remain less security on these grids under our attack.
+
+    \subsection{\FIXED{Evaluation of Cracking PIN-based Passwords}}
+        \noindent \textbf{Result 9:} \emph{PIN-based passwords are still vulnerable under our attack. This can be proved that we can break over 90\% of the passwords using simple a variant of our attacking method.}
+        
+        Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the unlocking video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking devices. To prove this intuitively imagine, we total collected 60 PIN-based passwords which separated into two categories: 4-digital and 6-digital passwords and the number of each category is 30. For each category, we ask our participants to input the passwords on a Huawei Honor7 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front, and the right-front of the target device from a distance of 2 meters.
+        
+        
+    

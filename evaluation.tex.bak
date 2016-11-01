@@ -116,7 +116,7 @@
     \subsection{Impact of Filming Distances \label{sec:distances}}
         \begin{table}[!t]
             \centering
-            \caption{Tacking precision vs filming distance}
+            \caption{Tracking precision vs filming distance}
             \vspace{-0.2mm}
             \label{tab:tab1}
             \small
@@ -135,8 +135,8 @@
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
 
            We would like to know how the filming distance affects the
-           success rate of the attack. To do so, we have asked our participants to randomly select 15
-           patterns from each pattern group (45 patterns in total) and we varied the
+           success rate of the attack. To do so, we have asked our participants to randomly select all 120
+           pattern locks and we varied the
            filming distance from 1 meter to 3.5 meters.
            Figure~\ref{fig:fig12} shows how the cracking success rate changes
            as the filming distance increases. There is slight differences in the success rate between this diagram and Figure~\ref{fig:fig10}
@@ -239,8 +239,7 @@
     The light intensity of these condidtions ranges from 9500
     lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
     These represent some of the day-to-day scenarios where filming can
-    take place. For each setting, we asked each of our 10 participants to
-    select 12 patterns out of 120 patterns to draw on a Xiaomi MI4 phone. We used
+    take place. For each setting, we asked each of our 10 participants to draw all collected 120 patterns on a Xiaomi MI4 phone. We used
     an iPhone4S phone to record the video. The filming camera was place on the
     left-front, front, and the right-front of the target device from a distance
     of 2 meters.
@@ -311,10 +310,49 @@
     \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when there is
     an error of 10 degrees.
 
+    \subsection{\FIXED{Impact of Different Targets and Cameras}}
+    \noindent \textbf{Result 6:} \emph{The size of smartphone touch-screen and brands of mobile camera had little effect on the success rate.}
+
+    Intuitively, the success rate may be influenced by the size of touch-screen as well as the brands of phone cameras. To evaluate this effection, we use IPhone6, MI4, Vivo, XXX to record unlock videos while the patterns are drawn on IPhone4S, Huawei Honor7 and Samsung Galaxy Tab E.  The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of touch-screen and Table~\ref{tab:camera-parameters} presents the parameters of camera used in this experiment.
+
+    \begin{table}[!t]
+            \centering
+            \caption{Touch-screen sizes for the test phones}
+            \label{tab:screen-size}
+            \scriptsize
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \diagbox[dir=SE]{Size}{Brands}& IPhone4S & Honor7 & pad \\
+                \hline
+                Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $18.6\times10.4$& $$ \\
+                \hline
+            \end{tabular}
+            %\vspace{-4mm}
+    \end{table}
+
+    \begin{table}[!t]
+            \centering
+            \caption{The main parameters for the phone camera}
+            \label{tab:camera-parameters}
+            \small
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                \diagbox[dir=SE]{Parm}{Brands}& IPhone6 & MI4 & Vivo & Note4 \\
+                \hline
+                Frame Rate (fps) & $60$ & $45$& $60$ & 30 \\
+                \hline
+                Pixels & 1200w & 1200w & 1200w & 1200w \\
+                \hline 
+                Focus & 1200w & 1200w & 1200w & 1200w \\
+                \hline
+                Sensitivity & 1200w & 1200w & 1200w & 1200w \\
+                \hline
+            \end{tabular}
+    \end{table}
 
     \subsection{Inferring Patterns with Eyes}
 
-    \noindent \textbf{Result 6:} \emph{Our attacking methodology significantly outperform direct observation techniques.}
+    \noindent \textbf{Result 7:} \emph{Our attacking methodology significantly outperform direct observation techniques.}
 
    In this experiment, we investigate whether an attacker can infer the pattern by
    simply watching the video or through direct observations. To answer this question, we asked each of our 10 participants to watch 60 videos (where
@@ -331,10 +369,10 @@
         simple patterns in five attempts. However, they found that it is difficult
         to infer complex patterns with many line segments, overlapping lines and intersections.
         The success rate of guessing complex patterns is less than 10\% in five attempts.
-        This is not a supervising result
+        This is not a surprising result
         because although it is possible to correctly guess patterns with
         simple structures by watching the video, doing so for patterns with
-        more complex structures is a much harder.
+        more complex structures is much harder.
 
 
     We also asked participants to directly observe how a pattern was drawn
@@ -342,10 +380,10 @@
     behind this evaluation is that human eyes can catch richer information
     over a video camera. The results of this experiment are shown in
     Figure~\ref{fig:look-unlocking process} (b).  As can be seen from the
-    diagram, although the success rate is improved compared to directly watching the video, the chance for guessing the correct pattern in
+    diagram, although the success rate is improved compared to directly watching the video, the chances for guessing the correct pattern in
     5 attempts are quite low. In
-    fact, the success rates are just 48.6\%, 37.1\%
-    and 11.4\% respectively for simple, median and complex patterns.
+    fact, the success rates are just 48.3\%, 38.3\%
+    and 11.7\% respectively for simple, median and complex patterns.
 
         \begin{figure}[!t]
             \centering
@@ -378,7 +416,7 @@
         \end{figure}
 
     \subsection{Evaluation on Other Pattern Grids\label{sec:scalability}}
-    \noindent \textbf{Result 7:} \emph{A pattern grid with more dots provides stronger protection but our attack can still crack most of the patterns.}
+    \noindent \textbf{Result 8:} \emph{A pattern grid with more dots provides stronger protection but our attack can still crack most of the patterns.}
 
         There are a few applications (such as CyanLock) and customized ROMs available to increase the size of the pattern grid from $3\times3$ to $4\times4$, $5\times5$, and $6\times6$.
         Although a $3 \times 3$ grid remains
@@ -408,5 +446,10 @@
         \times 3$ grid. Overall, our attack can crack over 75\% (up to 95\%)
         of the patterns within five attempts. One of the purposes of introducing
         pattern grids with more dots is to allow users to use more complex
-        patterns. However, this experiment suggests that complex patterns remain less security on
-         these grids under our attack.
+        patterns. However, this experiment suggests that complex patterns remain less security on these grids under our attack.
+
+    \subsection{\FIXED{Evaluation of Cracking PIN-based Passwords}}
+        \noindent \textbf{Result 9:} \emph{PIN-based passwords are still vulnerable under our attack. This can be proved that we can break over 90\% of the passwords using simple a variant of our attacking method.}
+        
+        
+    
