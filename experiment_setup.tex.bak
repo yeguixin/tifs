@@ -97,7 +97,6 @@
             \vspace{-2mm}
             \label{fig:most complex patterns}
         \end{figure}
-\vspace{-5mm}
 
 \section{Experimental Setup \label{sec:setup}}
     \subsection{Data Collection}
@@ -170,7 +169,7 @@
                 \hline
                 \diagbox[dir=SE]{Size}{Brands}& MI4 & Honor7 & Note4 \\
                 \hline
-                Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $18.6\times10.4$& $15.4\times7.9$ \\
+                Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $14.3\times7.2$ & $15.4\times7.9$ \\
                 \hline
             \end{tabular}
             \vspace{-4mm}

@@ -313,7 +313,7 @@
     \subsection{\FIXED{Impact of Different Targets and Cameras}}
     \noindent \textbf{Result 6:} \emph{The size of smartphone touch-screen and brands of mobile camera had little effect on the success rate.}
 
-    Intuitively, the success rate may be influenced by the size of touch-screen as well as the brands of phone cameras. To evaluate this effection, we ask 10 participants to randomly select 60 patterns (30 patterns for each category). We use IPhone6, Xiaomi MI4, Vivo X7, Samsung Note4 to record unlock videos while the patterns are drawn on IPhone4S\footnote{Participants draw patterns on the login interface of Alipay installed on the phone as Apple operating system do not support pattern lock authentication mechanism.}, Huawei Honor7 and Samsung Galaxy Tab E. The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of touch-screen and Table~\ref{tab:camera-parameters} presents the parameters of camera used in this experiment.
+    Intuitively, the success rate may be influenced by the size of touch-screen because the length of pattern will be short as the size decreases. Likewise, the accuracy also may be influenced by the quality of video as the different quality of phone cameras. To evaluate this effection, we ask 10 participants to randomly select 60 patterns (30 patterns for each category). We use IPhone6, Xiaomi MI4, Vivo X7, Samsung Note4 to record unlock videos while the patterns are drawn on IPhone4S\footnote{Participants draw patterns on the login interface of Alipay installed on the phone as Apple operating system do not support pattern lock authentication mechanism.}, Huawei Honor7 and Samsung Galaxy Tab E. The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of touch-screen and Table~\ref{tab:camera-parameters} presents the parameters of camera used in this experiment.
     
     \FIXED{Here analyze experimental results.}
 
@@ -343,11 +343,11 @@
                 \hline
                 Frame Rate (fps) & $30$ & $30$& $30$ & 30 \\
                 \hline
-                Pixels & 800w & 1300w & 1300w & 1600w \\
+                Pixels & 8mp & 13mp & 13mp & 16mp \\
                 \hline 
-                Focus & 1200w & 1200w & 1200w & 1200w \\
+                Focus (mm) & 4.15 & 4 & 4 & 4.2 \\
                 \hline
-                Sensitivity & 1200w & 1200w & 1200w & 1200w \\
+                Sensitivity (ISO) & 3200 & 3200 & 3000 & 5000 \\
                 \hline
             \end{tabular}
     \end{table}
@@ -450,10 +450,33 @@
         pattern grids with more dots is to allow users to use more complex
         patterns. However, this experiment suggests that complex patterns remain less security on these grids under our attack.
 
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.18\textwidth}
+                \includegraphics[width=\textwidth]{fig/pattern_screen.png}\\
+                \centering \footnotesize (a) pattern-based interface
+                \end{minipage}
+            }
+            \hspace{0.5cm}
+            \subfigure{
+                \begin{minipage}[t]{0.18\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_screen.png}\\
+                \centering \footnotesize (b) pin-based interface
+                \end{minipage}
+            }
+            \caption{Pattern-based and pin-based authentication interfaces from Xiaomi MI4 phone.}
+            \label{fig:unlock interface}
+        \end{figure}
+
     \subsection{\FIXED{Evaluation of Cracking PIN-based Passwords}}
-        \noindent \textbf{Result 9:} \emph{PIN-based passwords are still vulnerable under our attack. This can be proved that we can break over 90\% of the passwords using simple a variant of our attacking method.}
+        \noindent \textbf{Result 9:} \emph{PIN-based passwords are still vulnerable under our attack. This can be proved that we can break over {\color{red}90\%} of the passwords using simple a variant of our attacking method.}
         
-        Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the unlocking video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking devices. To prove this intuitively imagine, we total collected 60 PIN-based passwords which separated into two categories: 4-digital and 6-digital passwords and the number of each category is 30. For each category, we ask our participants to input the passwords on a Huawei Honor7 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front, and the right-front of the target device from a distance of 2 meters.
+        Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the target video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking the device. To prove this intuitively imagine, we total collected 60 PIN-based passwords which were separated into two categories: 4-digital and 6-digital passwords and the number of each category is 30. For each category, we ask our participants to keystroke the passwords on a Xiaomi MI4 phone. Figure~\ref{fig:unlock interface} shows the pattern-based and pin-based authentication interface of MI4 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front and right-front of the target device from a distance of 2 meters.
+        
+        \noindent \textbf{Variant Methodology} There exists some differences between PIN-based passwords and pattern lock. These are summarized as follow: (1) PIN-base authentication interface has ten dots that is different from pattern lock, making the layout of interface of the two mechanisms different; (2) the dots on PIN-based interface can be typed repeated while they can only be visited once on pattern-base interface. The above differences make the patterns generated from the two authentication mechanisms significant different.  To this point, we increased the geometric information including both direction and length information to adjust the variant attack method for reconstructing PIN-base passwords.
+        
+        \FIXED{Here show the experimental results.}
         
         
     

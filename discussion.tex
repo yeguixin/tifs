@@ -1,6 +1,6 @@
 \section{Discussions}
 
-\subsection{Potential Countermeasures}
+\subsection{Countermeasures}
 
 The success of our attack depends on three factors: (1)
 knowledge of the pattern grid; (2) a decent
@@ -8,8 +8,8 @@ quality video footage allowing the algorithm to track the fingertip movement;
 (3) successfully identifying a video segment that captures the entire process of pattern drawing.
 
 
-For the first factor, the attacker can obtain relevant information via analyzing a device installed with the same operating system and applications as the target.
-Randomization techniques such as 
+\noindent \textbf{Potential countermeasures} For the first factor, the attacker can obtain relevant information via analyzing a device installed with the same operating system and applications as the target.
+Randomization techniques such as
 randomized pictures~\cite{biddle2012graphical,hossein2015fortifying} could be a solution for the first factor.
 However, randomization-based solutions often come at the cost of poorer
 usability. This can prevent them to be used at a large scale.
@@ -24,15 +24,17 @@ retrieved. Therefore, identifying the video segment is straightforward. When
 the pattern is used by applications, we have observed that users typically
 pause for a few seconds before or after entering the pattern. Therefore, an experienced attacker should also be able
 to identify the video segment in case our automatic algorithm (presented in
-Section~\ref{sec:identify}) fails to do so. A potential countermeasure is to mix 
+Section~\ref{sec:identify}) fails to do so. A potential countermeasure is to mix
 pattern unlocking with other on-screen activities. For examples, before and
 after pattern drawing, the system can ask the user to type in a sentence
 using a Swype-like method or
-to draw some graphical shapes. The problem of this approach is it may annoy users by asking 
-them to do more, especially for screen unlocking -- an activity that is performed 
+to draw some graphical shapes. The problem of this approach is it may annoy users by asking
+them to do more, especially for screen unlocking -- an activity that is performed
 many times a day.
 
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
+
+\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. This redesign keep the advantages of original authentication system as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern.
 
 
 \subsection{Implications}
