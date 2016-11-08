@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  2 NOV 2016 17:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  8 NOV 2016 20:19
 entering extended mode
 **./TIFS.tex
 (TIFS.tex
@@ -1718,46 +1718,62 @@ Package pdftex.def Info: fig/15.pdf used on input line 286.
 (pdftex.def)             Requested size: 180.60315pt x 100.18819pt.
  [12 <./fig/distance-2m.pdf> <./fig/distance-3m.pdf> <./fig/distance-3-5m.pdf> 
 <./fig/distance-pattern.pdf> <./fig/12.pdf> <./fig/13.pdf> <./fig/14.pdf>]
-Underfull \vbox (badness 1142) has occurred while \output is active []
+<fig/screen_size.pdf, id=1078, 557.39725pt x 210.66103pt>
+File: fig/screen_size.pdf Graphic file (type pdf)
 
+<use fig/screen_size.pdf>
+Package pdftex.def Info: fig/screen_size.pdf used on input line 363.
+(pdftex.def)             Requested size: 206.39685pt x 78.00443pt.
+
+<fig/camera_brands.pdf, id=1079, 557.39755pt x 216.35129pt>
+File: fig/camera_brands.pdf Graphic file (type pdf)
+
+<use fig/camera_brands.pdf>
+Package pdftex.def Info: fig/camera_brands.pdf used on input line 369.
+(pdftex.def)             Requested size: 206.39685pt x 80.11143pt.
  [13 <./fig/light.pdf> <./fig/15.pdf>]
-<fig/look-video.pdf, id=1107, 443.95671pt x 262.4756pt>
+<fig/look-video.pdf, id=1111, 443.95671pt x 262.4756pt>
 File: fig/look-video.pdf Graphic file (type pdf)
 
 <use fig/look-video.pdf>
-Package pdftex.def Info: fig/look-video.pdf used on input line 397.
+Package pdftex.def Info: fig/look-video.pdf used on input line 416.
 (pdftex.def)             Requested size: 180.60315pt x 106.77463pt.
 
-<fig/look-finger.pdf, id=1108, 448.94144pt x 262.56395pt>
+<fig/look-finger.pdf, id=1112, 448.94144pt x 262.56395pt>
 File: fig/look-finger.pdf Graphic file (type pdf)
 
 <use fig/look-finger.pdf>
-Package pdftex.def Info: fig/look-finger.pdf used on input line 404.
+Package pdftex.def Info: fig/look-finger.pdf used on input line 423.
 (pdftex.def)             Requested size: 180.60315pt x 105.62466pt.
 
-<fig/scalability.pdf, id=1109, 472.03905pt x 253.34047pt>
+<fig/scalability.pdf, id=1113, 472.03905pt x 253.34047pt>
 File: fig/scalability.pdf Graphic file (type pdf)
 
 <use fig/scalability.pdf>
-Package pdftex.def Info: fig/scalability.pdf used on input line 412.
+Package pdftex.def Info: fig/scalability.pdf used on input line 431.
 (pdftex.def)             Requested size: 180.60315pt x 96.92754pt.
-
-<fig/pattern_screen.png, id=1112, 376.40625pt x 377.91188pt>
+ [14 <./fig/screen_size.pdf> <./fig/camera_brands.pdf> <./fig/look-video.pdf> <
+./fig/look-finger.pdf> <./fig/scalability.pdf>]
+<fig/pattern_screen.png, id=1146, 376.40625pt x 377.91188pt>
 File: fig/pattern_screen.png Graphic file (type png)
 
 <use fig/pattern_screen.png>
-Package pdftex.def Info: fig/pattern_screen.png used on input line 460.
+Package pdftex.def Info: fig/pattern_screen.png used on input line 479.
 (pdftex.def)             Requested size: 92.87622pt x 93.24371pt.
 
-<fig/pin_screen.png, id=1114, 376.40625pt x 376.40625pt>
+<fig/pin_screen.png, id=1148, 376.40625pt x 376.40625pt>
 File: fig/pin_screen.png Graphic file (type png)
 
 <use fig/pin_screen.png>
-Package pdftex.def Info: fig/pin_screen.png used on input line 467.
+Package pdftex.def Info: fig/pin_screen.png used on input line 486.
 (pdftex.def)             Requested size: 92.87622pt x 92.87222pt.
- [14 <./fig/look-video.pdf> <./fig/look-finger.pdf> <./fig/scalability.pdf> <./
-fig/pattern_screen.png> <./fig/pin_screen.png>])
-(discussion.tex) (related.tex [15]) (conclusions.tex) (TIFS.bbl
+) (discussion.tex [15 <./fig/pattern_screen.png> <./fig/pin_screen.png>]) (rela
+ted.tex) (conclusions.tex) (TIFS.bbl
+
+Package balance Warning: You have called \balance in second column
+(balance)                Columns might not be balanced.
+
+[16]
 Underfull \hbox (badness 1540) in paragraph at lines 78--80
 []\OT1/ptm/m/n/10 Z. Kalal, ``TLD: Tracking-learning-detection,'' [][]$http : /
  /
@@ -1769,11 +1785,11 @@ Underfull \hbox (badness 1472) in paragraph at lines 82--84
 learning-detection,'' \OT1/ptm/m/it/10 IEEE
  []
 
+)
+Overfull \vbox (0.51544pt too high) has occurred while \output is active []
 
-Overfull \vbox (1.55484pt too high) has occurred while \output is active []
 
-
-[16]) [17]
+[17]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (TIFS.aux)
@@ -1786,15 +1802,15 @@ Package rerunfilecheck Warning: File `TIFS.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `TIFS.out':
-(rerunfilecheck)             Before: 79A9DB0AAE73DDAF1A47E96DC4F580EF;9838
-(rerunfilecheck)             After:  D0A3D04C0AB6638105CD540408096395;2889.
+(rerunfilecheck)             Before: 4BA85415AF0EC51E310795A1ECAE8C2C;9894
+(rerunfilecheck)             After:  3A1F1E041C45DDC30EF35D57C13E956B;2896.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 21328 strings out of 493334
- 375213 string characters out of 3144942
- 503485 words of memory out of 3000000
- 24093 multiletter control sequences out of 15000+200000
+ 21350 strings out of 493334
+ 375663 string characters out of 3144942
+ 499129 words of memory out of 3000000
+ 24108 multiletter control sequences out of 15000+200000
  49522 words of font info for 90 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  55i,16n,54p,1512b,747s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1824,9 +1840,9 @@ sfonts/cm/cmsy7.pfb><H:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><H
 pe1/urw/courier/ucrr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><H:
 /CTEX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/
 times/utmr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TIFS.pdf (17 pages, 5837955 bytes).
+Output written on TIFS.pdf (17 pages, 5846797 bytes).
 PDF statistics:
- 1316 PDF objects out of 1440 (max. 8388607)
- 244 named destinations out of 1000 (max. 500000)
- 763 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1336 PDF objects out of 1440 (max. 8388607)
+ 249 named destinations out of 1000 (max. 500000)
+ 773 words of extra memory for PDF output out of 10000 (max. 10000000)
 

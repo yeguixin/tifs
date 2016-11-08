@@ -281,7 +281,7 @@
 
 
     \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
-        \begin{figure}[!t]
+    \begin{figure}[!t]
         \centering
         \includegraphics[width=0.35\textwidth]{fig/15.pdf}
         \vspace{-2mm}
@@ -313,9 +313,11 @@
     \subsection{\FIXED{Impact of Different Targets and Cameras}}
     \noindent \textbf{Result 6:} \emph{The size of smartphone touch-screen and brands of mobile camera had little effect on the success rate.}
 
-    Intuitively, the success rate may be influenced by the size of touch-screen because the length of pattern will be short as the size decreases. Likewise, the accuracy also may be influenced by the quality of video as the different quality of phone cameras. To evaluate this effection, we ask 10 participants to randomly select 60 patterns (30 patterns for each category). We use IPhone6, Xiaomi MI4, Vivo X7, Samsung Note4 to record unlock videos while the patterns are drawn on IPhone4S\footnote{Participants draw patterns on the login interface of Alipay installed on the phone as Apple operating system do not support pattern lock authentication mechanism.}, Huawei Honor7 and Samsung Galaxy Tab E. The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of touch-screen and Table~\ref{tab:camera-parameters} presents the parameters of camera used in this experiment.
-    
-    \FIXED{Here analyze experimental results.}
+    Intuitively, the success rate may be influenced by the size of touch-screen because the length of pattern will be short as the screen size decreases. Likewise, the accuracy also may be influenced by the quality of video as the different quality of phone cameras. To evaluate this effection, we ask 10 participants to randomly select 60 patterns (30 patterns for each category). We use IPhone6, Xiaomi MI4, Vivo X7, Samsung Note4 to record unlock videos while the patterns are drawn on IPhone4S\footnote{Participants draw patterns on the login interface of Alipay installed on the phone as Apple operating system do not support pattern lock authentication mechanism.}, Huawei Honor7 and Samsung Galaxy Tab E. The distance is 2m away from the tester during record the unlocking process. Table~\ref{tab:screen-size} shows the sizes of screen vary from 3.5\emph{inch} to 9.6\emph{inch} which involve almost all screen size of smart devices used in daily life.
+    Table~\ref{tab:camera-parameters} presents the mobile cameras and their main parameters used in this experiment. The parameters for the four mobile cameras have few differences and these differences determine the function of the cameras in specific shooting scenes. For example, Note4 camera have a longer focal length than other three mobile camera, which means that its effective shooting distance is longer than others. We believe that the four mobile cameras represent the most common cameras used by people of all walks of life.
+
+    Figure~\ref{fig:screen_size} (a) shows our approach has the same performance under different sizes of phone screens. We observe the success rate reach 98.3\% within five attempts when the screen size is 3.5\emph{inch}, the smallest screen on the mobile market.
+     the success rate under different sizes of phone screens. When the screen size is 3.5\emph{inch}, the success rate reach 98.3\% within five attempts.
 
     \begin{table}[!t]
             \centering
@@ -344,13 +346,31 @@
                 Frame Rate (fps) & $30$ & $30$& $30$ & 30 \\
                 \hline
                 Pixels & 8mp & 13mp & 13mp & 16mp \\
-                \hline 
+                \hline
                 Focus (mm) & 4.15 & 4 & 4 & 4.2 \\
                 \hline
                 Sensitivity (ISO) & 3200 & 3200 & 3000 & 5000 \\
                 \hline
             \end{tabular}
     \end{table}
+
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+             \begin{minipage}[t]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{fig/screen_size.pdf}\\
+                \centering \footnotesize (a) screen size
+             \end{minipage}
+        }
+        \subfigure{
+             \begin{minipage}[t]{0.4\textwidth}
+                \includegraphics[width=\textwidth]{fig/camera_brands.pdf}\\
+                \centering \footnotesize (b) camera brands
+             \end{minipage}
+        }
+        \caption{The cracking success rate under different screen size and brands of camera. The difference in horizontal axis is for the purpose of illustration.}
+        \label{fig:screen_size}
+    \end{figure}
 
     \subsection{Inferring Patterns with Eyes}
 
@@ -471,12 +491,12 @@
 
     \subsection{\FIXED{Evaluation of Cracking PIN-based Passwords}}
         \noindent \textbf{Result 9:} \emph{PIN-based passwords are still vulnerable under our attack. This can be proved that we can break over {\color{red}90\%} of the passwords using simple a variant of our attacking method.}
-        
-        Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the target video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking the device. To prove this intuitively imagine, we total collected 60 PIN-based passwords which were separated into two categories: 4-digital and 6-digital passwords and the number of each category is 30. For each category, we ask our participants to keystroke the passwords on a Huawei Honor7 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front and right-front of the target device from a distance of 2 meters.
-        
-        \noindent \textbf{Variant Methodology} There exists some differences between PIN-based passwords and pattern lock. These are summarized as follow: (1) PIN-base authentication interface has ten dots that is different from pattern lock. making the layout of dots of the two mechanisms different; (2) The dots on PIN-based interface can be typed repeated while they can only be visited once on pattern-base interface. The above differences make the patterns generated from the two authentication mechanisms significant different.  To this point, we increased the geometric information including both direction and length information to adjust the variant attack method for reconstructing PIN-base passwords.
-        
+
+        Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the target video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking the device. To prove this intuitively imagine, we total collected 60 PIN-based passwords which were separated into two categories: 4-digital and 6-digital passwords and the number of each category is 30. For each category, we ask our participants to keystroke the passwords on a Xiaomi MI4 phone. Figure~\ref{fig:unlock interface} shows the pattern-based and pin-based authentication interface of MI4 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front and right-front of the target device from a distance of 2 meters.
+
+        \noindent \textbf{Variant Methodology} There exists some differences between PIN-based passwords and pattern lock. These are summarized as follow: (1) PIN-base authentication interface has ten dots that is different from pattern lock, making the layout of interface of the two mechanisms different; (2) the dots on PIN-based interface can be typed repeated while they can only be visited once on pattern-base interface. The above differences make the patterns generated from the two authentication mechanisms significant different.  To this point, we increased the geometric information including both direction and length information to adjust the variant attack method for reconstructing PIN-base passwords.
+
         \FIXED{Here show the experimental results.}
-        
-        
-    
+
+
+

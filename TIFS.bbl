@@ -112,6 +112,12 @@ R.~Raguram \emph{et~al.}, ``{iSpy}: automatic reconstruction of typed input
 J.~Rogers, ``Please enter your four-digit pin,'' \emph{Financial Services
   Technology}, 2007.
 
+\bibitem{sanchez2001iris}
+R.~Sanchez-Reillo and C.~Sanchez-Avila, ``Iris recognition with low template
+  size,'' in \emph{International Conference on Audio-and Video-Based Biometric
+  Person Authentication}.\hskip 1em plus 0.5em minus 0.4em\relax Springer,
+  2001, pp. 324--329.
+
 \bibitem{serwadda2013kids}
 A.~Serwadda and V.~V. Phoha, ``When kids' toys breach mobile phone security,''
   in \emph{CCS '13}.
@@ -140,6 +146,12 @@ C.~Sun \emph{et~al.}, ``Dissecting pattern unlock: The effect of pattern
 \bibitem{Torralba:2002:DEI:628330.628820}
 A.~Torralba and A.~Oliva, ``Depth estimation from image structure,'' \emph{IEEE
   PAMI}, 2002.
+
+\bibitem{turk1991face}
+M.~A. Turk and A.~P. Pentland, ``Face recognition using eigenfaces,'' in
+  \emph{Computer Vision and Pattern Recognition, 1991. Proceedings CVPR'91.,
+  IEEE Computer Society Conference on}.\hskip 1em plus 0.5em minus 0.4em\relax
+  IEEE, 1991, pp. 586--591.
 
 \bibitem{uellenbeck2013quantifying}
 S.~Uellenbeck \emph{et~al.}, ``Quantifying the security of graphical passwords:
