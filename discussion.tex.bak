@@ -33,9 +33,26 @@ them to do more, especially for screen unlocking -- an activity that is performe
 many times a day.
 
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
+                \centering \footnotesize (a) password: 1234
+             \end{minipage}
+        }
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
+                \centering \footnotesize (b) password: 3570
+             \end{minipage}
+        }
+        \caption{Examples of tracked fingertip trajectory comprised of touched points. The red circle represents the touching points.}
+        \label{fig:pins_trajectory}
+    \end{figure}
 
-\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. This redesign keep the advantages of original authentication system as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern.  
-Simple introduce this is over than biometric authentication........
+
+\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. This redesign keep the usability of original pattern-based authentication scheme as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
 
 
 \subsection{Implications}
