@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  10 NOV 2016 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  16 NOV 2016 21:56
 entering extended mode
 **./TIFS.tex
 (TIFS.tex
@@ -928,13 +928,22 @@ LaTeX Info: Redefining \nameref on input line 48.
 
 ABD: EveryShipout initializing macros
 \c@lstlisting=\count189
- (intro.tex
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 15.
 
-(H:\CTEX\MiKTeX\tex\latex\psnfss\ot1pcr.fd
+
+LaTeX Warning: No \author given.
+
+
+LaTeX Warning: No \author given.
+
+
+LaTeX Warning: No \author given.
+
+(intro.tex
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 15.
+ (H:\CTEX\MiKTeX\tex\latex\psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<fig/1-1.pdf, id=175, 594.36519pt x 443.25499pt>
+<fig/1-1.pdf, id=151, 594.36519pt x 443.25499pt>
 File: fig/1-1.pdf Graphic file (type pdf)
  <use fig/1-1.pdf>
 Package pdftex.def Info: fig/1-1.pdf used on input line 111.
@@ -944,7 +953,7 @@ Overfull \hbox (14.86955pt too wide) in paragraph at lines 111--111
 [][] 
  []
 
-<fig/1-2.pdf, id=176, 474.42242pt x 394.89534pt>
+<fig/1-2.pdf, id=152, 474.42242pt x 394.89534pt>
 File: fig/1-2.pdf Graphic file (type pdf)
  <use fig/1-2.pdf>
 Package pdftex.def Info: fig/1-2.pdf used on input line 118.
@@ -954,7 +963,7 @@ Overfull \hbox (2.96436pt too wide) in paragraph at lines 118--118
 [][] 
  []
 
-<fig/1-3.pdf, id=177, 501.79471pt x 376.28581pt>
+<fig/1-3.pdf, id=153, 501.79471pt x 376.28581pt>
 File: fig/1-3.pdf Graphic file (type pdf)
  <use fig/1-3.pdf>
 Package pdftex.def Info: fig/1-3.pdf used on input line 124.
@@ -964,7 +973,7 @@ Overfull \hbox (14.24075pt too wide) in paragraph at lines 124--124
 [][] 
  []
 
-<fig/1-4.pdf, id=178, 420.57124pt x 342.27875pt>
+<fig/1-4.pdf, id=154, 420.57124pt x 342.27875pt>
 File: fig/1-4.pdf Graphic file (type pdf)
  <use fig/1-4.pdf>
 Package pdftex.def Info: fig/1-4.pdf used on input line 131.
@@ -974,7 +983,7 @@ Overfull \hbox (5.2948pt too wide) in paragraph at lines 131--131
 [][] 
  []
 
-<fig/1-5.pdf, id=179, 392.39598pt x 290.37485pt>
+<fig/1-5.pdf, id=155, 392.39598pt x 290.37485pt>
 File: fig/1-5.pdf Graphic file (type pdf)
  <use fig/1-5.pdf>
 Package pdftex.def Info: fig/1-5.pdf used on input line 138.
@@ -989,7 +998,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--138
 \OT1/ptm/m/n/8 (e) An out-door film-ing
  []
 
-<fig/1-6.pdf, id=180, 496.98674pt x 404.45103pt>
+<fig/1-6.pdf, id=156, 496.98674pt x 404.45103pt>
 File: fig/1-6.pdf Graphic file (type pdf)
  <use fig/1-6.pdf>
 Package pdftex.def Info: fig/1-6.pdf used on input line 146.
@@ -1011,7 +1020,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 ])
-(background.tex <fig/overview.pdf, id=209, 318.2028pt x 59.92488pt>
+(background.tex <fig/overview.pdf, id=185, 318.2028pt x 59.92488pt>
 File: fig/overview.pdf Graphic file (type pdf)
 
 <use fig/overview.pdf>
@@ -1030,49 +1039,49 @@ pdfTeX warning: pdflatex.exe (file ./fig/1-5.pdf): PDF inclusion: multiple pdfs
 pdfTeX warning: pdflatex.exe (file ./fig/1-6.pdf): PDF inclusion: multiple pdfs
  with page group included in a single page
 >]) (overview.tex) (details.tex [3 <./fig/overview.pdf, page is rotated 90 degr
-ees>] <fig/time-interval.pdf, id=317, 489.6921pt x 220.57909pt>
+ees>] <fig/time-interval.pdf, id=293, 489.6921pt x 220.57909pt>
 File: fig/time-interval.pdf Graphic file (type pdf)
 
 <use fig/time-interval.pdf>
 Package pdftex.def Info: fig/time-interval.pdf used on input line 58.
 (pdftex.def)             Requested size: 180.60315pt x 81.35045pt.
 
-<fig/gesture-distinction1.pdf, id=318, 259.76549pt x 193.43468pt>
+<fig/gesture-distinction1.pdf, id=294, 259.76549pt x 193.43468pt>
 File: fig/gesture-distinction1.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction1.pdf>
 Package pdftex.def Info: fig/gesture-distinction1.pdf used on input line 71.
 (pdftex.def)             Requested size: 98.04126pt x 73.00711pt.
 
-<fig/gesture-distinction2.pdf, id=319, 259.01268pt x 197.95255pt>
+<fig/gesture-distinction2.pdf, id=295, 259.01268pt x 197.95255pt>
 File: fig/gesture-distinction2.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction2.pdf>
 Package pdftex.def Info: fig/gesture-distinction2.pdf used on input line 79.
 (pdftex.def)             Requested size: 98.04126pt x 74.92975pt.
 
-<fig/gesture-distinction3.pdf, id=320, 260.51831pt x 191.17624pt>
+<fig/gesture-distinction3.pdf, id=296, 260.51831pt x 191.17624pt>
 File: fig/gesture-distinction3.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction3.pdf>
 Package pdftex.def Info: fig/gesture-distinction3.pdf used on input line 86.
 (pdftex.def)             Requested size: 98.04126pt x 71.94469pt.
 
-<fig/gesture-distinction4.pdf, id=321, 259.76549pt x 193.26904pt>
+<fig/gesture-distinction4.pdf, id=297, 259.76549pt x 193.26904pt>
 File: fig/gesture-distinction4.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction4.pdf>
 Package pdftex.def Info: fig/gesture-distinction4.pdf used on input line 94.
 (pdftex.def)             Requested size: 98.04126pt x 72.94461pt.
 
-<fig/gesture-distinction5.pdf, id=322, 259.01268pt x 193.43468pt>
+<fig/gesture-distinction5.pdf, id=298, 259.01268pt x 193.43468pt>
 File: fig/gesture-distinction5.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction5.pdf>
 Package pdftex.def Info: fig/gesture-distinction5.pdf used on input line 100.
 (pdftex.def)             Requested size: 98.04126pt x 73.21962pt.
 
-<fig/gesture-distinction6.pdf, id=323, 335.04674pt x 247.63817pt>
+<fig/gesture-distinction6.pdf, id=299, 335.04674pt x 247.63817pt>
 File: fig/gesture-distinction6.pdf Graphic file (type pdf)
 
 <use fig/gesture-distinction6.pdf>
@@ -1094,45 +1103,48 @@ getVideo\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 frames\OT1/cmr/m/n/10 []\OML/cmm/m/it
 /10 ; sNo; eNo\OT1/cmr/m/n/10 )$ 
  []
 
-<fig/6--1.pdf, id=324, 413.29407pt x 270.25969pt>
+<fig/6--1.pdf, id=300, 413.29407pt x 270.25969pt>
 File: fig/6--1.pdf Graphic file (type pdf)
  <use fig/6--1.pdf>
 Package pdftex.def Info: fig/6--1.pdf used on input line 158.
 (pdftex.def)             Requested size: 113.81102pt x 74.42267pt.
 
-<fig/6--2.pdf, id=325, 408.77719pt x 268.00125pt>
+<fig/6--2.pdf, id=301, 408.77719pt x 268.00125pt>
 File: fig/6--2.pdf Graphic file (type pdf)
  <use fig/6--2.pdf>
 Package pdftex.def Info: fig/6--2.pdf used on input line 165.
 (pdftex.def)             Requested size: 113.81102pt x 74.61453pt.
 
-<fig/6--3.pdf, id=326, 371.88937pt x 246.1697pt>
+<fig/6--3.pdf, id=302, 371.88937pt x 246.1697pt>
 File: fig/6--3.pdf Graphic file (type pdf)
  <use fig/6--3.pdf>
 Package pdftex.def Info: fig/6--3.pdf used on input line 172.
 (pdftex.def)             Requested size: 113.81102pt x 75.33519pt.
 
-<fig/6--4.pdf, id=327, 361.03673pt x 281.06575pt>
+<fig/6--4.pdf, id=303, 361.03673pt x 281.06575pt>
 File: fig/6--4.pdf Graphic file (type pdf)
  <use fig/6--4.pdf>
 Package pdftex.def Info: fig/6--4.pdf used on input line 179.
 (pdftex.def)             Requested size: 91.04872pt x 70.87955pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [4 <./fig/time-interval.pdf> <./fig/gesture-distinction1.pdf> <./fig/gesture-d
 istinction2.pdf> <./fig/gesture-distinction3.pdf> <./fig/gesture-distinction4.p
 df> <./fig/gesture-distinction5.pdf> <./fig/gesture-distinction6.pdf>]
-<fig/5-1.pdf, id=377, 503.75099pt x 383.7005pt>
+<fig/5-1.pdf, id=353, 503.75099pt x 383.7005pt>
 File: fig/5-1.pdf Graphic file (type pdf)
  <use fig/5-1.pdf>
 Package pdftex.def Info: fig/5-1.pdf used on input line 239.
 (pdftex.def)             Requested size: 113.52063pt x 86.46355pt.
 
-<fig/5-2.pdf, id=378, 498.98318pt x 381.44206pt>
+<fig/5-2.pdf, id=354, 498.98318pt x 381.44206pt>
 File: fig/5-2.pdf Graphic file (type pdf)
  <use fig/5-2.pdf>
 Package pdftex.def Info: fig/5-2.pdf used on input line 246.
 (pdftex.def)             Requested size: 113.52063pt x 86.77528pt.
 
-<fig/5-3.pdf, id=379, 230.36063pt x 225.09094pt>
+<fig/5-3.pdf, id=355, 230.36063pt x 225.09094pt>
 File: fig/5-3.pdf Graphic file (type pdf)
  <use fig/5-3.pdf>
 Package pdftex.def Info: fig/5-3.pdf used on input line 253.
@@ -1149,7 +1161,7 @@ s with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./fig/6--4.pdf): PDF inclusion: multiple pdf
 s with page group included in a single page
->] <fig/line_detection.pdf, id=496, 551.59273pt x 229.94005pt>
+>] <fig/line_detection.pdf, id=473, 551.59273pt x 229.94005pt>
 File: fig/line_detection.pdf Graphic file (type pdf)
 
 <use fig/line_detection.pdf>
@@ -1159,7 +1171,7 @@ Package pdftex.def Info: fig/line_detection.pdf used on input line 302.
 
 pdfTeX warning: pdflatex.exe (file ./fig/600.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/600.pdf, id=504, 301.35385pt x 292.58109pt>
+<fig/600.pdf, id=481, 301.35385pt x 292.58109pt>
 File: fig/600.pdf Graphic file (type pdf)
  <use fig/600.pdf>
 Package pdftex.def Info: fig/600.pdf used on input line 343.
@@ -1168,7 +1180,7 @@ Package pdftex.def Info: fig/600.pdf used on input line 343.
 
 pdfTeX warning: pdflatex.exe (file ./fig/601.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/601.pdf, id=505, 301.35385pt x 295.16171pt>
+<fig/601.pdf, id=482, 301.35385pt x 295.16171pt>
 File: fig/601.pdf Graphic file (type pdf)
  <use fig/601.pdf>
 Package pdftex.def Info: fig/601.pdf used on input line 350.
@@ -1177,7 +1189,7 @@ Package pdftex.def Info: fig/601.pdf used on input line 350.
 
 pdfTeX warning: pdflatex.exe (file ./fig/602.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/602.pdf, id=506, 302.90163pt x 294.64581pt>
+<fig/602.pdf, id=483, 302.90163pt x 294.64581pt>
 File: fig/602.pdf Graphic file (type pdf)
  <use fig/602.pdf>
 Package pdftex.def Info: fig/602.pdf used on input line 357.
@@ -1186,7 +1198,7 @@ Package pdftex.def Info: fig/602.pdf used on input line 357.
 
 pdfTeX warning: pdflatex.exe (file ./fig/603.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/603.pdf, id=507, 302.38573pt x 297.22542pt>
+<fig/603.pdf, id=484, 302.38573pt x 297.22542pt>
 File: fig/603.pdf Graphic file (type pdf)
  <use fig/603.pdf>
 Package pdftex.def Info: fig/603.pdf used on input line 364.
@@ -1195,7 +1207,7 @@ Package pdftex.def Info: fig/603.pdf used on input line 364.
 
 pdfTeX warning: pdflatex.exe (file ./fig/604.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/604.pdf, id=508, 300.32118pt x 295.67664pt>
+<fig/604.pdf, id=485, 300.32118pt x 295.67664pt>
 File: fig/604.pdf Graphic file (type pdf)
  <use fig/604.pdf>
 Package pdftex.def Info: fig/604.pdf used on input line 371.
@@ -1204,124 +1216,127 @@ Package pdftex.def Info: fig/604.pdf used on input line 371.
 
 pdfTeX warning: pdflatex.exe (file ./fig/605.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/605.pdf, id=509, 301.86877pt x 295.67764pt>
+<fig/605.pdf, id=486, 301.86877pt x 295.67764pt>
 File: fig/605.pdf Graphic file (type pdf)
  <use fig/605.pdf>
 Package pdftex.def Info: fig/605.pdf used on input line 378.
 (pdftex.def)             Requested size: 36.98866pt x 36.22871pt.
 
-<fig/606.pdf, id=510, 196.31845pt x 191.34787pt>
+<fig/606.pdf, id=487, 196.31845pt x 191.34787pt>
 File: fig/606.pdf Graphic file (type pdf)
  <use fig/606.pdf>
 Package pdftex.def Info: fig/606.pdf used on input line 385.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/607.pdf, id=511, 196.31845pt x 191.34787pt>
+<fig/607.pdf, id=488, 196.31845pt x 191.34787pt>
 File: fig/607.pdf Graphic file (type pdf)
  <use fig/607.pdf>
 Package pdftex.def Info: fig/607.pdf used on input line 392.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/608.pdf, id=512, 196.31845pt x 191.34787pt>
+<fig/608.pdf, id=489, 196.31845pt x 191.34787pt>
 File: fig/608.pdf Graphic file (type pdf)
  <use fig/608.pdf>
 Package pdftex.def Info: fig/608.pdf used on input line 399.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/609.pdf, id=513, 196.31845pt x 191.34787pt>
+<fig/609.pdf, id=490, 196.31845pt x 191.34787pt>
 File: fig/609.pdf Graphic file (type pdf)
  <use fig/609.pdf>
 Package pdftex.def Info: fig/609.pdf used on input line 406.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/610.pdf, id=514, 196.31845pt x 191.34787pt>
+<fig/610.pdf, id=491, 196.31845pt x 191.34787pt>
 File: fig/610.pdf Graphic file (type pdf)
  <use fig/610.pdf>
 Package pdftex.def Info: fig/610.pdf used on input line 413.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/611.pdf, id=515, 196.31845pt x 191.34787pt>
+<fig/611.pdf, id=492, 196.31845pt x 191.34787pt>
 File: fig/611.pdf Graphic file (type pdf)
  <use fig/611.pdf>
 Package pdftex.def Info: fig/611.pdf used on input line 420.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/612.pdf, id=516, 196.31845pt x 191.34787pt>
+<fig/612.pdf, id=493, 196.31845pt x 191.34787pt>
 File: fig/612.pdf Graphic file (type pdf)
  <use fig/612.pdf>
 Package pdftex.def Info: fig/612.pdf used on input line 427.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/613.pdf, id=517, 196.31845pt x 191.34787pt>
+<fig/613.pdf, id=494, 196.31845pt x 191.34787pt>
 File: fig/613.pdf Graphic file (type pdf)
  <use fig/613.pdf>
 Package pdftex.def Info: fig/613.pdf used on input line 434.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/614.pdf, id=518, 196.31845pt x 191.34787pt>
+<fig/614.pdf, id=495, 196.31845pt x 191.34787pt>
 File: fig/614.pdf Graphic file (type pdf)
  <use fig/614.pdf>
 Package pdftex.def Info: fig/614.pdf used on input line 441.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/615.pdf, id=519, 196.31845pt x 191.34787pt>
+<fig/615.pdf, id=496, 196.31845pt x 191.34787pt>
 File: fig/615.pdf Graphic file (type pdf)
  <use fig/615.pdf>
 Package pdftex.def Info: fig/615.pdf used on input line 448.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/616.pdf, id=520, 196.31845pt x 191.34787pt>
+<fig/616.pdf, id=497, 196.31845pt x 191.34787pt>
 File: fig/616.pdf Graphic file (type pdf)
  <use fig/616.pdf>
 Package pdftex.def Info: fig/616.pdf used on input line 455.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/617.pdf, id=521, 196.31845pt x 191.34787pt>
+<fig/617.pdf, id=498, 196.31845pt x 191.34787pt>
 File: fig/617.pdf Graphic file (type pdf)
  <use fig/617.pdf>
 Package pdftex.def Info: fig/617.pdf used on input line 462.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/618.pdf, id=522, 196.31845pt x 191.34787pt>
+<fig/618.pdf, id=499, 196.31845pt x 191.34787pt>
 File: fig/618.pdf Graphic file (type pdf)
  <use fig/618.pdf>
 Package pdftex.def Info: fig/618.pdf used on input line 469.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/619.pdf, id=523, 196.31845pt x 191.34787pt>
+<fig/619.pdf, id=500, 196.31845pt x 191.34787pt>
 File: fig/619.pdf Graphic file (type pdf)
  <use fig/619.pdf>
 Package pdftex.def Info: fig/619.pdf used on input line 476.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
- [6 <./fig/5-1.pdf> <./fig/5-2.pdf> <./fig/5-3.pdf> <./fig/line_detection.pdf
 
-pdfTeX warning: pdflatex.exe (file ./fig/line_detection.pdf): PDF inclusion: mu
-ltiple pdfs with page group included in a single page
->] <fig/6-2.pdf, id=570, 433.44785pt x 325.73094pt>
+<fig/6-2.pdf, id=503, 433.44785pt x 325.73094pt>
 File: fig/6-2.pdf Graphic file (type pdf)
  <use fig/6-2.pdf>
 Package pdftex.def Info: fig/6-2.pdf used on input line 497.
 (pdftex.def)             Requested size: 118.6778pt x 89.18114pt.
 
-<fig/6-1.pdf, id=571, 128.24011pt x 121.64848pt>
+<fig/6-1.pdf, id=504, 128.24011pt x 121.64848pt>
 File: fig/6-1.pdf Graphic file (type pdf)
  <use fig/6-1.pdf>
 Package pdftex.def Info: fig/6-1.pdf used on input line 504.
 (pdftex.def)             Requested size: 92.87622pt x 88.1047pt.
+ [6 <./fig/5-1.pdf> <./fig/5-2.pdf> <./fig/5-3.pdf> <./fig/line_detection.pdf
 
-<fig/line-identification1.pdf, id=574, 345.561pt x 264.08261pt>
+pdfTeX warning: pdflatex.exe (file ./fig/line_detection.pdf): PDF inclusion: mu
+ltiple pdfs with page group included in a single page
+>] <fig/line-identification1.pdf, id=550, 345.561pt x 264.08261pt>
 File: fig/line-identification1.pdf Graphic file (type pdf)
 
 <use fig/line-identification1.pdf>
 Package pdftex.def Info: fig/line-identification1.pdf used on input line 558.
 (pdftex.def)             Requested size: 112.4892pt x 85.96686pt.
 
-<fig/line-identification2.pdf, id=575, 261.3745pt x 210.02264pt>
+<fig/line-identification2.pdf, id=551, 261.3745pt x 210.02264pt>
 File: fig/line-identification2.pdf Graphic file (type pdf)
 
 <use fig/line-identification2.pdf>
 Package pdftex.def Info: fig/line-identification2.pdf used on input line 565.
 (pdftex.def)             Requested size: 108.36346pt x 87.07445pt.
+
+Underfull \vbox (badness 4242) has occurred while \output is active []
+
  [7 <./fig/600.pdf> <./fig/601.pdf> <./fig/602.pdf> <./fig/603.pdf> <./fig/604.
 pdf> <./fig/605.pdf> <./fig/606.pdf> <./fig/607.pdf
 
@@ -1391,13 +1406,13 @@ on: multiple pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex.exe (file ./fig/7-1.pdf): PDF inclusion: found PDF ver
 sion <1.7>, but at most version <1.5> allowed
-<fig/7-1.pdf, id=754, 154.93283pt x 147.74095pt>
+<fig/7-1.pdf, id=730, 154.93283pt x 147.74095pt>
 File: fig/7-1.pdf Graphic file (type pdf)
  <use fig/7-1.pdf>
 Package pdftex.def Info: fig/7-1.pdf used on input line 620.
 (pdftex.def)             Requested size: 95.45874pt x 91.02809pt.
 
-<fig/7-2.pdf, id=755, 434.93593pt x 357.97742pt>
+<fig/7-2.pdf, id=731, 434.93593pt x 357.97742pt>
 File: fig/7-2.pdf Graphic file (type pdf)
  <use fig/7-2.pdf>
 Package pdftex.def Info: fig/7-2.pdf used on input line 627.
@@ -1411,93 +1426,93 @@ Overfull \hbox (2.71654pt too wide) in paragraph at lines 652--662
 Underfull \vbox (badness 1748) has occurred while \output is active []
 
  [8 <./fig/7-1.pdf> <./fig/7-2.pdf>]) (experiment_setup.tex
-<fig/physical_length.pdf, id=851, 196.31845pt x 191.34787pt>
+<fig/physical_length.pdf, id=827, 196.31845pt x 191.34787pt>
 File: fig/physical_length.pdf Graphic file (type pdf)
 
 <use fig/physical_length.pdf>
 Package pdftex.def Info: fig/physical_length.pdf used on input line 8.
 (pdftex.def)             Requested size: 56.76031pt x 55.32303pt.
 
-<fig/intersection.pdf, id=852, 196.31845pt x 191.34787pt>
+<fig/intersection.pdf, id=828, 196.31845pt x 191.34787pt>
 File: fig/intersection.pdf Graphic file (type pdf)
 
 <use fig/intersection.pdf>
 Package pdftex.def Info: fig/intersection.pdf used on input line 15.
 (pdftex.def)             Requested size: 56.76031pt x 55.32303pt.
 
-<fig/overlap.pdf, id=853, 196.31845pt x 191.34787pt>
+<fig/overlap.pdf, id=829, 196.31845pt x 191.34787pt>
 File: fig/overlap.pdf Graphic file (type pdf)
  <use fig/overlap.pdf>
 Package pdftex.def Info: fig/overlap.pdf used on input line 22.
 (pdftex.def)             Requested size: 56.76031pt x 55.32303pt.
 
-<fig/9-1.pdf, id=855, 196.31845pt x 191.34787pt>
+<fig/9-1.pdf, id=831, 196.31845pt x 191.34787pt>
 File: fig/9-1.pdf Graphic file (type pdf)
  <use fig/9-1.pdf>
 Package pdftex.def Info: fig/9-1.pdf used on input line 41.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-2.pdf, id=856, 196.31845pt x 191.34787pt>
+<fig/9-2.pdf, id=832, 196.31845pt x 191.34787pt>
 File: fig/9-2.pdf Graphic file (type pdf)
  <use fig/9-2.pdf>
 Package pdftex.def Info: fig/9-2.pdf used on input line 41.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-3.pdf, id=857, 196.31845pt x 191.34787pt>
+<fig/9-3.pdf, id=833, 196.31845pt x 191.34787pt>
 File: fig/9-3.pdf Graphic file (type pdf)
  <use fig/9-3.pdf>
 Package pdftex.def Info: fig/9-3.pdf used on input line 41.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-4.pdf, id=858, 196.31845pt x 191.34787pt>
+<fig/9-4.pdf, id=834, 196.31845pt x 191.34787pt>
 File: fig/9-4.pdf Graphic file (type pdf)
  <use fig/9-4.pdf>
 Package pdftex.def Info: fig/9-4.pdf used on input line 41.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-5.pdf, id=859, 196.31845pt x 191.34787pt>
+<fig/9-5.pdf, id=835, 196.31845pt x 191.34787pt>
 File: fig/9-5.pdf Graphic file (type pdf)
  <use fig/9-5.pdf>
 Package pdftex.def Info: fig/9-5.pdf used on input line 41.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-6.pdf, id=860, 196.31845pt x 191.34787pt>
+<fig/9-6.pdf, id=836, 196.31845pt x 191.34787pt>
 File: fig/9-6.pdf Graphic file (type pdf)
  <use fig/9-6.pdf>
 Package pdftex.def Info: fig/9-6.pdf used on input line 55.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-7.pdf, id=861, 196.31845pt x 191.34787pt>
+<fig/9-7.pdf, id=837, 196.31845pt x 191.34787pt>
 File: fig/9-7.pdf Graphic file (type pdf)
  <use fig/9-7.pdf>
 Package pdftex.def Info: fig/9-7.pdf used on input line 55.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-8.pdf, id=862, 196.31845pt x 191.34787pt>
+<fig/9-8.pdf, id=838, 196.31845pt x 191.34787pt>
 File: fig/9-8.pdf Graphic file (type pdf)
  <use fig/9-8.pdf>
 Package pdftex.def Info: fig/9-8.pdf used on input line 55.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-9.pdf, id=863, 196.31845pt x 191.34787pt>
+<fig/9-9.pdf, id=839, 196.31845pt x 191.34787pt>
 File: fig/9-9.pdf Graphic file (type pdf)
  <use fig/9-9.pdf>
 Package pdftex.def Info: fig/9-9.pdf used on input line 55.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-10.pdf, id=864, 196.31845pt x 191.34787pt>
+<fig/9-10.pdf, id=840, 196.31845pt x 191.34787pt>
 File: fig/9-10.pdf Graphic file (type pdf)
  <use fig/9-10.pdf>
 Package pdftex.def Info: fig/9-10.pdf used on input line 55.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-11.pdf, id=865, 196.31845pt x 191.34787pt>
+<fig/9-11.pdf, id=841, 196.31845pt x 191.34787pt>
 File: fig/9-11.pdf Graphic file (type pdf)
  <use fig/9-11.pdf>
 Package pdftex.def Info: fig/9-11.pdf used on input line 69.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-12.pdf, id=866, 196.31845pt x 191.34787pt>
+<fig/9-12.pdf, id=842, 196.31845pt x 191.34787pt>
 File: fig/9-12.pdf Graphic file (type pdf)
  <use fig/9-12.pdf>
 Package pdftex.def Info: fig/9-12.pdf used on input line 69.
@@ -1506,37 +1521,37 @@ Package pdftex.def Info: fig/9-12.pdf used on input line 69.
 
 pdfTeX warning: pdflatex.exe (file ./fig/9-13.pdf): PDF inclusion: found PDF ve
 rsion <1.6>, but at most version <1.5> allowed
-<fig/9-13.pdf, id=867, 196.31845pt x 191.34787pt>
+<fig/9-13.pdf, id=843, 196.31845pt x 191.34787pt>
 File: fig/9-13.pdf Graphic file (type pdf)
  <use fig/9-13.pdf>
 Package pdftex.def Info: fig/9-13.pdf used on input line 69.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-14.pdf, id=868, 196.31845pt x 191.34787pt>
+<fig/9-14.pdf, id=844, 196.31845pt x 191.34787pt>
 File: fig/9-14.pdf Graphic file (type pdf)
  <use fig/9-14.pdf>
 Package pdftex.def Info: fig/9-14.pdf used on input line 69.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/9-15.pdf, id=869, 196.31845pt x 191.34787pt>
+<fig/9-15.pdf, id=845, 196.31845pt x 191.34787pt>
 File: fig/9-15.pdf Graphic file (type pdf)
  <use fig/9-15.pdf>
 Package pdftex.def Info: fig/9-15.pdf used on input line 69.
 (pdftex.def)             Requested size: 36.98866pt x 36.0499pt.
 
-<fig/complex3.pdf, id=870, 230.36063pt x 225.09094pt>
+<fig/complex3.pdf, id=846, 230.36063pt x 225.09094pt>
 File: fig/complex3.pdf Graphic file (type pdf)
  <use fig/complex3.pdf>
 Package pdftex.def Info: fig/complex3.pdf used on input line 82.
 (pdftex.def)             Requested size: 57.79196pt x 56.46835pt.
 
-<fig/complex2.pdf, id=871, 230.36063pt x 225.09094pt>
+<fig/complex2.pdf, id=847, 230.36063pt x 225.09094pt>
 File: fig/complex2.pdf Graphic file (type pdf)
  <use fig/complex2.pdf>
 Package pdftex.def Info: fig/complex2.pdf used on input line 88.
 (pdftex.def)             Requested size: 57.79196pt x 56.46835pt.
 
-<fig/complex1.pdf, id=872, 196.31845pt x 191.34787pt>
+<fig/complex1.pdf, id=848, 196.31845pt x 191.34787pt>
 File: fig/complex1.pdf Graphic file (type pdf)
  <use fig/complex1.pdf>
 Package pdftex.def Info: fig/complex1.pdf used on input line 94.
@@ -1626,40 +1641,40 @@ pdfTeX warning: pdflatex.exe (file ./fig/complex1.pdf): PDF inclusion: multiple
 
 pdfTeX warning: pdflatex.exe (file ./fig/pattern-strength.pdf): PDF inclusion: 
 found PDF version <1.6>, but at most version <1.5> allowed
-<fig/pattern-strength.pdf, id=956, 618.39203pt x 406.35403pt>
+<fig/pattern-strength.pdf, id=932, 618.39203pt x 406.35403pt>
 File: fig/pattern-strength.pdf Graphic file (type pdf)
 
 <use fig/pattern-strength.pdf>
 Package pdftex.def Info: fig/pattern-strength.pdf used on input line 154.
 (pdftex.def)             Requested size: 180.60315pt x 118.67671pt.
 ) (evaluation.tex
-<fig/10.pdf, id=965, 526.09941pt x 315.93634pt>
+<fig/10.pdf, id=941, 526.09941pt x 315.93634pt>
 File: fig/10.pdf Graphic file (type pdf)
  <use fig/10.pdf>
 Package pdftex.def Info: fig/10.pdf used on input line 13.
 (pdftex.def)             Requested size: 180.60315pt x 108.4534pt.
  [10 <./fig/pattern-strength.pdf> <./fig/10.pdf>]
-<fig/11.pdf, id=992, 398.06226pt x 247.64922pt>
+<fig/11.pdf, id=968, 398.06226pt x 247.64922pt>
 File: fig/11.pdf Graphic file (type pdf)
  <use fig/11.pdf>
 Package pdftex.def Info: fig/11.pdf used on input line 48.
 (pdftex.def)             Requested size: 180.60315pt x 112.36313pt.
 
-<fig/distance-2m.pdf, id=997, 473.38756pt x 370.90268pt>
+<fig/distance-2m.pdf, id=973, 473.38756pt x 370.90268pt>
 File: fig/distance-2m.pdf Graphic file (type pdf)
 
 <use fig/distance-2m.pdf>
 Package pdftex.def Info: fig/distance-2m.pdf used on input line 86.
 (pdftex.def)             Requested size: 108.12054pt x 84.71156pt.
 
-<fig/distance-3m.pdf, id=998, 465.10663pt x 357.35207pt>
+<fig/distance-3m.pdf, id=974, 465.10663pt x 357.35207pt>
 File: fig/distance-3m.pdf Graphic file (type pdf)
 
 <use fig/distance-3m.pdf>
 Package pdftex.def Info: fig/distance-3m.pdf used on input line 93.
 (pdftex.def)             Requested size: 108.12054pt x 83.06712pt.
 
-<fig/distance-3-5m.pdf, id=999, 468.87068pt x 341.543pt>
+<fig/distance-3-5m.pdf, id=975, 468.87068pt x 341.543pt>
 File: fig/distance-3-5m.pdf Graphic file (type pdf)
 
 <use fig/distance-3-5m.pdf>
@@ -1669,33 +1684,32 @@ Package pdftex.def Info: fig/distance-3-5m.pdf used on input line 100.
 
 pdfTeX warning: pdflatex.exe (file ./fig/distance-pattern.pdf): PDF inclusion: 
 found PDF version <1.6>, but at most version <1.5> allowed
-<fig/distance-pattern.pdf, id=1000, 196.31845pt x 191.34787pt>
+<fig/distance-pattern.pdf, id=976, 196.31845pt x 191.34787pt>
 File: fig/distance-pattern.pdf Graphic file (type pdf)
 
 <use fig/distance-pattern.pdf>
 Package pdftex.def Info: fig/distance-pattern.pdf used on input line 107.
 (pdftex.def)             Requested size: 85.35826pt x 83.19768pt.
- [11 <./fig/11.pdf>]
-<fig/12.pdf, id=1022, 472.03862pt x 261.87537pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11 <./fig/11.pdf>] <fig/12.pdf, id=998, 472.03862pt x 261.87537pt>
 File: fig/12.pdf Graphic file (type pdf)
  <use fig/12.pdf>
 Package pdftex.def Info: fig/12.pdf used on input line 204.
 (pdftex.def)             Requested size: 180.60315pt x 100.19296pt.
 
-<fig/13.pdf, id=1023, 466.34863pt x 273.25789pt>
+<fig/13.pdf, id=999, 466.34863pt x 273.25789pt>
 File: fig/13.pdf Graphic file (type pdf)
  <use fig/13.pdf>
 Package pdftex.def Info: fig/13.pdf used on input line 213.
 (pdftex.def)             Requested size: 180.60315pt x 105.82378pt.
 
-<fig/14.pdf, id=1024, 528.94464pt x 296.01993pt>
+<fig/14.pdf, id=1000, 528.94464pt x 296.01993pt>
 File: fig/14.pdf Graphic file (type pdf)
  <use fig/14.pdf>
 Package pdftex.def Info: fig/14.pdf used on input line 222.
 (pdftex.def)             Requested size: 180.60315pt x 101.07002pt.
-
-Underfull \vbox (badness 6775) has occurred while \output is active []
-
 
 Overfull \hbox (12.22215pt too wide) in paragraph at lines 260--270
  [][] 
@@ -1705,88 +1719,143 @@ Overfull \hbox (12.22215pt too wide) in paragraph at lines 260--270
 
 pdfTeX warning: pdflatex.exe (file ./fig/light.pdf): PDF inclusion: found PDF v
 ersion <1.6>, but at most version <1.5> allowed
-<fig/light.pdf, id=1027, 785.40718pt x 427.5181pt>
+<fig/light.pdf, id=1003, 785.40718pt x 427.5181pt>
 File: fig/light.pdf Graphic file (type pdf)
  <use fig/light.pdf>
 Package pdftex.def Info: fig/light.pdf used on input line 275.
 (pdftex.def)             Requested size: 180.60315pt x 98.30753pt.
 
-<fig/15.pdf, id=1028, 446.43126pt x 247.65022pt>
+<fig/15.pdf, id=1004, 446.43126pt x 247.65022pt>
 File: fig/15.pdf Graphic file (type pdf)
  <use fig/15.pdf>
 Package pdftex.def Info: fig/15.pdf used on input line 286.
 (pdftex.def)             Requested size: 180.60315pt x 100.18819pt.
  [12 <./fig/distance-2m.pdf> <./fig/distance-3m.pdf> <./fig/distance-3-5m.pdf> 
 <./fig/distance-pattern.pdf> <./fig/12.pdf> <./fig/13.pdf> <./fig/14.pdf>]
-<fig/screen_size.pdf, id=1078, 557.39725pt x 210.66103pt>
+<fig/screen_size.pdf, id=1054, 557.39725pt x 210.66103pt>
 File: fig/screen_size.pdf Graphic file (type pdf)
 
 <use fig/screen_size.pdf>
 Package pdftex.def Info: fig/screen_size.pdf used on input line 363.
 (pdftex.def)             Requested size: 206.39685pt x 78.00443pt.
 
-<fig/camera_brands.pdf, id=1079, 557.39755pt x 216.35129pt>
+<fig/camera_brands.pdf, id=1055, 557.39755pt x 216.35129pt>
 File: fig/camera_brands.pdf Graphic file (type pdf)
 
 <use fig/camera_brands.pdf>
 Package pdftex.def Info: fig/camera_brands.pdf used on input line 369.
 (pdftex.def)             Requested size: 206.39685pt x 80.11143pt.
  [13 <./fig/light.pdf> <./fig/15.pdf>]
-<fig/look-video.pdf, id=1111, 443.95671pt x 262.4756pt>
+<fig/look-video.pdf, id=1088, 443.95671pt x 262.4756pt>
 File: fig/look-video.pdf Graphic file (type pdf)
 
 <use fig/look-video.pdf>
 Package pdftex.def Info: fig/look-video.pdf used on input line 416.
 (pdftex.def)             Requested size: 180.60315pt x 106.77463pt.
 
-<fig/look-finger.pdf, id=1112, 448.94144pt x 262.56395pt>
+<fig/look-finger.pdf, id=1089, 448.94144pt x 262.56395pt>
 File: fig/look-finger.pdf Graphic file (type pdf)
 
 <use fig/look-finger.pdf>
 Package pdftex.def Info: fig/look-finger.pdf used on input line 423.
 (pdftex.def)             Requested size: 180.60315pt x 105.62466pt.
 
-<fig/scalability.pdf, id=1113, 472.03905pt x 253.34047pt>
+<fig/scalability.pdf, id=1090, 472.03905pt x 253.34047pt>
 File: fig/scalability.pdf Graphic file (type pdf)
 
 <use fig/scalability.pdf>
 Package pdftex.def Info: fig/scalability.pdf used on input line 431.
 (pdftex.def)             Requested size: 180.60315pt x 96.92754pt.
- [14 <./fig/screen_size.pdf> <./fig/camera_brands.pdf> <./fig/look-video.pdf> <
-./fig/look-finger.pdf> <./fig/scalability.pdf>]
-<fig/pattern_screen.png, id=1146, 376.40625pt x 377.91188pt>
+
+<fig/pattern_screen.png, id=1093, 709.90219pt x 705.38531pt>
 File: fig/pattern_screen.png Graphic file (type png)
 
 <use fig/pattern_screen.png>
 Package pdftex.def Info: fig/pattern_screen.png used on input line 479.
-(pdftex.def)             Requested size: 82.56189pt x 82.8929pt.
+(pdftex.def)             Requested size: 82.56189pt x 82.0271pt.
 
-<fig/pin_screen.png, id=1148, 376.40625pt x 376.40625pt>
+<fig/pin_screen.png, id=1095, 801.74532pt x 797.22844pt>
 File: fig/pin_screen.png Graphic file (type png)
 
 <use fig/pin_screen.png>
 Package pdftex.def Info: fig/pin_screen.png used on input line 486.
-(pdftex.def)             Requested size: 82.56189pt x 82.56265pt.
-) (discussion.tex
-<fig/pin_1234.pdf, id=1157, 244.2455pt x 176.02263pt>
+(pdftex.def)             Requested size: 82.56189pt x 82.08746pt.
+ [14 <./fig/screen_size.pdf> <./fig/camera_brands.pdf> <./fig/look-video.pdf> <
+./fig/look-finger.pdf> <./fig/scalability.pdf>])
+(discussion.tex <fig/pin_1234.pdf, id=1130, 244.2455pt x 176.02263pt>
 File: fig/pin_1234.pdf Graphic file (type pdf)
- <use fig/pin_1234.pdf>
-Package pdftex.def Info: fig/pin_1234.pdf used on input line 43.
-(pdftex.def)             Requested size: 113.52063pt x 81.81206pt.
 
-<fig/pin_3570.pdf, id=1158, 240.48143pt x 175.2698pt>
+<use fig/pin_1234.pdf>
+Package pdftex.def Info: fig/pin_1234.pdf used on input line 8.
+(pdftex.def)             Requested size: 113.52063pt x 81.81206pt.
+ <fig/pin_3570.pdf, id=1131, 240.48143pt x 175.2698pt>
 File: fig/pin_3570.pdf Graphic file (type pdf)
- <use fig/pin_3570.pdf>
-Package pdftex.def Info: fig/pin_3570.pdf used on input line 49.
+
+<use fig/pin_3570.pdf>
+Package pdftex.def Info: fig/pin_3570.pdf used on input line 14.
 (pdftex.def)             Requested size: 113.52063pt x 82.73785pt.
 
-[15 <./fig/pattern_screen.png> <./fig/pin_screen.png> <./fig/pin_1234.pdf> <./f
-ig/pin_3570.pdf>]) (related.tex) (conclusions.tex) (TIFS.bbl
+<fig/pin_results.pdf, id=1132, 491.95595pt x 207.81639pt>
+File: fig/pin_results.pdf Graphic file (type pdf)
 
-Package balance Warning: You have called \balance in second column
-(balance)                Columns might not be balanced.
+<use fig/pin_results.pdf>
+Package pdftex.def Info: fig/pin_results.pdf used on input line 21.
+(pdftex.def)             Requested size: 180.60315pt x 76.29153pt.
 
-[16]
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection1.pdf): PDF inclusion: found
+ PDF version <1.6>, but at most version <1.5> allowed
+<fig/protection1.pdf, id=1133, 333.72078pt x 336.28937pt>
+File: fig/protection1.pdf Graphic file (type pdf)
+
+<use fig/protection1.pdf>
+Package pdftex.def Info: fig/protection1.pdf used on input line 33.
+(pdftex.def)             Requested size: 92.87622pt x 93.59079pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection2.pdf): PDF inclusion: found
+ PDF version <1.6>, but at most version <1.5> allowed
+<fig/protection2.pdf, id=1134, 333.72078pt x 330.60413pt>
+File: fig/protection2.pdf Graphic file (type pdf)
+
+<use fig/protection2.pdf>
+Package pdftex.def Info: fig/protection2.pdf used on input line 40.
+(pdftex.def)             Requested size: 92.87622pt x 92.00856pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection3.pdf): PDF inclusion: found
+ PDF version <1.6>, but at most version <1.5> allowed
+<fig/protection3.pdf, id=1135, 322.33424pt x 324.91287pt>
+File: fig/protection3.pdf Graphic file (type pdf)
+
+<use fig/protection3.pdf>
+Package pdftex.def Info: fig/protection3.pdf used on input line 47.
+(pdftex.def)             Requested size: 92.87622pt x 93.61746pt.
+
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection4.pdf): PDF inclusion: found
+ PDF version <1.6>, but at most version <1.5> allowed
+<fig/protection4.pdf, id=1136, 310.95172pt x 310.68773pt>
+File: fig/protection4.pdf Graphic file (type pdf)
+
+<use fig/protection4.pdf>
+Package pdftex.def Info: fig/protection4.pdf used on input line 54.
+(pdftex.def)             Requested size: 92.87622pt x 92.79459pt.
+ [15 <./fig/pattern_screen.png> <./fig/pin_screen.png> <./fig/pin_1234.pdf> <./
+fig/pin_3570.pdf> <./fig/pin_results.pdf>])
+(related.tex [16 <./fig/protection1.pdf> <./fig/protection2.pdf
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection2.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+> <./fig/protection3.pdf
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection3.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+> <./fig/protection4.pdf
+
+pdfTeX warning: pdflatex.exe (file ./fig/protection4.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>]) (conclusions.tex) (TIFS.bbl
 Underfull \hbox (badness 1540) in paragraph at lines 78--80
 []\OT1/ptm/m/n/10 Z. Kalal, ``TLD: Tracking-learning-detection,'' [][]$http : /
  /
@@ -1798,11 +1867,11 @@ Underfull \hbox (badness 1472) in paragraph at lines 82--84
 learning-detection,'' \OT1/ptm/m/it/10 IEEE
  []
 
-)
-Overfull \vbox (1.29237pt too high) has occurred while \output is active []
+[17])
+Overfull \vbox (1.45996pt too high) has occurred while \output is active []
 
 
-[17] [18]
+[18]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
  (TIFS.aux)
@@ -1815,16 +1884,16 @@ Package rerunfilecheck Warning: File `TIFS.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `TIFS.out':
-(rerunfilecheck)             Before: 4BA85415AF0EC51E310795A1ECAE8C2C;9894
-(rerunfilecheck)             After:  3A1F1E041C45DDC30EF35D57C13E956B;2896.
+(rerunfilecheck)             Before: 6C3AEEE0EC404DD476422FC263FA58DA;8777
+(rerunfilecheck)             After:  99C560CA25370B56B50492E81BC95B26;2506.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
  ) 
 Here is how much of TeX's memory you used:
- 21366 strings out of 493334
- 375929 string characters out of 3144942
- 503270 words of memory out of 3000000
- 24117 multiletter control sequences out of 15000+200000
- 49522 words of font info for 90 fonts, out of 3000000 for 9000
+ 21379 strings out of 493334
+ 376312 string characters out of 3144942
+ 493765 words of memory out of 3000000
+ 24132 multiletter control sequences out of 15000+200000
+ 46201 words of font info for 87 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  55i,16n,54p,1512b,747s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
@@ -1856,9 +1925,9 @@ sfonts/cm/cmsy7.pfb><H:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><H
 pe1/urw/courier/ucrr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><H:
 /CTEX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/
 times/utmr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TIFS.pdf (18 pages, 5852377 bytes).
+Output written on TIFS.pdf (18 pages, 6575540 bytes).
 PDF statistics:
- 1359 PDF objects out of 1440 (max. 8388607)
- 254 named destinations out of 1000 (max. 500000)
- 783 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1502 PDF objects out of 1728 (max. 8388607)
+ 250 named destinations out of 1000 (max. 500000)
+ 760 words of extra memory for PDF output out of 10000 (max. 10000000)
 
