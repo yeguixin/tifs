@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  17 NOV 2016 11:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.9)  17 NOV 2016 15:23
 entering extended mode
 **./TIFS.tex
 (TIFS.tex
@@ -1772,22 +1772,22 @@ Package pdftex.def Info: fig/scalability.pdf used on input line 431.
 
 pdfTeX warning: pdflatex.exe (file ./fig/pattern_screen.pdf): PDF inclusion: fo
 und PDF version <1.6>, but at most version <1.5> allowed
-<fig/pattern_screen.pdf, id=1125, 248.78381pt x 242.39368pt>
+<fig/pattern_screen.pdf, id=1125, 231.71208pt x 231.01286pt>
 File: fig/pattern_screen.pdf Graphic file (type pdf)
 
 <use fig/pattern_screen.pdf>
 Package pdftex.def Info: fig/pattern_screen.pdf used on input line 479.
-(pdftex.def)             Requested size: 92.87622pt x 90.49054pt.
+(pdftex.def)             Requested size: 82.56189pt x 82.31151pt.
 
 
 pdfTeX warning: pdflatex.exe (file ./fig/pin_screen.pdf): PDF inclusion: found 
 PDF version <1.6>, but at most version <1.5> allowed
-<fig/pin_screen.pdf, id=1126, 248.78346pt x 242.39368pt>
+<fig/pin_screen.pdf, id=1126, 234.5573pt x 231.01286pt>
 File: fig/pin_screen.pdf Graphic file (type pdf)
 
 <use fig/pin_screen.pdf>
 Package pdftex.def Info: fig/pin_screen.pdf used on input line 486.
-(pdftex.def)             Requested size: 92.87622pt x 90.49054pt.
+(pdftex.def)             Requested size: 82.56189pt x 81.31395pt.
 ) (discussion.tex
 <fig/pin_1234.pdf, id=1132, 244.2455pt x 176.02263pt>
 File: fig/pin_1234.pdf Graphic file (type pdf)
@@ -1812,21 +1812,21 @@ Package pdftex.def Info: fig/pin_results.pdf used on input line 21.
 pdfTeX warning: pdflatex.exe (file ./fig/pin_screen.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 > <./fig/pin_1234.pdf> <./fig/pin_3570.pdf> <./fig/pin_results.pdf>]
-<fig/protection1.pdf, id=1174, 196.31845pt x 191.34787pt>
+<fig/protection1.pdf, id=1186, 196.31845pt x 191.34787pt>
 File: fig/protection1.pdf Graphic file (type pdf)
 
 <use fig/protection1.pdf>
 Package pdftex.def Info: fig/protection1.pdf used on input line 69.
 (pdftex.def)             Requested size: 56.76031pt x 55.32303pt.
 
-<fig/protection2.pdf, id=1175, 196.31845pt x 191.34787pt>
+<fig/protection2.pdf, id=1187, 196.31845pt x 191.34787pt>
 File: fig/protection2.pdf Graphic file (type pdf)
 
 <use fig/protection2.pdf>
 Package pdftex.def Info: fig/protection2.pdf used on input line 76.
 (pdftex.def)             Requested size: 56.76031pt x 55.32303pt.
 
-<fig/protection3.pdf, id=1176, 196.31845pt x 191.34787pt>
+<fig/protection3.pdf, id=1188, 196.31845pt x 191.34787pt>
 File: fig/protection3.pdf Graphic file (type pdf)
 
 <use fig/protection3.pdf>
@@ -1876,7 +1876,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
 Here is how much of TeX's memory you used:
  21374 strings out of 493334
  376199 string characters out of 3144942
- 507243 words of memory out of 3000000
+ 507242 words of memory out of 3000000
  24128 multiletter control sequences out of 15000+200000
  46201 words of font info for 87 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -1913,9 +1913,9 @@ sfonts/cm/cmsy7.pfb><H:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><H
 pe1/urw/courier/ucrr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><H:
 /CTEX/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/
 times/utmr8a.pfb><H:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on TIFS.pdf (18 pages, 5699659 bytes).
+Output written on TIFS.pdf (18 pages, 5701431 bytes).
 PDF statistics:
- 1358 PDF objects out of 1440 (max. 8388607)
+ 1370 PDF objects out of 1440 (max. 8388607)
  250 named destinations out of 1000 (max. 500000)
  755 words of extra memory for PDF output out of 10000 (max. 10000000)
 
