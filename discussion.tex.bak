@@ -22,37 +22,30 @@
         \caption{Success rate of cracking PIN-based passwords with different number of attempts.}
         \label{fig:pin_results}
     \end{figure}
-    
+
     \begin{figure*}[!t]
         \centering
         \subfigure{
              \begin{minipage}[t]{0.18\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection1.pdf}\\
-                \centering \footnotesize (a) password: 1234
+                \centering \footnotesize (a)
              \end{minipage}
         }
         \hfill
         \subfigure{
              \begin{minipage}[t]{0.18\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection2.pdf}\\
-                \centering \footnotesize (b) password: 3570
+                \centering \footnotesize (b)
              \end{minipage}
         }
         \hfill
         \subfigure{
              \begin{minipage}[t]{0.18\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection3.pdf}\\
-                \centering \footnotesize (a) password: 1234
+                \centering \footnotesize (c)
              \end{minipage}
         }
-        \hfill
-        \subfigure{
-             \begin{minipage}[t]{0.18\textwidth}
-                \includegraphics[width=\textwidth]{fig/protection4.pdf}\\
-                \centering \footnotesize (b) password: 3570
-             \end{minipage}
-        }
-        \caption{Examples of the variant pattern lock mechanism for defending against the video-based attacks.}
+        \caption{Examples of the variant pattern lock mechanism for defending against the video-based attacks. The red patterns are the correct pattern drawn when enrolment, and the blue dot in (d) shows that the dot is visited twice. (a), (c) and (d) show that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.}
         \label{fig:protection}
     \end{figure*}
 
@@ -93,7 +86,10 @@ many times a day.
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
 
 
-\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. This redesign keep the usability of original pattern-based authentication scheme as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
+\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. Further, for purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.
+
+
+Figure~\ref{fig:protection} shows some patterns drawn using our redesign method. From this we can see that the redesign keep the usability of original pattern-based authentication scheme as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
 
 
 \subsection{Implications}

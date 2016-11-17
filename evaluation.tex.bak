@@ -473,14 +473,14 @@
             \centering
             \subfigure{
                 \begin{minipage}[t]{0.16\textwidth}
-                \includegraphics[width=\textwidth]{fig/pattern_screen.png}\\
+                \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
                 \centering \footnotesize (a) pattern-based interface
                 \end{minipage}
             }
             \hspace{0.5cm}
             \subfigure{
                 \begin{minipage}[t]{0.16\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_screen.png}\\
+                \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
                 \centering \footnotesize (b) pin-based interface
                 \end{minipage}
             }
@@ -494,8 +494,6 @@
         Recall the basic idea of our attack, pattern lock can be reconstructed by tracking the fingertip movement  from the target video. Intuitively, out method can also infer to the PIN-base passwords by analyzing the pattern which is generated during unlocking the device. To prove this intuitively imagine, we total collected 30 4-digital PIN-based passwords. For each passwords, we ask our participants to keystroke the passwords on a Xiaomi MI4 phone. Figure~\ref{fig:unlock interface} shows the pattern-based and pin-based authentication interface of MI4 phone.  We use an IPhone4S phone to record the video respectively on the left-front, front and right-front of the target device from a distance of 2 meters.
 
         \noindent \textbf{Variant Methodology} There exists some differences between PIN-based passwords and pattern lock. These are summarized as follow: (1) PIN-base authentication interface has ten dots that is different from pattern lock, making the layout of interface of the two mechanisms different; (2) the dots on PIN-based interface can be typed repeated while they can only be visited once on pattern-base interface. The above two differentias make the structure of the pattern generated from PIN-based interface more complicated than the one from pattern-based interface. Our preliminary experiments suggest that we can reconstruct the trajectory of PIN-based password by connecting the touching points\footnote{Touching points are those points that tracked when fingertip touches the screen.}. We can get the location of touching point by the up-and-down motion direction of the fingertip inspired by the solution in~\cite{shukla2014beware}. To reconstruct PIN-based passwords, we increased the geometric information including both direction and length information to adjust the variant attack method. Figure~\ref{fig:pins_trajectory} shows the reconstructed fingertip trajectory using the variant method.
-        
-        
 
         \noindent \textbf{Results} Figure~\ref{fig:pin_results} shows the performance on cracking 4 digital passwords within different number of attempts. With first attempt, the success rate is only 53.3\% as most of tested passwords have two or more candidate patterns. As the increase of trial number, the success rate is significantly increased, and they respectively are 76.7\%, 80\%, 83.3\%, 86.7\% within 2, 3, 4, 5 attempts. Within five attempts, our method failed to crack four passwords. The reason that we failed two passwords is because they have more than five candidate patterns and for remaining two ones is that we detected the wrong location of one touching point due to the blue motion of the video footage. We believe that the expert attacker is able to improve the success rate using more attempts.
 

@@ -172,7 +172,7 @@
                 Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $14.3\times7.2$ & $15.4\times7.9$ \\
                 \hline
             \end{tabular}
-            \vspace{-4mm}
+            %\vspace{-4mm}
     \end{table}
 
     \subsection{Video Recording and Preprocessing}
