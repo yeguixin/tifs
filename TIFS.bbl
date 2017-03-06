@@ -82,6 +82,11 @@ Z.~Kalal, ``{TLD}: Tracking-learning-detection,''
 Z.~Kalal \emph{et~al.}, ``Tracking-learning-detection,'' \emph{IEEE PAMI},
   2012.
 
+\bibitem{Kelley2012Guess}
+P.~G. Kelley, S.~Komanduri, M.~L. Mazurek, and R.~Shay, ``Guess again (and
+  again and again): Measuring password strength by simulating password-cracking
+  algorithms,'' in \emph{Security and Privacy}, 2012, pp. 523--537.
+
 \bibitem{kuhn2002compromising}
 M.~G. Kuhn, ``Compromising emanations: eavesdropping risks of computer
   displays,'' Ph.D. dissertation, University of Cambridge, 2002.
@@ -103,6 +108,13 @@ M.~Mannan and P.~C. van Oorschot, ``Using a personal device to strengthen
   password authentication from an untrusted computer,'' in \emph{Financial
   Cryptography and Data Security}.\hskip 1em plus 0.5em minus 0.4em\relax
   Springer, 2007, pp. 88--103.
+
+\bibitem{Mazurek2013Measuring}
+M.~L. Mazurek, S.~Komanduri, T.~Vidas, L.~Bauer, N.~Christin, L.~F. Cranor,
+  P.~G. Kelley, R.~Shay, and B.~Ur, ``Measuring password guessability for an
+  entire university,'' in \emph{Proceedings of the 2013 ACM SIGSAC conference
+  on Computer \& communications security}.\hskip 1em plus 0.5em minus
+  0.4em\relax ACM, 2013, pp. 173--186.
 
 \bibitem{raguram2011ispy}
 R.~Raguram \emph{et~al.}, ``{iSpy}: automatic reconstruction of typed input
@@ -129,6 +141,11 @@ D.~Shukla \emph{et~al.}, ``Beware, your hands reveal your secrets!'' in
 \bibitem{hossein2015fortifying}
 H.~Siadati \emph{et~al.}, ``Fortifying android patterns using persuasive
   security framework,'' in \emph{UBICOMM 2015}.
+
+\bibitem{standing1970perception}
+L.~Standing, J.~Conezio, and R.~N. Haber, ``Perception and memory for pictures:
+  Single-trial learning of 2500 visual stimuli,'' \emph{Psychonomic Science},
+  1970.
 
 \bibitem{stefan2012robustness}
 D.~Stefan \emph{et~al.}, ``Robustness of keystroke-dynamics based biometrics
@@ -160,6 +177,11 @@ S.~Uellenbeck \emph{et~al.}, ``Quantifying the security of graphical passwords:
 \bibitem{vonZezschwitz:2015:EDB:2702123.2702202}
 E.~von Zezschwitz \emph{et~al.}, ``Easy to draw, but hard to trace?: On the
   observability of grid-based (un)lock patterns,'' in \emph{CHI '15}.
+
+\bibitem{Weiss2008PassShapes}
+R.~Weiss and A.~De~Luca, ``Passshapes: utilizing stroke based authentication to
+  increase password memorability,'' in \emph{Nordic Conference on
+  Human-Computer Interaction: Building Bridges}, 2008, pp. 383--392.
 
 \bibitem{xu2013seeing}
 Y.~Xu \emph{et~al.}, ``Seeing double: Reconstructing obscured typed input from

@@ -173,7 +173,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
             \hspace{-0.5cm}
             \subfigure{
                 \begin{minipage}[t]{4.2cm}
-                \includegraphics[width=3.2cm]{fig/6--4.pdf}\\
+                \includegraphics[width=4cm]{fig/6--4.pdf}\\
                 \centering \footnotesize (d) Fingertip movement trajectory
                 \end{minipage}
             }
@@ -295,7 +295,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         alike the correct pattern.
 
         \subsubsection{Noisy Points Calibration}
-        During tracking process, the TLD algorithm may lost or 
+            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract uncorrect geometric information of fingertip movement.
 
 \begin{figure}[!t]
     \centering
@@ -613,14 +613,14 @@ For each video frame, our algorithm individually calculates the filming angle an
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[b]{0.18\textwidth}
+                \begin{minipage}[t]{0.185\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
                 \centering \footnotesize (a) line direction number
                 \end{minipage}
             }
             \hspace{0.2cm}
             \subfigure{
-                \begin{minipage}[b]{0.215\textwidth}
+                \begin{minipage}[t]{0.215\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
                 \centering \footnotesize (b) numbering line segment of the tracked trajectory
                 \end{minipage}
