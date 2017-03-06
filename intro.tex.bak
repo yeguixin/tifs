@@ -158,6 +158,10 @@ the target device with a success rate of over 95\% (up to 97.5\%) in five attemp
 We demonstrate that, in contrast to many people's belief, complex patterns do not provide stronger protection over simple patterns under our attack. According to a recent study~\cite{alpnorway}, people tend to use complex
 patterns for critical applications such as online banking and shopping applications. 
 Our finding suggests that using pattern lock to protect sensitive information could be risky.
+\FIXED{Intuitively, our approach is able to crack PIN-based passwords by analyzing the fingertip movement when typing the passwords. We evaluate our approach using 30 4-digital PIN-based passwords and the experimental result shows we can break most of passwords within five attempts.}
+
+\FIXED{Given the wide usage of pattern lock, we propose and implement a prototype of improved pattern lock method to defend against video-based attack. 
+This locking method can effectively defend against video-based attack without external hardware.}
 
 \noindent \textbf{Contributions} This work is the first attack to reconstruct graphical patterns from video footage without requiring the video to capture any contents displayed on the screen.
 Our attack exploits techniques developed in the computer vision domain to address the key challenges highlighted above.
