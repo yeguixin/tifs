@@ -93,8 +93,8 @@
             }
             \hspace{-0.1cm}
             \subfigure{
-                \begin{minipage}[b]{4cm}
-                \includegraphics[width=4cm]{fig/distance-3-5m.pdf}\\
+                \begin{minipage}[b]{3.8cm}
+                \includegraphics[width=3.8cm]{fig/distance-3-5m.pdf}\\
                 \centering \footnotesize (c)
                 \end{minipage}
             }
@@ -472,14 +472,14 @@
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[t]{0.15\textwidth}
+                \begin{minipage}[t]{0.16\textwidth}
                 \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
                 \centering \footnotesize (a) pattern-based interface
                 \end{minipage}
             }
             \hspace{0.5cm}
             \subfigure{
-                \begin{minipage}[t]{0.15\textwidth}
+                \begin{minipage}[t]{0.16\textwidth}
                 \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
                 \centering \footnotesize (b) pin-based interface
                 \end{minipage}

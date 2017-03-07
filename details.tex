@@ -333,7 +333,216 @@ Based on the estimated filming angle, $\theta$, we use the following formula to 
 where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
 For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
 
- \begin{figure}[!t]
+
+\subsection{Identify and rank candidate patterns}
+\label{section:spea}
+  In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
+   Our goal in this step is to exclude as many patterns as possible and only leave the most-likely patterns to be tried out on the target device.
+     Our approach is to use the geometry information of the fingertip movement trajectory, i.e. the length and direction of line segments and the number of turning points, to reject patterns that do not satisfy certain criteria.
+    In this section, we first describe how to identify overlapping line segments and extract length and direction information before presenting how to use the extracted information to identify and rank candidate patterns.
+
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+            \begin{minipage}[b]{0.23\textwidth}
+            \includegraphics[width=\textwidth]{fig/6-2.pdf}\\
+            \centering \footnotesize (a) tracked fingertip movement
+            \end{minipage}
+        }
+        \hspace{0.2cm}
+        \subfigure{
+            \begin{minipage}[b]{0.18\textwidth}
+            \includegraphics[width=\textwidth]{fig/6-1.pdf}\\
+            \centering \footnotesize (b) pattern example
+            \end{minipage}
+        }
+        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the the starting point and points A, B, C, and D on (b) represent four turning points.}
+        \label{fig:fig6}
+    \end{figure}
+
+\renewcommand{\algorithmicforall}{\textbf{for each}}
+    \begin{algorithm}[!t]
+        \caption{Line Segment Identification}
+        \label{alg:turning-point}
+        \begin{algorithmic}[1]
+            \REQUIRE~~\\
+                \textbf{struct} $T[]$: Temporal information of each tracked location\\
+                $timeTh$: Threshold of whether two line segments are overlapping \\
+            \ENSURE~~\\
+                $tp[]$ Turning points of fingertip movement. \\
+            \FOR{\textbf{each} fingertip movement with temporal sequences $T[]$}
+                \STATE $tpNum=0$; \\
+                \STATE \textbf{struct} $lines[] \leftarrow getLines(T[]) $ \\
+           % \FOR{\textbf{each} t in $T[]$}
+                \STATE $lNum \leftarrow getLinesNumber(lines[])$ \\
+                \FOR{$i=1:lNum$}
+                    %\STATE $tp[tpNum] \leftarrow getStartingPoints(lines[i],timeTh)$ \\
+                    \IF{$checkOverlap(lines[i],timeTh)$}
+                        \STATE $p[tpNum++] \leftarrow getOverlapPoints(line[i])$ \\
+                    \ENDIF
+                    \STATE $p[tpNum++] \leftarrow getTurningPoints(line[i])$ \\
+                \ENDFOR
+            \ENDFOR
+            \STATE $tp[]=p[0:end-1]$\\
+        \end{algorithmic}
+    \end{algorithm}
+
+    \subsubsection{Extracting Structure Information}
+        A pattern can be defined as a collection of line
+        segments where each line segment has two properties:
+        the length of the line, $l$, and the direction of the line, $d$. Figure~\ref
+        {fig:fig7} shows all the possible directions of a $3 \times 3$ pattern grid.
+        We define a
+         pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
+        Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
+        of all line segments (that are numbered from $1$ to $n$) of the pattern, and $D=\{d_{1}, d_{2}, \cdots, d_{n}\}$ is the collection of directions for all line segments in $L$.
+        Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
+        We extract the length and the direction of each line segment from the tracked fingertip movement trajectory and store them
+        into arrays $L[]$ and $D[]$ respectively.
+
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[b]{0.218\textwidth}
+                \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
+                \centering \footnotesize (a) overlapping lines
+                %\FIXME{Need to mark the starting point and turning point}
+                \end{minipage}
+            }
+            \hspace{0.2cm}
+            \subfigure{
+                \begin{minipage}[b]{0.21\textwidth}
+                \includegraphics[width=\textwidth]{fig/line-identification2.pdf}\\
+                \centering \footnotesize (b) enlargement of timeframe
+                \end{minipage}
+            }
+            \caption{Separating two overlapping line segments by checking the number of overlapping points within a timeframe.}
+            \label{fig:line-idenfication}
+        \end{figure}
+
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.185\textwidth}
+                \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
+                \centering \footnotesize (a) line direction number
+                \end{minipage}
+            }
+            \hspace{0.2cm}
+            \subfigure{
+                \begin{minipage}[t]{0.23\textwidth}
+                \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
+                \centering \footnotesize (b) numbering line segment of the tracked trajectory
+                \end{minipage}
+            }
+            \caption{All possible line directions for a $3 \times 3$ Android pattern grid.}
+            \label{fig:fig7}
+        \end{figure}
+
+        \noindent \textbf{Identify Line Segments}
+        The first step of geometry information extraction is to identify individual
+        line segments from the trajectory. This can be achieved
+        by finding turning points, the start and the end points of the pattern, because two points define a line segment. For example, turning points, A and B, in
+        Figure~\ref{fig:fig6} defines a line segment, AB. In
+        Algorithm~\ref{alg:turning-point}, we use a linear fitting
+        method~\cite{Kutner2004Applied} to discover turning points (line 3). A specific
+        challenge here is how to separate two overlapping line segments (see
+        Figure~\ref{fig:intersection-overlap} c for an example).
+        It is to note that up to two lines can be overlapped on a pattern grid.
+        The naive
+        linear fitting algorithm would consider two overlapping segments to be a
+        single line as their points stay close to each other. We overcome this problem
+       by using the temporal information (that is recorded by the
+        tracking algorithm) to separate two overlapping points.
+        To do so, we visit all tracked points of each line segment given by the linear fitting algorithm (line
+        5) within a timeframe (\emph{timeTh}) of 20 video frames for a video of 30 FPS (40 for a video of 60 FPS).
+        For each point, we calculate its Euclidean distances to all other points within the timeframe.
+        We consider two points to be overlapping if their distance is less than 5 pixels.
+        For a video shot at 30 FPS, we consider there exist two overlapping line segments if 5 (10 for a 60 FPS video) or more overlapping points in the timeframe.
+        Again, these threshold values were determined through our initial design experiments.
+        Finally, we consider the center of all points as the turning point of the two overlapping line segments and use turning point to separate the two lines.
+
+        \noindent \emph{Example:} As an example, consider a fingertip movement trajectory shown in
+        Figure~\ref{fig:line-idenfication} (a). The red rectangle on the
+        figure is a timeframe consisting of 20 tracked points.  If we zoom in
+        on the timeframe, we get Figure~\ref{fig:line-idenfication} (b) where
+        a point is labelled with a frame number according to when
+        the point was seen, starting from 1 for the earliest point. In this example, there are more than 6
+        overlapping points in the timeframe, which are marked by a green
+        circle. We use the center
+        point (No.10) of the overlapping points as the turning point to separate the two line segments.
+
+        \begin{table}[!t]
+            \centering
+            \caption{Mappings from line slopes and fingertip-horizontal movements to direction numbers}
+            \label{tab:slopes}
+            \small
+            \begin{tabular}{lcccccccc}
+                \toprule
+                \textbf{Direction No.}& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+                \textbf{slope (L $\rightarrow$ R)} & $+\infty$ & $2$ & $1$ & $\frac{1}{2}$ & $0$ & $-\frac{1}{2}$ & $-1$ & $-2$ \\
+                \midrule
+                \textbf{Direction No.}& 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+                \textbf{slope (R $\rightarrow$ L)} & $-\infty$ & $2$ & $1$ & $\frac{1}{2}$ & $0$ & $-\frac{1}{2}$ & $-1$ & $-2$ \\
+                \bottomrule
+            \end{tabular}
+            \vspace{-2mm}
+        \end{table}
+
+\renewcommand{\algorithmicforall}{\textbf{for each}}
+    \begin{algorithm}[!t]
+        \caption{Candidate Pattern Identification Algorithm}
+        \label{alg:alg1}
+        \begin{algorithmic}[1]
+            \REQUIRE~~\\
+                $L[]$: Relative line length \\
+                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
+                $tn$: Number of turning points of fingertip trajectory \\
+                %$timeTh$ Threshold of considering the turning points.\\
+                $lengthTh$: Threshold of considering two lines to have the same length\\
+                $directionTh$: Threshold of considering two lines to be in the same direction\\
+            \ENSURE~~\\
+                $P[]$: Candidate patterns \\
+
+            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
+                \STATE $n \leftarrow getLineNumber(P[])$ \\
+                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
+                /*Relatvie line length for pattern $p$*/ \\
+                \STATE $pD[] \leftarrow getDirection(p)$ \\
+                \IF{match($pL[]$, $L[]$, $lengthTh$)}
+                    \IF{match($pD[]$, $D[]$, $directionTh$)}
+                        \STATE $P[] \leftarrow p$\\
+                    \ENDIF
+                \ENDIF
+            \ENDFOR
+            \STATE $P[] \leftarrow sort(P[])$
+        \end{algorithmic}
+    \end{algorithm}
+        \noindent \textbf{Extract the Line Length}
+        The physical length of a line segment depends
+        on a number of device-specific parameters: the sizes of the screen and the pattern grid, and the space between two touch dots.
+        To ensure our approach is independent of the device, we normalize the physical length of a line segment to the
+        shortest line found on the tracked trajectory. For the
+        example shown in Figure~\ref{fig:fig6} (a), the line lengths for segments, SA, AB, BC, CD, and DE, are $2l_{s},l_{s},2l_{s},l,2l_{s}$, respectively.
+        Here segments AB and CD have the shortest length, $l_s$. The physical length of a line segment is calculated by computing the
+        Euclidean distance between the start and the end points of a segment.
+
+       \noindent \textbf{Extract Direction Information}
+       In addition to the line length, we also want to know to which
+       direction the finger moves. This information is useful for inferring which dots are selected to unlock the pattern.
+       Figure~\ref{fig:fig7} (a) shows all possible 16
+        directions on a $3 \times 3$ pattern grid. The
+        directions are numbered from 1 to 16 in clockwise.
+        For each line segment of the tracked trajectory, we calculate its line slope and the horizontal movement of the finger (i.e. left $\rightarrow$ right or vice versa).
+        This information will then be checked against Table~\ref{tab:slopes} to determine the direction number of the line segment.
+         The horizontal movement of the fingertip is determined by first using the temporal information to find out the start and the end points of the line and then comparing the horizontal coordinates of the two points.
+        The line slope is also computed based on the coordinates of the
+       start and the end points of the
+        line segment.
+        Figure~\ref{fig:fig7} (b) gives the direction number of each
+        tracked line segment of a fingertip movement trajectory.
+
+\begin{figure}[!t]
         \centering
         \subfigure{
             \begin{minipage}[b]{1.3cm}
@@ -480,217 +689,6 @@ For each video frame, our algorithm individually calculates the filming angle an
         \label{fig:fig3}
     \end{figure}
 
-\subsection{Identify and rank candidate patterns}
-\label{section:spea}
-  In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
-   Our goal in this step is to exclude as many patterns as possible and only leave the most-likely patterns to be tried out on the target device.
-     Our approach is to use the geometry information of the fingertip movement trajectory, i.e. the length and direction of line segments and the number of turning points, to reject patterns that do not satisfy certain criteria.
-    In this section, we first describe how to identify overlapping line segments and extract length and direction information before presenting how to use the extracted information to identify and rank candidate patterns.
-
-    \begin{figure}[!t]
-        \centering
-        \subfigure{
-            \begin{minipage}[b]{0.23\textwidth}
-            \includegraphics[width=\textwidth]{fig/6-2.pdf}\\
-            \centering \footnotesize (a) tracked fingertip movement
-            \end{minipage}
-        }
-        \hspace{0.2cm}
-        \subfigure{
-            \begin{minipage}[b]{0.18\textwidth}
-            \includegraphics[width=\textwidth]{fig/6-1.pdf}\\
-            \centering \footnotesize (b) pattern example
-            \end{minipage}
-        }
-        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the the starting point and points A, B, C, and D on (b) represent four turning points.}
-        \label{fig:fig6}
-    \end{figure}
-
-    \subsubsection{Extracting Structure Information}
-        A pattern can be defined as a collection of line
-        segments where each line segment has two properties:
-        the length of the line, $l$, and the direction of the line, $d$. Figure~\ref
-        {fig:fig7} shows all the possible directions of a $3 \times 3$ pattern grid.
-        We define a
-         pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
-        Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
-        of all line segments (that are numbered from $1$ to $n$) of the pattern, and $D=\{d_{1}, d_{2}, \cdots, d_{n}\}$ is the collection of directions for all line segments in $L$.
-        Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
-        We extract the length and the direction of each line segment from the tracked fingertip movement trajectory and store them
-        into arrays $L[]$ and $D[]$ respectively.
-
-
-    \renewcommand{\algorithmicforall}{\textbf{for each}}
-    \begin{algorithm}[!t]
-        \caption{Line Segment Identification}
-        \label{alg:turning-point}
-        \begin{algorithmic}[1]
-            \REQUIRE~~\\
-                \textbf{struct} $T[]$: Temporal information of each tracked location\\
-                $timeTh$: Threshold of whether two line segments are overlapping \\
-            \ENSURE~~\\
-                $tp[]$ Turning points of fingertip movement. \\
-            \FOR{\textbf{each} fingertip movement with temporal sequences $T[]$}
-                \STATE $tpNum=0$; \\
-                \STATE \textbf{struct} $lines[] \leftarrow getLines(T[]) $ \\
-           % \FOR{\textbf{each} t in $T[]$}
-                \STATE $lNum \leftarrow getLinesNumber(lines[])$ \\
-                \FOR{$i=1:lNum$}
-                    %\STATE $tp[tpNum] \leftarrow getStartingPoints(lines[i],timeTh)$ \\
-                    \IF{$checkOverlap(lines[i],timeTh)$}
-                        \STATE $p[tpNum++] \leftarrow getOverlapPoints(line[i])$ \\
-                    \ENDIF
-                    \STATE $p[tpNum++] \leftarrow getTurningPoints(line[i])$ \\
-                \ENDFOR
-            \ENDFOR
-            \STATE $tp[]=p[0:end-1]$\\
-        \end{algorithmic}
-    \end{algorithm}
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[b]{0.218\textwidth}
-                \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
-                \centering \footnotesize (a) overlapping lines
-                %\FIXME{Need to mark the starting point and turning point}
-                \end{minipage}
-            }
-            \hspace{0.2cm}
-            \subfigure{
-                \begin{minipage}[b]{0.21\textwidth}
-                \includegraphics[width=\textwidth]{fig/line-identification2.pdf}\\
-                \centering \footnotesize (b) enlargement of timeframe
-                \end{minipage}
-            }
-            \caption{Separating two overlapping line segments by checking the number of overlapping points within a timeframe.}
-            \label{fig:line-idenfication}
-        \end{figure}
-
-        \noindent \textbf{Identify Line Segments}
-        The first step of geometry information extraction is to identify individual
-        line segments from the trajectory. This can be achieved
-        by finding turning points, the start and the end points of the pattern, because two points define a line segment. For example, turning points, A and B, in
-        Figure~\ref{fig:fig6} defines a line segment, AB. In
-        Algorithm~\ref{alg:turning-point}, we use a linear fitting
-        method~\cite{Kutner2004Applied} to discover turning points (line 3). A specific
-        challenge here is how to separate two overlapping line segments (see
-        Figure~\ref{fig:intersection-overlap} c for an example).
-        It is to note that up to two lines can be overlapped on a pattern grid.
-        The naive
-        linear fitting algorithm would consider two overlapping segments to be a
-        single line as their points stay close to each other. We overcome this problem
-       by using the temporal information (that is recorded by the
-        tracking algorithm) to separate two overlapping points.
-        To do so, we visit all tracked points of each line segment given by the linear fitting algorithm (line
-        5) within a timeframe (\emph{timeTh}) of 20 video frames for a video of 30 FPS (40 for a video of 60 FPS).
-        For each point, we calculate its Euclidean distances to all other points within the timeframe.
-        We consider two points to be overlapping if their distance is less than 5 pixels.
-        For a video shot at 30 FPS, we consider there exist two overlapping line segments if 5 (10 for a 60 FPS video) or more overlapping points in the timeframe.
-        Again, these threshold values were determined through our initial design experiments.
-        Finally, we consider the center of all points as the turning point of the two overlapping line segments and use turning point to separate the two lines.
-
-        \noindent \emph{Example:} As an example, consider a fingertip movement trajectory shown in
-        Figure~\ref{fig:line-idenfication} (a). The red rectangle on the
-        figure is a timeframe consisting of 20 tracked points.  If we zoom in
-        on the timeframe, we get Figure~\ref{fig:line-idenfication} (b) where
-        a point is labelled with a frame number according to when
-        the point was seen, starting from 1 for the earliest point. In this example, there are more than 6
-        overlapping points in the timeframe, which are marked by a green
-        circle. We use the center
-        point (No.10) of the overlapping points as the turning point to separate the two line segments.
-
-
-        \noindent \textbf{Extract the Line Length}
-        The physical length of a line segment depends
-        on a number of device-specific parameters: the sizes of the screen and the pattern grid, and the space between two touch dots.
-        To ensure our approach is independent of the device, we normalize the physical length of a line segment to the
-        shortest line found on the tracked trajectory. For the
-        example shown in Figure~\ref{fig:fig6} (a), the line lengths for segments, SA, AB, BC, CD, and DE, are $2l_{s},l_{s},2l_{s},l,2l_{s}$, respectively.
-        Here segments AB and CD have the shortest length, $l_s$. The physical length of a line segment is calculated by computing the
-        Euclidean distance between the start and the end points of a segment.
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.185\textwidth}
-                \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
-                \centering \footnotesize (a) line direction number
-                \end{minipage}
-            }
-            \hspace{0.2cm}
-            \subfigure{
-                \begin{minipage}[t]{0.23\textwidth}
-                \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
-                \centering \footnotesize (b) numbering line segment of the tracked trajectory
-                \end{minipage}
-            }
-            \caption{All possible line directions for a $3 \times 3$ Android pattern grid.}
-            \label{fig:fig7}
-        \end{figure}
-
-       \noindent \textbf{Extract Direction Information}
-       In addition to the line length, we also want to know to which
-       direction the finger moves. This information is useful for inferring which dots are selected to unlock the pattern.
-       Figure~\ref{fig:fig7} (a) shows all possible 16
-        directions on a $3 \times 3$ pattern grid. The
-        directions are numbered from 1 to 16 in clockwise.
-        For each line segment of the tracked trajectory, we calculate its line slope and the horizontal movement of the finger (i.e. left $\rightarrow$ right or vice versa).
-        This information will then be checked against Table~\ref{tab:slopes} to determine the direction number of the line segment.
-         The horizontal movement of the fingertip is determined by first using the temporal information to find out the start and the end points of the line and then comparing the horizontal coordinates of the two points.
-        The line slope is also computed based on the coordinates of the
-       start and the end points of the
-        line segment.
-        Figure~\ref{fig:fig7} (b) gives the direction number of each
-        tracked line segment of a fingertip movement trajectory.
-
-        \begin{table}[!t]
-            \centering
-            \caption{Mappings from line slopes and fingertip-horizontal movements to direction numbers}
-            \label{tab:slopes}
-            \small
-            \begin{tabular}{lcccccccc}
-                \toprule
-                \textbf{Direction No.}& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
-                \textbf{slope (L $\rightarrow$ R)} & $+\infty$ & $2$ & $1$ & $\frac{1}{2}$ & $0$ & $-\frac{1}{2}$ & $-1$ & $-2$ \\
-                \midrule
-                \textbf{Direction No.}& 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
-                \textbf{slope (R $\rightarrow$ L)} & $-\infty$ & $2$ & $1$ & $\frac{1}{2}$ & $0$ & $-\frac{1}{2}$ & $-1$ & $-2$ \\
-                \bottomrule
-            \end{tabular}
-            \vspace{-2mm}
-        \end{table}
-
-\renewcommand{\algorithmicforall}{\textbf{for each}}
-    \begin{algorithm}[!t]
-        \caption{Candidate Pattern Identification Algorithm}
-        \label{alg:alg1}
-        \begin{algorithmic}[1]
-            \REQUIRE~~\\
-                $L[]$: Relative line length \\
-                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
-                $tn$: Number of turning points of fingertip trajectory \\
-                %$timeTh$ Threshold of considering the turning points.\\
-                $lengthTh$: Threshold of considering two lines to have the same length\\
-                $directionTh$: Threshold of considering two lines to be in the same direction\\
-            \ENSURE~~\\
-                $P[]$: Candidate patterns \\
-
-            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
-                \STATE $n \leftarrow getLineNumber(P[])$ \\
-                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
-                /*Relatvie line length for pattern $p$*/ \\
-                \STATE $pD[] \leftarrow getDirection(p)$ \\
-                \IF{match($pL[]$, $L[]$, $lengthTh$)}
-                    \IF{match($pD[]$, $D[]$, $directionTh$)}
-                        \STATE $P[] \leftarrow p$\\
-                    \ENDIF
-                \ENDIF
-            \ENDFOR
-            \STATE $P[] \leftarrow sort(P[])$
-        \end{algorithmic}
-    \end{algorithm}
-
     \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
        In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. This process is described in Algorithm~\ref{alg:alg1}.
 
@@ -713,6 +711,107 @@ For each video frame, our algorithm individually calculates the filming angle an
        The patterns presented in b(1)--b(5) and c(1)--c(5) of Figure~\ref{fig:fig3}) will
        also be rejected for the same reason.
 
+\begin{figure}[!t]
+    \centering
+    \subfigure{
+        \begin{minipage}[t]{0.11\textwidth}
+            \includegraphics[width=\textwidth]{fig/physical_length.pdf}\\
+            \centering \footnotesize (a) line length
+        \end{minipage}
+    }
+    \hspace{0.1cm}
+    \subfigure{
+        \begin{minipage}[t]{0.11\textwidth}
+            \includegraphics[width=\textwidth]{fig/intersection.pdf}\\
+            \centering \footnotesize (b) line intersection
+        \end{minipage}
+    }
+    \hspace{0.1cm}
+    \subfigure{
+        \begin{minipage}[t]{0.11\textwidth}
+            \includegraphics[width=\textwidth]{fig/overlap.pdf}\\
+            \centering \footnotesize (c) overlapping lines
+        \end{minipage}
+    }
+    \caption{Illustrations of the terminologies used in Equation~\ref{equ:compscore}.}
+    \label{fig:intersection-overlap}
+\end{figure}
+\begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[b]{8cm}
+                \includegraphics[width=1.3cm]{fig/9-1.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-2.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-3.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-4.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-5.pdf}\\
+                \centering \footnotesize (a) Example patterns belong to the simple category.
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{8cm}
+                \includegraphics[width=1.3cm]{fig/9-6.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-7.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-8.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-9.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-10.pdf}\\
+                \centering \footnotesize (b) Example patterns belong to the median category.
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{8cm}
+                \includegraphics[width=1.3cm]{fig/9-11.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-12.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-13.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-14.pdf}
+                \hspace{0.1cm}
+                \includegraphics[width=1.3cm]{fig/9-15.pdf}\\
+                \centering \footnotesize (c) Example patterns belong to the complex category.
+                \end{minipage}
+            }
+            \caption{Examples of patterns collected from our participants. Patterns are grouped into \emph{simple}, \emph{median} and \emph{complex} categories, according to their complexity scores. }
+            \label{fig:fig8}
+            \vspace{-3mm}
+        \end{figure}
+
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[b]{0.14\textwidth}
+                \includegraphics[width=0.8\textwidth]{fig/complex3.pdf} \\
+                \centering \footnotesize complexity score: $43.8$
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{0.14\textwidth}
+                \includegraphics[width=0.8\textwidth]{fig/complex2.pdf} \\
+                \centering \footnotesize complexity score: $44.7$
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{0.14\textwidth}
+                \includegraphics[width=0.8\textwidth]{fig/complex1.pdf} \\
+                \centering \footnotesize complexity score: $46.8$
+                \end{minipage}
+            }
+            \vspace{-2mm}
+            \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
+            \vspace{-2mm}
+            \label{fig:most complex patterns}
+        \end{figure}
+
+
         \noindent \textbf{Rank Patterns} Candidates patterns are then ranked using a simple
         heuristic. The heuristic assumes a pattern starting from
         left dot of the grid is more likely to be the correct pattern over a
@@ -728,6 +827,5 @@ For each video frame, our algorithm individually calculates the filming angle an
         pattern presented in Figure~\ref{fig:fig3} d(1).  This attempt will lead to a
         successful attack for the example presented in Figure~\ref{fig:fig2}. Our experimental results show that
         this heuristic is effective.
-
 
 

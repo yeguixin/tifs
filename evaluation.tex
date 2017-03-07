@@ -51,7 +51,22 @@
     \label{fig:fig11}
     \vspace{-2mm}
 \end{figure}
-
+ \begin{table}[!t]
+            \centering
+            \caption{Tracking precision vs filming distance}
+            \vspace{-0.2mm}
+            \label{tab:tab1}
+            \small
+            \begin{tabular}{ccccc}
+                \toprule
+                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
+                \midrule
+                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
+                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
+                \bottomrule
+            \end{tabular}
+            \vspace{-5mm}
+        \end{table}
         Another interesting observation is that in contrast to many people's
         intuition, complex patterns do not provide stronger protection under our attack because
         most of these patterns can be cracked in one attempt.
@@ -84,21 +99,21 @@
                 \centering \footnotesize (a)
                 \end{minipage}
             }
-            \hspace{-0.1cm}
+            \hspace{0.2cm}
             \subfigure{
                 \begin{minipage}[b]{3.8cm}
                 \includegraphics[width=3.8cm]{fig/distance-3m.pdf}\\
                 \centering \footnotesize (b)
                 \end{minipage}
             }
-            \hspace{-0.1cm}
+            \hspace{0.2cm}
             \subfigure{
-                \begin{minipage}[b]{4cm}
-                \includegraphics[width=4cm]{fig/distance-3-5m.pdf}\\
+                \begin{minipage}[b]{3.8cm}
+                \includegraphics[width=3.8cm]{fig/distance-3-5m.pdf}\\
                 \centering \footnotesize (c)
                 \end{minipage}
             }
-            \hspace{-0.1cm}
+            \hspace{0.2cm}
             \subfigure{
                 \begin{minipage}[b]{3cm}
                 \includegraphics[width=3cm]{fig/distance-pattern.pdf}\\
@@ -114,22 +129,6 @@
 
 
     \subsection{Impact of Filming Distances \label{sec:distances}}
-        \begin{table}[!t]
-            \centering
-            \caption{Tracking precision vs filming distance}
-            \vspace{-0.2mm}
-            \label{tab:tab1}
-            \small
-            \begin{tabular}{ccccc}
-                \toprule
-                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
-                \midrule
-                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
-                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
-                \bottomrule
-            \end{tabular}
-            \vspace{-5mm}
-        \end{table}
 
 
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
@@ -170,35 +169,6 @@
             SLR camera and the lens. Therefore, in practice, an attacker can
             also use a professional video recording device to launch the
             attack from a further distance.
-
-
-    \subsection{Impact of Camera Shake}
-
-    \noindent \textbf{Result 3:} \emph{Our method can tolerate a certain degree of camera shake in the hand-held mode.}
-
-    In this experiment, we used an IPhone4S smartphone to record how a pattern is drawn on a Huawei Honor7 phone. This experiment was carried out under three settings:
-    \emph{fixed}, \emph{hand-held} and \emph{shaky}, where the filming
-    device was respectively fixed using a tripod, hand-held, and hand-held but with constant movements of
-     approximate 2cm in the horizontal or the vertical directions. The recording device was placed on the left-front, front, and right-front of the target device.
-    In the experiment, we fixed the target device on a table using double-sided tapes.
-
-    We use a reference point to quantify camera shake. The point
-    is the center position of an area of the target device. The area is marked by a boundary box on the first
-    frame (see Figure~\ref{fig:fig5}). We calculate the difference (in terms of pixels) for where the
-    reference point was seen in two consecutive video frames. We then use the difference to measure the degree of camera shake.
-    Figure~\ref{fig:fig13} shows the cumulative distribution function (CDF)
-    of camera shake under the three different filming settings.
-    Here, the wider the distribution is, the less steady the
-     filming is. The shaky mode is least stable where the difference of the reference point between two video frames can be up to 250 pixels.
-
-
-    Figure~\ref{fig:fig14} shows that our approach has the same performance under
-    the hand-held and the fixed modes. The modest camera sake under the hand-held mode
-    has little impact on performance thanks to our camera-shake-calibration method. We observe deteriorative performance
-    under the shaky mode, but the performance degradation is modest (80\% vs 97\%
-    in 5 attempts). In reality, an attacker would avoid drastic
-    camera shake by firmly holding the video recording device.
-
         \begin{figure}[t!]
             \centering
             \includegraphics[width=0.35\textwidth]{fig/12.pdf}
@@ -228,31 +198,17 @@
 \end{figure}
 
 
+    \subsection{Impact of Camera Shake}
 
+    \noindent \textbf{Result 3:} \emph{Our method can tolerate a certain degree of camera shake in the hand-held mode.}
 
+    In this experiment, we used an IPhone4S smartphone to record how a pattern is drawn on a Huawei Honor7 phone. This experiment was carried out under three settings:
+    \emph{fixed}, \emph{hand-held} and \emph{shaky}, where the filming
+    device was respectively fixed using a tripod, hand-held, and hand-held but with constant movements of
+     approximate 2cm in the horizontal or the vertical directions. The recording device was placed on the left-front, front, and right-front of the target device.
+    In the experiment, we fixed the target device on a table using double-sided tapes.
 
-    \subsection{Impact of Lighting Conditions \label{sec:light}}
-    \noindent \textbf{Result 4:} \emph{Low-light has a negative impact on the success rate of the attack but our approach can still break over 70\% of the patterns when the video was filmed in a low-light environment.}
-
-    In this experiment, videos were recorded under different lighting conditions both indoor and outdoor.
-    The experimental settings are given in  Table~\ref{tab:light}.
-    The light intensity of these condidtions ranges from 9500
-    lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
-    These represent some of the day-to-day scenarios where filming can
-    take place. For each setting, we asked each of our 10 participants to draw all collected 120 patterns on a Xiaomi MI4 phone. We used
-    an iPhone4S phone to record the video. The filming camera was place on the
-    left-front, front, and the right-front of the target device from a distance
-    of 2 meters.
-
-
-    Figure~\ref{fig:light} shows that the success rate increases when video filming were performed in a brighter lighting condition as the light intensity
-    changes from 55 lux to 9500 lux. This is expected as low-light leads to
-    increased video noise, blurred motion and poor focus, which all have a
-    negative impact on the TLD algorithm. Nonetheless, our attack
-    can still crack over 70\% of the patterns in a filming
-    environment with low light.
-
-            \begin{table}[!t]
+      \begin{table}[!t]
             \centering
             \caption{Lighting Conditions}
             \label{tab:light}
@@ -278,10 +234,7 @@
             \label{fig:light}
         \end{figure}
 
-
-
-    \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
-    \begin{figure}[!t]
+        \begin{figure}[!t]
         \centering
         \includegraphics[width=0.35\textwidth]{fig/15.pdf}
         \vspace{-2mm}
@@ -289,6 +242,46 @@
         \vspace{-2mm}
         \label{fig:fig15}
     \end{figure}
+
+    We use a reference point to quantify camera shake. The point
+    is the center position of an area of the target device. The area is marked by a boundary box on the first
+    frame (see Figure~\ref{fig:fig5}). We calculate the difference (in terms of pixels) for where the
+    reference point was seen in two consecutive video frames. We then use the difference to measure the degree of camera shake.
+    Figure~\ref{fig:fig13} shows the cumulative distribution function (CDF)
+    of camera shake under the three different filming settings.
+    Here, the wider the distribution is, the less steady the
+     filming is. The shaky mode is least stable where the difference of the reference point between two video frames can be up to 250 pixels.
+
+
+    Figure~\ref{fig:fig14} shows that our approach has the same performance under
+    the hand-held and the fixed modes. The modest camera sake under the hand-held mode
+    has little impact on performance thanks to our camera-shake-calibration method. We observe deteriorative performance
+    under the shaky mode, but the performance degradation is modest (80\% vs 97\%
+    in 5 attempts). In reality, an attacker would avoid drastic
+    camera shake by firmly holding the video recording device.
+
+    \subsection{Impact of Lighting Conditions \label{sec:light}}
+    \noindent \textbf{Result 4:} \emph{Low-light has a negative impact on the success rate of the attack but our approach can still break over 70\% of the patterns when the video was filmed in a low-light environment.}
+
+    In this experiment, videos were recorded under different lighting conditions both indoor and outdoor.
+    The experimental settings are given in  Table~\ref{tab:light}.
+    The light intensity of these condidtions ranges from 9500
+    lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
+    These represent some of the day-to-day scenarios where filming can
+    take place. For each setting, we asked each of our 10 participants to draw all collected 120 patterns on a Xiaomi MI4 phone. We used
+    an iPhone4S phone to record the video. The filming camera was place on the
+    left-front, front, and the right-front of the target device from a distance
+    of 2 meters.
+
+
+    Figure~\ref{fig:light} shows that the success rate increases when video filming were performed in a brighter lighting condition as the light intensity
+    changes from 55 lux to 9500 lux. This is expected as low-light leads to
+    increased video noise, blurred motion and poor focus, which all have a
+    negative impact on the TLD algorithm. Nonetheless, our attack
+    can still crack over 70\% of the patterns in a filming
+    environment with low light.
+
+    \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
 
     \noindent \textbf{Result 5:} \emph{Our attack performs well when the error of filming angle estimation is less than 5 degrees.}
 

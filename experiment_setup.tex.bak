@@ -102,7 +102,7 @@
     \subsection{Data Collection}
     \label{section:locking patterns}
     The patterns used in our evaluation were collected from users who use at least one Android device (a smartphone or a tablet) on a daily basis.
-    To collect the patterns, we have distributed over 1,000 survey forms and collected back 215 valid forms, resulting in 120 unique patterns.
+    To collect the patterns, we have distributed over 1,000 survey forms and collected back 215 valid forms, resulting in 120 unique patterns\footnote{Patterns are available at: \url{https://github.com/yeguixin/patterns}}.
     Our participants include 95 females and 120 males who were undergraduate or postgraduate students in our institution.
     The majority of our participants are in an age group of under 30.
 
