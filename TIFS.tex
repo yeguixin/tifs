@@ -28,7 +28,6 @@
 \usepackage{etoolbox}
 \usepackage{setspace}
 
-\hyphenation{op-tical net-works semi-conduc-tor}
 
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -47,23 +46,18 @@
 
 \begin{document}
 
-\title{Cracking Android Pattern Lock in a Few Attempts}
+\title{Video-side Channel Attack for Android Pattern Lock}
 
 
-%\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-%        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-%        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
-%\thanks{M. Shell was with the Department
-%of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-%GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
-%\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
-%\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
-
+\author{Guixin Ye, Zhanyong Tang, Dingyi Fang, Xiaojiang Chen,
+        Willy Wolf and Zheng Wang
+\thanks{G. Ye, Z. Tang, D. Fang, and X. Chen are with Northwest University, China}%
+\thanks{Willy Wolf and Zheng Wang are with Lancaster University, U.K.}}
 
 
 % The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
-{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+\markboth{IEEE Transactions on Information Forensics and Security}%
+{Ye \MakeLowercase{\textit{et al.}}: Video-side Channel Attack for Android Pattern Lock}
 
 % make the title area
 \maketitle
@@ -90,42 +84,9 @@
 \input{conclusions}
 
 
-
-
-%\overrightarrow{}
-% For peer review papers, you can put extra information on the cover
-% page as needed:
-% \ifCLASSOPTIONpeerreview
-% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
-% \fi
-%
-% For peerreview papers, this IEEEtran command inserts a page break and
-% creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
 
-
-
-%
-%\appendices
-%\section{Proof of the First Zonklar Equation}
-%Appendix one text goes here.
-%
-%% you can choose not to have a title for an appendix
-%% if you want by leaving the argument blank
-%\section{}
-%Appendix two text goes here.
-%
-%
-%% use section* for acknowledgment
-%\section*{Acknowledgment}
-%
-%
-%The authors would like to thank...
-
-
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
@@ -135,57 +96,6 @@
 \bibliographystyle{IEEEtranS}
 \balance
 \bibliography{refs}
-
-%\begin{thebibliography}{1}
-%
-%\bibitem{IEEEhowto:kopka}
-%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-%
-%\end{thebibliography}
-
-
-% biography section
-%
-% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-% needed around the contents of the optional argument to biography to prevent
-% the LaTeX parser from getting confused when it sees the complicated
-% \includegraphics command within an optional argument. (You could create
-% your own custom macro containing the \includegraphics command to make things
-% simpler here.)
-%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
-%
-%\begin{IEEEbiography}{Michael Shell}
-%Biography text here.
-%\end{IEEEbiography}
-%
-%% if you will not have a photo at all:
-%\begin{IEEEbiographynophoto}{John Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-%
-%% insert where needed to balance the two columns on the last page with
-%% biographies
-%%\newpage
-%
-%\begin{IEEEbiographynophoto}{Jane Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-
-% You can push biographies down or up by placing
-% a \vfill before or after them. The appropriate
-% use of \vfill depends on what kind of text is
-% on the last page and whether or not the columns
-% are being equalized.
-
-%\vfill
-
-% Can be used to pull up biographies so that the bottom of the last one
-% is flush with the other column.
-%\enlargethispage{-5in}
-
-
 
 % that's all folks
 \end{document}
