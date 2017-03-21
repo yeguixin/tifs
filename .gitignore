@@ -1,2 +1,10 @@
 TIFS.pdf
 TIFS.pdf
+*.log
+TIFS.blg
+*.out
+TIFS.aux
+*.bbl
+TIFS.synctex
+*.synctex
+TIFS.pdf
