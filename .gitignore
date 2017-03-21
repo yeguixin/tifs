@@ -8,3 +8,9 @@ TIFS.aux
 TIFS.synctex
 *.synctex
 TIFS.pdf
+*.aux
+TIFS.aux
+*.log
+TIFS.out
+*.synctex
+TIFS.log
