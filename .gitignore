@@ -14,3 +14,7 @@ TIFS.aux
 TIFS.out
 *.synctex
 TIFS.log
+*.log
+TIFS.aux
+*.out
+TIFS.synctex
