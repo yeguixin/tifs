@@ -25,17 +25,18 @@
 
 \section{Discussions}
 
-\subsection{\FIXED{Countermeasures}}
+\subsection{Countermeasure Discussions}
 
 The success of our attack depends on three factors: (1)
 knowledge of the pattern grid; (2) a decent
 quality video footage allowing the algorithm to track the fingertip movement;
 (3) successfully identifying a video segment that captures the entire process of pattern drawing.
 
-
-\noindent \textbf{Potential countermeasures} For the first factor, the attacker can obtain relevant information via analyzing a device installed with the same operating system and applications as the target.
+For the first factor, the attacker can obtain the relevant information by simply looking the pattern grid
+of the target operating system or application.
 Randomization techniques such as
-randomized pictures~\cite{biddle2012graphical,hossein2015fortifying} could be a solution for the first factor.
+randomized pictures~\cite{biddle2012graphical,hossein2015fortifying}, which randomly shuffle the location
+of touch points each time, could be a solution.
 However, randomization-based solutions often come at the cost of poorer
 usability. This can prevent them to be used at a large scale.
 Regarding the second factor, there are ways, such as
@@ -43,18 +44,23 @@ KALEIDO~\cite{zhang2015kaleido}, to prevent unauthorized videotaping by
 dynamically changing the colour and brightness of the screen to confuse the
 filming camera. A non-technical solution for this aspect would be to educate users to
 fully cover their fingers when drawing a pattern. But doing this on a large-screen device could be awkward especially when the device is held by one hand.
-For the third factor, the attacker's solution depends on the type of the pattern. For a screen lock, pattern drawing is the first activity (except
-for receiving a phone call or making an emergency call) when the device is
+
+
+
+For the third factor, the attacker's solution depends on the type of the
+pattern. For a screen lock, pattern drawing is the first activity (except for
+receiving a phone call or making an emergency call) when the device is
 retrieved. Therefore, identifying the video segment is straightforward. When
 the pattern is used by applications, we have observed that users typically
-pause for a few seconds before or after entering the pattern. Therefore, an experienced attacker should also be able
-to identify the video segment in case our automatic algorithm (presented in
-Section~\ref{sec:identify}) fails to do so. A potential countermeasure is to mix
-pattern unlocking with other on-screen activities. For examples, before and
-after pattern drawing, the system can ask the user to type in a sentence
-using a Swype-like method or
-to draw some graphical shapes. The problem of this approach is it may annoy users by asking
-them to do more, especially for screen unlocking -- an activity that is performed
+pause for a few seconds before or after entering the pattern. Therefore, an
+experienced attacker should also be able to identify the video segment in
+case our automatic algorithm (presented in Section~\ref{sec:identify}) fails
+to do so. A potential countermeasure is to mix pattern unlocking with other
+on-screen activities. For examples, before and after pattern drawing, the
+system can ask the user to type in a sentence using a Swype-like method or to
+draw some graphical shapes. The problem of this approach is it may annoy
+users by asking them to do more, especially for screen unlocking -- an
+activity that is performed
 many times a day.
 
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
@@ -86,10 +92,17 @@ many times a day.
         \label{fig:protection}
     \end{figure}
 
-\noindent \textbf{A Specific Case} To invalid this attack, we propose and implement a prototype of a specific countermeasures by disable the third factor presented in last paragraph. The basic idea is that before or after drawing the correct pattern, user can draw any pattern for the purpose of confusing the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system would authenticate successfully. To this end, we redesign the rules for creating a pattern to ensure that each dot on the pattern grid can be visited repeatedly. Further, for purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.
+\subsection{Our Countermeasure for Video Filming}
+We propose a prototype countermeasure to make it hard to obtain a meaningful video footage.
+Our approach is simple -- before or after drawing the correct pattern, the user is asked to draw a random pattern to confuse the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system will accept the pattern. To this end, we relax the rules for creating a pattern to allow a touching dot to be visited multiple times. Further, for purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.
 
 
-Figure~\ref{fig:protection} shows some patterns drawn using our redesign method. From this we can see that the redesign keep the usability of original pattern-based authentication scheme as maximum as possible. Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
+Figure~\ref{fig:protection} shows some patterns drawn using our redesign method. We have our participants if they think these rules decrease
+the usability  of the pattern lock and the answer from the all 10 participants is negative (i.e., does not decrease the usability). 
+However, our simple countermeasure will make it harder to launch the attack as the adversary will now need to 
+identify which part of the drawing is the correct pattern. \FIXME{Perhaps some experimental results on this.}
+
+%Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
 
 
 \subsection{Implications}
