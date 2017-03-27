@@ -37,22 +37,6 @@ spatial-temporal characteristics described above to exclude two consecutive swip
 typically paused at least 1.5s before or after unlocking to locate the start
 and end points of pattern drawing (line 19).
 
-\noindent \textbf{Limitations} Our heuristic is likely to fail if the user was typing
-using a Swype-like method (i.e. entering words by sliding a finger from
-the first letter of a word to its last letter) during video recording. In
-this case, our method will identify multiple video segments of which one may contain
-the pattern unlock process. If multiple segments are detected, the algorithm will ask the
-user to confirm which video segment to use.
-In this scenario, the first identified segment is likely to be the correct one.
-In practice, an experienced attacker would wait patiently to avoid this
-complicated situation by finding the right time for filming (e.g. for a screen
-lock, the time is just after the device is retrieved).
-The attacker could also watch the video to manually cut it to ensure the obtain the correct video segment.
-It is
-worthwhile to mention that automatically identifying the pattern unlocking process is
-not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
-Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
-
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.35\textwidth]{fig/time-interval.pdf}
@@ -109,6 +93,22 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \caption{Spatial-temporal characteristics for performing an on-screen gesture once (a, c, e) and twice (b, d, f).}
         \label{fig:gesture-distinction}
     \end{figure}
+
+\noindent \textbf{Limitations} Our heuristic is likely to fail if the user was typing
+using a Swype-like method (i.e. entering words by sliding a finger from
+the first letter of a word to its last letter) during video recording. In
+this case, our method will identify multiple video segments of which one may contain
+the pattern unlock process. If multiple segments are detected, the algorithm will ask the
+user to confirm which video segment to use.
+In this scenario, the first identified segment is likely to be the correct one.
+In practice, an experienced attacker would wait patiently to avoid this
+complicated situation by finding the right time for filming (e.g. for a screen
+lock, the time is just after the device is retrieved).
+The attacker could also watch the video to manually cut it to ensure the obtain the correct video segment.
+It is
+worthwhile to mention that automatically identifying the pattern unlocking process is
+not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
+Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
 
     \begin{algorithm}[!t]
         \centering
