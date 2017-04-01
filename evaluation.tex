@@ -306,26 +306,26 @@
     meters from target device. Table~\ref{tab:screen-size} gives the screen
     size of each device, which ranges from 3.5 \emph{inch} (IPhone4S) to
     9.6 \emph{inch} (Samsung Tablet). Table~\ref{tab:camera-parameters} lists
-    the mobile cameras and their main performance parameters, which 
+    the mobile cameras and their main performance parameters, which
     represent some of the most commonly used smartphone cameras.
 
-    Figure~\ref{fig:screen_size} (a) confirms that our attacking method 
+    Figure~\ref{fig:screen_size} (a) confirms that our attacking method
     is not significantly affected by the size of the
      target device's screen. Our approach achieves a 98.3\%  success rate within five
     attempts when the screen size is 3.5 \emph{inch} (a small screen in the current
      mobile market). It can crack all tested pattern locks when
     the size of screen is larger than 5.2 \emph{inch} (Honor7). We also
-    evaluated  our approach using different types of filming cameras. 
+    evaluated  our approach using different types of filming cameras.
     The result is presented in Figure~\ref{fig:screen_size}
     (b). Our method can reconstruct all patterns (100\%) within five trials using
-    the IPhone6 and the Note4 because their camera settings (hardware and software) lead to a better video 
+    the IPhone6 and the Note4 because their camera settings (hardware and software) lead to a better video
     quality.   When using MI4 and Vivo X7 for filming,
      the success rate can reach 96.7\% and 98.9\% within five
-    attempts respectively, where our approach incorrectly identifies 3 and 1 (out of 
-    90) patterns respectively due to blur motion in the video footage. 
+    attempts respectively, where our approach incorrectly identifies 3 and 1 (out of
+    90) patterns respectively due to blur motion in the video footage.
     This experiment shows that the screen size and filming camera
-    have little impact on the attacking success rate. 
-    
+    have little impact on the attacking success rate.
+
 
     \begin{table}[!t]
             \centering
@@ -494,6 +494,26 @@
             \label{fig:unlock interface}
         \end{figure}
 
+    \begin{table}[!t]
+            \centering
+            \caption{PIN-based passwords used in \emph{I}}
+            \label{tab:PIN-based passwords}
+            %\scriptsize
+            \begin{tabular}{cccccc}
+                \toprule
+                1234 & 1111 & 1205 & 1990 & 0729 & 3729 \\
+                \midrule
+                9867 & 5946 & 2209 & 3560 & 1003 & 4623  \\
+                \midrule
+                1205 & 1990 & 0729 & 3729 & 9867 & 5946  \\
+                \midrule
+                9867 & 5946 & 2209 & 3560 & 1003 & 4623  \\
+                \midrule
+                1205 & 1990 & 0729 & 3729 & 9867 & 5946  \\
+                \bottomrule
+            \end{tabular}
+    \end{table}
+
     \subsection{Attacking PIN-base Passwords}
         \noindent \textbf{Result 9:} \emph{PIN-based passwords are also
         vulnerable under our video-side channel attack. We can break
@@ -504,8 +524,8 @@
         attack PIN-based passwords? To answer this question, we apply our
         attacking method on 30 randomly generated 4-digital PIN-based
         passwords. For each password, we ask our participants to type in the
-        password on a Xiaomi MI4 phone. \FIXME{Table~\ref{}
-        lists all PIN-based passwords considered in this experiment.} Figure~\ref{fig:unlock interface}
+        password on a Xiaomi MI4 phone. Table~\ref{tab:PIN-based passwords}
+        lists all PIN-based passwords considered in this experiment. Figure~\ref{fig:unlock interface}
         shows the subtle differences between the PIN-based keypad and the
         Android pattern grid. In this experiment, we used an IPhone4S phone
         to record the video from three angles of the target device: the
@@ -543,8 +563,8 @@
         motion of the video footage. Overall, our method can achieve a high
         cracking success rate for PIN-based passwords. Our findings are in
         line with prior works on video-based side channel for PIN-based
-        passwords~\cite{shukla2014beware}. 
-        
+        passwords~\cite{shukla2014beware}.
+
        % two passwords is because they have more than five candidate patterns and for remaining two ones is that we detected the wrong location of one touching point due to the blue motion of the video footage. We believe that the expert attacker is able to improve the success rate using more attempts.
 %
 
