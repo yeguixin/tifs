@@ -496,20 +496,24 @@
 
     \begin{table}[!t]
             \centering
-            \caption{PIN-based passwords used in \emph{I}}
+            \caption{PIN-based passwords used in subsection \emph{I}}
             \label{tab:PIN-based passwords}
             %\scriptsize
             \begin{tabular}{cccccc}
                 \toprule
-                1234 & 1111 & 1205 & 1990 & 0729 & 3729 \\
+                \multicolumn{6}{c}{Common Used Passwords} \\
                 \midrule
-                9867 & 5946 & 2209 & 3560 & 1003 & 4623  \\
+                1234 & 1111 & 1212 & 1004 & 2000 & 6969 \\
                 \midrule
-                1205 & 1990 & 0729 & 3729 & 9867 & 5946  \\
+                4321 & 1122 & 2001 & 2580 & 1357 & 2468  \\
+                \toprule
+                \multicolumn{6}{c}{Randomly Generated Passwords} \\
                 \midrule
-                9867 & 5946 & 2209 & 3560 & 1003 & 4623  \\
+                1205 & 3570 & 0729 & 3719 & 9867 & 5946  \\
                 \midrule
-                1205 & 1990 & 0729 & 3729 & 9867 & 5946  \\
+                3451 & 7403 & 2209 & 3560 & 1043 & 4628  \\
+                \midrule
+                5372 & 2830 & 7102 & 6193 & 2941 & 3471  \\
                 \bottomrule
             \end{tabular}
     \end{table}
@@ -521,9 +525,9 @@
         variant method based on our approach.}
 
         An interesting question to ask is, could this method be used to
-        attack PIN-based passwords? To answer this question, we apply our
-        attacking method on 30 randomly generated 4-digital PIN-based
-        passwords. For each password, we ask our participants to type in the
+        attack PIN-based passwords? \FIXED{To answer this question, we apply our
+        attacking method on 30 4-digital passwords. Among these passwords, 12 of them are referred to an PIN analysis conducted by Nick~\cite{Nick_pin_analysis}. The remaining passwords are randomly generated.}
+        For each password, we ask our participants to type in the
         password on a Xiaomi MI4 phone. Table~\ref{tab:PIN-based passwords}
         lists all PIN-based passwords considered in this experiment. Figure~\ref{fig:unlock interface}
         shows the subtle differences between the PIN-based keypad and the
