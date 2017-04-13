@@ -43,7 +43,7 @@
     pattern has, the more complex it is. For example, the patterns shown in
     Figure~\ref{fig:fig8} (c) use all the nine dots of the grid, and have  at
     least seven line segments and three intersections. %%However, we found
-    \FIXED{Like the pattern meter method proposed in~\cite{sun2014dissecting}, Song Meter~\cite{Song2015On} and Andriotis Meter~\cite{Andriotis2014Complexity} also tried to measure the complexity score of pattern locks. They have the same conclusion that more complex structure makes the pattern more complex. We illustrate this using Aviv's guessing metrics algorithm~\cite{Heidt2016Refining} to guess our collected pattern locks. Figure}
+    \FIXED{Like the pattern meter method proposed in~\cite{sun2014dissecting}, Song Meter~\cite{Song2015On} and Andriotis Meter~\cite{Andriotis2014Complexity} also tried to measure the complexity score of pattern locks. They have the same conclusion that more complex structure makes the pattern more complex. We illustrate this using Aviv's guessing metrics algorithm~\cite{Heidt2016Refining} to guess our collected pattern locks. Figure~\ref{fig:guessing-probability} shows the guessing probability of these patterns. It indicates that more complex patterns are hard to guess, which accords with most people's beliefs.}
 
 
     Base on the complexity score, we divide the collected patterns into three complexity categories: \emph{simple}, \emph{median} and \emph{complex}. A simple pattern has a score of less than 19,
@@ -51,15 +51,21 @@
     complex pattern has a score between 19 and 33, and a complex pattern must have a score greater than 33. This classification gives us roughly 40 patterns per
     category. Figure~\ref{fig:fig8} gives some examples for each category while Figure~\ref{fig:pattern-strength} shows the distribution of these patterns according to their complexity scores.
     Based on this definition, the most complex pattern on a $3 \times 3$ grid has a score of $46.8$ (see Figure~\ref{fig:most complex patterns}).  The complex scores of the patterns we collected range from $6.4$ to $46.8$.
-
+        
+        \begin{figure}[!t]
+            \centering
+            \includegraphics[width=0.5\textwidth]{fig/guess_prob.pdf}
+            \caption{The guessing probability of complexity scores for the patterns given by our participants.}
+            \label{fig:guessing-probability}
+        \end{figure}
+        
         \begin{figure}[!t]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/pattern-strength.pdf}
             \caption{The distribution of complexity scores for the patterns given by our participants.}
             \label{fig:pattern-strength}
         \end{figure}
-
-
+        
     \begin{table}[!t]
             \centering
             \caption{Screen sizes for the test phones}
