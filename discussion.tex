@@ -22,8 +22,22 @@
         \caption{Success rate of cracking PIN-based passwords with different number of attempts.}
         \label{fig:pin_results}
     \end{figure}
+    
+    \begin{figure}[!t]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
+        \caption{Success rate without seeing the phone screen.}
+        \label{fig:finger-only}
+    \end{figure}
 
 \section{Discussions}
+
+\subsection{Limited Study}
+
+\FIXED{In our attacking scenarios, we assume the user's finger and phone screen can be seen in the video captured by the attacker. We belief this is a weak assumption because the attacker can film how the user draw at any view angle. However,  given in some scenarios such as in the right front of the user, it's only sees the finger in the unlock video footage. So it's worth to discuss how our algorithm performs in this situation. To do this, we have ask our participants to randomly select 20 pattern locks at each complexity category. We deliberately control to only film the user's finger during capturing unlocking videos.}
+
+\FIXED{Figure~\ref{fig:finger-only} presents the success rate is quite low when the touch screen does not seen in the unlock video footage. This arises from camera shake. Our algorithm can effectively decrease the impact of camera shake through tracking two interested of areas as described in Section~\ref{secction:shake}. However, our algorithm can only track one area (fingertip area) in this experiment as the touch screen can not be seen in the unlock video. This makes our algorithm not cancel the camera shake which leads to low cracking success rate.}
+
 
 \subsection{Countermeasure Discussions}
 
