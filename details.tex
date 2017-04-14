@@ -1,42 +1,3 @@
-\section{Implementation Details}
-
-\subsection{Video preprocessing \label{sec:identify}}
-\label{section:recognition}
-The first step of our attack is to identify the unlocking process from the
-video footage. While all our
-participants (see Section~\ref{section:locking patterns}) consider this as a straightforward manual task, we developed a \emph{simple yet effective} heuristic to automatically detect the video segment in some typical scenarios. Our heuristic is based on the following observations: (1) before or after
-unlocking, users often pause for a few seconds; (2) two consecutive on-screen operations (e.g. swiping, zooming etc.) typically expose some spatial-temporal motion characteristics.
-To test our hypothesis, we have recorded 50 video streams (where each
-video stream lasts around 2 minutes) of how ten of our participants drew
-patterns. During video recording, our participants firstly performed
-some on-screen activities such as web browsing and gaming as they wished;
-they then randomly opened up a pattern lock screen to draw a pattern and
-continued to perform other on-screen operations afterwards.
-We then analyzed frames that are associated with pattern drawing and those are not.
-
-
-Figure~\ref{fig:time-interval} shows that all our participants paused at least $1.5$ seconds before or after pattern drawing due to delay of the user or the device.
-%Our algorithm leverages this characteristic to locate the start and end point of unlocking process.
-We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
-These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
-Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c, e) and twice (b, d, f).
-This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more loop structures for which pattern drawing does not have.
-
-
-Our heuristic is described
-in Algorithm~\ref{alg:recognition}. The input to the algorithm is a video capturing the unlocking process, and the output of the
-algorithm is a time-stamp tuple, $<$start, end$>$, which marks the start and the end
-of a video segment.
-To locate the video segment of pattern drawing, we first filter out on-screen activities where the
-fingertip location does not change within a timeframe of 1.5 seconds (lines 4 and 11). This
-allows us to exclude some basic on-screen activities, such as clicking. We
-use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval. Here, a time
-interval of 1.5s translates to 45 frames or 90 frames when the video was shot
-at 30 or 60 frames per second (FPS) respectively. We also use the
-spatial-temporal characteristics described above to exclude two consecutive swiping or zooming gestures (line 8). Finally, we exploit the observation that users
-typically paused at least 1.5s before or after unlocking to locate the start
-and end points of pattern drawing (line 19).
-
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.35\textwidth]{fig/time-interval.pdf}
@@ -44,7 +5,7 @@ and end points of pattern drawing (line 19).
     \label{fig:time-interval}
 \end{figure}
 
-\begin{figure}[!t]
+    \begin{figure}[!t]
         \centering
         \subfigure{
             \begin{minipage}[t]{0.19\textwidth}
@@ -93,23 +54,7 @@ and end points of pattern drawing (line 19).
         \caption{Spatial-temporal characteristics for performing an on-screen gesture once (a, c, e) and twice (b, d, f).}
         \label{fig:gesture-distinction}
     \end{figure}
-
-\noindent \textbf{Limitations} Our heuristic is likely to fail if the user was typing
-using a Swype-like method (i.e. entering words by sliding a finger from
-the first letter of a word to its last letter) during video recording. In
-this case, our method will identify multiple video segments of which one may contain
-the pattern unlock process. If multiple segments are detected, the algorithm will ask the
-user to confirm which video segment to use.
-In this scenario, the first identified segment is likely to be the correct one.
-In practice, an experienced attacker would wait patiently to avoid this
-complicated situation by finding the right time for filming (e.g. for a screen
-lock, the time is just after the device is retrieved).
-The attacker could also watch the video to manually cut it to ensure the obtain the correct video segment.
-It is
-worthwhile to mention that automatically identifying the pattern unlocking process is
-not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
-Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
-
+    
     \begin{algorithm}[!t]
         \centering
         \caption{Unlocking process identification heuristic}
@@ -144,10 +89,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
             \STATE $<start, end> \leftarrow getTargetVideo(frames[],sNo,eNo)$
         \end{algorithmic}
     \end{algorithm}
-
-\subsection{Track fingertip locations}
-\label{section:tld}
-
+    
         \begin{figure*}[!t]
             \centering
             \subfigure{
@@ -184,6 +126,64 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
             \label{fig:fig5}
             %\vspace{-3mm}
         \end{figure*}
+
+\section{Implementation Details}
+
+\subsection{Video preprocessing \label{sec:identify}}
+\label{section:recognition}
+The first step of our attack is to identify the unlocking process from the
+video footage. While all our
+participants (see Section~\ref{section:locking patterns}) consider this as a straightforward manual task, we developed a \emph{simple yet effective} heuristic to automatically detect the video segment in some typical scenarios. Our heuristic is based on the following observations: (1) before or after
+unlocking, users often pause for a few seconds; (2) two consecutive on-screen operations (e.g. swiping, zooming etc.) typically expose some spatial-temporal motion characteristics.
+To test our hypothesis, we have recorded 50 video streams (where each
+video stream lasts around 2 minutes) of how ten of our participants drew
+patterns. During video recording, our participants firstly performed
+some on-screen activities such as web browsing and gaming as they wished;
+they then randomly opened up a pattern lock screen to draw a pattern and
+continued to perform other on-screen operations afterwards.
+We then analyzed frames that are associated with pattern drawing and those are not.
+
+
+Figure~\ref{fig:time-interval} shows that all our participants paused at least $1.5$ seconds before or after pattern drawing due to delay of the user or the device.
+%Our algorithm leverages this characteristic to locate the start and end point of unlocking process.
+We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
+These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
+Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c, e) and twice (b, d, f).
+This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more loop structures for which pattern drawing does not have.
+
+
+Our heuristic is described
+in Algorithm~\ref{alg:recognition}. The input to the algorithm is a video capturing the unlocking process, and the output of the
+algorithm is a time-stamp tuple, $<$start, end$>$, which marks the start and the end
+of a video segment.
+To locate the video segment of pattern drawing, we first filter out on-screen activities where the
+fingertip location does not change within a timeframe of 1.5 seconds (lines 4 and 11). This
+allows us to exclude some basic on-screen activities, such as clicking. We
+use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval. Here, a time
+interval of 1.5s translates to 45 frames or 90 frames when the video was shot
+at 30 or 60 frames per second (FPS) respectively. We also use the
+spatial-temporal characteristics described above to exclude two consecutive swiping or zooming gestures (line 8). Finally, we exploit the observation that users
+typically paused at least 1.5s before or after unlocking to locate the start
+and end points of pattern drawing (line 19).
+
+\noindent \textbf{Limitations} Our heuristic is likely to fail if the user was typing
+using a Swype-like method (i.e. entering words by sliding a finger from
+the first letter of a word to its last letter) during video recording. In
+this case, our method will identify multiple video segments of which one may contain
+the pattern unlock process. If multiple segments are detected, the algorithm will ask the
+user to confirm which video segment to use.
+In this scenario, the first identified segment is likely to be the correct one.
+In practice, an experienced attacker would wait patiently to avoid this
+complicated situation by finding the right time for filming (e.g. for a screen
+lock, the time is just after the device is retrieved).
+The attacker could also watch the video to manually cut it to ensure the obtain the correct video segment.
+It is
+worthwhile to mention that automatically identifying the pattern unlocking process is
+not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
+Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
+
+\subsection{Track fingertip locations}
+\label{section:tld}
 
         After cutting out the video segment of pattern drawing, we need to track the finger motions from the video segment. We achieve this by employing a video tracking algorithm called
         \emph{Tracking-Learning-Detection (TLD)}~\cite{kalal2012tracking}. This
@@ -256,6 +256,13 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \label{fig:camera_shake_illu}
        \vspace{-2mm}
          \end{figure*}
+         
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.45\textwidth]{fig/line_detection.pdf}
+    \caption{Filming angle calculation. The filming angle, $\theta$, is the angle between the edge line of the device and a vertical line.}
+    \label{fig:line_detection}
+\end{figure}
 
         \subsubsection{Camera Shake Calibration}
         \label{secction:shake}
@@ -297,12 +304,6 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \subsubsection{Noisy Points Calibration}
             During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract uncorrect geometric information of fingertip movement.
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{fig/line_detection.pdf}
-    \caption{Filming angle calculation. The filming angle, $\theta$, is the angle between the edge line of the device and a vertical line.}
-        \label{fig:line_detection}
-\end{figure}
 \subsection{Filming angle transformation}
 \label{sec:transformation}
 In practice, the filming camera will not directly face the target device to avoid the filming activity to be noticed by the user. As a result, the
