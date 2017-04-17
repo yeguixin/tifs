@@ -30,7 +30,7 @@
         \begin{figure}[!t]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/guess_prob.pdf}
-            \caption{How likely a pattern can be guessed in five attempts as the complex score increases. Patterns with a complex score that is greater than 13 are 
+            \caption{How likely a pattern can be guessed in five attempts as the complex score increases. Patterns with a complex score that is greater than 13 are
              unlikely to be guessed by an attacker within five attempts.}
             \label{fig:guessing-probability}
         \end{figure}
@@ -49,17 +49,17 @@
     intersections ($I_{P}$) and overlapping line segments ($O_{P}$) that a
     pattern has, the more complex it is. For example, the patterns shown in
     Figure~\ref{fig:fig8} (c) use all the nine dots of the grid, and have  at
-    least seven line segments and three intersections. 
+    least seven line segments and three intersections.
     There are other methods to quantify the complexity score of pattern locks, including the methods proposed by Song \emph{et al.} ~\cite{Song2015On} and Andriotis \emph{et al.}
-    ~\cite{Andriotis2014Complexity}. These methods in general suggest that patterns with more connected dots and intersections are considered to provide stronger security strengths~\cite{Heidt2016Refining}. 
-    
+    ~\cite{Andriotis2014Complexity}. These methods in general suggest that patterns with more connected dots and intersections are considered to provide stronger security strengths~\cite{Heidt2016Refining}.
+
 
     Figure~\ref{fig:guessing-probability} illustrates how the guessing probability\footnote{A guessing probability is
     how likely an attacker can successful guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
-    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength 
+    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength
     measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram, \FIXME{explain
     the diagram – e.g. what are primitive curve and logistic fit!}.
-    
+
     \vspace{2mm}
     \noindent \textbf{Pattern Grouping.}
     Base on the complexity score, we divide the collected patterns into three complexity categories: \emph{simple}, \emph{median} and \emph{complex}. A simple pattern has a score of less than 19,
@@ -79,14 +79,14 @@
             \centering
             \caption{Screen sizes for the test phones}
             \label{tab:locking-screen-size}
-            \scriptsize
-            \begin{tabular}{|c|c|c|c|}
+            \small
+            \begin{tabular}{cccc}
                 %\includegraphics[width=7.5cm]{fig/table1.pdf}
-                \hline
-                \diagbox[dir=SE]{Size}{Brands}& MI4 & Honor7 & Note4 \\
-                \hline
+                \toprule
+                \textbf{Screen size} & \textbf{MI4} & \textbf{Honor7} & \textbf{Note4} \\
+                \midrule
                 Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $14.3\times7.2$ & $15.4\times7.9$ \\
-                \hline
+                \bottomrule
             \end{tabular}
             %\vspace{-4mm}
     \end{table}

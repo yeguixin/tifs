@@ -1,83 +1,35 @@
-\documentclass[journal]{IEEEtran}
+\documentclass[journal,table]{IEEEtran}
 
-\pagestyle{plain}
-
-\usepackage[english,american]{babel}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{amsmath}
-\usepackage{multirow}
-\usepackage{multicol}
-\usepackage{float}
-\usepackage{algorithm}
-\usepackage{algorithmic}
-\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=blue]{hyperref}
-\usepackage{cite}
-\usepackage{balance}
-\usepackage{color}
-\usepackage[square,sort,comma,numbers]{natbib}
-\usepackage{url}
-\usepackage{diagbox}
-\usepackage{enumerate}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{indentfirst}
-\usepackage{booktabs}
-\usepackage{tikz}
-\usepackage{listings}
-\usepackage{etoolbox}
-\usepackage{setspace}
-
-
-
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-%\usepackage{setspace}
-%\usepackage{epsfig,graphics,subfigure,psfrag,amsmath,amssymb}
-\newcommand\FIXME[1]{\textcolor{red}{FIX:}\textcolor{red}{#1}}
-\newcommand\FIXED[1]{\textcolor{blue}{FIXED: }\textcolor{blue}{#1}}
-
-
-\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
-    {\node[shape = circle, draw, inner sep = 1pt]
-    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
-    \node at (char.center) {\makebox[0pt][c]{#2}};}}
-\robustify{\circled}
+\input{preamble}
 
 \begin{document}
 
-\title{Exploiting Video-side Channel for \\Android Pattern Lock}
-
-
+\title{A Video-side Channel Attack for Pattern Lock}
 \author{Guixin Ye, Zhanyong Tang, Dingyi Fang, Xiaojiang Chen,
         Willy Wolff, Adam J. Aviv and Zheng Wang
-\thanks{G. Ye, Z. Tang, D. Fang, and X. Chen are with Northwest University, China}%
-\thanks{Willy Wolf and Zheng Wang are with Lancaster University, U.K.}
-\thanks{Adam J. Aviv are with Naval Academy, U.S.A.}
-\thanks{
-Extension of Conference Paper: a preliminary version of this article entitled ``Cracking Android Pattern Lock
-in Five Attempts" by G. Ye, Z. Tang, D. Fang, X. Chen, K. Kim, B. Taylor and Z. Wang appeared in
-The Network and Distributed System Security Symposium (NDSS) 2017~\cite{ye2017cracking}.
-The extended version makes the following several additional contributions over the conference
-paper: \FIXED{(1) We approved our attacking method by simple variance and the variant method can crack PIN-based passwords with a high success rate. (2) We proposed a countermeasure which can effectively defense the pattern against video-based attacks.}
-}
+        
+    \thanks{G. Ye, Z. Tang, D. Fang, and X. Chen are with Northwest University, China}%
+    \thanks{Willy Wolf and Zheng Wang are with Lancaster University, U.K.}
+    \thanks{Adam J. Aviv is with Naval Academy, U.S.A.}
+    
+    \thanks{
+            Extension of Conference Paper: a preliminary version of this article entitled ``Cracking Android Pattern Lock
+            in Five Attempts" by G. Ye, Z. Tang, D. Fang, X. Chen, K. Kim, B. Taylor and Z. Wang appeared in
+            The Network and Distributed System Security Symposium (NDSS) 2017~\cite{ye2017cracking}.
+            The extended version makes the following several additional contributions over the conference
+            paper: \FIXME{This should be more detailed with section numbers.}
+    }
 }
 
 
 % The paper headers
 \markboth{IEEE Transactions on Information Forensics and Security}%
-{Ye \MakeLowercase{\textit{et al.}}: Video-side Channel Attack for Android Pattern Lock}
+{Ye \MakeLowercase{\textit{et al.}}: A Video-side Channel Attack for Pattern Lock}
 
-% make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
-\begin{abstract}
-    Pattern lock is widely used as a mechanism for authentication and authorization on Android devices. This paper presents a novel video-based attack to reconstruct Android lock patterns from video footage filmed using a mobile phone camera. Unlike prior attacks on pattern lock, our approach does not require the video to capture ant content displayed on the screen. Instead, we employ a computer vision algorithm to track the fingertip movements to infer the pattern. Using the geometry information extracted from the tracked fingertip motions, our approach is able to accurately identify a small number of (often one) candidate patterns to be tested by an adversary. We thoroughly evaluated our approach using 120 unique patterns collected from 215 independent users, by applying it to reconstruct patterns from video footage filmed using mobile phone cameras. Experimental results show that our approach can break over 95\% of the patterns in five attempts before the device is automatically locked by the Android operating system. We discovered that, in contrast to many people's belief, complex patterns do not offer stronger protection under our attacking scenarios. This is demonstrated by the fact that we are able to break all but one complex patterns as opposed to 60\%of the simple patterns in the first attempt. Since our threat model is common in day-to-day life, this paper calls for the community to revisit the risks of using Android pattern lock to protect sensitive information.
-\end{abstract}
+\input{abstract}
 
-% Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
     Pattern lock, Fingertip movement, Video-based attack, Sensitive information.
 \end{IEEEkeywords}
@@ -100,13 +52,10 @@ paper: \FIXED{(1) We approved our attacking method by simple variance and the va
   \newpage
 \fi
 
-
-
 \bibliographystyle{IEEEtranS}
 \balance
 \bibliography{refs}
 
-% that's all folks
 \end{document}
 
 

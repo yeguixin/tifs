@@ -52,35 +52,34 @@
         \begin{figure*}[!ht]
             \centering
             \subfigure{
-                \begin{minipage}[b]{3.8cm}
-                \includegraphics[width=3.8cm]{fig/distance-2m.pdf}\\
-                \centering \footnotesize (a)
+                \begin{minipage}[b]{0.23\textwidth}
+                \includegraphics[width=\textwidth]{fig/distance-2m.pdf}\\
+                \centering  (a)
                 \end{minipage}
             }
-            \hspace{0.2cm}
+            \hfill
             \subfigure{
-                \begin{minipage}[b]{3.8cm}
-                \includegraphics[width=3.8cm]{fig/distance-3m.pdf}\\
-                \centering \footnotesize (b)
+                \begin{minipage}[b]{0.23\textwidth}
+                \includegraphics[width=\textwidth]{fig/distance-3m.pdf}\\
+                \centering  (b)
                 \end{minipage}
             }
-            \hspace{0.2cm}
+            \hfill
             \subfigure{
-                \begin{minipage}[b]{3.8cm}
-                \includegraphics[width=3.8cm]{fig/distance-3-5m.pdf}\\
-                \centering \footnotesize (c)
+                \begin{minipage}[b]{0.23\textwidth}
+                \includegraphics[width=\textwidth]{fig/distance-3-5m.pdf}\\
+                \centering  (c)
                 \end{minipage}
             }
-            \hspace{0.2cm}
+            \hfill
             \subfigure{
-                \begin{minipage}[b]{3cm}
-                \includegraphics[width=3cm]{fig/distance-pattern.pdf}\\
-                \centering \footnotesize (d)
+                \begin{minipage}[b]{0.19\textwidth}
+                \includegraphics[width=\textwidth]{fig/distance-pattern.pdf}\\
+                \centering  (d)
                 \end{minipage}
             }
-                \vspace{-3mm}
+             
             \caption{Tracked fingertip trajectories (user's perspective) for the pattern shown in (d) from a video filmed from a distance of 2m (a), 3m (b), and 3.5m (c) respectively away from the target device. The tracking quality decreases when the filming distance is greater than 3m. }
-            \vspace{-3mm}
             \label{fig:distance-show}
         \end{figure*}
 
@@ -298,9 +297,9 @@
     patterns from each of the three pattern categories). We used three
     recording devices: IPhone6, Xiaomi MI4, Vivo X7 and Samsung Note4 to
     record the video footage. The target devices are a Huawei Honor7, a
-    Samsung Galaxy Tablet, and an IPhone4S\footnote{Participants draw
-    patterns on the login interface of Alipay installed on the phone as iOS
-    does not support pattern lock natively.}. The filming distance is 2
+    Samsung Galaxy Tablet, and an IPhone4S\footnote{For iOS, participants are asked
+    to draw  patterns on the login interface of Alipay as iOS
+    currently does not support pattern lock natively.}. The filming distance is 2
     meters from target device. Table~\ref{tab:screen-size} gives the screen
     size of each device, which ranges from 3.5 \emph{inch} (IPhone4S) to
     9.6 \emph{inch} (Samsung Tablet). Table~\ref{tab:camera-parameters} lists
@@ -362,13 +361,13 @@
         \subfigure{
              \begin{minipage}[t]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{fig/screen_size.pdf}\\
-                \centering \footnotesize (a) screen size
+                \centering  (a) screen size
              \end{minipage}
         }
         \subfigure{
              \begin{minipage}[t]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{fig/camera_brands.pdf}\\
-                \centering \footnotesize (b) camera brands
+                \centering  (b) camera brands
              \end{minipage}
         }
         \caption{The cracking success rate for different target screen sizes and filming cameras. }
@@ -380,14 +379,14 @@
             \subfigure{
                 \begin{minipage}[t]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{fig/look-video.pdf}\\
-                \centering \footnotesize (a) video watching
+                \centering  (a) video watching
                 \end{minipage}
             }
             \hspace{0.2cm}
             \subfigure{
                 \begin{minipage}[t]{0.45\textwidth}
                 \includegraphics[width=\textwidth]{fig/look-finger.pdf}\\
-                \centering \footnotesize (b) direct observations
+                \centering  (b) direct observations
                 \end{minipage}
             }
             \vspace{-2mm}
@@ -475,17 +474,17 @@
             \subfigure{
                 \begin{minipage}[t]{0.20\textwidth}
                 \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
-                \centering \footnotesize (a) pattern-based interface
+                \centering  (a) pattern-based interface
                 \end{minipage}
             }
             \hspace{0.2cm}
             \subfigure{
                 \begin{minipage}[t]{0.20\textwidth}
                 \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
-                \centering \footnotesize (b) pin-based interface
+                \centering  (b) pin-based interface
                 \end{minipage}
             }
-            \caption{Pattern-based and pin-based authentication interfaces from Xiaomi MI4 phone.}
+            \caption{Pattern- (a) and pin-based (b) authentication interfaces.}
             \label{fig:unlock interface}
         \end{figure}
 
@@ -510,13 +509,13 @@
         \subfigure{
              \begin{minipage}[t]{0.22\textwidth}
                 \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
-                \centering \footnotesize (a) password: 1234
+                \centering  (a) password: 1234
              \end{minipage}
         }
         \subfigure{
              \begin{minipage}[t]{0.22\textwidth}
                 \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
-                \centering \footnotesize (b) password: 3570
+                \centering  (b) password: 3570
              \end{minipage}
         }
         \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
@@ -525,24 +524,20 @@
 
     \begin{table}[!t]
             \centering
-            \caption{PIN-based passwords used in subsection \emph{I}}
+            \caption{PIN-based passwords used in our experiments}
             \label{tab:PIN-based passwords}
-            %\scriptsize
-            \begin{tabular}{cccccc}
+            \small
+            \begin{tabular}{llllll}
                 \toprule
-                \multicolumn{6}{c}{Commonly Used Passwords} \\
+                Category & \multicolumn{5}{l}{PIN-based Passwords}\\
                 \midrule
-                1234 & 1111 & 1212 & 1004 & 2000 & 6969 \\
-                \midrule
-                4321 & 1122 & 2001 & 2580 & 1357 & 2468  \\
-                \toprule
-                \multicolumn{6}{c}{Randomly Generated Passwords} \\
-                \midrule
-                1205 & 3570 & 0729 & 3719 & 9867 & 5946  \\
-                \midrule
-                3451 & 7403 & 2209 & 3560 & 1043 & 4628  \\
-                \midrule
-                5372 & 2830 & 7102 & 6193 & 2941 & 3471  \\
+                \rowcolor{gray!10}  & 1234 & 1111 & 1212 & 1004 & 2000 \\
+                \rowcolor{gray!10}  & 6969 & 4321 & 1122 & 2001 & 2580 \\
+               \rowcolor{gray!10}   \multirow{-3}{*}{Commonly used PINs} & 1357 & 2468 &      &      & \\
+                                    & 1205 & 3570 &  0729 & 3719 & 9867 \\
+                                    & 5946 & 3451 &  7403 & 2209 & 3560 \\
+                                    & 1043 & 4628 & 5372  & 2830 & 7102 \\
+               \multirow{-4}{*}{Randomly generated PINs} & 6193 & 2941 & 3471  &      & \\
                 \bottomrule
             \end{tabular}
     \end{table}
@@ -556,11 +551,11 @@
         pattern lock. The later difference requires us to identify dots that
         have been visited multiple times.  Our preliminary experiments
         suggest that we can reconstruct the trajectory of PIN-based password
-        by connecting the touching points\footnote{Touching points are those
-        points that tracked when the user fingertip touches the screen.}. We
+        by connecting the touching points\footnote{Touching points are the
+        points that are tracked when the user's fingertip touches the screen.}. We
         can obtain the location of touching point by tracking the up-and-down
         motion direction of the fingertip. This is inspired by the prior work
-        conducted by Shukla {et al.}~\cite{shukla2014beware}. To reconstruct
+        conducted by Shukla~\emph{et al.}~\cite{shukla2014beware}. To reconstruct
         PIN-based passwords, our attacking method records some additional
         geometric information, including the direction and length
         information. Figure~\ref{fig:pins_trajectory} shows the reconstructed
@@ -573,7 +568,7 @@
         \label{fig:pin_results}
     \end{figure}
 
-        \noindent \textbf{Results} Figure~\ref{fig:pin_results} shows the
+        Figure~\ref{fig:pin_results} shows the
         results of applying our attacking method to PIN-based passwords.
         Using first attempt, the success rate is  53.3\% because most of
         evaluated passwords have two or more candidate patterns. However, the
@@ -598,11 +593,11 @@ described in Section~\ref{secction:shake}, this is essential for calculating the
 camera shake calibration. An interesting question to ask is can we relax this requirement, i.e., how will the attack
 perform if the video footage only captures the user's fingertip. If our findings
 suggest that the success of the attack requires seeing part of the device, a potential countermeasure is to educate users to cover their devices when entering their patterns.
-As a limited study, in this experiment we ensure the video only capture user's fingertip. This study is performed on 20 patterns randomly selected by our participants. 
+As a limited study, in this experiment we ensure the video only capture user's fingertip. This study is performed on 20 patterns randomly selected by our participants.
 
-Figure~\ref{fig:finger-only} shows the success rate of our attacking method is low when the device is not seen in the video footage. 
+Figure~\ref{fig:finger-only} shows the success rate of our attacking method is low when the device is not seen in the video footage.
 This is large due to the fact the negative impact of the camera shake on tracking fingertip movement trajectory (see also Section~\ref{secction:shake}).
-With only the fingertip location, the attacking method fails to cancel the camera shake effect, leading to low quality fingertip movement trajectory 
+With only the fingertip location, the attacking method fails to cancel the camera shake effect, leading to low quality fingertip movement trajectory
 which in turn translates to a poor success rate (less than 50\%, 30\% and 20\% for simple, medium and complex patterns respectively).
 
     \begin{figure}[!t]
@@ -612,4 +607,3 @@ which in turn translates to a poor success rate (less than 50\%, 30\% and 20\% f
         \label{fig:finger-only}
     \end{figure}
 
-    

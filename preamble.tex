@@ -1,0 +1,43 @@
+\pagestyle{plain}
+
+\usepackage[table]{xcolor}
+\usepackage[english,american]{babel}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[colorlinks, linkcolor=black, anchorcolor=black, citecolor=blue]{hyperref}
+\usepackage{cite}
+\usepackage{balance}
+\usepackage{color}
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{url}
+\usepackage{diagbox}
+\usepackage{enumerate}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{etoolbox}
+\usepackage{setspace}
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%\usepackage{setspace}
+%\usepackage{epsfig,graphics,subfigure,psfrag,amsmath,amssymb}
+\newcommand\FIXME[1]{\textcolor{red}{FIX:}\textcolor{red}{#1}}
+\newcommand\FIXED[1]{\textcolor{blue}{FIXED: }\textcolor{blue}{#1}}
+
+
+\newcommand{\circled}[2][]{\tikz[baseline=(char.base)]
+    {\node[shape = circle, draw, inner sep = 1pt]
+    (char) {\phantom{\ifblank{#1}{#2}{#1}}};%
+    \node at (char.center) {\makebox[0pt][c]{#2}};}}
+\robustify{\circled}
