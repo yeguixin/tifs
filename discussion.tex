@@ -1,19 +1,9 @@
-    \begin{figure}[!t]
-        \centering
-        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
-        \caption{Success rate without seeing the phone screen.}
-        \label{fig:finger-only}
-    \end{figure}
+
 
 \section{Discussions}
 
-\subsection{Limited Study}
-
-\FIXED{In our attacking scenarios, we assume the user's finger and phone screen can be seen in the video captured by the attacker. We belief this is a weak assumption because the attacker can film how the user draw at any view angle. However,  given in some scenarios such as in the right front of the user, it's only sees the finger in the unlock video footage. So it's worth to discuss how our algorithm performs in this situation. To do this, we have ask our participants to randomly select 20 pattern locks at each complexity category. We deliberately control to only film the user's finger during capturing unlocking videos.}
-
-\FIXED{Figure~\ref{fig:finger-only} presents the success rate is quite low when the touch screen does not seen in the unlock video footage. This arises from camera shake. Our algorithm can effectively decrease the impact of camera shake through tracking two interested of areas as described in Section~\ref{secction:shake}. However, our algorithm can only track one area (fingertip area) in this experiment as the touch screen can not be seen in the unlock video. This makes our algorithm not cancel the camera shake which leads to low cracking success rate.}
-
-    \begin{figure}[!t]
+\subsection{Countermeasure Discussions}
+\begin{figure}[!t]
         \centering
         \subfigure{
              \begin{minipage}[t]{0.11\textwidth}
@@ -35,11 +25,16 @@
                 \centering \footnotesize (c)
              \end{minipage}
         }
-        \caption{Examples of the variant pattern lock mechanism for defending against the video-based attacks. The patterns with the solid lines are the correct pattern. Before or after correct pattern, user can draw a random pattern shown in (b) and (c) with dash lines. (a) shows that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern in order to confuse the attacker.}
+        \caption{Examples of the variant pattern lock mechanism for defending against our video-based attack. Here the patterns with the solid lines are the true pattern. 
+        Before or after drawing the true pattern, the user can draw a random pattern shown in (b) and (c), which are marked with dash lines. 
+        \FIXME{What are the solid lines at (b) and (c)?}
+        (a) shows that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern in order to confuse the attacker.
+        \FIXME{Have no idea of what the last sentence is talking about.}
+        }
         \label{fig:protection}
     \end{figure}
 
-\subsection{Countermeasure Discussions}
+
 
 The success of our attack depends on three factors: (1)
 knowledge of the pattern grid; (2) a decent
@@ -79,16 +74,33 @@ many times a day.
 
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
 
-\subsection{Our Countermeasure for Video Filming}
-We propose a prototype countermeasure to make it hard to obtain a meaningful video footage.
-Our approach is simple -- before or after drawing the correct pattern, the user is asked to draw a random pattern to confuse the attacker. In other words, if the pattern drawn by user contains the correct pattern, the system will accept the pattern. To this end, we relax the rules for creating a pattern to allow a touching dot to be visited multiple times. Further, for purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.
+\subsection{A Potential Countermeasure}
+We propose a countermeasure to make it hard to obtain a meaningful video footage. 
+When design the approach, we try to find a balance between the usability and the security. 
+Our approach is simple --
+before or after drawing the correct pattern, the user is asked to draw a random pattern to confuse the attacker. In
+other words, if the pattern drawn by user contains the true pattern, the system will accept the pattern. To this
+end, we relax the rules for creating a pattern to allow a touching dot to be visited multiple times. Further, for
+purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be
+bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.
 
 
-Figure~\ref{fig:protection} shows some patterns drawn using our redesign method. We have our participants if they think these rules decrease
-the usability  of the pattern lock and the answer from the all 10 participants is negative (i.e., does not decrease the usability).
-However, our simple countermeasure will make it harder to launch the attack as the adversary will now need to
-identify which part of the drawing is the correct pattern.% \FIXME{Perhaps some experimental results on this.}
-\FIXED{To prove this, we use our attacking method to reconstruct 30 patterns generated by the redesign method. Only two patterns are cracked by the attacking method as they have little difference with the patterns generated by current pattern locking mechanism.}
+Figure~\ref{fig:protection} gives some pattern examples generated using our rules. We also asked our participants if they feel these rules decrease
+the usability. The answers from the all 10 participants are negative (i.e., they do not think this method decrease the usability).
+We believe our countermeasure makes it harder to launch the attack as the adversary will now need to
+identify which part of the drawing is the true pattern. 
+To prove hypothesis, we applied our attacking method to reconstruct 30 patterns generated by this new pattern lock design. 
+Our experiment show that only two out of the 30 patterns can be cracked by our attacking method.
+After having a close look of the two successful cracked patterns, we found that they have little difference with the true patterns. 
+This experiment confirms that the introduction of randomness can improve the pattern lock security under video-side channel attacks. 
+
+It is worth mentioning that our countermeasure is not a panacea. In fact, finding a balance between the
+usability and security for graphical passwords remains an open problem\FIXME{\cite{}}.
+Even with our countermeasure, an attacker can still use multiple videos that record the same user when doing pattern
+drawing to find the common pattern structure (which will likely to be the true pattern). Therefore, while our
+countermeasure is simple to implement and can increase the overhead for performing the attack, an experienced
+adversary could still successfully launch the attack.
+
 
 %Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
 

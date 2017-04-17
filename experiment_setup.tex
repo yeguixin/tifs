@@ -30,7 +30,8 @@
         \begin{figure}[!t]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/guess_prob.pdf}
-            \caption{The guessing probability of complexity scores for the patterns given by our participants.}
+            \caption{How likely a pattern can be guessed in five attempts as the complex score increases. Patterns with a complex score that is greater than 13 are 
+             unlikely to be guessed by an attacker within five attempts.}
             \label{fig:guessing-probability}
         \end{figure}
 
@@ -48,10 +49,19 @@
     intersections ($I_{P}$) and overlapping line segments ($O_{P}$) that a
     pattern has, the more complex it is. For example, the patterns shown in
     Figure~\ref{fig:fig8} (c) use all the nine dots of the grid, and have  at
-    least seven line segments and three intersections. %%However, we found
-    \FIXED{Like the pattern meter method proposed in~\cite{sun2014dissecting}, Song Meter~\cite{Song2015On} and Andriotis Meter~\cite{Andriotis2014Complexity} also tried to measure the complexity score of pattern locks. They have the same conclusion that more complex structure makes the pattern more complex. We illustrate this using Aviv's guessing metrics algorithm~\cite{Heidt2016Refining} to guess our collected pattern locks. Figure~\ref{fig:guessing-probability} shows the guessing probability of these patterns. It indicates that more complex patterns are hard to guess, which accords with most people's beliefs.}
+    least seven line segments and three intersections. 
+    There are other methods to quantify the complexity score of pattern locks, including the methods proposed by Song \emph{et al.} ~\cite{Song2015On} and Andriotis \emph{et al.}
+    ~\cite{Andriotis2014Complexity}. These methods in general suggest that patterns with more connected dots and intersections are considered to provide stronger security strengths~\cite{Heidt2016Refining}. 
+    
 
-
+    Figure~\ref{fig:guessing-probability} illustrates how the guessing probability\footnote{A guessing probability is
+    how likely an attacker can successful guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
+    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength 
+    measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram, \FIXME{explain
+    the diagram – e.g. what are primitive curve and logistic fit!}.
+    
+    \vspace{2mm}
+    \noindent \textbf{Pattern Grouping.}
     Base on the complexity score, we divide the collected patterns into three complexity categories: \emph{simple}, \emph{median} and \emph{complex}. A simple pattern has a score of less than 19,
     a median
     complex pattern has a score between 19 and 33, and a complex pattern must have a score greater than 33. This classification gives us roughly 40 patterns per
@@ -82,18 +92,19 @@
     \end{table}
 
     \subsection{Video Recording and Preprocessing}
-    \noindent\textbf{Recording Devices} We used three smartphones for video recording: an Apple iPhone4S,
+    \noindent\textbf{Recording Devices.} We used three smartphones for video recording: an Apple iPhone4S,
      a Xiaomi MI4 and a Meizu2 phones. Each mobile phone was used to record 40 patterns with a
     1080p HD resolution of 30 FPS under different settings.
 
-    \noindent\textbf{User Participation} We recruited ten postgraduate students (five male and five female
+    \vspace{2mm}
+    \noindent\textbf{User Participation.} We recruited ten postgraduate students (five male and five female
     students) from our institution to reproduce the 120 patterns (collected from the users)
     and the 60 most complex patterns (see Section~\ref{sec:overall_rate})  on three target mobile phones:
     a Xiaomi MI4, a Huawei Honor7 and a Samsung Note4 smartphones. Table~\ref{tab:locking-screen-size} lists
     the screen size for each target mobile phone.
 
-
-   \noindent\textbf{Video Recording Setup}
+    \vspace{2mm}
+   \noindent\textbf{Video Recording Setup.}
     By default, we used the  Android $3 \times 3$ native pattern grid,
     but we evaluated our approach using other pattern grids with different sizes in
     Section~\ref{sec:scalability}. We recorded each pattern under three filming
@@ -106,7 +117,8 @@
     2 meters from the target device and we evaluated the impact of the filming distance in
     Section~\ref{sec:scalability}.
 
-    \noindent \textbf{Video Filming}
+    \vspace{2mm}
+    \noindent \textbf{Video Filming.}
      Before recording, our participants were given the opportunity to practice a pattern
     several times, so that they can draw the pattern at
     their natural speed. On average, this practice session took 10 trails per user per pattern.
@@ -116,7 +128,8 @@
     Each pattern was drawn on three target devices and
     recorded under three filming angles. Thus, for the 120 patterns collected from users, we recorded 1,080 videos in total.
 
-    \noindent\textbf{Video Preprocessing}
+    \vspace{2mm}
+    \noindent\textbf{Video Preprocessing.}
     For each video stream, we used the algorithm described in Section~\ref{sec:identify} to cut out the video segment
     of the unlocking process. We left around 200 to 300 milliseconds of the video segment before and after the pattern unlocking process.
     To track the fingertip locations,
@@ -124,7 +137,8 @@
     the video segment: one area surrounds the fingertip, and the other contains an edge of the
     phone (see Section~\ref {secction:shake}).
 
-   \noindent\textbf{Implementation} Our prototyped attacking system built upon a TLD library~\cite{TLD-toolbox-web}.
+    \vspace{2mm}
+   \noindent\textbf{Implementation.} Our prototyped attacking system built upon a TLD library~\cite{TLD-toolbox-web}.
     The developed software ran on an Intel Core i5 PC with
     8GB RAM. The operating system is Windows 10. Our implementation can be ported onto
     Android or Apple iOS systems, which is our future work. On our evaluation
