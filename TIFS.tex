@@ -7,17 +7,23 @@
 \title{A Video-side Channel Attack for Pattern Lock}
 \author{Guixin Ye, Zhanyong Tang, Dingyi Fang, Xiaojiang Chen,
         Willy Wolff, Adam J. Aviv and Zheng Wang
-        
+
     \thanks{G. Ye, Z. Tang, D. Fang, and X. Chen are with Northwest University, China}%
     \thanks{Willy Wolf and Zheng Wang are with Lancaster University, U.K.}
     \thanks{Adam J. Aviv is with Naval Academy, U.S.A.}
-    
+
     \thanks{
             Extension of Conference Paper: a preliminary version of this article entitled ``Cracking Android Pattern Lock
             in Five Attempts" by G. Ye, Z. Tang, D. Fang, X. Chen, K. Kim, B. Taylor and Z. Wang appeared in
             The Network and Distributed System Security Symposium (NDSS) 2017~\cite{ye2017cracking}.
             The extended version makes the following several additional contributions over the conference
-            paper: \FIXME{This should be more detailed with section numbers.}
+            paper: (1) it analyzes the guessing probability of patterns collected from our participants (figure~\ref{fig:guessing-probability} and section~\ref{section: pattern-complexity-classification});
+            (2) it presents how the screen size and cameras of phones impact on the success rate (table~\ref{tab:camera-parameters}, table~\ref{tab:screen-size}, figure~\ref{fig:screen_size} and section~\ref{section: screen-size and cameras});
+            (3) it gives a variant attack method that can crack PIN-base passwords (figure~\ref{fig:unlock interface}, figure~\ref{fig:pins_trajectory}, figure~\ref{fig:pin_results}, table~\ref{tab:PIN-based passwords} and section~\ref{section: attacking-pin-passwords});
+            (4) it includes new experiment results on relax some requirements to test the effectiveness of our cracking method (figure~\ref{fig:finger-only} and section~\ref{section: limited-study});
+            (5) it gives a potential countermeasure for defending against video-based attacks (figure~\ref{fig:protection} and section~\ref{section: potential-remedy});
+            (6) it gives some recent research works on Android pattern lock (section~\ref{section: relate-work}).
+            %\FIXME{This should be more detailed with section numbers.}
     }
 }
 
