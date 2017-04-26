@@ -254,7 +254,6 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         %\vspace{-3mm}
         \caption{The resulted fingertip movement trajectories without (a) and with (b) camera-shake calibration.  The correct pattern is shown in (c). To aid clarity we have transformed (a) and (b) to the user's perspective.}
         \label{fig:camera_shake_illu}
-       \vspace{-2mm}
          \end{figure*}
 
 \begin{figure}[!t]
@@ -267,7 +266,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \subsubsection{Camera Shake Calibration}
         \label{secction:shake}
          By default, the TLD algorithm reports the position of a tracked object with respect to the top-left pixel of the video frame.
-         However, videos recorded by a hand-held device \FIXED{are} not always perfectly steady due to
+         However, videos recorded by a hand-held device are not always perfectly steady due to
         camera shake. As a result, the top-left pixel of a video frame may appear in a different location in later frames.
         This can drastically affect the precision of fingertip localization, leading to misidentification of patterns.
 
@@ -331,8 +330,8 @@ Based on the estimated filming angle, $\theta$, we use the following formula to 
         S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
 \end{equation}
 
-\FIXED{Where} $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
-For each video frame, our algorithm individually calculates the filming angle and \FIXED{performs} the transformation, because the filming angle may change across video frames.
+where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
+For each video frame, our algorithm individually calculates the filming angle and performs the transformation, because the filming angle may change across video frames.
 
 
 \subsection{Identify and rank candidate patterns}
@@ -404,15 +403,15 @@ For each video frame, our algorithm individually calculates the filming angle an
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[b]{0.218\textwidth}
+                \begin{minipage}[b]{0.35\textwidth}
                 \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
                 \centering  (a) overlapping lines
                 %\FIXME{Need to mark the starting point and turning point}
                 \end{minipage}
             }
-            \hspace{0.2cm}
+            \hfill
             \subfigure{
-                \begin{minipage}[b]{0.21\textwidth}
+                \begin{minipage}[b]{0.35\textwidth}
                 \includegraphics[width=\textwidth]{fig/line-identification2.pdf}\\
                 \centering  (b) zoom-in view
                 \end{minipage}
@@ -704,7 +703,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         This is an \emph{automatic} process performed by our software system without any user involvement.
        We consider two line segments having the same length and slope if the difference between them is less
        than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
-       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to \FIXED{choose} the best performing values.
+       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to choose the best performing values.
 
        \vspace{2mm}
        \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to

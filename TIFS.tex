@@ -17,13 +17,26 @@
             in Five Attempts" by G. Ye, Z. Tang, D. Fang, X. Chen, K. Kim, B. Taylor and Z. Wang appeared in
             The Network and Distributed System Security Symposium (NDSS) 2017~\cite{ye2017cracking}.
             The extended version makes the following several additional contributions over the conference
-            paper: (1) it analyzes the guessing probability of patterns collected from our participants (figure~\ref{fig:guessing-probability} and section~\ref{section: pattern-complexity-classification});
-            (2) it presents how the screen size and cameras of phones impact on the success rate (table~\ref{tab:camera-parameters}, table~\ref{tab:screen-size}, figure~\ref{fig:screen_size} and section~\ref{section: screen-size and cameras});
-            (3) it gives a variant attack method that can crack PIN-base passwords (figure~\ref{fig:unlock interface}, figure~\ref{fig:pins_trajectory}, figure~\ref{fig:pin_results}, table~\ref{tab:PIN-based passwords} and section~\ref{section: attacking-pin-passwords});
-            (4) it includes new experiment results on relax some requirements to test the effectiveness of our cracking method (figure~\ref{fig:finger-only} and section~\ref{section: limited-study});
-            (5) it gives a potential countermeasure for defending against video-based attacks (figure~\ref{fig:protection} and section~\ref{section: potential-remedy});
-            (6) it gives some recent research works on Android pattern lock (section~\ref{section: relate-work}).
-            %\FIXME{This should be more detailed with section numbers.}
+            paper, providing new insights to the original paper:
+            
+            
+            (1)	It quantifies the strength of locking patterns using the guessing probability, showing that traditional approaches for quantify the pattern lock security is unreliable under video-side channel attacks (section~\ref{section: pattern-complexity-classification});
+            
+            
+            (2)	It provides new evaluations to understand the impact of the screen size and camera on the success rate of the attack (section~\ref{section: screen-size and cameras});
+            
+            
+            (3)	It extends the attacking method to break PIN-based passwords, demonstrating the applicability of the attack on PIN-based passwords (section~\ref{section: attacking-pin-passwords});
+            
+            
+            (4)	It includes a limited study to evaluate the effectiveness of the attack, where the video footage only captures he fingertip (section~\ref{section: limited-study});
+            
+            
+            (5)	It proposes a simple, yet effective countermeasure. By making some simple modifications to the way a pattern lock is generated, the success rate of the attack will drop significantly (section~\ref{section: potential-remedy});
+           
+           
+            (6)	It extends the related work section to discuss some of the recent studies on the security of Android pattern lock (section~\ref{section: relate-work}).
+
     }
 }
 
