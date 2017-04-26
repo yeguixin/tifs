@@ -176,7 +176,7 @@ In this scenario, the first identified segment is likely to be the correct one.
 In practice, an experienced attacker would wait patiently to avoid this
 complicated situation by finding the right time for filming (e.g. for a screen
 lock, the time is just after the device is retrieved).
-The attacker could also watch the video to manually cut it to ensure the obtain the correct video segment.
+The attacker could also watch the video to manually cut it to ensure \FIXED{to} obtain the correct video segment.
 It is
 worthwhile to mention that automatically identifying the pattern unlocking process is
 not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
@@ -267,7 +267,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \subsubsection{Camera Shake Calibration}
         \label{secction:shake}
          By default, the TLD algorithm reports the position of a tracked object with respect to the top-left pixel of the video frame.
-         However, videos recorded by a hand-held device is not always perfectly steady due to
+         However, videos recorded by a hand-held device \FIXED{are} not always perfectly steady due to
         camera shake. As a result, the top-left pixel of a video frame may appear in a different location in later frames.
         This can drastically affect the precision of fingertip localization, leading to misidentification of patterns.
 
@@ -276,7 +276,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         areas from each video frame. One area is an edge of the device and
         the other is the fingertip. Both areas are highlighted on the
         first frame by the user.
-        The location of a successfully tracked fingertip is reported as the
+        The location of a successfully tracked fingertip is reported as
         the relative coordinates of the two center points of the marked areas.
         This approach can also be used to calibrate the slight movements of the target device when drawing the pattern.
 
@@ -302,7 +302,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         alike the correct pattern.
 
         \subsubsection{Noisy Points Calibration}
-            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract uncorrect geometric information of fingertip movement.
+            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract \FIXED{incorrect} geometric information of fingertip movement.
 
 \subsection{Filming angle transformation}
 \label{sec:transformation}
@@ -331,8 +331,8 @@ Based on the estimated filming angle, $\theta$, we use the following formula to 
         S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
 \end{equation}
 
-where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
-For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
+\FIXED{Where} $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
+For each video frame, our algorithm individually calculates the filming angle and \FIXED{performs} the transformation, because the filming angle may change across video frames.
 
 
 \subsection{Identify and rank candidate patterns}
@@ -357,7 +357,7 @@ For each video frame, our algorithm individually calculates the filming angle an
             \centering  (b) pattern example
             \end{minipage}
         }
-        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the the starting point and points A, B, C, and D on (b) represent four turning points.}
+        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the starting point and points A, B, C, and D on (b) represent four turning points.}
         \label{fig:fig6}
     \end{figure}
 
@@ -430,7 +430,7 @@ For each video frame, our algorithm individually calculates the filming angle an
                 \end{minipage}
             }
             \subfigure{
-                \begin{minipage}[t]{0.39\textwidth}
+                \begin{minipage}[t]{0.35\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
                 \centering (b) numbering line segment of the tracked trajectory
                 \end{minipage}
@@ -704,7 +704,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         This is an \emph{automatic} process performed by our software system without any user involvement.
        We consider two line segments having the same length and slope if the difference between them is less
        than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
-       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to chose the best performing values.
+       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to \FIXED{choose} the best performing values.
 
        \vspace{2mm}
        \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to

@@ -138,7 +138,7 @@
            pattern locks and we varied the
            filming distance from 1 meter to 3.5 meters.
            Figure~\ref{fig:fig12} shows how the cracking success rate changes
-           as the filming distance increases. There is slight differences in the success rate between this diagram and Figure~\ref{fig:fig10}
+           as the filming distance increases. There \FIXED{are} slight differences in the success rate between this diagram and Figure~\ref{fig:fig10}
             because we used less patterns in this experiment.
            When the filming distance is less than 2 meters, our approach can crack all patterns in five attempts.
            The success rate drops significantly when
@@ -228,28 +228,13 @@
         \label{fig:fig15}
     \end{figure}
 
-       \begin{table}[!t]
-            \centering
-            \caption{Lighting Conditions}
-            \label{tab:light}
-            \scriptsize
-            \begin{tabular}{lcccc}
-                \toprule
-                \textbf{Scenarios} & Indoor  & Indoor & Indoor  & Outdoor\\
-                \midrule
-                \textbf{Time} & nighttime &  nighttime & daytime & daytime \\
-                \textbf{Light Source}& warm LED & white fluorescent & sunlight &  sunlight \\
-                \textbf{Light Intensity (Lux)} & $55-70$ & $70-100$ & $150$--$240$ & $500$--$9500$ \\
-                \bottomrule
-            \end{tabular}
-        \end{table}
 
     \subsection{Impact of Lighting Conditions \label{sec:light}}
     \noindent \textbf{Result 4:} \emph{Low-light has a negative impact on the success rate of the attack but our approach can still break over 70\% of the patterns when the video was filmed in a low-light environment.}
 
     In this experiment, videos were recorded under different lighting conditions both indoor and outdoor.
     The experimental settings are given in  Table~\ref{tab:light}.
-    The light intensity of these condidtions ranges from 9500
+    The light intensity of these \FIXED{conditions} ranges from 9500
     lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
     These represent some of the day-to-day scenarios where filming can
     take place. For each setting, we asked each of our 10 participants to draw all collected 120 patterns on a Xiaomi MI4 phone. We used
@@ -286,10 +271,27 @@
     be incorrectly labelled for \emph{simple}, \emph{median} and
     \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when there is
     an error of 10 degrees.
+    
+
+       \begin{table}[!t]
+            \centering
+            \caption{Lighting Conditions}
+            \label{tab:light}
+            \scriptsize
+            \begin{tabular}{lcccc}
+                \toprule
+                \textbf{Scenarios} & Indoor  & Indoor & Indoor  & Outdoor\\
+                \midrule
+                \textbf{Time} & nighttime &  nighttime & daytime & daytime \\
+                \textbf{Light Source}& warm LED & white fluorescent & sunlight &  sunlight \\
+                \textbf{Light Intensity (Lux)} & $55-70$ & $70-100$ & $150$--$240$ & $500$--$9500$ \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
 
     \subsection{Impact of Screen Sizes and Cameras}
     \label{section: screen-size and cameras}
-    \noindent \textbf{Result 6:} \emph{The size of the smartphone touch-screen and the mobile camera have little impact on the success rate.}
+    \noindent \textbf{Result 6:} \emph{The size of the smartphone touch-screen and the mobile camera \FIXED{has} little impact on the success rate.}
 
     Intuitively, the success of the attack would be influenced by the size of
     the touch-screen because the physical length of the pattern depends on
@@ -398,7 +400,7 @@
 
     \subsection{Inferring Patterns with Eyes}
 
-    \noindent \textbf{Result 7:} \emph{Our attacking methodology significantly outperform direct observation techniques.}
+    \noindent \textbf{Result 7:} \emph{Our attacking methodology significantly \FIXED{outperforms} direct observation techniques.}
 
    In this experiment, we investigate whether an attacker can infer the pattern by
    simply watching the video or through direct observations. To answer this question, we asked each of our 10 participants to watch 60 videos (where
@@ -549,7 +551,7 @@
         \noindent \textbf{Variant Methodology.} Because the differences
         between the PIN-based password, we need to adapt our method. The two
         main differences are summarized as follow: (1) the number of the
-        touch dots are different; and (2) each dot on the PIN pad can be
+        touch dots \FIXED{is} different; and (2) each dot on the PIN pad can be
         visited multiple times, while each dot can only be visited once on
         pattern lock. The later difference requires us to identify dots that
         have been visited multiple times.  Our preliminary experiments
@@ -576,7 +578,7 @@
         Using first attempt, the success rate is  53.3\% because most of
         evaluated passwords have two or more candidate patterns. However, the
         success rate increases with more attempts and reaches 86.7\% using 5
-        attempts. Using five attempts, our method fail to reconstructor four
+        attempts. Using five attempts, our method fail to \FIXED{reconstruct} four
         passwords. For two of failed passwords, our approach produces more
         than five candidate passwords; and for the other two, our approach
         incorrectly locates one of the touching points due to  blur
