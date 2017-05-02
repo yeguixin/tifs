@@ -135,13 +135,14 @@ The first step of our attack is to identify the unlocking process from the
 video footage. While all our
 participants (see Section~\ref{section:locking patterns}) consider this as a straightforward manual task, we developed a \emph{simple yet effective} heuristic to automatically detect the video segment in some typical scenarios. Our heuristic is based on the following observations: (1) before or after
 unlocking, users often pause for a few seconds; (2) two consecutive on-screen operations (e.g. swiping, zooming etc.) typically expose some spatial-temporal motion characteristics.
-To test our hypothesis, we have recorded 50 video streams (where each
-video stream lasts around 2 minutes) of how ten of our participants drew
+
+In order to test our hypothesis, we have recorded 50 video streams (each
+video lasts around 2 minutes) of how ten of our participants drew
 patterns. During video recording, our participants firstly performed
 some on-screen activities such as web browsing and gaming as they wished;
-they then randomly opened up a pattern lock screen to draw a pattern and
+they then opened up a pattern lock screen to draw a pattern and
 continued to perform other on-screen operations afterwards.
-We then analyzed frames that are associated with pattern drawing and those are not.
+For each video stream, we then analyzed frames that are associated with pattern drawing and those are not.
 
 
 Figure~\ref{fig:time-interval} shows that all our participants paused at least $1.5$ seconds before or after pattern drawing due to delay of the user or the device.
@@ -149,24 +150,24 @@ Figure~\ref{fig:time-interval} shows that all our participants paused at least $
 We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
 These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
 Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c, e) and twice (b, d, f).
-This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more loop structures for which pattern drawing does not have.
+This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more looping structures for which pattern drawing does not have.
 
 
-Our heuristic is described
+Our heuristic for identifying the pattern drawing process is described
 in Algorithm~\ref{alg:recognition}. The input to the algorithm is a video capturing the unlocking process, and the output of the
 algorithm is a time-stamp tuple, $<$start, end$>$, which marks the start and the end
 of a video segment.
 To locate the video segment of pattern drawing, we first filter out on-screen activities where the
 fingertip location does not change within a timeframe of 1.5 seconds (lines 4 and 11). This
-allows us to exclude some basic on-screen activities, such as clicking. We
-use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval. Here, a time
+allows us to exclude some basic on-screen activities such as clicking. We
+use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval between two on-screen operations. Here, a time
 interval of 1.5s translates to 45 frames or 90 frames when the video was shot
 at 30 or 60 frames per second (FPS) respectively. We also use the
 spatial-temporal characteristics described above to exclude two consecutive swiping or zooming gestures (line 8). Finally, we exploit the observation that users
 typically paused at least 1.5s before or after unlocking to locate the start
 and end points of pattern drawing (line 19).
 
-\noindent \textbf{Limitations} Our heuristic is likely to fail if the user was typing
+\noindent \textbf{Limitations} Our heuristic is not perfect. It is likely to fail if the user was typing
 using a Swype-like method (i.e. entering words by sliding a finger from
 the first letter of a word to its last letter) during video recording. In
 this case, our method will identify multiple video segments of which one may contain
@@ -179,55 +180,8 @@ lock, the time is just after the device is retrieved).
 The attacker could also watch the video to manually cut it to ensure to obtain the correct video segment.
 It is
 worthwhile to mention that automatically identifying the pattern unlocking process is
-not central to our attack because an experienced attacker can watch the video to manually cut it to ensure the tracking algorithm (described in the section) receives a quality input.
+not central to our attack because an attacker often can obtain a quality video input used the manual methods described above.
 Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
-
-\subsection{Track fingertip locations}
-\label{section:tld}
-
-        After cutting out the video segment of pattern drawing, we need to track the finger motions from the video segment. We achieve this by employing a video tracking algorithm called
-        \emph{Tracking-Learning-Detection (TLD)}~\cite{kalal2012tracking}. This
-        algorithm automatically detects objects defined by a boundary box. In
-        our case, the objects to be tracked are the user's fingertip and an area of the device.
-        These are supplied to the algorithm by simply highlighting two areas on the first frame of the video segment (see Figure~\ref{fig:fig2} b). The
-        algorithm tries to localize the fingertip from each video frame and aggregates the successfully tracked locations to produce a fingertip movement trajectory as an output (see Figure
-        \ref{fig:fig2} c).
-
-    \subsubsection{Generate The Fingertip Movement Trajectory}
-
-        The TLD algorithm automatically detects
-        objects based on the examples seen from the first frame.
-        For each tracked object, the algorithm generates a confidence between 0 and 1.
-        A tracking is considered to be successfully if the confidence is greater than a threshold.
-        In our experiments, this threshold is set to 0.5 since this value is found to give good performance in our initial design experiments using 20 patterns\footnote{To provide a fair evaluation, the patterns used in
-        our initial test runs in
-        the design phase are different from the ones used later in evaluation.}.
-        TLD has three modules: (1) a tracker that follows
-        objects across consecutive frames under the assumption
-        that the frame-to-frame motion is limited and objects are visible;
-        (2) a detector to fully scan each individual frame to localize all
-        appearances of the objects that have been seen in previous frames; and
-        (3) a learner that estimates errors of the detector and updates the detector to avoid these errors in future
-        frames.
-
-
-        The TLD learner automatically extracts features from the area of interest to build a K-Nearest Neighbor
-        classifier~\cite{hastie1996discriminant}
-        which is a part of the detector. In the following frames, the learner
-        estimates the detection errors and generates new training
-        examples (i.e. new appearances of the object) arose from object motion to
-        re-train the classifier to avoid these errors. For each video frame,
-        TLD calculates the tracking confidence and if the confidence is lower than the predefined threshold, the result of
-        this particular frame will be discarded. This allows the algorithm to
-        tolerate a certain degree of detection errors. Finally, the
-        successfully detected object locations will be put onto a single
-        image as the output. Detailed discussion of TLD can be found
-        at~\cite{kalal2012tracking}.
-        Sometimes the algorithm may fail to detect the objects in many video frames due to poor selections of interesting areas. If this happens, our system will ask the user to re-select the areas to track.
-        We have also extended TLD to report when a
-        fingertip position is seen on the footage. This temporal information is recorded as the number
-        of video frames seen so far. This
-         is used to separate two possibly overlapping line segments described in Section~\ref{section:spea}.
 
         \begin{figure*}[!t]
         \centering
@@ -256,6 +210,54 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         \label{fig:camera_shake_illu}
          \end{figure*}
 
+\subsection{Track fingertip locations}
+\label{section:tld}
+
+        After cutting out the video segment of pattern drawing, we need to track the finger motions from the video segment. We achieve this by employing a video tracking algorithm called
+        \emph{Tracking-Learning-Detection (TLD)}~\cite{kalal2012tracking}. This
+        algorithm automatically detects objects defined by a boundary box. In
+        our case, the objects to be tracked are the user's fingertip and an area of the device.
+        These are supplied to the algorithm by simply highlighting two areas on the first frame of the video segment (see Figure~\ref{fig:fig2} b). The
+        algorithm tries to localize the fingertip from each video frame and aggregates the successfully tracked locations to produce a fingertip movement trajectory as an output (see Figure
+        \ref{fig:fig2} c).
+
+    \subsubsection{Generate The Fingertip Movement Trajectory}
+
+        The TLD algorithm automatically detects
+        objects based on the examples seen from the first frame.
+        For each tracked object, the algorithm generates a confidence between 0 and 1.
+        A tracking is considered to be successfully if the confidence is greater than a threshold.
+        We set this threshold to 0.5 which is found to give good performance in our initial design experiments using 20 patterns\footnote{To provide a fair evaluation, the patterns used in
+        our initial test runs in the design phase are different from the ones used later in evaluation.}.
+        TLD has three modules: (1) a tracker that follows
+        objects across consecutive frames under the assumption
+        that the frame-to-frame motion is limited and objects are visible;
+        (2) a detector to fully scan each individual frame to localize all
+        appearances of the objects; and
+        (3) a learner that estimates errors of the detector and updates the detector to avoid these errors in future
+        frames.
+
+
+        The TLD learner automatically extracts features from the area of interest to build a K-Nearest Neighbor
+        classifier~\cite{hastie1996discriminant}
+        which is a part of the detector. In the following frames, the learner
+        estimates the detection errors and generates new training
+        examples (i.e. new appearances of the object) arose from object motion to
+        re-train the classifier to avoid these errors. For each video frame,
+        TLD calculates the tracking confidence and if the confidence is lower than the predefined threshold, the result of
+        this particular frame will be discarded. This allows the algorithm to
+        tolerate a certain degree of detection errors. Finally, the
+        successfully detected object locations will be put onto a single
+        image as the output. Detailed discussion of TLD can be found
+        at~\cite{kalal2012tracking}.
+        Sometimes the algorithm may fail to detect the objects in many video frames due to poor selections of interesting areas. If this happens, our system will ask the user to re-select the areas to track.
+        We have also extended TLD to report when a
+        fingertip position is seen on the footage. This temporal information is recorded as the number
+        of video frames seen with respect to the first frame of the video segment.
+        This is used to separate two possibly overlapping line segments described in Section~\ref{section:spea}.
+
+
+
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.45\textwidth]{fig/line_detection.pdf}
@@ -277,7 +279,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         first frame by the user.
         The location of a successfully tracked fingertip is reported as
         the relative coordinates of the two center points of the marked areas.
-        This approach can also be used to calibrate the slight movements of the target device when drawing the pattern.
+        This approach can also be used to calibrate the minor motions of the target device during pattern drawing.
 
         \noindent \emph{Example:} To illustrate how our camera-shake calibration method  works, considering
         Figure~\ref{fig:fig5} where two areas are firstly marked by two
@@ -292,35 +294,34 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         compute the relative coordinates, ($\triangle X$, $\triangle Y$), which are reported as the location of the tracked fingertip.
 
         Figure~\ref{fig:camera_shake_illu} shows the results when using TLD to process a video that was filmed with some camera shake effects.
-        Here we show the results without (Figure~\ref{fig:camera_shake_illu} a) and with (Figure~\ref{fig:camera_shake_illu} b) camera-shake calibration. To aid clarity, we have
+        Figure~\ref{fig:camera_shake_illu} illustrates the tracking results without (a) and with (b) camera-shake calibration.
+        To aid clarity, we have
         converted the trajectories into the user's perspective. Without
         camera-shake calibration, the resulted trajectory is significantly different from the actual pattern shown in Figure~\ref{fig:camera_shake_illu} (c).
         Because of this great difference, using Figure~\ref{fig:camera_shake_illu} (a)  will lead to misidentification of
-        candidate patterns. By contrast, processing the same video
-         with camera-shake calibration  produces Figure~\ref{fig:camera_shake_illu} (b). Clearly, this figure is more
-        alike the correct pattern.
+        candidate patterns. By contrast, Figure~\ref{fig:camera_shake_illu} (b) generated with camera-shake calibration is more alike the correct pattern.
 
-        \subsubsection{Noisy Points Calibration}
-            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract incorrect geometric information of fingertip movement.
+      %  \subsubsection{Noisy Points Calibration}
+%            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract incorrect geometric information of fingertip movement.
 
 \subsection{Filming angle transformation}
 \label{sec:transformation}
-In practice, the filming camera will not directly face the target device to avoid the filming activity to be noticed by the user. As a result, the
+In practice, the filming camera will not directly face the target device to avoid raising suspicion by the target user. As a result, the
 fingertip movement trajectory generated by the tracking
 algorithm will look differently from the actual pattern. For example, for the
 pattern presented in Figure~\ref{fig:fig2} (a), if the video is filmed from the attacker's front-left to the target device (i.e. with a filming angle of approximate 45 degrees),
 we get the trajectory shown in Figure~\ref{fig:fig2} (c).
 Using this trajectory without any postprocessing will lead to misidentification of candidate patterns.
-Therefore, we must transform the resulted trajectory to the user's view point. To do so, we need to estimate the angle between the filming camera and the target device. Our approach is described as follows.
+Therefore, we must transform the resulting trajectory to the user's view point. To do so, we need to estimate the angle between the filming camera and the target device. Our approach is described as follows.
 
 We use an edge detection algorithm called Line Segment Detector (LSD)~\cite{grompone2010lsd} to detect the longer edge of the device.
 The filming angle is the angle between the detected edge line and a vertical line. This is illustrated in Figure~\ref{fig:line_detection}.
-In Section~\ref{sec:angle}, we show that a slight estimation error of the filming angle has little impact on the success of the attack.
+In Section~\ref{sec:angle}, we show that a minor estimation error of the filming angle has little impact on the attacking success rate.
 By default, we assume that the pattern grid is presented in the portrait
 mode\footnote{The pattern grid of the Android native pattern lock is always presented in the portrait mode regardless of the orientation of the device.}. If this is
 not the case, i.e. the pattern grid is shown in the landscape mode, we need
-to use the shorter edge of the device to calculate the filming angle. We believe that an attacker interested in a particular target would
-have some knowledge of how the pattern grid of the target device is presented under different orientation modes and be able to identify the device orientation by watching the video.
+to use the shorter edge of the device to calculate the filming angle. We believe that an attacker interested in a particular target device would
+have some knowledge of how the pattern grid is presented under different orientation modes and be able to identify the device orientation by watching the video.
 There are also other methods to be used to identify the filming angle~\cite{Torralba:2002:DEI:628330.628820}.
 
 
@@ -330,8 +331,8 @@ Based on the estimated filming angle, $\theta$, we use the following formula to 
         S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
 \end{equation}
 
-where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulted coordinate after the transformation.
-For each video frame, our algorithm individually calculates the filming angle and performs the transformation, because the filming angle may change across video frames.
+where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
+For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
 
 
 \subsection{Identify and rank candidate patterns}
@@ -390,8 +391,7 @@ For each video frame, our algorithm individually calculates the filming angle an
     \subsubsection{Extracting Structure Information}
         A pattern can be defined as a collection of line
         segments where each line segment has two properties:
-        the length of the line, $l$, and the direction of the line, $d$. Figure~\ref
-        {fig:fig7} shows all the possible directions of a $3 \times 3$ pattern grid.
+        the length of the line, $l$, and the direction of the line, $d$.
         We define a
          pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
         Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
@@ -522,7 +522,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         \vspace{2mm}
         \noindent \textbf{Extract the Line Length.}
         The physical length of a line segment depends
-        on a number of device-specific parameters: the sizes of the screen and the pattern grid, and the space between two touch dots.
+        on the sizes of the screen and the pattern grid, and the space between two touch dots.
         To ensure our approach is independent of the device, we normalize the physical length of a line segment to the
         shortest line found on the tracked trajectory. For the
         example shown in Figure~\ref{fig:fig6} (a), the line lengths for segments, SA, AB, BC, CD, and DE, are $2l_{s},l_{s},2l_{s},l,2l_{s}$, respectively.
@@ -695,7 +695,6 @@ For each video frame, our algorithm individually calculates the filming angle an
     \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
        In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. This process is described in Algorithm~\ref{alg:alg1}.
 
-        \vspace{2mm}
        \noindent \textbf{Identify Candidate Patterns.} Our implementation simply enumerates all possible
         patterns for a given pattern grid to identify candidate patterns, starting from the top-left touch point.
         We reject patterns that do not meet the requirements that the correct pattern is expected to have. The requirements are the number of line segments (this is checked by counting the number of turning points), and the length and the direction for each
@@ -703,7 +702,8 @@ For each video frame, our algorithm individually calculates the filming angle an
         This is an \emph{automatic} process performed by our software system without any user involvement.
        We consider two line segments having the same length and slope if the difference between them is less
        than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
-       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to choose the best performing values.
+       %We chose these two values because they give the best performance in the experiments.
+       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to chose the best performing values.
 
        \vspace{2mm}
        \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to

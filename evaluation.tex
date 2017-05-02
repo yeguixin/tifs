@@ -1,12 +1,12 @@
 \section{Experimental Results}
-    In this section, we first present the overall success rate for cracking
+    \FIXED{In this section, we first present the overall success rate for cracking
     the 120 patterns collected from our participants plus the top 60 most complex patterns
     on a $3\times3$ pattern grid.
     Our results show that our approach can successfully crack over 95\% of the
     patterns using no more than five attempts. We then analyze how the
-     success rate is affected by the filming distance, filming angles and
-    camera shake. Finally, we demonstrate that direct observations lead to poor
-    performance before evaluating our approach on alternative pattern grids.
+     success rate is affected by the filming distance, filming angles,
+    camera shake, light conditions, screen size and cameras. Then, we evaluate our approach on alternative pattern grids and demonstrate that direct observations lead to poor performance.
+    Finally, we conduct a limited study to evaluate how our approach performs when only captures the user's fingertip in the video footage before evaluating our variant attacking method on PIN-based passwords.}
 
 \begin{figure}[!t]
     \centering
@@ -26,7 +26,7 @@
         Figure~\ref{fig:fig10}
         shows the success rate for cracking different types of patterns within 1, 2, 3, 4 and 5 attempts.     For all the patterns used in this evaluation,
         our approach does not generate more than  five candidate patterns.
-        For complex patterns, we are able to crack all except one in the first attempt.
+        For complex patterns, we are able to crack all except one (with a 97.5\% success rate) \emph{in the first attempt}.
         For simple and median patterns, the success rate increases with more tries.
         In one attempt, we are able to
         successfully crack 60\% and 87.5\% of the simple and median patterns respectively. With two attempts, the success rate increases to 87.5\%,
@@ -37,8 +37,7 @@
        caused by the video compressing algorithm), which leads
        to many tracking failures. But we are able to crack the same
        pattern using a video filmed by a different device.
-        It is important to note that the Android OS will not lock the device unless seeing
-        more than five failed tries~\cite{egelman2014you}. This means, in practice, our approach is able to
+        It is important to note that the native Android system allows up to five failed tries before locking the device~\cite{egelman2014you}. This means, in practice, our approach is able to
         successfully crack most locking patterns.
 
 \begin{figure}[!t]
@@ -83,14 +82,13 @@
             \label{fig:distance-show}
         \end{figure*}
 
-        Another interesting observation is that in contrast to many people's
-        intuition, complex patterns do not provide stronger protection under our attack because
-        most of these patterns can be cracked in one attempt.
+         Another interesting observation is that in contrast to many people's
+        intuition, complex patterns do not provide stronger protection under our attack -- as can be seen by the fact that
+        most of the complex patterns can be cracked in one attempt.
         This is because although complex patterns can better protect the user against direct observation techniques like shoulder surfing~\cite{shoulder}, their unique graphical structures
-        often allow our system to reject most patterns to produce a single candidate pattern. This is
+        help our algorithms to narrow the possible options down. This is
         confirmed by Figure~\ref{fig:fig11}. It shows that for most median and all complex patterns, our system produces one candidate pattern --
         the correct one for most of our test cases.
-
 
        We also evaluated our approach using the top 60 most complex
         patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
@@ -99,8 +97,8 @@
          Figure~\ref {fig:most complex patterns} illustrates three
         highly complex patterns which have a complexity score between 43.8 and 46.8. The three
         patterns use all the nine dots of the grid and have a larger number of line segments, intersections and overlapping lines when compared to simpler patterns.
-        Because of their complex graphical structures, it would be hard to remember
-        these patterns using direct observation techniques.
+        Because of their complex graphical structures, remembering
+        these patterns using direct observation techniques would be difficult.
         In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
         patterns are less security under video-based attacks.
 
@@ -134,16 +132,15 @@
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
 
            We would like to know how the filming distance affects the
-           success rate of the attack. To do so, we have selected all 120
-           pattern locks and we varied the
+           success rate of the attack. To do so, we used all the 120 collected patterns and we varied the
            filming distance from 1 meter to 3.5 meters.
            Figure~\ref{fig:fig12} shows how the cracking success rate changes
-           as the filming distance increases. There are slight differences in the success rate between this diagram and Figure~\ref{fig:fig10}
+           as the filming distance increases. There are minor discrepancies in the success rate between this diagram and Figure~\ref{fig:fig10}
             because we used less patterns in this experiment.
            When the filming distance is less than 2 meters, our approach can crack all patterns in five attempts.
            The success rate drops significantly when
            the filming distance is greater than 2.5 meters.
-           The quality of the video filmed by a mobile phone tends to drop significantly with many object deformations. The degradation of the video quality makes it difficult for the TLD algorithm to successfully track objects across video frames.
+           Beyond this point, the quality of the video filmed by a mobile phone tends to drop significantly with many object deformations. The degradation of the video quality makes it difficult for the TLD algorithm to successfully track objects across video frames.
             This is confirmed by Table~\ref{tab:tab1}
            which shows that the tracking precision for the fingertip and the device edge drops from around 99\% to
            68\% when the filming
@@ -154,13 +151,13 @@
            of tracking clearly decreases when the filming distance is greater
            than 3 meters.
            Nonetheless, our approach can
-           achieve a high success rate when the filming distance within
+           achieve a high success rate when the filming distance is within
            2.5 meters. Such a distance allows an attacker to
            record the video without raising suspicions in many day-to-day scenarios (some of these are
-           described in Figure~\ref{fig:fig1}).
+           depicted in Figure~\ref{fig:fig1}).
 
-            We also evaluated our approach on videos filmed using a Nikon D90
-            single-lens reflex (SLR) camera with a 105mm lens. The SLR camera
+            We also evaluated our approach on videos filmed using a entry-level
+            single-lens reflex (SLR) camera, Nikon D90, with a low-end 105mm lens. The SLR camera
             was placed from a distance of 9 meters away from the target
             device. For this set of videos, we are able to achieve the same
             performance when compared to using videos filmed by a mobile
@@ -195,7 +192,7 @@
     \emph{fixed}, \emph{hand-held} and \emph{shaky}, where the filming
     device was respectively fixed using a tripod, hand-held, and hand-held but with constant movements of
      approximate 2cm in the horizontal or the vertical directions. The recording device was placed on the left-front, front, and right-front of the target device.
-    In the experiment, we fixed the target device on a table using double-sided tapes.
+    In the experiment, we affixed the target device on a table using double-sided tapes.
 
         \begin{figure}[t!]
             \centering
@@ -216,7 +213,7 @@
 
     Figure~\ref{fig:fig14} shows that our approach has the same performance under
     the hand-held and the fixed modes. The modest camera sake under the hand-held mode
-    has little impact on performance thanks to our camera-shake-calibration method. We observe deteriorative performance
+    has little impact on performance thanks to our camera-shake calibration method. We observe deteriorative performance
     under the shaky mode, but the performance degradation is modest (80\% vs 97\%
     in 5 attempts). In reality, an attacker would avoid drastic
     camera shake by firmly holding the video recording device.
@@ -234,10 +231,10 @@
 
     In this experiment, videos were recorded under different lighting conditions both indoor and outdoor.
     The experimental settings are given in  Table~\ref{tab:light}.
-    The light intensity of these conditions ranges from 9500
+    The light intensity of these condidtions range from 9500
     lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
     These represent some of the day-to-day scenarios where filming can
-    take place. For each setting, we asked each of our 10 participants to draw all collected 120 patterns on a Xiaomi MI4 phone. We used
+    take place. For each setting, we tested all the 120 patterns on a Xiaomi MI4 phone and used
     an iPhone4S phone to record the video. The filming camera was place on the
     left-front, front, and the right-front of the target device from a distance
     of 2 meters.
@@ -245,32 +242,31 @@
 
     Figure~\ref{fig:light} shows that the success rate increases when video filming were performed in a brighter lighting condition as the light intensity
     changes from 55 lux to 9500 lux. This is expected as low-light leads to
-    increased video noise, blurred motion and poor focus, which all have a
+    increased video noise, blurred motions and poor focus, which all have a
     negative impact on the TLD algorithm. Nonetheless, our attack
     can still crack over 70\% of the patterns in a filming
-    environment with low light.
+    environment of low light.
 
     \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
 
     \noindent \textbf{Result 5:} \emph{Our attack performs well when the error of filming angle estimation is less than 5 degrees.}
 
-   Our approach needs to transform the tracked fingertip movement trajectory to the
+   Recall that our attack needs to transform the fingertip movement trajectory to the
    user's perspective based on an estimation of the filming angle
    (Section~\ref{sec:transformation}).
    Because our filming angle estimation
-    algorithm gives highly accurate estimation, we did not find the estimation error to be a problem in our experiments.
-   Nonetheless, it is worth studying how the estimation error affects the success rate of our attack. To do so, we deliberately added an error of 5-10 degrees to the estimation.
+    algorithm gives highly accurate results, we did not find the estimation error to be an issue in our experiments.
+   Nonetheless, it is worth studying how the estimation error affects the success rate of our attack. To do so, we deliberately added an error of 5-10 degrees to the estimation in this experiment.
 
     Figure~\ref{fig:fig15} shows the results of this experiment. When the error is less than $\pm 5$ degrees, there is little impact
     on \emph{complex} patterns and no impact at all on \emph{simple} and
     \emph{median} patterns. However, an estimation error of more than 10 degrees can significantly affect the success rate.
-    Given such an error, the resulted trajectory after transformations will
+    Given such errors, the resulting trajectory after transformations will
     be significant different from the correct pattern.
     For example, when the estimation error is 10 degrees from the
     true value,  on average, 0.8, 2.6 and 4.2 line segments per pattern respectively will
     be incorrectly labelled for \emph{simple}, \emph{median} and
-    \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when there is
-    an error of 10 degrees.
+    \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when the filming angle estimation error is greater or equal to 10 degrees.
 
 
        \begin{table}[!t]
@@ -426,18 +422,37 @@
     We also asked participants to directly observe how a pattern was drawn
     from a distance of 2 meters away from the target device. The intuition
     behind this evaluation is that human eyes can catch richer information
-    over a video camera. The results of this experiment are shown in
+    over a digital video camera. The results of this experiment are shown in
     Figure~\ref{fig:look-unlocking process} (b).  As can be seen from the
     diagram, although the success rate is improved compared to directly watching the video, the chances for guessing the correct pattern in
     5 attempts are quite low. In
-    fact, the success rates are just 48.3\%, 38.3\%
-    and 11.7\% respectively for simple, median and complex patterns.c
+    fact, the success rates are 48.3\%, 38.3\%
+    and 11.7\% respectively for simple, median and complex patterns.
 
         \begin{figure}[!t]
             \centering
             \includegraphics[width=0.45\textwidth]{fig/scalability.pdf}
             \caption{Success rates of our attack for different locking grids.}
             \label{fig:scalability}
+        \end{figure}
+        
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.20\textwidth}
+                \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
+                \centering  (a) pattern-based interface
+                \end{minipage}
+            }
+            \hspace{0.2cm}
+            \subfigure{
+                \begin{minipage}[t]{0.20\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
+                \centering  (b) pin-based interface
+                \end{minipage}
+            }
+            \caption{Pattern- (a) and pin-based (b) authentication interfaces.}
+            \label{fig:unlock interface}
         \end{figure}
 
     \subsection{Evaluation on Other Pattern Grids\label{sec:scalability}}
@@ -464,50 +479,15 @@
         attack drops from 95\% on a $4 \times 4$ grid to 87\% on a $6 \times
         6$ grid. For simple patterns, the success rate of our attack drops
         from 85\% on a $4 \times 4$ grid to 75\% on a $6 \times 6$ grid. This
-        is because a fingertip trajectory can be mapped to a larger number of
+        is because a fingertip trajectory in general could be mapped to a larger number of
         candidates on a grid with more dots. For instance, the pattern shown
         in Figure~\ref{fig:fig2} (f) can be mapped to 55
         candidate patterns on a $6 \times 6$ grid as opposite to 5 on a $3
         \times 3$ grid. Overall, our attack can crack over 75\% (up to 95\%)
         of the patterns within five attempts. One of the purposes of introducing
         pattern grids with more dots is to allow users to use more complex
-        patterns. However, this experiment suggests that complex patterns remain less security on these grids under our attack.
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.20\textwidth}
-                \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
-                \centering  (a) pattern-based interface
-                \end{minipage}
-            }
-            \hspace{0.2cm}
-            \subfigure{
-                \begin{minipage}[t]{0.20\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
-                \centering  (b) pin-based interface
-                \end{minipage}
-            }
-            \caption{Pattern- (a) and pin-based (b) authentication interfaces.}
-            \label{fig:unlock interface}
-        \end{figure}
-
-    \subsection{Attacking PIN-base Passwords}
-    \label{section: attacking-pin-passwords}
-        \noindent \textbf{Result 9:} \emph{PIN-based passwords are also
-        vulnerable under our video-side channel attack. We can break
-        over 85\% of the pin-based passwords within five attempts using a
-        variant method based on our approach.}
-
-        An interesting question to ask is, could this method be used to attack PIN-based passwords? To answer this
-        question, we apply our attacking method on 30 4-digital passwords. Among these passwords, 12 of them are most
-        common used passwords (given by a PIN analysis survey conducted by Berry~\cite{Nick_pin_analysis}). The
-        remaining passwords are randomly selected. For each password, we ask our participants to type in the password
-        on a Xiaomi MI4 phone. Table~\ref{tab:PIN-based passwords} lists all PIN-based passwords considered in this
-        experiment. Figure~\ref{fig:unlock interface} shows the subtle differences between the PIN-based keypad and the
-        Android pattern grid. In this experiment, we used an IPhone4S phone to record the video from three angles of
-        the target device: the
-        left-front, front and right-front. The filming distance is 2 meters.
+        patterns. However, this experiment suggests that complex patterns remain less security on
+         these grids under our attack.
 
     \begin{figure}[!t]
         \centering
@@ -546,6 +526,23 @@
                 \bottomrule
             \end{tabular}
     \end{table}
+
+    \subsection{Attacking PIN-base Passwords}
+    \label{section: attacking-pin-passwords}
+        \noindent \textbf{Result 9:} \emph{PIN-based passwords are also
+        vulnerable under our video-side channel attack. We can break
+        over 85\% of the pin-based passwords within five attempts using a
+        variant method based on our approach.}
+
+        An interesting question to ask is, could this method be used to attack PIN-based passwords? To answer this
+        question, we apply our attacking method on 30 4-digital passwords. Among these passwords, 12 of them are most
+        common used passwords (given by a PIN analysis survey conducted by Berry~\cite{Nick_pin_analysis}). The
+        remaining passwords are randomly selected. For each password, we ask our participants to type in the password
+        on a Xiaomi MI4 phone. Table~\ref{tab:PIN-based passwords} lists all PIN-based passwords considered in this
+        experiment. Figure~\ref{fig:unlock interface} shows the subtle differences between the PIN-based keypad and the
+        Android pattern grid. In this experiment, we used an IPhone4S phone to record the video from three angles of
+        the target device: the
+        left-front, front and right-front. The filming distance is 2 meters.
 
         \vspace{2mm}
         \noindent \textbf{Variant Methodology.} Because the differences

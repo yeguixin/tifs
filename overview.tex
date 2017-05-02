@@ -1,6 +1,6 @@
 \section{Overview of The Attack}
 \label{section:overview}
-    In this section, we give an overview of our attacking system which analyzes the user's fingertip movement to infer the locking pattern. The system takes in a video segment that records the entire unlocking process. It produces a small number of candidate patterns to be tested on the target device.
+     This section gives an overview of our attacking system which analyzes the user's fingertip movement to infer the locking pattern. The system takes in a video segment that records the entire unlocking process. It produces a small number of candidate patterns to be tested on the target device.
     Figure~\ref{fig:fig2} depicts the five steps of our attack:
 
     %\begin{enumerate}
@@ -28,7 +28,7 @@
     \noindent \circled{4} \textbf{Identify and Rank Candidate Patterns:} In this step, our software automatically maps the tracked fingertip movement trajectory to a number of candidate patterns (Section~\ref{section:spea}).
     We rank the candidate patterns based on a heuristic described in Section~\ref{section:identity}.
     For instance, the fingertip movement trajectory in Figure~\ref{fig:fig2} (d) could be mapped to a number of candidate patterns shown in Figure~\ref{fig:fig3}.
-    Our approach is able to reject most patterns to leave no more than five candidate patterns to be tried out on the target device.
+    We show that our approach can reject most patterns to leave no more than five candidate patterns to be tried out on the target device.
 
      \vspace{2mm}
     \noindent \circled{5} \textbf{Test Candidate Patterns:} In this final step, the attacker tests the candidate patterns on the target device.
