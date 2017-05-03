@@ -6,32 +6,32 @@
 \begin{figure}[!t]
         \centering
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.1\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection1.pdf}\\
                 \centering \footnotesize (a)
              \end{minipage}
         }
-        \hspace{0.3cm}
+        %\hspace{0.3cm}
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.1\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection2.pdf}\\
                 \centering \footnotesize (b)
              \end{minipage}
         }
-        \hspace{0.3cm}
+        %\hspace{0.3cm}
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.1\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection3.pdf}\\
                 \centering \footnotesize (c)
              \end{minipage}
         }
-        \caption{Examples of the variant pattern lock mechanism for defending against our video-based attack. Here the patterns with the solid lines are the true patterns.
-        Before or after drawing the true pattern, the user can draw a random pattern shown in (b) and (c), which are marked with dash lines.
-        \FIXED{The solid lines in (b) and (c) mark the true patterns shown as in (a).
-        %\FIXME{What are the solid lines at (b) and (c)?}
-        In order to increase the number of candidate patterns, a previously unvisited dot, such as the top-middle smaller dot in (a) or (c), can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern.}
-        %\FIXME{Have no idea of what the last sentence is talking about.}
+        \subfigure{
+             \begin{minipage}[t]{0.1\textwidth}
+                \includegraphics[width=\textwidth]{fig/protection4.pdf}\\
+                \centering \footnotesize (c)
+             \end{minipage}
         }
+        \caption{\FIXED{Examples of the variant pattern lock mechanism for defending against our video-based attack. Here The pattern in (a) is the true pattern, which illustrates that a previously unvisited dot can be bypassed if it is part of a horizontal, vertical or diagonal line segment of the pattern. The patterns in (b), (c) and (d) are the fingertip movement trajectory of the true pattern. The subtle difference between (a) and (b) is because phone camera cannot identify which are touched points. Before or after drawing the true pattern, the user can draw a random pattern shown in (b) and (c), which are marked with dash lines.}}
         \label{fig:protection}
     \end{figure}
 
