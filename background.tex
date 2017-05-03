@@ -13,7 +13,8 @@
     \subsection{Android Pattern Lock}
     \label{section: android_pattern_lock}
         Pattern lock is widely used to protect sensitive information and perform authentication on
-        Android touch-screen devices. \FIXED{The motivation for user to prefer to pattern lock is that graphical passwords are easily to be recalled comparing to alphanumeric characters~\cite{standing1970perception,Weiss2008PassShapes}.}
+        Android touch-screen devices. Many users prefer to use pattern lock because 
+        are easily to be recalled over alphanumeric characters~\cite{standing1970perception,Weiss2008PassShapes}.
         To unlock a device protected with pattern lock, the user is asked to draw a predefined sequence of connected dots on a pattern grid\footnote{In this paper we use the Android default pattern grid with $3 \times 3$ dots, unless otherwise stated.}.
         Figure~\ref{fig:fig2} (e) shows a pattern which consists of seven dots on a $3 \times 3$ grid.
         To form a
@@ -30,7 +31,8 @@
         Given the large number of possible patterns, performing brute-force attacks on
         Android pattern lock is ineffective, because the device will be
         automatically locked after five failed tries.
-        \FIXED{Further, the brute-force attack is hard to guess those patterns with complex structures comparing to text-based passwords~\cite{Kelley2012Guess,Mazurek2013Measuring}.}
+        Previous studies also studies show that a brute-force attack is likely to fail on  patterns with complex
+        structures~\cite{Kelley2012Guess,Mazurek2013Measuring}.
 
     \subsection{Threat Model}
     \label{sec:scenarios}

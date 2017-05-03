@@ -1,13 +1,14 @@
 \section{Experimental Results}
-    \FIXED{In this section, we first present the overall success rate for cracking
+    In this section, we first present the overall success rate for cracking
     the 120 patterns collected from our participants plus the top 60 most complex patterns
     on a $3\times3$ pattern grid.
-    Our results show that our approach can successfully crack over 95\% of the
+    Our results show that the attack can successfully crack over 95\% of the
     patterns using no more than five attempts. We then analyze how the
-     success rate is affected by the filming distance, filming angles,
-    camera shake, light conditions, screen size and cameras. Then, we evaluate our approach on alternative pattern grids and demonstrate that direct observations lead to poor performance.
-    Finally, we conduct a limited study to evaluate how our approach performs when only captures the user's fingertip in the video footage before evaluating our variant attacking method on PIN-based passwords.}
-
+     success rate is affected by various filming conditions: the filming distance and angle,
+    the camera shake effect, lighting, the screen size of the mobile device, and the filming cameras. Next, we evaluate our approach on alternative pattern grids and demonstrate that direct observations have lower success rates compared to our attack.
+    We conduct a limited study to understand how our attack performs when the video only captures the user's fingertip.
+     Finally, we demonstrate that our video-based attack can also be used to crack PIN-based passwords. 
+     
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.5\textwidth]{fig/10.pdf}
@@ -435,7 +436,7 @@
             \caption{Success rates of our attack for different locking grids.}
             \label{fig:scalability}
         \end{figure}
-        
+
         \begin{figure}[!t]
             \centering
             \subfigure{
