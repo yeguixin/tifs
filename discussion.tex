@@ -6,28 +6,49 @@
 \begin{figure}[!t]
         \centering
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.13\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection1.pdf}\\
                 \centering \footnotesize (a)
              \end{minipage}
         }
-        \hspace{0.3cm}
+        \hspace{0.1cm}
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.13\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection2.pdf}\\
                 \centering \footnotesize (b)
              \end{minipage}
         }
-        \hspace{0.3cm}
+        \hspace{0.1cm}
         \subfigure{
-             \begin{minipage}[t]{0.11\textwidth}
+             \begin{minipage}[t]{0.13\textwidth}
                 \includegraphics[width=\textwidth]{fig/protection3.pdf}\\
                 \centering \footnotesize (c)
              \end{minipage}
         }
+        %\hspace{0.2cm}
+        \subfigure{
+             \begin{minipage}[t]{0.14\textwidth}
+                \includegraphics[width=\textwidth]{fig/protection1-1.pdf}\\
+                \centering \footnotesize (d)
+             \end{minipage}
+        }
+        %\hspace{0.1cm}
+        \subfigure{
+             \begin{minipage}[t]{0.14\textwidth}
+                \includegraphics[width=\textwidth]{fig/protection2-1.pdf}\\
+                \centering \footnotesize (e)
+             \end{minipage}
+        }
+        %\hspace{0.1cm}
+        \subfigure{
+             \begin{minipage}[t]{0.14\textwidth}
+                \includegraphics[width=\textwidth]{fig/protection3-1.pdf}\\
+                \centering \footnotesize (f)
+             \end{minipage}
+        }
         \caption{Examples of our new pattern lock mechanism. A true pattern of solid lines is shown
-        in (a). Our first change allows the user to skip some dots when creating a pattern. 
-        For example, in (a) the central dot in the first line is skipped. 
+        in (a). Our first change allows the user to skip some dots when creating a pattern.
+        For example, in (a) the central dot in the first line is skipped.
         Our second change requires the user to draw some random pattern structures (e.g. the dash lines in c and d)  before or after drawing the true pattern.
         The first change makes it difficult for the tracking algorithm to identify which dots are skipped, and the second change
          forces the attacker to use multiple video recordings to identify the true pattern. As a result, this new pattern lock mechanism decreases the
@@ -83,7 +104,7 @@ many times a day.
 We propose a countermeasure to make it difficult to obtain a meaningful video footage.
 When design the approach, we try to find a balance between the usability and the security.
 Our approach requires making two  changes to the pattern lock: (1) when forming
-a pattern the user can skip some of the dots in a vertical, horizontal, or diagonal line (Figure~\ref{fig:protection} a); (2) 
+a pattern the user can skip some of the dots in a vertical, horizontal, or diagonal line (Figure~\ref{fig:protection} a); (2)
 before or after drawing the correct pattern, the user is asked to draw a random pattern to confuse the attacker (Figure~\ref{fig:protection} b and c).
 For the second change, we relax the rules for creating a pattern to allow a touching dot to be visited multiple times. Further, for
 purpose of increasing the number of candidate patterns, we also change the rule that a previously unvisited dot can be
