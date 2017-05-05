@@ -324,42 +324,35 @@ to use the shorter edge of the device to calculate the filming angle. We believe
 have some knowledge of how the pattern grid is presented under different orientation modes and be able to identify the device orientation by watching the video.
 There are also other methods to be used to identify the filming angle~\cite{Torralba:2002:DEI:628330.628820}.
 
+\renewcommand{\algorithmicforall}{\textbf{for each}}
+    \begin{algorithm}[!t]
+        \caption{Candidate Pattern Identification Algorithm}
+        \label{alg:alg1}
+        \begin{algorithmic}[1]
+            \REQUIRE~~\\
+                $L[]$: Relative line length \\
+                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
+                $tn$: Number of turning points of fingertip trajectory \\
+                %$timeTh$ Threshold of considering the turning points.\\
+                $lengthTh$: Threshold of considering two lines to have the same length\\
+                $directionTh$: Threshold of considering two lines to be in the same direction\\
+            \ENSURE~~\\
+                $P[]$: Candidate patterns \\
 
-Based on the estimated filming angle, $\theta$, we use the following formula to transform the tracked fingertip movement trajectory from the camera's view point to the user's:
-
-\begin{equation}
-        S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
-\end{equation}
-
-where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
-For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
-
-
-\subsection{Identify and rank candidate patterns}
-\label{section:spea}
-  In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
-   Our goal in this step is to exclude as many patterns as possible and only leave the most-likely patterns to be tried out on the target device.
-     Our approach is to use the geometry information of the fingertip movement trajectory, i.e. the length and direction of line segments and the number of turning points, to reject patterns that do not satisfy certain criteria.
-    In this section, we first describe how to identify overlapping line segments and extract length and direction information before presenting how to use the extracted information to identify and rank candidate patterns.
-
-    \begin{figure}[!t]
-        \centering
-        \subfigure{
-            \begin{minipage}[b]{0.23\textwidth}
-            \includegraphics[width=\textwidth]{fig/6-2.pdf}\\
-            \centering  (a) tracked fingertips
-            \end{minipage}
-        }
-        \hspace{0.2cm}
-        \subfigure{
-            \begin{minipage}[b]{0.18\textwidth}
-            \includegraphics[width=\textwidth]{fig/6-1.pdf}\\
-            \centering  (b) pattern example
-            \end{minipage}
-        }
-        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the starting point and points A, B, C, and D on (b) represent four turning points.}
-        \label{fig:fig6}
-    \end{figure}
+            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
+                \STATE $n \leftarrow getLineNumber(P[])$ \\
+                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
+                /*Relatvie line length for pattern $p$*/ \\
+                \STATE $pD[] \leftarrow getDirection(p)$ \\
+                \IF{match($pL[]$, $L[]$, $lengthTh$)}
+                    \IF{match($pD[]$, $D[]$, $directionTh$)}
+                        \STATE $P[] \leftarrow p$\\
+                    \ENDIF
+                \ENDIF
+            \ENDFOR
+            \STATE $P[] \leftarrow sort(P[])$
+        \end{algorithmic}
+    \end{algorithm}
 
 \renewcommand{\algorithmicforall}{\textbf{for each}}
     \begin{algorithm}[!t]
@@ -388,22 +381,46 @@ For each video frame, our algorithm individually calculates the filming angle an
         \end{algorithmic}
     \end{algorithm}
 
-    \subsubsection{Extracting Structure Information}
-        A pattern can be defined as a collection of line
-        segments where each line segment has two properties:
-        the length of the line, $l$, and the direction of the line, $d$.
-        We define a
-         pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
-        Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
-        of all line segments (that are numbered from $1$ to $n$) of the pattern, and $D=\{d_{1}, d_{2}, \cdots, d_{n}\}$ is the collection of directions for all line segments in $L$.
-        Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
-        We extract the length and the direction of each line segment from the tracked fingertip movement trajectory and store them
-        into arrays $L[]$ and $D[]$ respectively.
+
+Based on the estimated filming angle, $\theta$, we use the following formula to transform the tracked fingertip movement trajectory from the camera's view point to the user's:
+
+\begin{equation}
+        S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
+\end{equation}
+
+where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
+For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
+
+\subsection{Identify and rank candidate patterns}
+\label{section:spea}
+  In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
+   Our goal in this step is to exclude as many patterns as possible and only leave the most-likely patterns to be tried out on the target device.
+     Our approach is to use the geometry information of the fingertip movement trajectory, i.e. the length and direction of line segments and the number of turning points, to reject patterns that do not satisfy certain criteria.
+    In this section, we first describe how to identify overlapping line segments and extract length and direction information before presenting how to use the extracted information to identify and rank candidate patterns.
+
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+            \begin{minipage}[b]{0.23\textwidth}
+            \includegraphics[width=\textwidth]{fig/6-2.pdf}\\
+            \centering  (a) tracked fingertips
+            \end{minipage}
+        }
+        \hspace{0.2cm}
+        \subfigure{
+            \begin{minipage}[b]{0.18\textwidth}
+            \includegraphics[width=\textwidth]{fig/6-1.pdf}\\
+            \centering  (b) pattern example
+            \end{minipage}
+        }
+        \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the starting point and points A, B, C, and D on (b) represent four turning points.}
+        \label{fig:fig6}
+    \end{figure}
 
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[b]{0.35\textwidth}
+                \begin{minipage}[b]{0.37\textwidth}
                 \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
                 \centering  (a) overlapping lines
                 %\FIXME{Need to mark the starting point and turning point}
@@ -423,13 +440,13 @@ For each video frame, our algorithm individually calculates the filming angle an
         \begin{figure}[!t]
             \centering
             \subfigure{
-                \begin{minipage}[t]{0.3\textwidth}
+                \begin{minipage}[t]{0.29\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
                 \centering (a) line direction number
                 \end{minipage}
             }
             \subfigure{
-                \begin{minipage}[t]{0.35\textwidth}
+                \begin{minipage}[t]{0.34\textwidth}
                 \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
                 \centering (b) numbering line segment of the tracked trajectory
                 \end{minipage}
@@ -438,7 +455,18 @@ For each video frame, our algorithm individually calculates the filming angle an
             \label{fig:fig7}
         \end{figure}
 
-        \vspace{2mm}
+    \subsubsection{Extracting Structure Information}
+        A pattern can be defined as a collection of line
+        segments where each line segment has two properties:
+        the length of the line, $l$, and the direction of the line, $d$.
+        We define a
+         pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
+        Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
+        of all line segments (that are numbered from $1$ to $n$) of the pattern, and $D=\{d_{1}, d_{2}, \cdots, d_{n}\}$ is the collection of directions for all line segments in $L$.
+        Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
+        We extract the length and the direction of each line segment from the tracked fingertip movement trajectory and store them
+        into arrays $L[]$ and $D[]$ respectively.
+
         \noindent \textbf{Identify Line Segments.}
         The first step of geometry information extraction is to identify individual
         line segments from the trajectory. This can be achieved
@@ -472,7 +500,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         circle. We use the center
         point (No.10) of the overlapping points as the turning point to separate the two line segments.
 
-        \begin{table}[!t]
+        \begin{table}[t]
             \centering
             \caption{Mappings from line slopes and fingertip-horizontal movements to direction numbers}
             \label{tab:slopes}
@@ -488,36 +516,6 @@ For each video frame, our algorithm individually calculates the filming angle an
             \end{tabular}
             \vspace{-2mm}
         \end{table}
-
-\renewcommand{\algorithmicforall}{\textbf{for each}}
-    \begin{algorithm}[!t]
-        \caption{Candidate Pattern Identification Algorithm}
-        \label{alg:alg1}
-        \begin{algorithmic}[1]
-            \REQUIRE~~\\
-                $L[]$: Relative line length \\
-                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
-                $tn$: Number of turning points of fingertip trajectory \\
-                %$timeTh$ Threshold of considering the turning points.\\
-                $lengthTh$: Threshold of considering two lines to have the same length\\
-                $directionTh$: Threshold of considering two lines to be in the same direction\\
-            \ENSURE~~\\
-                $P[]$: Candidate patterns \\
-
-            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
-                \STATE $n \leftarrow getLineNumber(P[])$ \\
-                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
-                /*Relatvie line length for pattern $p$*/ \\
-                \STATE $pD[] \leftarrow getDirection(p)$ \\
-                \IF{match($pL[]$, $L[]$, $lengthTh$)}
-                    \IF{match($pD[]$, $D[]$, $directionTh$)}
-                        \STATE $P[] \leftarrow p$\\
-                    \ENDIF
-                \ENDIF
-            \ENDFOR
-            \STATE $P[] \leftarrow sort(P[])$
-        \end{algorithmic}
-    \end{algorithm}
 
         \vspace{2mm}
         \noindent \textbf{Extract the Line Length.}
@@ -692,30 +690,6 @@ For each video frame, our algorithm individually calculates the filming angle an
         \label{fig:fig3}
     \end{figure}
 
-    \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
-       In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. This process is described in Algorithm~\ref{alg:alg1}.
-
-       \noindent \textbf{Identify Candidate Patterns.} Our implementation simply enumerates all possible
-        patterns for a given pattern grid to identify candidate patterns, starting from the top-left touch point.
-        We reject patterns that do not meet the requirements that the correct pattern is expected to have. The requirements are the number of line segments (this is checked by counting the number of turning points), and the length and the direction for each
-        line segment.
-        This is an \emph{automatic} process performed by our software system without any user involvement.
-       We consider two line segments having the same length and slope if the difference between them is less
-       than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
-       %We chose these two values because they give the best performance in the experiments.
-       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to chose the best performing values.
-
-       \vspace{2mm}
-       \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to
-       describe our algorithm. Figure~\ref{fig:fig3} gives several
-       possible mappings for the fingertip movement trajectory shown in Figure~\ref{fig:fig2} (d). For this particular trajectory, the collections of lengths and directions are
-       $L=\{l, \sqrt{2}l, l\}$ and $D=\{5, 11, 5\}$ respectively. Any pattern that does not meet $L$ or $D$ should not be considered as a candidate pattern for this trajectory.
-       For this reason, Figure~\ref{fig:fig3} a(1)--a(5) will be rejected. Take Figure~\ref{fig:fig3} a(1) as an example,
-       the line lengths and directions for all four line segments of this pattern are  $\{l,
-       \frac{\sqrt{5}}{2}l, l\}$ and $\{5,12,5\}$ respectively. It does not meet the expected $L$ or $D$ and should be rejected.
-       The patterns presented in b(1)--b(5) and c(1)--c(5) of Figure~\ref{fig:fig3}) will
-       also be rejected for the same reason.
-
 \begin{figure}[!t]
     \centering
     \subfigure{
@@ -741,6 +715,31 @@ For each video frame, our algorithm individually calculates the filming angle an
     \caption{Illustrations of the terminologies used in Equation~\ref{equ:compscore}.}
     \label{fig:intersection-overlap}
 \end{figure}
+
+    \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
+       In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. This process is described in Algorithm~\ref{alg:alg1}.
+
+       \noindent \textbf{Identify Candidate Patterns.} Our implementation simply enumerates all possible
+        patterns for a given pattern grid to identify candidate patterns, starting from the top-left touch point.
+        We reject patterns that do not meet the requirements that the correct pattern is expected to have. The requirements are the number of line segments (this is checked by counting the number of turning points), and the length and the direction for each
+        line segment.
+        This is an \emph{automatic} process performed by our software system without any user involvement.
+       We consider two line segments having the same length and slope if the difference between them is less
+       than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
+       %We chose these two values because they give the best performance in the experiments.
+       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to chose the best performing values.
+
+       \vspace{2mm}
+       \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to
+       describe our algorithm. Figure~\ref{fig:fig3} gives several
+       possible mappings for the fingertip movement trajectory shown in Figure~\ref{fig:fig2} (d). For this particular trajectory, the collections of lengths and directions are
+       $L=\{l, \sqrt{2}l, l\}$ and $D=\{5, 11, 5\}$ respectively. Any pattern that does not meet $L$ or $D$ should not be considered as a candidate pattern for this trajectory.
+       For this reason, Figure~\ref{fig:fig3} a(1)--a(5) will be rejected. Take Figure~\ref{fig:fig3} a(1) as an example,
+       the line lengths and directions for all four line segments of this pattern are  $\{l,
+       \frac{\sqrt{5}}{2}l, l\}$ and $\{5,12,5\}$ respectively. It does not meet the expected $L$ or $D$ and should be rejected.
+       The patterns presented in b(1)--b(5) and c(1)--c(5) of Figure~\ref{fig:fig3}) will
+       also be rejected for the same reason.
+    
 \begin{figure}[!t]
             \centering
             \subfigure{
@@ -789,36 +788,8 @@ For each video frame, our algorithm individually calculates the filming angle an
             \label{fig:fig8}
             \vspace{-3mm}
         \end{figure}
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex3.pdf} \\
-                \centering  complexity score: $43.8$
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex2.pdf} \\
-                \centering  complexity score: $44.7$
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex1.pdf} \\
-                \centering  complexity score: $46.8$
-                \end{minipage}
-            }
-            \vspace{-2mm}
-            \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
-            \vspace{-2mm}
-            \label{fig:most complex patterns}
-        \end{figure}
-
-
-        \vspace{2mm}
-        \noindent \textbf{Rank Patterns.} Candidates patterns are then ranked using a simple
+    
+       \noindent \textbf{Rank Patterns.} Candidates patterns are then ranked using a simple
         heuristic. The heuristic assumes a pattern starting from
         left dot of the grid is more likely to be the correct pattern over a
          pattern starting from a right dot. This assumption is supported
