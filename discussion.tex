@@ -113,13 +113,13 @@ vertical or diagonal line segment of the pattern.
 The two changes mentioned above can significantly decrease the effectiveness of the attack.
 Our first change allows the user to skip some dots, which makes it difficult for the tracking algorithm to identify which dots
 are skipped (because the video-camera is not able to precisely capture depth information). The
-second change makes it harder for the attacker to identify which part of the track pattern is the true pattern. 
-Figures~\ref{fig:protection} d, e, and f respectively show the tracked fingertip trajectory of the 
-patterns shown in Figures~\ref{fig:protection} a, b, and c. The tracked trajectories have been 
-transformed to the user's perspective for presentation. As can be seen from the tracked trajectories, 
-using a pattern that is directly mapped from the trajectory will lead to a fail attempt. Because each time
-the system will ask the user to draw a random pattern structure, directly use the tracked pattern (ignore 
-the skipping dots) will not be accepted by the system. 
+second change makes it harder for the attacker to identify which part of the track pattern is the true pattern.
+Figures~\ref{fig:protection} d, e, and f respectively show the tracked fingertip trajectory of the
+patterns shown in Figures~\ref{fig:protection} a, b, and c. The tracked trajectories have been
+transformed to the user's perspective for presentation. As can be seen from the tracked trajectories,
+using a pattern that is directly mapped from the trajectory will lead to a failed attempt. Because each time
+the system will ask the user to draw a random pattern structure, directly use the tracked pattern (ignore
+the skipping dots) will not be accepted by the system.
 
 
 To understand how these changes affect the user experience, we specifically asked our participants if they feel these rules decrease
@@ -154,7 +154,7 @@ It is worth mentioning that our approach is only one of the many attacking
 methods that researchers have demonstrated. Examples of these attacks include
 video-based attacks on keystroke-based authentication~\cite{shukla2014beware,yue2014blind}, sensor-based attacks for
 pattern lock~\cite{zhang2016privacy}. Authentication methods that combine different
-authentication methods~\cite{de2012touch,stefan2012robustness,lingsecure,mannan2007using} to constantly checks the user's identity could be
+authentication methods~\cite{de2012touch,stefan2012robustness,lingsecure,mannan2007using} to constantly check the user's identity could be
 a solution. %However, due to stealthiness and diversity of
 %such attacks, there may not exist an ``one-size-fits-all" solution.
 
