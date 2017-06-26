@@ -1,11 +1,11 @@
 
-        \begin{figure}[!t]
-            \centering
-            \includegraphics[width=0.5\textwidth]{fig/guess_prob.pdf}
-            \caption{How likely a pattern can be guessed in five attempts as the complexity score increases. Patterns with a complexity score that is greater than 13 are
-             unlikely to be guessed by an attacker within five attempts.}
-            \label{fig:guessing-probability}
-        \end{figure}
+%        \begin{figure}[!t]
+%            \centering
+%            \includegraphics[width=0.5\textwidth]{fig/guess_prob.pdf}
+%            \caption{How likely a pattern can be guessed in five attempts as the complexity score increases. Patterns with a complexity score that is greater than 13 are
+%             unlikely to be guessed by an attacker within five attempts.}
+%            \label{fig:guessing-probability}
+%        \end{figure}
 
 \section{Experimental Setup \label{sec:setup}}
     \subsection{Data Collection}
@@ -86,12 +86,12 @@
             %\vspace{-4mm}
     \end{table}
 
-    Figure~\ref{fig:guessing-probability} illustrates how the guessing probability\footnote{A guessing probability is
-    how likely an attacker can successfully guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
-    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength
-    measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram,
-    our complexity score is inline with classical approaches for quantifying the security strength of pattern lock -- the more complexity a
-    pattern is, the less likely it can be successfully guessed within 5 attempts.
+    %Figure~\ref{fig:guessing-probability} illustrates how the guessing probability\footnote{A guessing probability is
+%    how likely an attacker can successfully guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
+%    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength
+%    measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram,
+%    our complexity score is inline with classical approaches for quantifying the security strength of pattern lock -- the more complexity a
+%    pattern is, the less likely it can be successfully guessed within 5 attempts.
 
     %\FIXME{explain the diagram – e.g. what are primitive curve and logistic fit!}.
    % \FIXED{the primitive curve presents the relevance between the guessing probability and the complexity scores. It directly reveals how likely a pattern can be guessed within five attempts as the complexity score increases. The trend of the primitive curve is shown by the logistic fit curve (the red dash curve), which indicates that a pattern with higher complexity score (typically more than 13) is hard to be guessed within five attempts.}
@@ -103,32 +103,6 @@
     complex pattern has a score between 19 and 33, and a complex pattern must have a score greater than 33. This classification gives us roughly 40 patterns per
     category. Figure~\ref{fig:fig8} gives some examples for each category while Figure~\ref{fig:pattern-strength} shows the distribution of these patterns according to their complexity scores.
     Based on this definition, the most complex pattern on a $3 \times 3$ grid has a score of $46.8$ (see Figure~\ref{fig:most complex patterns}).  The complex scores of the patterns we collected range from $6.4$ to $46.8$.
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex3.pdf} \\
-                \centering  complexity score: $43.8$
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex2.pdf} \\
-                \centering  complexity score: $44.7$
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{0.12\textwidth}
-                \includegraphics[width=\textwidth]{fig/complex1.pdf} \\
-                \centering  complexity score: $46.8$
-                \end{minipage}
-            }
-            \vspace{-2mm}
-            \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
-            \vspace{-2mm}
-            \label{fig:most complex patterns}
-        \end{figure}
 
     \subsection{Video Recording and Preprocessing}
 

@@ -85,24 +85,7 @@ solutions to be constructed in the new application context of pattern lock.
 %infeasible for attacking
 %pattern-based lock.
 
-This paper presents a novel approach to crack Android pattern lock using
-video footage that captures the user's fingertip motions when drawing the pattern. Unlike smudge attacks~\cite{aviv2010smudge}, our approach
-does not require the video footage or images to be captured by a camera
-directly faced the screen. Furthermore, the video can be filmed at a
-distance of 2 meters from the user in public places. Such a distance is less likely
-to raise suspicion compared to shoulder
-surfing~\cite{shoulder} that requires a
-closer observation distance to have a clear sight of the content displayed on the screen. %This makes our attack is more likely to success
-%when compared to previous attacks on pattern lock.
-
-Our attack employs a computer vision algorithm to
-track the fingertip motions from the video. Using the geometry
-information extracted from the fingertip motions, it then maps
-the tracked fingertip locations to a small number of (often just one)
-candidate patterns to be tested on the target device.
-
-
-   \begin{figure}[!t]
+   \begin{figure*}[!t]
         \centering
         \subfigure{
             \begin{minipage}[t]{3.5cm}
@@ -145,11 +128,41 @@ candidate patterns to be tested on the target device.
              The device screen seen from the video filmed in (e).
             \end{minipage}
         }
+        \subfigure{
+            \begin{minipage}[t]{3.5cm}
+            \includegraphics[height=3cm]{fig/1-7.pdf}\\
+             \footnotesize (g) An outdoor scenario.
+             %The user is focusing his attention on searching for learning material in classroom.
+            \end{minipage}
+        }
+        \hspace{0.5cm}
+        \subfigure{
+            \begin{minipage}[t]{3.5cm}
+            \includegraphics[height=3cm]{fig/1-8.pdf}\\
+             \footnotesize (h)
+             The device screen seen from the video filmed in (g).
+            \end{minipage}
+        }
         \caption{Examples of scenarios in which a mobile phone camera is used to film the unlocking process.
         In these scenarios, the camera does not need to have a clear sight of the screen.}
         \label{fig:fig1}
-    \end{figure}
+    \end{figure*}
 
+This paper presents a novel approach to crack Android pattern lock using
+video footage that captures the user's fingertip motions when drawing the pattern. Unlike smudge attacks~\cite{aviv2010smudge}, our approach
+does not require the video footage or images to be captured by a camera
+directly faced the screen. Furthermore, the video can be filmed at a
+distance of 2 meters from the user in public places. Such a distance is less likely
+to raise suspicion compared to shoulder
+surfing~\cite{shoulder} that requires a
+closer observation distance to have a clear sight of the content displayed on the screen. %This makes our attack is more likely to success
+%when compared to previous attacks on pattern lock.
+
+Our attack employs a computer vision algorithm to
+track the fingertip motions from the video. Using the geometry
+information extracted from the fingertip motions, it then maps
+the tracked fingertip locations to a small number of (often just one)
+candidate patterns to be tested on the target device.
 
 We thoroughly evaluate our approach using 120 unique patterns collected from independent users. We show that our approach is effective in inferring candidate patterns and as a result, an attacker can unlock
 the target device with a success rate of over 95\% (up to 97.5\%) in five attempts.

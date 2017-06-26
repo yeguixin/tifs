@@ -8,6 +8,13 @@
     the camera shake effect, lighting, the screen size of the mobile device, and the filming cameras. Next, we evaluate our approach on alternative pattern grids and demonstrate that direct observations have lower success rates compared to our attack.
     We conduct a limited study to understand how our attack performs when the video only captures the user's fingertip.
      Finally, we demonstrate that our video-based attack can also be used to crack PIN-based passwords.
+     
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/10.pdf}
+    \caption{For each pattern category, the figure shows the success rate using no more than 1, 2, 3, 4 and 5 attempts.}
+    \label{fig:fig10}
+\end{figure}
 
     \subsection{Overall Success Rate \label{sec:overall_rate}}
 
@@ -33,7 +40,7 @@
        pattern using a video filmed by a different device.
         It is important to note that the native Android system allows up to five failed tries before locking the device~\cite{egelman2014you}. This means, in practice, our approach is able to
         successfully crack most locking patterns.
-
+        
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.5\textwidth]{fig/11.pdf}
@@ -41,32 +48,13 @@
     \label{fig:fig11}
 \end{figure}
 
-         Another interesting observation is that in contrast to many people's
+        Another interesting observation is that in contrast to many people's
         intuition, complex patterns do not provide stronger protection under our attack -- as can be seen by the fact that
         most of the complex patterns can be cracked in one attempt.
         This is because although complex patterns can better protect the user against direct observation techniques like shoulder surfing~\cite{shoulder}, their unique graphical structures
         help our algorithms to narrow the possible options down. This is
         confirmed by Figure~\ref{fig:fig11}. It shows that for most median and all complex patterns, our system produces one candidate pattern --
         the correct one for most of our test cases.
-
-       We also evaluated our approach using the top 60 most complex
-        patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
-        grid.
-        To evaluate our approach on a wide range of patterns, we exclude patterns that are simply a rotation to an already chosen pattern.
-         Figure~\ref {fig:most complex patterns} illustrates three
-        highly complex patterns which have a complexity score between 43.8 and 46.8. The three
-        patterns use all the nine dots of the grid and have a larger number of line segments, intersections and overlapping lines when compared to simpler patterns.
-        Because of their complex graphical structures, remembering
-        these patterns using direct observation techniques would be difficult.
-        In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
-        patterns are less security under video-based attacks.
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{fig/10.pdf}
-    \caption{For each pattern category, the figure shows the success rate using no more than 1, 2, 3, 4 and 5 attempts.}
-    \label{fig:fig10}
-\end{figure}
 
         \begin{table}[!t]
             \centering
@@ -82,8 +70,58 @@
                 \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
                 \bottomrule
             \end{tabular}
-            %\vspace{-5mm}
         \end{table}
+
+        \FIXED{In fact, most users intend to select simple and symmetry lock patterns for protecting their devices~\cite{uellenbeck2013quantifying}. So we evaluated our approach under different usage rate of pattern locks. We quantify the usage rate of a pattern using the guessing probability proposed in~\cite{Heidt2016Refining}. According to the guessing probability, patterns are divided into three category: low, median and high.  Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate under different usage rate. As can be seen from the diagram, for the high usage rate patterns, the success rate with one attempt is 42.5\%. This is because that the patterns with high usage rate typically belongs to the simple and symmetry patterns so that our method output more than one candidate pattern. Further, our approach can crack most median and low usage rate patterns with one attempt.}
+        %\FIXED{Figure~\ref{fig:usage-crackingNum} illustrates how the guessing probability\footnote{A guessing probability is how likely an attacker can successfully guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
+%    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength
+%    measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram,
+%    our complexity score is inline with classical approaches for quantifying the security strength of pattern lock -- the more complexity a pattern is, the less likely it can be successfully guessed within 5 attempts.}
+
+       We also evaluated our approach using the top 60 most complex
+        patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
+        grid.
+        To evaluate our approach on a wide range of patterns, we exclude patterns that are simply a rotation to an already chosen pattern.
+         Figure~\ref {fig:most complex patterns} illustrates three
+        highly complex patterns which have a complexity score between 43.8 and 46.8. The three
+        patterns use all the nine dots of the grid and have a larger number of line segments, intersections and overlapping lines when compared to simpler patterns.
+        Because of their complex graphical structures, remembering
+        these patterns using direct observation techniques would be difficult.
+        In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
+        patterns are less security under video-based attacks.
+
+        \begin{figure}[!t]
+            \centering
+            \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
+            \caption{For different usages, the figure shows the success rate within 1, 2, 3, 4, 5 attempts.}
+            \label{fig:usage-crackingNum}
+        \end{figure}
+        
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[b]{0.12\textwidth}
+                \includegraphics[width=\textwidth]{fig/complex3.pdf} \\
+                \centering  complexity score: $43.8$
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{0.12\textwidth}
+                \includegraphics[width=\textwidth]{fig/complex2.pdf} \\
+                \centering  complexity score: $44.7$
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{0.12\textwidth}
+                \includegraphics[width=\textwidth]{fig/complex1.pdf} \\
+                \centering  complexity score: $46.8$
+                \end{minipage}
+            }
+            \vspace{-2mm}
+            \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
+            \vspace{-2mm}
+            \label{fig:most complex patterns}
+        \end{figure}
 
         \begin{figure*}[!ht]
             \centering
