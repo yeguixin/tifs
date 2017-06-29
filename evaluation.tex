@@ -8,7 +8,7 @@
     the camera shake effect, lighting, the screen size of the mobile device, and the filming cameras. Next, we evaluate our approach on alternative pattern grids and demonstrate that direct observations have lower success rates compared to our attack.
     We conduct a limited study to understand how our attack performs when the video only captures the user's fingertip.
      Finally, we demonstrate that our video-based attack can also be used to crack PIN-based passwords.
-     
+
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.5\textwidth]{fig/10.pdf}
@@ -20,12 +20,17 @@
 
     \noindent \textbf{Result 1:}  \emph{We can successfully crack over 95\% of the patterns in five attempts and complex patterns are less secure compared to simple patterns under our attack.}
 
+        
         In this experiment, videos were recorded from a distance of 2 meters away
         from the target device. This mimics a scenario where the adversary sits
         at the next table to the user in a public space (e.g. a restaurant).
         The smartphones used for filming in this experiment were hand-held.
+        
+        \subsubsection{Evaluation using collected user patterns}
         Figure~\ref{fig:fig10}
-        shows the success rate for cracking different types of patterns within 1, 2, 3, 4 and 5 attempts.     For all the patterns used in this evaluation,
+        shows the success rate for cracking different types of patterns within 1, 2, 3, 4 and 5 attempts.     
+        We used the 120 patterns that have been collected through our user studies in this experiment. 
+        For all the patterns used in this evaluation,
         our approach does not generate more than  five candidate patterns.
         For complex patterns, we are able to crack all except one (with a 97.5\% success rate) \emph{in the first attempt}.
         For simple and median patterns, the success rate increases with more tries.
@@ -40,7 +45,7 @@
        pattern using a video filmed by a different device.
         It is important to note that the native Android system allows up to five failed tries before locking the device~\cite{egelman2014you}. This means, in practice, our approach is able to
         successfully crack most locking patterns.
-        
+
 \begin{figure}[!t]
     \centering
     \includegraphics[width=0.5\textwidth]{fig/11.pdf}
@@ -56,48 +61,10 @@
         confirmed by Figure~\ref{fig:fig11}. It shows that for most median and all complex patterns, our system produces one candidate pattern --
         the correct one for most of our test cases.
 
-        \begin{table}[!t]
-            \centering
-            \caption{Tracking precision vs filming distance}
-            \vspace{-0.2mm}
-            \label{tab:tab1}
-            \small
-            \begin{tabular}{ccccc}
-                \toprule
-                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
-                \midrule
-                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
-                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
-                \bottomrule
-            \end{tabular}
-        \end{table}
 
-        \FIXED{In fact, most users intend to select simple and symmetry lock patterns for protecting their devices~\cite{uellenbeck2013quantifying}. So we evaluated our approach under different usage rate of pattern locks. We quantify the usage rate of a pattern using the guessing probability proposed in~\cite{Heidt2016Refining}. According to the guessing probability, patterns are divided into three category: low, median and high.  Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate under different usage rate. As can be seen from the diagram, for the high usage rate patterns, the success rate with one attempt is 42.5\%. This is because that the patterns with high usage rate typically belongs to the simple and symmetry patterns so that our method output more than one candidate pattern. Further, our approach can crack most median and low usage rate patterns with one attempt.}
-        %\FIXED{Figure~\ref{fig:usage-crackingNum} illustrates how the guessing probability\footnote{A guessing probability is how likely an attacker can successfully guess a given pattern within five attempts.} changes as the complexity score (given by Equation~\ref{equ:compscore}) of the pattern lock changes.
-%    The probability is calculated on the set of patterns collected from our participants, by using the pattern strength
-%    measurement method proposed in \cite{Heidt2016Refining}. As can be seen from this diagram,
-%    our complexity score is inline with classical approaches for quantifying the security strength of pattern lock -- the more complexity a pattern is, the less likely it can be successfully guessed within 5 attempts.}
 
-       We also evaluated our approach using the top 60 most complex
-        patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
-        grid.
-        To evaluate our approach on a wide range of patterns, we exclude patterns that are simply a rotation to an already chosen pattern.
-         Figure~\ref {fig:most complex patterns} illustrates three
-        highly complex patterns which have a complexity score between 43.8 and 46.8. The three
-        patterns use all the nine dots of the grid and have a larger number of line segments, intersections and overlapping lines when compared to simpler patterns.
-        Because of their complex graphical structures, remembering
-        these patterns using direct observation techniques would be difficult.
-        In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
-        patterns are less security under video-based attacks.
-
-        \begin{figure}[!t]
-            \centering
-            \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
-            \caption{For different usages, the figure shows the success rate within 1, 2, 3, 4, 5 attempts.}
-            \label{fig:usage-crackingNum}
-        \end{figure}
-        
-        \begin{figure}[!t]
+    
+             \begin{figure}[!t]
             \centering
             \subfigure{
                 \begin{minipage}[b]{0.12\textwidth}
@@ -117,11 +84,51 @@
                 \centering  complexity score: $46.8$
                 \end{minipage}
             }
-            \vspace{-2mm}
             \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
-            \vspace{-2mm}
             \label{fig:most complex patterns}
+        \end{figure} 
+        
+     \subsubsection{Evaluation on the most complex patterns}     
+       We also evaluated our approach using the top 60 most complex
+        patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
+        grid.
+        To evaluate our approach on a wide range of patterns, we exclude patterns that are simply a rotation to an already chosen pattern.
+         Figure~\ref{fig:most complex patterns} illustrates three
+        highly complex patterns which have a complexity score between 43.8 and 46.8. The three
+        patterns use all the nine dots of the grid and have a larger number of line segments, intersections and overlapping lines when compared to simpler patterns.
+        Because of their complex graphical structures, remembering
+        these patterns using direct observation techniques would be difficult.
+        In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
+        patterns are less security under video-based attacks.
+
+       
+       \begin{figure}[!t]
+            \centering
+            \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
+            \caption{The attacking success rate when grouping patterns using the guessing probability~~\cite{Heidt2016Refining}. \FIXME{Have no idea of what do you mean by usage rate on the y-axis}}
+            \label{fig:usage-crackingNum}
         \end{figure}
+       \subsubsection{Evaluation using other security metric}
+       \label{sec:eval_gussingp}
+        In addition to the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack using
+        the guessing probability proposed in~\cite{Heidt2016Refining}. This metric measures the pattern’s strength by
+        considering how many guesses is required to guess the given pattern. The guess probability is calculated using
+        a Markov model built from real-world user data~\cite{uellenbeck2013quantifying}. Intuitively, it will take less
+        guesses to crack a more commonly used pattern. Therefore, this metric can be used as a proxy to estimate how
+        likely a pattern will be used.
+
+            Using this metric, we divide our 120 patterns collected from our participants into three categories: low, median and
+            high. Patterns in the high group are more likely to be used by users and patterns in the low group are less likely to
+            be used daily. \FIXME{How do you partition the patterns?}. Figure~\ref{fig:usage-crackingNum} illustrates the cracking
+            success rate for different categories under numbers of attempts.  As can be seen from the diagram, the success rate
+            with one attempt for the patterns in the high group is 42.5\%. This success rate is lower than patterns in other
+            groups. This is because that the patterns in this group are simple and symmetry patterns, for which our tracking
+            algorithm produces more than one candidate pattern. This is in line with our observation using the complexity metric
+            defined in Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
+            each group. This confirms that video-side channel is a real thread for Android locking pattern.
+
+
+
 
         \begin{figure*}[!ht]
             \centering
@@ -157,15 +164,32 @@
             \label{fig:distance-show}
         \end{figure*}
 
-        \begin{figure}[t!]
+
+
+    \subsection{Impact of Filming Distances \label{sec:distances}}
+                \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/12.pdf}
             \caption{Impact of the filming distance.}
             \label{fig:fig12}
         \end{figure}
+        
 
-    \subsection{Impact of Filming Distances \label{sec:distances}}
-
+                \begin{table}[!t]
+            \centering
+            \caption{Tracking precision vs filming distance}
+            \vspace{-0.2mm}
+            \label{tab:tab1}
+            \small
+            \begin{tabular}{ccccc}
+                \toprule
+                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
+                \midrule
+                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
+                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
 
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
 
@@ -598,7 +622,7 @@
         conducted by Shukla~\emph{et al.}~\cite{shukla2014beware}. To reconstruct
         PIN-based passwords, our attacking method records some additional
         geometric information, including the direction and length
-        information. Figure~\ref{fig:pins_trajectory} shows the reconstructed
+        information. Figure~\ref{fig:pins_trajectory} shows the tracked
         fingertip trajectory using the new attacking method.
 
     \begin{figure}[!t]

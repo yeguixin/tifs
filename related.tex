@@ -21,11 +21,14 @@ But the subtle changes of the screen brightness can be dramatically affected by 
 There is a body of work using reflections to recover information typed by the user~\cite{kuhn2002compromising,xu2013seeing,raguram2011ispy,backes2009tempest}. These schemes require having a clear vision of the content displayed on the screen while our approach does not have such a requirement.
 
 \vspace{2mm}
-\noindent \textbf{Cracking Graphical-based Passwords.}
-Aviv \emph{et al.} demonstrated that it is possible to reconstruct a locking pattern by analyzing the oily residues left on the screen~\cite{aviv2010smudge}.
- This method is highly restricted as oily residues can be messed up by any on-screen activities after pattern drawing.
- \FIXED{Abedlrahman \emph{et al.} explored that PINs or patterns are likely to be recognized by tracking the heat left on the screen~\cite{abdelrahman2017stay}. Likewise, their approach is significantly disrupted by other on-screen operations after drawing the PIN or pattern.}
-Zhang \emph{et al.} exploit the WiFi signal interferences caused by finger motions to recover patterns~\cite{zhang2016privacy}. Their method requires a complex setup and is highly sensitive to moving objects of the environment
+\noindent \textbf{Cracking Graphical-based Passwords.} Aviv \emph{et al.} demonstrated that it is possible to
+reconstruct a locking pattern by analyzing the oily residues left on the screen~\cite{aviv2010smudge}. This method is
+highly restricted as oily residues can be messed up by any on-screen activities after pattern drawing. Abedlrahman
+\emph{et al.} explored the fact that PINs or patterns are likely to be recognized by tracking the heat left on the
+screen~\cite{abdelrahman2017stay}. Likewise, their approach is significantly disrupted by other on-screen operations
+after drawing the PIN or pattern. Zhang \emph{et al.} exploit the WiFi signal interferences caused by finger motions to
+recover patterns~\cite{zhang2016privacy}. Their method requires a complex setup and is highly sensitive to moving
+objects of the environment
 because the WiFi signal can be disrupted by a moving object.
 
 
@@ -54,10 +57,10 @@ patterns~\cite{alpnorway}. Her study shows that users have a bias in selecting t
 starting dot to form a pattern and people tend to use complex patterns
 for sensitive applications.
 Aviv \emph{et al.} conducted a large user study to understand the security of the Android graphical based passwords~\cite{Aviv2014Understanding}. They analyzed the security and usability preference of users, using six visual features of the pattern lock including pattern length, number of crosses, etc.
-\FIXED{After conducting a larger user study, they developed a brutal-force  algorithm to
-crack the pattern lock~\cite{Aviv2015Is}. Their results show that patterns
-generated on a grid of $3\times3$ and $4\times4$ dots can be cracked at a high success rate within adequate attempts.}
-%within thousands of guesses, where simple patterns need less attempts. 
+After conducting a larger user study, they developed a brutal-force  algorithm to
+crack the pattern lock~\cite{Aviv2015Is}. Their results show that 15\% and 20\% of the  patterns
+generated on a grid of $3\times3$ and $4\times4$ dots respectively can be cracked within 20 guesses.
+%within thousands of guesses, where simple patterns need less attempts.
 In a more recent work~\cite{Aviv2016Anlyzing}, they study the representativeness of
 pattern locks collected through various methods. Their work suggests
 that there are subtle differences for patterns collected using a pen-and-paper
