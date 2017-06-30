@@ -20,16 +20,16 @@
 
     \noindent \textbf{Result 1:}  \emph{We can successfully crack over 95\% of the patterns in five attempts and complex patterns are less secure compared to simple patterns under our attack.}
 
-        
+
         In this experiment, videos were recorded from a distance of 2 meters away
         from the target device. This mimics a scenario where the adversary sits
         at the next table to the user in a public space (e.g. a restaurant).
         The smartphones used for filming in this experiment were hand-held.
-        
+
         \subsubsection{Evaluation using collected user patterns}
         Figure~\ref{fig:fig10}
-        shows the success rate for cracking different types of patterns within 1, 2, 3, 4 and 5 attempts.     
-        We used the 120 patterns that have been collected through our user studies in this experiment. 
+        shows the success rate for cracking different types of patterns within 1, 2, 3, 4 and 5 attempts.
+        We used the 120 patterns that have been collected through our user studies in this experiment.
         For all the patterns used in this evaluation,
         our approach does not generate more than  five candidate patterns.
         For complex patterns, we are able to crack all except one (with a 97.5\% success rate) \emph{in the first attempt}.
@@ -63,7 +63,7 @@
 
 
 
-    
+
              \begin{figure}[!t]
             \centering
             \subfigure{
@@ -86,9 +86,9 @@
             }
             \caption{Three most complex patterns on a $3\times 3$ grid based on Equation~\ref{equ:compscore}.}
             \label{fig:most complex patterns}
-        \end{figure} 
-        
-     \subsubsection{Evaluation on the most complex patterns}     
+        \end{figure}
+
+     \subsubsection{Evaluation on the most complex patterns}
        We also evaluated our approach using the top 60 most complex
         patterns (according to Equation~\ref {equ:compscore}) on a $3 \times 3$
         grid.
@@ -101,36 +101,31 @@
         In this experiment, we can crack all the complex patterns in one attempt. This result reinforces our claim that complex
         patterns are less security under video-based attacks.
 
-       
+
        \begin{figure}[!t]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
-            \caption{The attacking success rate when grouping patterns using the guessing probability~~\cite{Heidt2016Refining}. \FIXME{Have no idea of what do you mean by usage rate on the y-axis}}
+            \caption{The attacking success rate when grouping patterns using the guessing probability calculated by Equation~\ref{equ:guessing_number}.}
             \label{fig:usage-crackingNum}
         \end{figure}
-       \subsubsection{Evaluation using other security metric}
-       \label{sec:eval_gussingp}
-        In addition to the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack using
-        the guessing probability proposed in~\cite{Heidt2016Refining}. This metric measures the pattern’s strength by
-        considering how many guesses is required to guess the given pattern. The guess probability is calculated using
-        a Markov model built from real-world user data~\cite{uellenbeck2013quantifying}. Intuitively, it will take less
-        guesses to crack a more commonly used pattern. Therefore, this metric can be used as a proxy to estimate how
-        likely a pattern will be used.
 
-            Using this metric, we divide our 120 patterns collected from our participants into three categories: low, median and
-            high. Patterns in the high group are more likely to be used by users and patterns in the low group are less likely to
-            be used daily. \FIXME{How do you partition the patterns?}. Figure~\ref{fig:usage-crackingNum} illustrates the cracking
-            success rate for different categories under numbers of attempts.  As can be seen from the diagram, the success rate
-            with one attempt for the patterns in the high group is 42.5\%. This success rate is lower than patterns in other
-            groups. This is because that the patterns in this group are simple and symmetry patterns, for which our tracking
-            algorithm produces more than one candidate pattern. This is in line with our observation using the complexity metric
-            defined in Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
-            each group. This confirms that video-side channel is a real thread for Android locking pattern.
-
-
-
-
-        \begin{figure*}[!ht]
+        \begin{table}[!t]
+            \centering
+            \caption{Tracking precision vs filming distance}
+            \vspace{-0.2mm}
+            \label{tab:tab1}
+            \small
+            \begin{tabular}{ccccc}
+                \toprule
+                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
+                \midrule
+                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
+                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
+                \bottomrule
+            \end{tabular}
+        \end{table}     
+        
+         \begin{figure*}[!ht]
             \centering
             \subfigure{
                 \begin{minipage}[b]{0.23\textwidth}
@@ -162,7 +157,32 @@
 
             \caption{Tracked fingertip trajectories (user's perspective) for the pattern shown in (d) from a video filmed from a distance of 2m (a), 3m (b), and 3.5m (c) respectively away from the target device. The tracking quality decreases when the filming distance is greater than 3m. }
             \label{fig:distance-show}
-        \end{figure*}
+        \end{figure*}   
+
+       \subsubsection{Evaluation using other security metric}
+       \label{sec:eval_gussingp}
+        In addition to the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack using
+        the guessing probability calculated by guessing number proposed in~\cite{Heidt2016Refining}. This metric measures the pattern’s strength by
+        considering how many guesses is required to guess the given pattern. The guessing number is calculated using
+        a Markov model built from real-world user data~\cite{uellenbeck2013quantifying}. Intuitively, it will take less
+        guesses to crack a more commonly used pattern. Therefore, this metric can be used as a proxy to estimate how
+        likely a pattern will be used. We quantify the guessing probability, $GP_{P}$, of a pattern, $P$, as follows:
+        
+        \begin{equation}
+            GP_{P}=\log_{10} {G_P}
+            \label{equ:guessing_number}
+        \end{equation}
+        where $G_P$ is the guessing number of the pattern.
+
+            Using this metric, we divide our 120 patterns collected from our participants into three categories: low, median and
+            high. Patterns in the high group are more likely to be used by users and patterns in the low group are less likely to
+            be used daily. The high group has a value of less than 4.2, the median group has a score between 4.2 and 5.1, and the low group must have a score greater than 5.1. Figure~\ref{fig:usage-crackingNum} illustrates the cracking
+            success rate for different categories under numbers of attempts.  As can be seen from the diagram, the success rate
+            with one attempt for the patterns in the high group is 42.5\%. This success rate is lower than patterns in other
+            groups. This is because that the patterns in this group are simple and symmetry patterns, for which our tracking
+            algorithm produces more than one candidate pattern. This is in line with our observation using the complexity metric
+            defined in Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
+            each group. This confirms that video-side channel is a real thread for Android locking pattern.
 
 
 
@@ -173,23 +193,7 @@
             \caption{Impact of the filming distance.}
             \label{fig:fig12}
         \end{figure}
-        
 
-                \begin{table}[!t]
-            \centering
-            \caption{Tracking precision vs filming distance}
-            \vspace{-0.2mm}
-            \label{tab:tab1}
-            \small
-            \begin{tabular}{ccccc}
-                \toprule
-                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
-                \midrule
-                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
-                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
-                \bottomrule
-            \end{tabular}
-        \end{table}
 
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
 
@@ -217,18 +221,7 @@
            2.5 meters. Such a distance allows an attacker to
            record the video without raising suspicions in many day-to-day scenarios (some of these are
            depicted in Figure~\ref{fig:fig1}).
-
-            We also evaluated our approach on videos filmed using a entry-level
-            single-lens reflex (SLR) camera, Nikon D90, with a low-end 105mm lens. The SLR camera
-            was placed from a distance of 9 meters away from the target
-            device. For this set of videos, we are able to achieve the same
-            performance when compared to using videos filmed by a mobile
-            phone camera with a 2-meter filming distance. The further filming
-            distance is largely due to better video quality brought by the advanced
-            SLR camera and the lens. Therefore, in practice, an attacker can
-            also use a professional video recording device to launch the
-            attack from a further distance.
-
+           
 \begin{figure}[t!]
     \centering
     \vspace{0.6cm}
@@ -245,6 +238,16 @@
     \label{fig:fig14}
 \end{figure}
 
+            We also evaluated our approach on videos filmed using a entry-level
+            single-lens reflex (SLR) camera, Nikon D90, with a low-end 105mm lens. The SLR camera
+            was placed from a distance of 9 meters away from the target
+            device. For this set of videos, we are able to achieve the same
+            performance when compared to using videos filmed by a mobile
+            phone camera with a 2-meter filming distance. The further filming
+            distance is largely due to better video quality brought by the advanced
+            SLR camera and the lens. Therefore, in practice, an attacker can
+            also use a professional video recording device to launch the
+            attack from a further distance.
 
     \subsection{Impact of Camera Shake}
 
@@ -346,6 +349,39 @@
                 \bottomrule
             \end{tabular}
         \end{table}
+        
+
+    \begin{table}[!t]
+            \centering
+            \caption{Screen sizes per target phone}
+            \label{tab:screen-size}
+            \scriptsize
+            \begin{tabular}{cccc}
+                \toprule
+                \textbf{Screen-size}& \textbf{IPhone4S }& \textbf{Honor7} & \textbf{Samsung Tablet} \\
+                \midrule
+                Height(cm)$\times$Width(cm) & $11.5\times5.9$ & $14.3\times7.2$ & $24.2\times15.0$ \\
+                \bottomrule
+            \end{tabular}
+            %\vspace{-4mm}
+    \end{table}
+
+    \begin{table}[!t]
+            \centering
+            \caption{Filming camera parameters}
+            \label{tab:camera-parameters}
+            \small
+            \begin{tabular}{lrrrr}
+                \toprule
+                \textbf{Parameters}& \textbf{IPhone6} & \textbf{Vivo X7} & \textbf{MI4} & \textbf{Note4} \\
+                \midrule
+                Frame Rate (fps) & $30$ & $30$& $30$ & 30 \\
+                Pixels & 8mp & 13mp & 13mp & 16mp \\
+                Focus (mm) & 4.15 & 4 & 4 & 4.2 \\
+                Sensitivity (ISO) & 3200 & 3200 & 3000 & 5000 \\
+                \bottomrule
+            \end{tabular}
+    \end{table}
 
     \subsection{Impact of Screen Sizes and Cameras}
     \label{section: screen-size and cameras}
@@ -384,39 +420,6 @@
     90) patterns respectively due to blur motion in the video footage.
     This experiment shows that the screen size and filming camera
     have little impact on the attacking success rate.
-
-
-    \begin{table}[!t]
-            \centering
-            \caption{Screen sizes per target phone}
-            \label{tab:screen-size}
-            \scriptsize
-            \begin{tabular}{cccc}
-                \toprule
-                \textbf{Screen-size}& \textbf{IPhone4S }& \textbf{Honor7} & \textbf{Samsung Tablet} \\
-                \midrule
-                Height(cm)$\times$Width(cm) & $11.5\times5.9$ & $14.3\times7.2$ & $24.2\times15.0$ \\
-                \bottomrule
-            \end{tabular}
-            %\vspace{-4mm}
-    \end{table}
-
-    \begin{table}[!t]
-            \centering
-            \caption{Filming camera parameters}
-            \label{tab:camera-parameters}
-            \small
-            \begin{tabular}{lrrrr}
-                \toprule
-                \textbf{Parameters}& \textbf{IPhone6} & \textbf{Vivo X7} & \textbf{MI4} & \textbf{Note4} \\
-                \midrule
-                Frame Rate (fps) & $30$ & $30$& $30$ & 30 \\
-                Pixels & 8mp & 13mp & 13mp & 16mp \\
-                Focus (mm) & 4.15 & 4 & 4 & 4.2 \\
-                Sensitivity (ISO) & 3200 & 3200 & 3000 & 5000 \\
-                \bottomrule
-            \end{tabular}
-    \end{table}
 
     \begin{figure}[!t]
         \centering
@@ -517,6 +520,24 @@
             \label{fig:unlock interface}
         \end{figure}
 
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
+                \centering  (a) password: 1234
+             \end{minipage}
+        }
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
+                \centering  (b) password: 3570
+             \end{minipage}
+        }
+        \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
+        \label{fig:pins_trajectory}
+    \end{figure}
+
     \subsection{Evaluation on Other Pattern Grids\label{sec:scalability}}
     \noindent \textbf{Result 8:} \emph{A pattern grid with more dots provides stronger protection but our attack can still crack most of the patterns.}
 
@@ -550,24 +571,6 @@
         pattern grids with more dots is to allow users to use more complex
         patterns. However, this experiment suggests that complex patterns remain less security on
          these grids under our attack.
-
-    \begin{figure}[!t]
-        \centering
-        \subfigure{
-             \begin{minipage}[t]{0.22\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
-                \centering  (a) password: 1234
-             \end{minipage}
-        }
-        \subfigure{
-             \begin{minipage}[t]{0.22\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
-                \centering  (b) password: 3570
-             \end{minipage}
-        }
-        \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
-        \label{fig:pins_trajectory}
-    \end{figure}
 
     \begin{table}[!t]
             \centering
@@ -649,6 +652,12 @@
        % two passwords is because they have more than five candidate patterns and for remaining two ones is that we detected the wrong location of one touching point due to the blue motion of the video footage. We believe that the expert attacker is able to improve the success rate using more attempts.
 %
 
+    \begin{figure}[!t]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
+        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
+        \label{fig:finger-only}
+    \end{figure}
 
 \subsection{Limited Study}
 \label{section: limited-study}
@@ -665,10 +674,4 @@ This is large due to the fact the negative impact of the camera shake on trackin
 With only the fingertip location, the attacking method fails to cancel the camera shake effect, leading to low quality fingertip movement trajectory
 which in turn translates to a poor success rate (less than 50\%, 30\% and 20\% for simple, medium and complex patterns respectively).
 
-    \begin{figure}[!t]
-        \centering
-        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
-        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
-        \label{fig:finger-only}
-    \end{figure}
 
