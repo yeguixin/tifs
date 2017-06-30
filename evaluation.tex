@@ -130,11 +130,11 @@
         
         
           To translate the guessing probability to a frequency score, we first sort all the 120 testing patterns used
-          in this experiment in descending order, based on their guessing probabilities. In this way, patterns with a
+          in this experiment in descending order, based on their guessing probabilities. By doing so, patterns with a
           higher probability (i.e. more commonly used patterns) will appear before those with a lower probability (less commonly
-          used patterns). Next, we give each pattern a numeric number (i.e. \emph{the guessing number}), starting from 1 for
-          the first pattern, and we increase the number by 1 as we move down to next pattern on the sorted list. We then use the following
-          formulate to calculate the frequency score, $f_{P}$, of a pattern: $P$:
+          used patterns). Next, we give each pattern a numeric number (termed \emph{guessing number}), starting from 1 for
+          the first pattern of the sorted list, and we increase the number by 1 as we move down to next pattern on the sorted list. We then use the following
+          formular to calculate the frequency score, $f_{P}$, of a pattern, $P$:
 
         \begin{equation}
             f_{P}=\log_{10} {G_P}
@@ -143,10 +143,10 @@
         where $G_P$ is the guessing number of pattern $P$. 
         
         
-            Using Equation~\ref{equ:guessing_number}, less commonly used patterns will have a low frequency score. With
-            this metric in place, we divide our 120 patterns collected from our participants into three categories:
-            \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users and patterns in the
-            \emph{low} group are less likely to be used daily. The high group has a value of less than 4.2, the median group
+            Using Equation~\ref{equ:guessing_number}, less commonly used patterns will have a lower frequency score. With
+            this metric in place, we divide our 120 patterns collected from our participants into three groups:
+            \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users than the patterns in the
+            \emph{low} group. The high group has a value of less than 4.2, the median group
             has a score between 4.2 and 5.1, and the low group must have a score greater than 5.1.
             Using this partition strategy, each group has around 30 patterns. 
             
