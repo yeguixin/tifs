@@ -163,13 +163,14 @@
        \subsubsection{Evaluation using alternative security metric}
        \label{sec:eval_gussingp}
         In addition to using the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack
-        based on how likely a pattern will be used by users.
-        For this purpose, we use
-        the guessing probability  proposed in~\cite{Heidt2016Refining}. This metric
-        measures the pattern's strength by considering how likely a pattern is to be guessed. The guessing probability
-        is the likelihood estimation from the hidden Markov model trained on collected, real-world
-        data~\cite{uellenbeck2013quantifying}. The larger the likelihood, the more likely the pattern would have been
-        selected by a user.
+        based on how likely a pattern will be used by users.  For this purpose, we use the
+        guessing probability  proposed in~\cite{Heidt2016Refining}. This metric measures the pattern's strength by
+        considering how likely a pattern is to be guessed. The guessing probability is the likelihood estimation from
+        the hidden Markov model trained on collected, real-world data~\cite{uellenbeck2013quantifying}. The larger the
+        likelihood, the more likely the pattern would have been
+        selected by a user.  We choose this metric because a similar security metric
+        based on statistical analysis of real-world passwords haven been widely used in prior studies of text-based
+        passwords~\cite{Kelley:2012:GAM:2310656.2310715,Bonneau:2012:SGA:2310656.2310721}.
 
         %Intuitively, if an attacker is to guess the pattern, he would start from a candidate pattern with the
         %largest guessing probability (because that pattern is most likely to be used by users).
@@ -177,11 +178,11 @@
 
 
           To translate the guessing probability to a frequency score, we first sort all the 120 testing patterns used
-          in this experiment in descending order, based on their guessing probabilities. By doing so, patterns with a
-          higher probability (i.e. more commonly used patterns) will appear before those with a lower probability (less commonly
-          used patterns). Next, we give each pattern a numeric number (termed \emph{guessing number}), starting from 1 for
-          the first pattern of the sorted list, and we increase the number by 1 as we move down to next pattern on the sorted list. We then use the following
-          formular to calculate the frequency score, $f_{P}$, of a pattern, $P$:
+          in this experiment in ascending order, based on their guessing probabilities. By doing so, patterns with a
+          higher probability (i.e. more commonly used patterns) will appear after those with a lower probability (less commonly
+          used patterns) on the sorted list. Next, we give each pattern a numeric number (termed \emph{guessing number}), starting from 1 for
+          the first pattern of the sorted list, and we increase the number by 1 as we move down to next (more commonly used) pattern on the sorted list. We then use the following
+          formula to calculate the frequency score, $f_{P}$, of a pattern, $P$:
 
         \begin{equation}
             f_{P}=\log_{10} {G_P}
@@ -190,29 +191,46 @@
         where $G_P$ is the guessing number of pattern $P$.
 
 
-            Using Equation~\ref{equ:guessing_number}, less commonly used patterns will have a lower frequency score. With
+            Less commonly used patterns have a smaller guessing number and thus will have a lower frequency score using Equation~\ref{equ:guessing_number}. With
             this metric in place, we divide our 120 patterns collected from our participants into three groups:
             \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users than the patterns in the
-            \emph{low} group. The high group has a value of less than 4.2, the median group
-            has a score between 4.2 and 5.1, and the low group must have a score greater than 5.1.
-            Using this partition strategy, each group has around 30 patterns.
+            \emph{low} group. The \emph{high} group has a value of less than 4.2, the \emph{median} group
+            has a score between 4.2 and 5.1, and the \emph{low} group must have a score greater than 5.1.
+            Using this partition strategy, each group has around 40 patterns.
+
 
             Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
             numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
-            in the high group is 42.5\%. This success rate is lower than patterns in other groups. This is because that
-            the patterns in this group are simple and symmetry patterns, for which our tracking algorithm produces more
+            in the \emph{high} group is 42.5\%. This success rate is lower than patterns in other groups. This is because that
+            the patterns in the \emph{high} frequently used group are typically simple and symmetry patterns, for which our tracking algorithm produces more
             than one candidate pattern. This is in line with our observation using the complexity metric defined in
             Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
-            each group. This confirms that video-side channel is a real thread for Android locking pattern.
+            each group. This confirms that the video-side channel is a real threat for the Android locking pattern.
 
     \subsection{Impact of Filming Distances \label{sec:distances}}
-                \begin{figure}[t!]
+        \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/12.pdf}
             \caption{Impact of the filming distance.}
             \label{fig:fig12}
         \end{figure}
 
+
+\begin{figure}[t!]
+    \centering
+    \vspace{0.1cm}
+    \includegraphics[width=0.5\textwidth]{fig/13.pdf}
+    \caption{The cumulative distribution function (CDF) for different video recording modes.}
+    \label{fig:fig13}
+\end{figure}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/14.pdf}
+    \caption{Impact of camera shake. Our approach has the same success rate under the hand-held and the fixed modes and the performance degradation under the shaky mode is modest. }
+    %\FIXME{We should evaluate this on 3 and 4 attempts.}
+    \label{fig:fig14}
+\end{figure}
 
         \noindent \textbf{Result 2:} \emph{We can crack over 80\% of the patterns in five attempts, if the video was filmed using a smartphone within a distance of 2.5 meters away from the target.}
 
@@ -240,22 +258,6 @@
            2.5 meters. Such a distance allows an attacker to
            record the video without raising suspicions in many day-to-day scenarios (some of these are
            depicted in Figure~\ref{fig:fig1}).
-
-\begin{figure}[t!]
-    \centering
-    \vspace{0.1cm}
-    \includegraphics[width=0.5\textwidth]{fig/13.pdf}
-    \caption{The cumulative distribution function (CDF) for different video recording modes.}
-    \label{fig:fig13}
-\end{figure}
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.5\textwidth]{fig/14.pdf}
-    \caption{Impact of camera shake. Our approach has the same success rate under the hand-held and the fixed modes and the performance degradation under the shaky mode is modest. }
-    %\FIXME{We should evaluate this on 3 and 4 attempts.}
-    \label{fig:fig14}
-\end{figure}
 
             We also evaluated our approach on videos filmed using a entry-level
             single-lens reflex (SLR) camera, Nikon D90, with a low-end 105mm lens. The SLR camera
@@ -491,6 +493,12 @@
    Each participant then had 10 minutes to watch a video and five chances to guess a pattern. They could adjust the playing speed and
    replay the video multiple times as they wished.
 
+        \begin{figure}[!t]
+            \centering
+            \includegraphics[width=0.45\textwidth]{fig/scalability.pdf}
+            \caption{Success rates of our attack for different locking grids.}
+            \label{fig:scalability}
+        \end{figure}
 
         Figure~\ref{fig:look-unlocking process} (a) shows the success rate of pattern guessing with
         bare eyes. Our participants correctly guessed for nearly half of the
@@ -512,50 +520,6 @@
     5 attempts are quite low. In
     fact, the success rates are 48.3\%, 38.3\%
     and 11.7\% respectively for simple, median and complex patterns.
-
-        \begin{figure}[!t]
-            \centering
-            \includegraphics[width=0.45\textwidth]{fig/scalability.pdf}
-            \caption{Success rates of our attack for different locking grids.}
-            \label{fig:scalability}
-        \end{figure}
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.18\textwidth}
-                \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
-                \centering  (a) pattern-based interface
-                \end{minipage}
-            }
-            \hspace{0.2cm}
-            \subfigure{
-                \begin{minipage}[t]{0.18\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
-                \centering  (b) pin-based interface
-                \end{minipage}
-            }
-            \caption{Pattern- (a) and pin-based (b) authentication interfaces.}
-            \label{fig:unlock interface}
-        \end{figure}
-
-    \begin{figure}[!t]
-        \centering
-        \subfigure{
-             \begin{minipage}[t]{0.22\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
-                \centering  (a) password: 1234
-             \end{minipage}
-        }
-        \subfigure{
-             \begin{minipage}[t]{0.22\textwidth}
-                \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
-                \centering  (b) password: 3570
-             \end{minipage}
-        }
-        \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
-        \label{fig:pins_trajectory}
-    \end{figure}
 
     \subsection{Evaluation on Other Pattern Grids\label{sec:scalability}}
     \noindent \textbf{Result 8:} \emph{A pattern grid with more dots provides stronger protection but our attack can still crack most of the patterns.}
@@ -590,7 +554,7 @@
         pattern grids with more dots is to allow users to use more complex
         patterns. However, this experiment suggests that complex patterns remain less security on
          these grids under our attack.
-
+         
     \begin{table}[!t]
             \centering
             \caption{PIN-based passwords used in our experiments}
@@ -610,6 +574,43 @@
                 \bottomrule
             \end{tabular}
     \end{table}
+   
+           \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.18\textwidth}
+                \includegraphics[width=\textwidth]{fig/pattern_screen.pdf}\\
+                \centering  (a) pattern-based interface
+                \end{minipage}
+            }
+            \hspace{0.2cm}
+            \subfigure{
+                \begin{minipage}[t]{0.18\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_screen.pdf}\\
+                \centering  (b) pin-based interface
+                \end{minipage}
+            }
+            \caption{Pattern- (a) and pin-based (b) authentication interfaces.}
+            \label{fig:unlock interface}
+        \end{figure}
+
+    \begin{figure}[!t]
+        \centering
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_1234.pdf}\\
+                \centering  (a) password: 1234
+             \end{minipage}
+        }
+        \subfigure{
+             \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=\textwidth]{fig/pin_3570.pdf}\\
+                \centering  (b) password: 3570
+             \end{minipage}
+        }
+        \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
+        \label{fig:pins_trajectory}
+    \end{figure} 
 
     \subsection{Attacking PIN-base Passwords}
     \label{section: attacking-pin-passwords}
@@ -653,6 +654,13 @@
         \caption{The success rate of cracking PIN-based passwords with different number of attempts.}
         \label{fig:pin_results}
     \end{figure}
+    
+    \begin{figure}[!t]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
+        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
+        \label{fig:finger-only}
+    \end{figure}
 
         Figure~\ref{fig:pin_results} shows the
         results of applying our attacking method to PIN-based passwords.
@@ -670,13 +678,6 @@
 
        % two passwords is because they have more than five candidate patterns and for remaining two ones is that we detected the wrong location of one touching point due to the blue motion of the video footage. We believe that the expert attacker is able to improve the success rate using more attempts.
 %
-
-    \begin{figure}[!t]
-        \centering
-        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
-        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
-        \label{fig:finger-only}
-    \end{figure}
 
 \subsection{Limited Study}
 \label{section: limited-study}
