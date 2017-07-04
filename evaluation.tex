@@ -105,59 +105,10 @@
        \begin{figure}[!t]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
-            \caption{The attacking success rate when grouping patterns based on how likely a pattern will be used. 
-            The likelihood is calculate using Equation~\ref{equ:guessing_number}.
-            \FIXME{Change the ``Guessing probability of pattern locks" to ``Likelihood of patterns to be used".}}
+            \caption{The attacking success rate when grouping patterns based on how likely a pattern will be used.
+            The likelihood is calculate using Equation~\ref{equ:guessing_number}.}
             \label{fig:usage-crackingNum}
         \end{figure}
-
-
-
-       \subsubsection{Evaluation using alternative security metric}
-       \label{sec:eval_gussingp}
-        In addition to using the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack 
-        based on how likely a pattern will be used by users. 
-        For this purpose, we use
-        the guessing probability  proposed in~\cite{Heidt2016Refining}. This metric
-        measures the pattern's strength by considering how likely a pattern is to be guessed. The guessing probability
-        is the likelihood estimation from the hidden Markov model trained on collected, real-world
-        data~\cite{uellenbeck2013quantifying}. The larger the likelihood, the more likely the pattern would have been
-        selected by a user. 
-        
-        %Intuitively, if an attacker is to guess the pattern, he would start from a candidate pattern with the
-        %largest guessing probability (because that pattern is most likely to be used by users).
-        %Therefore, the probability can be use as a proxy for categorizing how frequent a pattern would be used by ordinary users. 
-        
-        
-          To translate the guessing probability to a frequency score, we first sort all the 120 testing patterns used
-          in this experiment in descending order, based on their guessing probabilities. By doing so, patterns with a
-          higher probability (i.e. more commonly used patterns) will appear before those with a lower probability (less commonly
-          used patterns). Next, we give each pattern a numeric number (termed \emph{guessing number}), starting from 1 for
-          the first pattern of the sorted list, and we increase the number by 1 as we move down to next pattern on the sorted list. We then use the following
-          formular to calculate the frequency score, $f_{P}$, of a pattern, $P$:
-
-        \begin{equation}
-            f_{P}=\log_{10} {G_P}
-            \label{equ:guessing_number}
-        \end{equation}
-        where $G_P$ is the guessing number of pattern $P$. 
-        
-        
-            Using Equation~\ref{equ:guessing_number}, less commonly used patterns will have a lower frequency score. With
-            this metric in place, we divide our 120 patterns collected from our participants into three groups:
-            \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users than the patterns in the
-            \emph{low} group. The high group has a value of less than 4.2, the median group
-            has a score between 4.2 and 5.1, and the low group must have a score greater than 5.1.
-            Using this partition strategy, each group has around 30 patterns. 
-            
-            
-            Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
-            numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
-            in the high group is 42.5\%. This success rate is lower than patterns in other groups. This is because that
-            the patterns in this group are simple and symmetry patterns, for which our tracking algorithm produces more
-            than one candidate pattern. This is in line with our observation using the complexity metric defined in
-            Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
-            each group. This confirms that video-side channel is a real thread for Android locking pattern.
 
         \begin{table}[!t]
             \centering
@@ -209,6 +160,51 @@
             \label{fig:distance-show}
         \end{figure*}
 
+       \subsubsection{Evaluation using alternative security metric}
+       \label{sec:eval_gussingp}
+        In addition to using the complexity metric defined by Equation~\ref{equ:compscore}, we also evaluate our attack
+        based on how likely a pattern will be used by users.
+        For this purpose, we use
+        the guessing probability  proposed in~\cite{Heidt2016Refining}. This metric
+        measures the pattern's strength by considering how likely a pattern is to be guessed. The guessing probability
+        is the likelihood estimation from the hidden Markov model trained on collected, real-world
+        data~\cite{uellenbeck2013quantifying}. The larger the likelihood, the more likely the pattern would have been
+        selected by a user.
+
+        %Intuitively, if an attacker is to guess the pattern, he would start from a candidate pattern with the
+        %largest guessing probability (because that pattern is most likely to be used by users).
+        %Therefore, the probability can be use as a proxy for categorizing how frequent a pattern would be used by ordinary users.
+
+
+          To translate the guessing probability to a frequency score, we first sort all the 120 testing patterns used
+          in this experiment in descending order, based on their guessing probabilities. By doing so, patterns with a
+          higher probability (i.e. more commonly used patterns) will appear before those with a lower probability (less commonly
+          used patterns). Next, we give each pattern a numeric number (termed \emph{guessing number}), starting from 1 for
+          the first pattern of the sorted list, and we increase the number by 1 as we move down to next pattern on the sorted list. We then use the following
+          formular to calculate the frequency score, $f_{P}$, of a pattern, $P$:
+
+        \begin{equation}
+            f_{P}=\log_{10} {G_P}
+            \label{equ:guessing_number}
+        \end{equation}
+        where $G_P$ is the guessing number of pattern $P$.
+
+
+            Using Equation~\ref{equ:guessing_number}, less commonly used patterns will have a lower frequency score. With
+            this metric in place, we divide our 120 patterns collected from our participants into three groups:
+            \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users than the patterns in the
+            \emph{low} group. The high group has a value of less than 4.2, the median group
+            has a score between 4.2 and 5.1, and the low group must have a score greater than 5.1.
+            Using this partition strategy, each group has around 30 patterns.
+
+            Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
+            numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
+            in the high group is 42.5\%. This success rate is lower than patterns in other groups. This is because that
+            the patterns in this group are simple and symmetry patterns, for which our tracking algorithm produces more
+            than one candidate pattern. This is in line with our observation using the complexity metric defined in
+            Equation~\ref{equ:compscore}. Nonetheless, our attack can successfully crack over 90\% of the pattern of
+            each group. This confirms that video-side channel is a real thread for Android locking pattern.
+
     \subsection{Impact of Filming Distances \label{sec:distances}}
                 \begin{figure}[t!]
             \centering
@@ -247,7 +243,7 @@
 
 \begin{figure}[t!]
     \centering
-    \vspace{0.6cm}
+    \vspace{0.1cm}
     \includegraphics[width=0.5\textwidth]{fig/13.pdf}
     \caption{The cumulative distribution function (CDF) for different video recording modes.}
     \label{fig:fig13}
