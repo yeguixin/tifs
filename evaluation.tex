@@ -64,7 +64,7 @@
 
 
 
-             \begin{figure}[!t]
+        \begin{figure}[!t]
             \centering
             \subfigure{
                 \begin{minipage}[b]{0.12\textwidth}
@@ -112,16 +112,15 @@
 
         \begin{table}[!t]
             \centering
-            \caption{Tracking precision vs filming distance}
+            \caption{The reception rate of two groups of patterns}
             \vspace{-0.2mm}
-            \label{tab:tab1}
-            \small
-            \begin{tabular}{ccccc}
+            \label{tab:reception_rate}
+            \scriptsize
+            \begin{tabular}{cccc}
                 \toprule
-                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
+                \textbf{Group}& simple v.s. high & median v.s. median & complex v.s. low \\
                 \midrule
-                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
-                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
+                \textbf{reception rate}  & 72.5\% & 67.5\% & 80\% \\
                 \bottomrule
             \end{tabular}
         \end{table}
@@ -197,7 +196,15 @@
             \emph{low} group. The \emph{high} group has a value of less than 4.2, the \emph{median} group
             has a score between 4.2 and 5.1, and the \emph{low} group must have a score greater than 5.1.
             Using this partition strategy, each group has around 40 patterns.
-
+            
+        \begin{figure}[t!]
+            \centering
+            \includegraphics[width=0.5\textwidth]{fig/12.pdf}
+            \caption{Impact of the filming distance.}
+            \label{fig:fig12}
+        \end{figure}
+            
+            \FIXED{Intuitively, the simple pattern that is classified by Equation~\ref{equ:compscore} is likely to belong to the high group that is classified by Equation~\ref{equ:guessing_number}. Likewise, the median and complex patterns are likely to respectively belong to the median and low group.  However, the fact is that the two partition strategies are different. To prove this, we stat the number of the patterns both belonging to the simple and high group, median and median group and complex and low group. Then we figure out the reception rate of each two group. Table~\ref{tab:reception_rate} shows the recaption rate of each two groups. It presents that many patterns are different under the two partition strategy which indicates that there are some different between the two partition strategies.}
 
             Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
             numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
@@ -208,13 +215,6 @@
             each group. This confirms that the video-side channel is a real threat for the Android locking pattern.
 
     \subsection{Impact of Filming Distances \label{sec:distances}}
-        \begin{figure}[t!]
-            \centering
-            \includegraphics[width=0.5\textwidth]{fig/12.pdf}
-            \caption{Impact of the filming distance.}
-            \label{fig:fig12}
-        \end{figure}
-
 
 \begin{figure}[t!]
     \centering
@@ -269,6 +269,29 @@
             SLR camera and the lens. Therefore, in practice, an attacker can
             also use a professional video recording device to launch the
             attack from a further distance.
+            
+        \begin{figure}[t!]
+            \centering
+            \includegraphics[width=0.5\textwidth]{fig/light.pdf}
+            \caption{The cracking success rate within five attempts under different lighting conditions.}
+            \label{fig:light}
+        \end{figure}
+        
+        \begin{table}[!t]
+            \centering
+            \caption{Tracking precision vs filming distance}
+            \vspace{-0.2mm}
+            \label{tab:tab1}
+            \small
+            \begin{tabular}{ccccc}
+                \toprule
+                \textbf{Distance}& 1 m & 2 m & 3 m & 3.5 m \\
+                \midrule
+                \textbf{fingertip}  & 100\% & 98.7\% & 80.9\% & 68\% \\
+                \textbf{device edge} & 100\% & 99.4\% & 90.6\% & 69\% \\
+                \bottomrule
+            \end{tabular}
+        \end{table}
 
     \subsection{Impact of Camera Shake}
 
@@ -280,12 +303,7 @@
      approximate 2cm in the horizontal or the vertical directions. The recording device was placed on the left-front, front, and right-front of the target device.
     In the experiment, we affixed the target device on a table using double-sided tapes.
 
-        \begin{figure}[t!]
-            \centering
-            \includegraphics[width=0.5\textwidth]{fig/light.pdf}
-            \caption{The cracking success rate within five attempts under different lighting conditions.}
-            \label{fig:light}
-        \end{figure}
+
 
     We use a reference point to quantify camera shake. The point
     is the center position of an area of the target device. The area is marked by a boundary box on the first
@@ -332,28 +350,6 @@
     negative impact on the TLD algorithm. Nonetheless, our attack
     can still crack over 70\% of the patterns in a filming
     environment of low light.
-
-    \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
-
-    \noindent \textbf{Result 5:} \emph{Our attack performs well when the error of filming angle estimation is less than 5 degrees.}
-
-   Recall that our attack needs to transform the fingertip movement trajectory to the
-   user's perspective based on an estimation of the filming angle
-   (Section~\ref{sec:transformation}).
-   Because our filming angle estimation
-    algorithm gives highly accurate results, we did not find the estimation error to be an issue in our experiments.
-   Nonetheless, it is worth studying how the estimation error affects the success rate of our attack. To do so, we deliberately added an error of 5-10 degrees to the estimation in this experiment.
-
-    Figure~\ref{fig:fig15} shows the results of this experiment. When the error is less than $\pm 5$ degrees, there is little impact
-    on \emph{complex} patterns and no impact at all on \emph{simple} and
-    \emph{median} patterns. However, an estimation error of more than 10 degrees can significantly affect the success rate.
-    Given such errors, the resulting trajectory after transformations will
-    be significant different from the correct pattern.
-    For example, when the estimation error is 10 degrees from the
-    true value,  on average, 0.8, 2.6 and 4.2 line segments per pattern respectively will
-    be incorrectly labelled for \emph{simple}, \emph{median} and
-    \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when the filming angle estimation error is greater or equal to 10 degrees.
-
 
        \begin{table}[!t]
             \centering
@@ -404,6 +400,65 @@
             \end{tabular}
     \end{table}
 
+    \subsection{Impact of Filming Angle Estimation \label{sec:angle}}
+
+    \noindent \textbf{Result 5:} \emph{Our attack performs well when the error of filming angle estimation is less than 5 degrees.}
+
+   Recall that our attack needs to transform the fingertip movement trajectory to the
+   user's perspective based on an estimation of the filming angle
+   (Section~\ref{sec:transformation}).
+   Because our filming angle estimation
+    algorithm gives highly accurate results, we did not find the estimation error to be an issue in our experiments.
+   Nonetheless, it is worth studying how the estimation error affects the success rate of our attack. To do so, we deliberately added an error of 5-10 degrees to the estimation in this experiment.
+
+    Figure~\ref{fig:fig15} shows the results of this experiment. When the error is less than $\pm 5$ degrees, there is little impact
+    on \emph{complex} patterns and no impact at all on \emph{simple} and
+    \emph{median} patterns. However, an estimation error of more than 10 degrees can significantly affect the success rate.
+    Given such errors, the resulting trajectory after transformations will
+    be significant different from the correct pattern.
+    For example, when the estimation error is 10 degrees from the
+    true value,  on average, 0.8, 2.6 and 4.2 line segments per pattern respectively will
+    be incorrectly labelled for \emph{simple}, \emph{median} and
+    \emph{complex} patterns. This explains why the success rate for complex patterns drops significantly when the filming angle estimation error is greater or equal to 10 degrees.
+
+   \begin{figure}[!t]
+        \centering
+        \subfigure{
+             \begin{minipage}[t]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{fig/screen_size.pdf}\\
+                \centering  (a) screen size
+             \end{minipage}
+        }
+        \subfigure{
+             \begin{minipage}[t]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{fig/camera_brands.pdf}\\
+                \centering  (b) camera brands
+             \end{minipage}
+        }
+        \caption{The cracking success rate for different target screen sizes and filming cameras. }
+        \label{fig:screen_size}
+    \end{figure}
+    
+        \begin{figure*}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{fig/look-video.pdf}\\
+                \centering  (a) video watching
+                \end{minipage}
+            }
+            \hspace{0.2cm}
+            \subfigure{
+                \begin{minipage}[t]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{fig/look-finger.pdf}\\
+                \centering  (b) direct observations
+                \end{minipage}
+            }
+            \vspace{-2mm}
+            \caption{Success rates of guessing patterns through watching the video (a) or direct observations (b).}
+            \label{fig:look-unlocking process}
+        \end{figure*}
+
     \subsection{Impact of Screen Sizes and Cameras}
     \label{section: screen-size and cameras}
     \noindent \textbf{Result 6:} \emph{The size of the smartphone touch-screen and the mobile camera have little impact on the success rate.}
@@ -441,44 +496,6 @@
     90) patterns respectively due to blur motion in the video footage.
     This experiment shows that the screen size and filming camera
     have little impact on the attacking success rate.
-
-    \begin{figure}[!t]
-        \centering
-        \subfigure{
-             \begin{minipage}[t]{0.5\textwidth}
-                \includegraphics[width=\textwidth]{fig/screen_size.pdf}\\
-                \centering  (a) screen size
-             \end{minipage}
-        }
-        \subfigure{
-             \begin{minipage}[t]{0.5\textwidth}
-                \includegraphics[width=\textwidth]{fig/camera_brands.pdf}\\
-                \centering  (b) camera brands
-             \end{minipage}
-        }
-        \caption{The cracking success rate for different target screen sizes and filming cameras. }
-        \label{fig:screen_size}
-    \end{figure}
-
-        \begin{figure*}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.45\textwidth}
-                \includegraphics[width=\textwidth]{fig/look-video.pdf}\\
-                \centering  (a) video watching
-                \end{minipage}
-            }
-            \hspace{0.2cm}
-            \subfigure{
-                \begin{minipage}[t]{0.45\textwidth}
-                \includegraphics[width=\textwidth]{fig/look-finger.pdf}\\
-                \centering  (b) direct observations
-                \end{minipage}
-            }
-            \vspace{-2mm}
-            \caption{Success rates of guessing patterns through watching the video (a) or direct observations (b).}
-            \label{fig:look-unlocking process}
-        \end{figure*}
 
     \subsection{Inferring Patterns with Eyes}
 
@@ -554,7 +571,7 @@
         pattern grids with more dots is to allow users to use more complex
         patterns. However, this experiment suggests that complex patterns remain less security on
          these grids under our attack.
-         
+
     \begin{table}[!t]
             \centering
             \caption{PIN-based passwords used in our experiments}
@@ -574,7 +591,7 @@
                 \bottomrule
             \end{tabular}
     \end{table}
-   
+
            \begin{figure}[!t]
             \centering
             \subfigure{
@@ -610,7 +627,7 @@
         }
         \caption{Examples of tracked fingertip trajectory comprised of touching points. The red circle represents the touching points.}
         \label{fig:pins_trajectory}
-    \end{figure} 
+    \end{figure}
 
     \subsection{Attacking PIN-base Passwords}
     \label{section: attacking-pin-passwords}
@@ -629,7 +646,20 @@
         the target device: the
         left-front, front and right-front. The filming distance is 2 meters.
 
-        \vspace{2mm}
+    \begin{figure}[!t]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/pin_results}\\
+        \caption{The success rate of cracking PIN-based passwords with different number of attempts.}
+        \label{fig:pin_results}
+    \end{figure}
+
+    \begin{figure}[!t]
+        \centering
+        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
+        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
+        \label{fig:finger-only}
+    \end{figure}
+        
         \noindent \textbf{Variant Methodology.} Because the differences
         between the PIN-based password, we need to adapt our method. The two
         main differences are summarized as follow: (1) the number of the
@@ -647,20 +677,6 @@
         geometric information, including the direction and length
         information. Figure~\ref{fig:pins_trajectory} shows the tracked
         fingertip trajectory using the new attacking method.
-
-    \begin{figure}[!t]
-        \centering
-        \includegraphics[width=0.5\textwidth]{fig/pin_results}\\
-        \caption{The success rate of cracking PIN-based passwords with different number of attempts.}
-        \label{fig:pin_results}
-    \end{figure}
-    
-    \begin{figure}[!t]
-        \centering
-        \includegraphics[width=0.5\textwidth]{fig/finger-only}\\
-        \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
-        \label{fig:finger-only}
-    \end{figure}
 
         Figure~\ref{fig:pin_results} shows the
         results of applying our attacking method to PIN-based passwords.
