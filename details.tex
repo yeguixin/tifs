@@ -727,7 +727,7 @@ For each video frame, our algorithm individually calculates the filming angle an
        We consider two line segments having the same length and slope if the difference between them is less
        than a threshold. Specifically, the relative length threshold, $lengthTh$, is set to 1.12 and the slope threshold, $directionTh$, is set to 0.25.
        %We chose these two values because they give the best performance in the experiments.
-       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to chose the best performing values.
+       To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to choose the best performing values.
 
        \vspace{2mm}
        \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to
@@ -739,7 +739,7 @@ For each video frame, our algorithm individually calculates the filming angle an
        \frac{\sqrt{5}}{2}l, l\}$ and $\{5,12,5\}$ respectively. It does not meet the expected $L$ or $D$ and should be rejected.
        The patterns presented in b(1)--b(5) and c(1)--c(5) of Figure~\ref{fig:fig3}) will
        also be rejected for the same reason.
-    
+
 \begin{figure}[!t]
             \centering
             \subfigure{
@@ -788,7 +788,7 @@ For each video frame, our algorithm individually calculates the filming angle an
             \label{fig:fig8}
             \vspace{-3mm}
         \end{figure}
-    
+
        \noindent \textbf{Rank Patterns.} Candidates patterns are then ranked using a simple
         heuristic. The heuristic assumes a pattern starting from
         left dot of the grid is more likely to be the correct pattern over a

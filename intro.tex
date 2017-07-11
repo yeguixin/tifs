@@ -21,7 +21,7 @@ Researchers have uncovered a number of ways to crack Android pattern lock.
 Smudge attacks use the oily residues  left on the screen to recover
 the pattern~\cite{aviv2010smudge}. However, this approach relies on the persistence of
 the smudge which can be easily destroyed by subsequent on-screen activities after unlocking. In a recent study, Zhang
-\emph{et al.}~\cite{zhang2016privacy} shows that it is possible to infer a locking pattern by analyzing how the WiFi signal is affected by the finger motions when drawing the pattern. Their approach is restricted to
+\emph{et al.} show that it is possible to infer a locking pattern by analyzing how the WiFi signal is affected by the finger motions when drawing the pattern~\cite{zhang2016privacy}. Their approach is restricted to
 a limit set of scenarios due to two reasons: (1) the complex setup of the attacking environment and (2) the WiFi signal can be disrupted by any moving
 objects nearby or body movements.
 
@@ -100,6 +100,7 @@ solutions to be constructed in the new application context of pattern lock.
              \footnotesize (b) The device screen seen from the video filmed in (a).
             \end{minipage}
         }
+        \hspace{0.15cm}
         \subfigure{
             \begin{minipage}[t]{3.5cm}
             \includegraphics[height=3cm]{fig/1-3.pdf}\\
@@ -128,6 +129,7 @@ solutions to be constructed in the new application context of pattern lock.
              The device screen seen from the video filmed in (e).
             \end{minipage}
         }
+        \hspace{0.15cm}
         \subfigure{
             \begin{minipage}[t]{3.5cm}
             \includegraphics[height=3cm]{fig/1-7.pdf}\\
@@ -195,7 +197,7 @@ operating system (OS) allows five tries before
 locking the device, our attack represents a real threat for pattern lock.
 
 \item \emph{Identifying New Vulnerabilities.} According to a recent study~\cite{Harbach2014It}, direct
-observation techniques, e.g. shoulder surfing, are considered to be a low risk due to the close distance between the
+observation techniques, e.g. shoulder surfing, is considered to be a low risk due to the close distance between the
 attacker and the user (in order to gain a clear sight of the device screen). As a result, many users may underestimate
 the risks of using pattern lock in public places. Under our attack, filming can be carried out at a distance of 2
 meters from the user and the camera does not need to directly face the target device. Such a camera setting makes our

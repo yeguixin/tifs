@@ -106,15 +106,15 @@
             \centering
             \includegraphics[width=0.5\textwidth]{fig/usibility_crackingNum.pdf}
             \caption{The attacking success rate when grouping patterns based on how likely a pattern will be used.
-            The likelihood is calculate using Equation~\ref{equ:guessing_number}.}
+            The likelihood is calculated using Equation~\ref{equ:guessing_number}.}
             \label{fig:usage-crackingNum}
         \end{figure}
 
         \begin{table}[!t]
             \centering
-            \caption{The reception rate of two groups of patterns}
+            \caption{The repetition rate of two groups of patterns}
             \vspace{-0.2mm}
-            \label{tab:reception_rate}
+            \label{tab:repetition_rate}
             \scriptsize
             \begin{tabular}{cccc}
                 \toprule
@@ -196,15 +196,15 @@
             \emph{low} group. The \emph{high} group has a value of less than 4.2, the \emph{median} group
             has a score between 4.2 and 5.1, and the \emph{low} group must have a score greater than 5.1.
             Using this partition strategy, each group has around 40 patterns.
-            
+
         \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/12.pdf}
             \caption{Impact of the filming distance.}
             \label{fig:fig12}
         \end{figure}
-            
-            \FIXED{Intuitively, the simple pattern that is classified by Equation~\ref{equ:compscore} is likely to belong to the high group that is classified by Equation~\ref{equ:guessing_number}. Likewise, the median and complex patterns are likely to respectively belong to the median and low group.  However, the fact is that the two partition strategies are different. To prove this, we stat the number of the patterns both belonging to the simple and high group, median and median group and complex and low group. Then we figure out the reception rate of each two group. Table~\ref{tab:reception_rate} shows the recaption rate of each two groups. It presents that many patterns are different under the two partition strategy which indicates that there are some different between the two partition strategies.}
+
+            \FIXED{Intuitively, the simple pattern that is classified by Equation~\ref{equ:compscore} is likely to belong to the high group that is classified by Equation~\ref{equ:guessing_number}. Likewise, the median and complex patterns are likely to respectively belong to the median and low group.  However, the fact is that the two partition strategies are different. To prove this, we stat the number of the patterns both belonging to the simple and high group, median and median group and complex and low group. Then we figure out the repetition rate of each two group. Table~\ref{tab:repetition_rate} shows the repetition rate of each two groups. It presents that many patterns are different under the two partition strategy which indicates that the two partition strategies are different.}
 
             Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
             numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
@@ -259,7 +259,7 @@
            record the video without raising suspicions in many day-to-day scenarios (some of these are
            depicted in Figure~\ref{fig:fig1}).
 
-            We also evaluated our approach on videos filmed using a entry-level
+            We also evaluated our approach on videos filmed using an entry-level
             single-lens reflex (SLR) camera, Nikon D90, with a low-end 105mm lens. The SLR camera
             was placed from a distance of 9 meters away from the target
             device. For this set of videos, we are able to achieve the same
@@ -269,14 +269,14 @@
             SLR camera and the lens. Therefore, in practice, an attacker can
             also use a professional video recording device to launch the
             attack from a further distance.
-            
+
         \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/light.pdf}
             \caption{The cracking success rate within five attempts under different lighting conditions.}
             \label{fig:light}
         \end{figure}
-        
+
         \begin{table}[!t]
             \centering
             \caption{Tracking precision vs filming distance}
@@ -335,7 +335,7 @@
 
     In this experiment, videos were recorded under different lighting conditions both indoor and outdoor.
     The experimental settings are given in  Table~\ref{tab:light}.
-    The light intensity of these condidtions range from 9500
+    The light intensity of these conditions range from 9500
     lux (strong light), onto 240 lux (normal light), and 55-70 lux (low light).
     These represent some of the day-to-day scenarios where filming can
     take place. For each setting, we tested all the 120 patterns on a Xiaomi MI4 phone and used
@@ -438,7 +438,7 @@
         \caption{The cracking success rate for different target screen sizes and filming cameras. }
         \label{fig:screen_size}
     \end{figure}
-    
+
         \begin{figure*}[!t]
             \centering
             \subfigure{
@@ -659,7 +659,7 @@
         \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
         \label{fig:finger-only}
     \end{figure}
-        
+
         \noindent \textbf{Variant Methodology.} Because the differences
         between the PIN-based password, we need to adapt our method. The two
         main differences are summarized as follow: (1) the number of the
