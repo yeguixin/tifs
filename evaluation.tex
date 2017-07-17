@@ -112,15 +112,14 @@
 
         \begin{table}[!t]
             \centering
-            \caption{The reception rate of two groups of patterns}
-            \vspace{-0.2mm}
+            \caption{\% of identical patterns in each category using Equations \ref{equ:compscore} vs \ref{equ:guessing_number}}
             \label{tab:reception_rate}
             \scriptsize
             \begin{tabular}{cccc}
                 \toprule
                 \textbf{Group}& simple v.s. high & median v.s. median & complex v.s. low \\
                 \midrule
-                \textbf{reception rate}  & 72.5\% & 67.5\% & 80\% \\
+                \textbf{\% of overlapping}  & 72.5\% & 67.5\% & 80\% \\
                 \bottomrule
             \end{tabular}
         \end{table}
@@ -195,16 +194,18 @@
             \emph{low}, \emph{median} and \emph{high}. Patterns in the \emph{high} group are more likely to be used by users than the patterns in the
             \emph{low} group. The \emph{high} group has a value of less than 4.2, the \emph{median} group
             has a score between 4.2 and 5.1, and the \emph{low} group must have a score greater than 5.1.
-            Using this partition strategy, each group has around 40 patterns.
-            
+            Using this partition strategy, each group has around 40 patterns. 
+            Table~\ref{tab:reception_rate} counts the percentage of identical patterns 
+            for each group classified using Equations~\ref{equ:compscore} and \ref{equ:guessing_number} respectively. 
+            As can be seen from the diagram, while there is a significant degree of overlap, 
+            the resulted categorizations are not identical using the two different metrics. 
+
         \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/12.pdf}
             \caption{Impact of the filming distance.}
             \label{fig:fig12}
         \end{figure}
-            
-            \FIXED{Intuitively, the simple pattern that is classified by Equation~\ref{equ:compscore} is likely to belong to the high group that is classified by Equation~\ref{equ:guessing_number}. Likewise, the median and complex patterns are likely to respectively belong to the median and low group.  However, the fact is that the two partition strategies are different. To prove this, we stat the number of the patterns both belonging to the simple and high group, median and median group and complex and low group. Then we figure out the reception rate of each two group. Table~\ref{tab:reception_rate} shows the recaption rate of each two groups. It presents that many patterns are different under the two partition strategy which indicates that there are some different between the two partition strategies.}
 
             Figure~\ref{fig:usage-crackingNum} illustrates the cracking success rate for different categories under
             numbers of attempts.  As can be seen from the diagram, the success rate with one attempt for the patterns
@@ -269,14 +270,14 @@
             SLR camera and the lens. Therefore, in practice, an attacker can
             also use a professional video recording device to launch the
             attack from a further distance.
-            
+
         \begin{figure}[t!]
             \centering
             \includegraphics[width=0.5\textwidth]{fig/light.pdf}
             \caption{The cracking success rate within five attempts under different lighting conditions.}
             \label{fig:light}
         \end{figure}
-        
+
         \begin{table}[!t]
             \centering
             \caption{Tracking precision vs filming distance}
@@ -438,7 +439,7 @@
         \caption{The cracking success rate for different target screen sizes and filming cameras. }
         \label{fig:screen_size}
     \end{figure}
-    
+
         \begin{figure*}[!t]
             \centering
             \subfigure{
@@ -659,7 +660,7 @@
         \caption{The cracking success rate drops significantly when the video footage only captures the user's fingertip.}
         \label{fig:finger-only}
     \end{figure}
-        
+
         \noindent \textbf{Variant Methodology.} Because the differences
         between the PIN-based password, we need to adapt our method. The two
         main differences are summarized as follow: (1) the number of the
