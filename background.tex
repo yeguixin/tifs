@@ -6,7 +6,7 @@
      Our system takes in a video segment that records the unlocking process (a). The adversary first marks two areas of interest on the first video frame (b): one contains the fingertip involved in pattern drawing, and the other contains part of the device. Our system then tries to track the fingertip's location w.r.t. to the device.
      The tracking algorithm produces a fingertip movement trajectory from the camera's perspective (c) which is then transformed to the user's perspective (d). Finally, the resulted trajectory in (d) is mapped to several candidate patterns (e) to be tested on the target device (f). }
     \label{fig:fig2}
-    \vspace{-3mm}
+    \vspace{-5mm}
 \end{figure*}
 
 \section{Background}
@@ -33,7 +33,8 @@
         automatically locked after five failed tries.
         Previous works also show that a brute-force attack is likely to fail on  patterns with complex
         structures~\cite{Kelley2012Guess,Mazurek2013Measuring}.
-
+    
+    \vspace{-5mm}
     \subsection{Threat Model}
     \label{sec:scenarios}
         In our threat model, we assume an adversary wants to access some sensitive information from or to install malware on a
@@ -50,7 +51,7 @@ noticed by the user. Moreover, given that many users use the same pattern across
 obtained from one device could also be used to break the user's other devices.  We want to stress that the goal of this paper is to
 demonstrate the feasibility of a new attack and the countermeasure is left to our future work.
 
-\vspace{2mm}
+%\vspace{2mm}
 \noindent \textbf{Examples of Filming Scenarios} Figure~\ref{fig:fig1} illustrates three scenarios where filming can be
 performed without raising suspicion to many users. For all the examples presented in Figure~\ref{fig:fig1}, the
 filming camera had a left- or right-front view angle from the target device and did not directly face the screen of the target device. Due to the filming distance (2-3 meters), the recoded video typically does not have a clear vision of
@@ -60,7 +61,7 @@ The examples given in Figure~\ref{fig:fig1} are some of the day-to-day
 scenarios where security of the user's device can be compromised under
 our attack.
 
-\vspace{2mm}
+%\vspace{2mm}
 \noindent \textbf{Assumptions}
 Our attack requires the video footage to have a vision of the user's
 fingertip that was involved in pattern drawing as well as part of the device (e.g. an edge of a phone).

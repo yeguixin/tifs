@@ -3,6 +3,7 @@
     \includegraphics[width=0.45\textwidth]{fig/time-interval.pdf}
     \caption{The cumulative distribution function (CDF) of the time interval between pattern drawing and other on-screen activities.}
     \label{fig:time-interval}
+    \vspace{-5mm}
 \end{figure}
 
     \begin{figure}[!t]
@@ -14,6 +15,7 @@
             %\FIXME{Need to mark the starting point and turning point}
             \end{minipage}
         }
+        \vspace{-3mm}
         \hspace{0.25cm}
         %\hfill
         \subfigure{
@@ -22,6 +24,7 @@
             \centering  (b) two consecutively horizontal-swiping gestures
             \end{minipage}
         }
+        \vspace{-3mm}
         \subfigure{
             \begin{minipage}[t]{0.19\textwidth}
             \includegraphics[width=\textwidth]{fig/gesture-distinction3.pdf}\\
@@ -43,6 +46,7 @@
             \centering  (e) a zooming gesture
             \end{minipage}
         }
+        \vspace{-1mm}
         \hspace{0.25cm}
         %\hfill
         \subfigure{
@@ -51,8 +55,10 @@
             \centering  (f)two consecutive zooming gestures
             \end{minipage}
         }
+        \vspace{-1mm}
         \caption{Spatial-temporal characteristics for performing an on-screen gesture once (a, c, e) and twice (b, d, f).}
         \label{fig:gesture-distinction}
+        \vspace{-5mm}
     \end{figure}
 
     \begin{algorithm}[!t]
@@ -119,12 +125,12 @@
                 \centering  (d) Fingertip movement trajectory
                 \end{minipage}
             }
-            %\vspace{-3mm}
+            \vspace{-3mm}
             \caption{Tracking the fingertip movement trajectory. For each video frame, the system tracks two areas: one surrounds the fingertip and the other covers the edge of the device.
             The fingertip position is determined by computing the relative coordinates of the central points of the two areas.
             The red points highlighted in the final results (d) are the touching points tracked from the three video frames.}
             \label{fig:fig5}
-            %\vspace{-3mm}
+            \vspace{-3mm}
         \end{figure*}
 
 \section{Implementation Details}
@@ -183,7 +189,7 @@ worthwhile to mention that automatically identifying the pattern unlocking proce
 not central to our attack because an attacker often can obtain a quality video input used the manual methods described above.
 Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
 
-        \begin{figure*}[!t]
+    \begin{figure*}[!t]
         \centering
         \subfigure{
             \begin{minipage}[b]{0.24\textwidth}
@@ -205,10 +211,11 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
             \centering  (c) correct pattern
             \end{minipage}
         }
-        %\vspace{-3mm}
+        \vspace{-3mm}
         \caption{The resulted fingertip movement trajectories without (a) and with (b) camera-shake calibration.  The correct pattern is shown in (c). To aid clarity we have transformed (a) and (b) to the user's perspective.}
         \label{fig:camera_shake_illu}
-         \end{figure*}
+        \vspace{-4mm}
+    \end{figure*}
 
 \subsection{Track fingertip locations}
 \label{section:tld}
@@ -263,6 +270,7 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
     \includegraphics[width=0.45\textwidth]{fig/line_detection.pdf}
     \caption{Filming angle calculation. The filming angle, $\theta$, is the angle between the edge line of the device and a vertical line.}
     \label{fig:line_detection}
+    \vspace{-5mm}
 \end{figure}
 
         \subsubsection{Camera Shake Calibration}
@@ -354,6 +362,15 @@ There are also other methods to be used to identify the filming angle~\cite{Torr
         \end{algorithmic}
     \end{algorithm}
 
+Based on the estimated filming angle, $\theta$, we use the following formula to transform the tracked fingertip movement trajectory from the camera's view point to the user's:
+
+\begin{equation}
+        S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
+\end{equation}
+
+where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
+For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
+
 \renewcommand{\algorithmicforall}{\textbf{for each}}
     \begin{algorithm}[!t]
         \caption{Line Segment Identification}
@@ -381,16 +398,6 @@ There are also other methods to be used to identify the filming angle~\cite{Torr
         \end{algorithmic}
     \end{algorithm}
 
-
-Based on the estimated filming angle, $\theta$, we use the following formula to transform the tracked fingertip movement trajectory from the camera's view point to the user's:
-
-\begin{equation}
-        S=TS^{'} \qquad, \qquad  T=\left[ \begin{matrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{matrix} \right]
-\end{equation}
-
-where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
-For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
-
 \subsection{Identify and rank candidate patterns}
 \label{section:spea}
   In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
@@ -415,6 +422,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         }
         \caption{This figure shows the tracked fingertip movement trajectory (a) of a pattern (b). Point S on (a) is the starting point and points A, B, C, and D on (b) represent four turning points.}
         \label{fig:fig6}
+        \vspace{-4mm}
     \end{figure}
 
         \begin{figure}[!t]
@@ -714,6 +722,7 @@ For each video frame, our algorithm individually calculates the filming angle an
     }
     \caption{Illustrations of the terminologies used in Equation~\ref{equ:compscore}.}
     \label{fig:intersection-overlap}
+    \vspace{-4mm}
 \end{figure}
 
     \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
