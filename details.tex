@@ -453,8 +453,8 @@ For each video frame, our algorithm individually calculates the filming angle an
         %In Algorithm~\ref{alg:turning-point},
         We use a linear fitting
         method~\cite{Kutner2004Applied} to discover turning points. %(line 3).
-        A specific challenge here is how to separate two overlapping line segments (see
-        Figure~\ref{fig:intersection-overlap} c for an example).
+        A specific challenge here is how to separate two overlapping line segments 
+        %(see Figure~\ref{fig:intersection-overlap} c for an example).
         It is to note that up to two lines can be overlapped on a pattern grid.
         The naive
         linear fitting algorithm would consider two overlapping segments to be a
@@ -496,8 +496,8 @@ For each video frame, our algorithm individually calculates the filming angle an
             }
             \caption{Separating two overlapping line segments by checking the number of overlapping points within a timeframe.}
             \label{fig:line-idenfication}
+            \vspace{-3mm}
         \end{figure}
-        \vspace{2mm}
         \noindent \textbf{Extract the Line Length.}
         The physical length of a line segment depends
         on the sizes of the screen and the pattern grid, and the space between two touch dots.
@@ -523,6 +523,7 @@ For each video frame, our algorithm individually calculates the filming angle an
             }
             \caption{All possible line directions on a $3 \times 3$ Android pattern grid (a) and an example trajectory (b).}
             \label{fig:fig7}
+            \vspace{-5mm}
         \end{figure}
 
         \begin{table}[t]
@@ -541,8 +542,7 @@ For each video frame, our algorithm individually calculates the filming angle an
             \end{tabular}
             \vspace{-5mm}
         \end{table}
-
-        \vspace{2mm}
+        
        \noindent \textbf{Extract Direction Information.}
        In addition to the line length, we also want to know to which
        direction the finger moves. This information is useful for inferring which dots are selected to unlock the pattern.
@@ -746,7 +746,6 @@ For each video frame, our algorithm individually calculates the filming angle an
        %We chose these two values because they give the best performance in the experiments.
        To determine the thresholds, we have evaluated a range of possible values in our initial design experiments to choose the best performing values.
 
-       \vspace{2mm}
        \noindent \emph{Example:} We use the pattern depicted in Figure~\ref{fig:fig2} as an example to
        describe our algorithm. Figure~\ref{fig:fig3} gives several
        possible mappings for the fingertip movement trajectory shown in Figure~\ref{fig:fig2} (d). For this particular trajectory, the collections of lengths and directions are

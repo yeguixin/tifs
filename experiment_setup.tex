@@ -86,7 +86,7 @@
                 Height(cm)$\times$Width(cm) & $13.9\times6.9$ & $14.3\times7.2$ & $15.4\times7.9$ \\
                 \bottomrule
             \end{tabular}
-            \vspace{-4mm}
+            \vspace{-5mm}
     \end{table}
 
     %Figure~\ref{fig:guessing-probability} illustrates how the guessing probability\footnote{A guessing probability is
@@ -99,7 +99,6 @@
     %\FIXME{explain the diagram – e.g. what are primitive curve and logistic fit!}.
    % \FIXED{the primitive curve presents the relevance between the guessing probability and the complexity scores. It directly reveals how likely a pattern can be guessed within five attempts as the complexity score increases. The trend of the primitive curve is shown by the logistic fit curve (the red dash curve), which indicates that a pattern with higher complexity score (typically more than 13) is hard to be guessed within five attempts.}
 
-    \vspace{2mm}
     \noindent \textbf{Pattern Grouping.}
     Base on the complexity score, we divide the collected patterns into three complexity categories: \emph{simple}, \emph{median} and \emph{complex}. A simple pattern has a score of less than 19,
     a median
@@ -107,11 +106,11 @@
     category.
    % Figure~\ref{fig:fig8} gives some examples for each category while
     Figure~\ref{fig:pattern-strength} shows the distribution of these patterns according to their complexity scores.
-    Based on this definition, 
+    Based on this definition,
 %    the most complex pattern on a $3 \times 3$ grid has a score of $46.8$ (see Figure~\ref{fig:most complex patterns}).
     the complex scores of the patterns we collected range from $6.4$ to $46.8$.
 
-    \vspace{-3mm}
+    \vspace{-4mm}
     \subsection{Video Recording and Preprocessing}
 
     \noindent\textbf{User Participation} We recruited ten postgraduate students (five male and five female
@@ -120,12 +119,10 @@
     a Xiaomi MI4, a Huawei Honor7 and a Samsung Note4. Table~\ref{tab:locking-screen-size} lists
     the screen size for each target mobile phone.
 
-    \vspace{2mm}
     \noindent\textbf{Recording Devices} We used three smartphones for video recording: an Apple iPhone4S,
      a Xiaomi MI4 and a Meizu2. Each mobile phone was used to record 40 patterns with a
     1080p HD resolution of 30 FPS under different settings described as follows.
 
-    \vspace{2mm}
    \noindent\textbf{Video Recording Setup.}
     By default, we used the  Android $3 \times 3$ native pattern grid.
 %    but we evaluated our approach using other pattern grids with different sizes in
@@ -140,11 +137,10 @@
     2 meters from the target device and we evaluated the impact of the filming distance in
     Section~\ref{sec:distances}.
 
-    \vspace{2mm}
     \noindent \textbf{Video Filming.}
      Before recording, our participants were given the opportunity to practice a pattern
     several times (average 10 trials), so that they can draw the pattern at
-    their natural speed. 
+    their natural speed.
     %On average, this practice session took 10 trials per user per pattern.
 %    When drawing the
 %    pattern, some participants sat, while others stood, some hold the device
@@ -153,7 +149,6 @@
     recorded under three filming angles.
     Thus, for the 120 patterns collected from users, we recorded 1,080 videos in total.
 
-    \vspace{2mm}
     \noindent\textbf{Video Preprocessing.}
     For each video stream, we used the algorithm described in Section~\ref{sec:identify} to cut out the video segment
     of the unlocking process. We left around 200 to 300 milliseconds of the video segment before and after the pattern unlocking process.
@@ -162,7 +157,6 @@
     the video segment: one area surrounds the fingertip, and the other contains an edge of the
     phone (see Section~\ref {secction:shake}).
 
-    \vspace{2mm}
    \noindent\textbf{Implementation.} Our prototyped attacking system built upon a TLD library~\cite{TLD-toolbox-web}.
     The developed software ran on an Intel Core i5 PC with
     8GB RAM. The operating system is Windows 10. Our implementation can be ported onto
