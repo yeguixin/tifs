@@ -1,44 +1,44 @@
 
-
+\vspace{-2mm}
 \section{Discussions}
 
-\subsection{Countermeasure}
-
-The success of our attack depends on three factors: (1)
-knowledge of the pattern grid; (2) a decent
-quality video footage allowing the algorithm to track the fingertip movement;
-(3) successfully identifying a video segment that captures the entire process of pattern drawing.
-
-For the first factor, the attacker can obtain the relevant information by simply looking the pattern grid
-of the target operating system or application.
-Randomization techniques such as
-randomized pictures~\cite{biddle2012graphical,hossein2015fortifying}, which randomly shuffle the location
-of touch points each time, could be a solution.
-However, randomization-based solutions often come at the cost of poorer
-usability. This can prevent them to be used at a large scale.
-Regarding the second factor, there are ways, such as
-KALEIDO~\cite{zhang2015kaleido}, to prevent unauthorized videotaping by
-dynamically changing the colour and brightness of the screen to confuse the
-filming camera. A non-technical solution for this aspect would be to educate users to
-fully cover their fingers when drawing a pattern. But doing this on a large-screen device could be awkward especially when the device is held by one hand.
-
-
-
-For the third factor, the attacker's solution depends on the type of the
-pattern. For a screen lock, pattern drawing is the first activity (except for
-receiving a phone call or making an emergency call) when the device is
-retrieved. Therefore, identifying the video segment is straightforward. When
-the pattern is used by applications, we have observed that users typically
-pause for a few seconds before or after entering the pattern. Therefore, an
-experienced attacker should also be able to identify the video segment in
-case our automatic algorithm (presented in Section~\ref{sec:identify}) fails
-to do so. A potential countermeasure is to mix pattern unlocking with other
-on-screen activities. For examples, before and after pattern drawing, the
-system can ask the user to type in a sentence using a Swype-like method or to
-draw some graphical shapes. The problem of this approach is it may annoy
-users by asking them to do more, especially for screen unlocking -- an
-activity that is performed
-many times a day.
+%\subsection{Countermeasure}
+%
+%The success of our attack depends on three factors: (1)
+%knowledge of the pattern grid; (2) a decent
+%quality video footage allowing the algorithm to track the fingertip movement;
+%(3) successfully identifying a video segment that captures the entire process of pattern drawing.
+%
+%For the first factor, the attacker can obtain the relevant information by simply looking the pattern grid
+%of the target operating system or application.
+%Randomization techniques such as
+%randomized pictures~\cite{biddle2012graphical,hossein2015fortifying}, which randomly shuffle the location
+%of touch points each time, could be a solution.
+%However, randomization-based solutions often come at the cost of poorer
+%usability. This can prevent them to be used at a large scale.
+%Regarding the second factor, there are ways, such as
+%KALEIDO~\cite{zhang2015kaleido}, to prevent unauthorized videotaping by
+%dynamically changing the colour and brightness of the screen to confuse the
+%filming camera. A non-technical solution for this aspect would be to educate users to
+%fully cover their fingers when drawing a pattern. But doing this on a large-screen device could be awkward especially when the device is held by one hand.
+%
+%
+%
+%For the third factor, the attacker's solution depends on the type of the
+%pattern. For a screen lock, pattern drawing is the first activity (except for
+%receiving a phone call or making an emergency call) when the device is
+%retrieved. Therefore, identifying the video segment is straightforward. When
+%the pattern is used by applications, we have observed that users typically
+%pause for a few seconds before or after entering the pattern. Therefore, an
+%experienced attacker should also be able to identify the video segment in
+%case our automatic algorithm (presented in Section~\ref{sec:identify}) fails
+%to do so. A potential countermeasure is to mix pattern unlocking with other
+%on-screen activities. For examples, before and after pattern drawing, the
+%system can ask the user to type in a sentence using a Swype-like method or to
+%draw some graphical shapes. The problem of this approach is it may annoy
+%users by asking them to do more, especially for screen unlocking -- an
+%activity that is performed
+%many times a day.
 
 %De Luca \emph{et. al} proposed a new touch screen authentication using both the pattern and the touch screen data(pressure, time, speed, etc.)~\cite{de2012touch}, However, this design decreases the usability of
 
@@ -85,18 +85,21 @@ many times a day.
                 \centering \footnotesize (f)
              \end{minipage}
         }
+        \vspace{-2mm}
         \caption{Examples of our new pattern lock mechanism. A true pattern of solid lines is shown
         in (a). We propose to make two changes to form a pattern.
         Our first change allows the user to skip some dots when creating a pattern.
         For example, in (a) the central dot in the first line is skipped.
         Our second change requires the user to draw a given random pattern structure (e.g. the dash lines in b and c)  before or after drawing the true pattern.
         The tracked fingertip trajectories of a, b, and c are shown in d, e, f respectively.
-        The first change makes it difficult for the tracking algorithm to identify which dots are skipped, and the second change
-         forces the attacker to use multiple video recordings to identify the true pattern. As a result, this new pattern lock mechanism decreases the
-        effectiveness of the video-based attack.
+        %The first change makes it difficult for the tracking algorithm to identify which dots are skipped, and the second change
+%         forces the attacker to use multiple video recordings to identify the true pattern. As a result, this new pattern lock mechanism decreases the
+%        effectiveness of the video-based attack.
         }
         \label{fig:protection}
+        \vspace{-6mm}
     \end{figure}
+
 
 \subsection{A Possible Remedy}
 \label{section: potential-remedy}
@@ -141,15 +144,15 @@ adversary could still successfully launch the attack.
 
 %Moreover, comparing to original system, this can frustrate shoulder-surfing attack as well as video-based attack as the attacker cannot recognize the correct pattern in spite of see or reconstruct the pattern. Furthermore, this improved scheme precede biometric-based scheme such as face recognition~\cite{turk1991face} and iris recognition~\cite{sanchez2001iris} in terms of revocability.
 
-
+\vspace{-3mm}
 \subsection{Implications}
 While pattern lock is preferable by many users~\cite{androidstudy}, this     work shows
 that it is vulnerable under video-based attacks. Our attack
-is able to break most patterns in five attempts. Considering Android
-allows five failed attempts before automatically locking the device, our work
-shows that this default threshold is unsafe. We demonstrated that, in contrast to many users'
-perception, complex patterns actually do not provide stronger protection over simple patterns under our attack.
-
+is able to break most patterns in five attempts. 
+%Considering Android
+%allows five failed attempts before automatically locking the device, our work
+%shows that this default threshold is unsafe. We demonstrated that, in contrast to many users'
+%perception, complex patterns actually do not provide stronger protection over simple patterns under our attack.
 It is worth mentioning that our approach is only one of the many attacking
 methods that researchers have demonstrated. Examples of these attacks include
 video-based attacks on keystroke-based authentication~\cite{shukla2014beware,yue2014blind}, sensor-based attacks for

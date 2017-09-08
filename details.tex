@@ -1,12 +1,43 @@
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.45\textwidth]{fig/time-interval.pdf}
-    \caption{The cumulative distribution function (CDF) of the time interval between pattern drawing and other on-screen activities.}
-    \label{fig:time-interval}
-    \vspace{-5mm}
-\end{figure}
+%\begin{figure}[!t]
+%    \centering
+%    \includegraphics[width=0.45\textwidth]{fig/time-interval.pdf}
+%    \caption{The cumulative distribution function (CDF) of the time interval between pattern drawing and other on-screen activities.}
+%    \label{fig:time-interval}
+%    \vspace{-5mm}
+%\end{figure}
+\vspace{-2mm}
+\section{Implementation Details}
+
+\subsection{Video preprocessing \label{sec:identify}}
+\label{section:recognition}
+The first step of our attack is to identify the unlocking process from the
+video footage. While all our
+participants (see Section~\ref{section:locking patterns}) consider this as a straightforward manual task, we developed a \emph{simple yet effective} heuristic to automatically detect the video segment in some typical scenarios. Our heuristic is based on the following observations: (1) before or after
+unlocking, users often pause for a few seconds; (2) two consecutive on-screen operations (e.g. swiping, zooming etc.) typically expose some spatial-temporal motion characteristics.
+
+In our initial test, we find that there exists at least $1.5$ seconds pause before or after pattern drawing due to delay of the user or the device. We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
+These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
+Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c) and twice (b, d).
+This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more looping structures for which pattern drawing does not have.
+
+%In order to test our hypothesis, we have recorded 50 video streams (each
+%video lasts around 2 minutes) of how ten of our participants drew
+%patterns. During video recording, our participants firstly performed
+%some on-screen activities such as web browsing and gaming as they wished;
+%they then opened up a pattern lock screen to draw a pattern and
+%continued to perform other on-screen operations afterwards.
+%For each video stream, we then analyzed frames that are associated with pattern drawing and those are not.
+%
+%
+%Figure~\ref{fig:time-interval} shows that all our participants paused at least $1.5$ seconds before or after pattern drawing due to delay of the user or the device.
+%%Our algorithm leverages this characteristic to locate the start and end point of unlocking process.
+%We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
+%These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
+%Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c, e) and twice (b, d, f).
+%This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more looping structures for which pattern drawing does not have.
 
     \begin{figure}[!t]
+        \vspace{-5mm}
         \centering
         \subfigure{
             \begin{minipage}[t]{0.19\textwidth}
@@ -24,26 +55,26 @@
             \centering  (b) two consecutively horizontal-swiping gestures
             \end{minipage}
         }
-        \vspace{-3mm}
-        \subfigure{
-            \begin{minipage}[t]{0.19\textwidth}
-            \includegraphics[width=\textwidth]{fig/gesture-distinction3.pdf}\\
-            \centering  (c) a vertical-swiping gesture
-            %\FIXME{Need to mark the starting point and turning point}
-            \end{minipage}
-        }
-        \hspace{0.25cm}
-        %\hfill
-        \subfigure{
-            \begin{minipage}[t]{0.19\textwidth}
-            \includegraphics[width=\textwidth]{fig/gesture-distinction4.pdf}\\
-            \centering  (d) two consecutively vertical-swiping gestures
-            \end{minipage}
-        }
+        %\vspace{-3mm}
+        %\subfigure{
+%            \begin{minipage}[t]{0.19\textwidth}
+%            \includegraphics[width=\textwidth]{fig/gesture-distinction3.pdf}\\
+%            \centering  (c) a vertical-swiping gesture
+%            %\FIXME{Need to mark the starting point and turning point}
+%            \end{minipage}
+%        }
+%        \hspace{0.25cm}
+%        %\hfill
+%        \subfigure{
+%            \begin{minipage}[t]{0.19\textwidth}
+%            \includegraphics[width=\textwidth]{fig/gesture-distinction4.pdf}\\
+%            \centering  (d) two consecutively vertical-swiping gestures
+%            \end{minipage}
+%        }
         \subfigure{
             \begin{minipage}[t]{0.19\textwidth}
             \includegraphics[width=\textwidth]{fig/gesture-distinction5.pdf}\\
-            \centering  (e) a zooming gesture
+            \centering  (c) a zooming gesture
             \end{minipage}
         }
         \vspace{-1mm}
@@ -52,14 +83,81 @@
         \subfigure{
             \begin{minipage}[t]{0.19\textwidth}
             \includegraphics[width=\textwidth]{fig/gesture-distinction6.pdf}\\
-            \centering  (f)two consecutive zooming gestures
+            \centering  (d) two consecutive zooming gestures
             \end{minipage}
         }
         \vspace{-1mm}
-        \caption{Spatial-temporal characteristics for performing an on-screen gesture once (a, c, e) and twice (b, d, f).}
+        \caption{Spatial-temporal characteristics for performing an on-screen gesture once (a, c) and twice (b, d).}
         \label{fig:gesture-distinction}
-        \vspace{-5mm}
+        \vspace{-4mm}
     \end{figure}
+
+        \begin{figure*}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.23\textwidth}
+                \includegraphics[width=1\textwidth]{fig/6--1.pdf}\\
+                \centering  (a) The first video frame
+                \end{minipage}
+            }
+            \hfill
+            \subfigure{
+                \begin{minipage}[t]{0.23\textwidth}
+                \includegraphics[width=1\textwidth]{fig/6--2.pdf}\\
+                \centering  (b) A middle video frame
+                \end{minipage}
+            }
+            \hfill
+            \subfigure{
+                \begin{minipage}[t]{0.23\textwidth}
+                \includegraphics[width=1\textwidth]{fig/6--3.pdf}\\
+                \centering  (c) The last video frame
+                \end{minipage}
+            }
+            \hfill
+            \subfigure{
+                \begin{minipage}[t]{0.22\textwidth}
+                \includegraphics[width=1\textwidth]{fig/6--4.pdf}\\
+                \centering  (d) Fingertip movement trajectory
+                \end{minipage}
+            }
+            \vspace{-3mm}
+            \caption{Tracking the fingertip movement trajectory. For each video frame, the system tracks two areas: one surrounds the fingertip and the other covers the edge of the device.
+            The fingertip position is determined by computing the relative coordinates of the central points of the two areas.
+            The red points highlighted in the final results (d) are the touching points tracked from the three video frames.}
+            \label{fig:fig5}
+            \vspace{-4mm}
+        \end{figure*}
+
+Our heuristic for identifying the pattern drawing process is described
+in Algorithm~\ref{alg:recognition}. The input to the algorithm is a video capturing the unlocking process, and the output of the
+algorithm is a time-stamp tuple, $<$start, end$>$, which marks the start and the end
+of a video segment.
+To locate the video segment of pattern drawing, we first filter out on-screen activities where the
+fingertip location does not change within a timeframe of 1.5 seconds (lines 4 and 11). This
+allows us to exclude some basic on-screen activities such as clicking. We
+use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval between two on-screen operations. Here, a time
+interval of 1.5s translates to 45 frames or 90 frames when the video was shot
+at 30 or 60 frames per second (FPS) respectively. We also use the
+spatial-temporal characteristics described above to exclude two consecutive swiping or zooming gestures (line 8). Finally, we exploit the observation that users
+typically paused at least 1.5s before or after unlocking to locate the start
+and end points of pattern drawing (line 19).
+
+\noindent \textbf{Limitations} Our heuristic is not perfect. It is likely to fail if the user was typing
+using a Swype-like method (i.e. entering words by sliding a finger from
+the first letter of a word to its last letter) during video recording. In
+this case, our method will identify multiple video segments of which one may contain
+the pattern unlock process. If multiple segments are detected, the algorithm will ask the
+user to confirm which video segment to use.
+In this scenario, the first identified segment is likely to be the correct one.
+In practice, an experienced attacker would wait patiently to avoid this
+complicated situation by finding the right time for filming (e.g. for a screen
+lock, the time is just after the device is retrieved).
+The attacker could also watch the video to manually cut it to ensure to obtain the correct video segment.
+%It is
+%worthwhile to mention that automatically identifying the pattern unlocking process is
+%not central to our attack because an attacker often can obtain a quality video input used the manual methods described above.
+%Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
 
     \begin{algorithm}[!t]
         \centering
@@ -96,127 +194,35 @@
         \end{algorithmic}
     \end{algorithm}
 
-        \begin{figure*}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.23\textwidth}
-                \includegraphics[width=1\textwidth]{fig/6--1.pdf}\\
-                \centering  (a) The first video frame
-                \end{minipage}
-            }
-            \hfill
-            \subfigure{
-                \begin{minipage}[t]{0.23\textwidth}
-                \includegraphics[width=1\textwidth]{fig/6--2.pdf}\\
-                \centering  (b) A middle video frame
-                \end{minipage}
-            }
-            \hfill
-            \subfigure{
-                \begin{minipage}[t]{0.23\textwidth}
-                \includegraphics[width=1\textwidth]{fig/6--3.pdf}\\
-                \centering  (c) The last video frame
-                \end{minipage}
-            }
-            \hfill
-            \subfigure{
-                \begin{minipage}[t]{0.22\textwidth}
-                \includegraphics[width=1\textwidth]{fig/6--4.pdf}\\
-                \centering  (d) Fingertip movement trajectory
-                \end{minipage}
-            }
-            \vspace{-3mm}
-            \caption{Tracking the fingertip movement trajectory. For each video frame, the system tracks two areas: one surrounds the fingertip and the other covers the edge of the device.
-            The fingertip position is determined by computing the relative coordinates of the central points of the two areas.
-            The red points highlighted in the final results (d) are the touching points tracked from the three video frames.}
-            \label{fig:fig5}
-            \vspace{-3mm}
-        \end{figure*}
+%    \begin{figure*}[!t]
+%        \centering
+%        \subfigure{
+%            \begin{minipage}[b]{0.24\textwidth}
+%            \includegraphics[width=\textwidth]{fig/5-1.eps}\\
+%            \centering  (a) w/o camera shake calibration
+%            \end{minipage}
+%        }
+%        \hfill
+%        \subfigure{
+%            \begin{minipage}[b]{0.24\textwidth}
+%            \includegraphics[width=\textwidth]{fig/5-2.eps}\\
+%            \centering  (b) w/ camera shake calibration
+%            \end{minipage}
+%        }
+%        \hfill
+%        \subfigure{
+%            \begin{minipage}[b]{0.18\textwidth}
+%            \includegraphics[width=\textwidth]{fig/5-3.pdf}\\
+%            \centering  (c) correct pattern
+%            \end{minipage}
+%        }
+%        \vspace{-3mm}
+%        \caption{The resulted fingertip movement trajectories without (a) and with (b) camera-shake calibration.  The correct pattern is shown in (c). To aid clarity we have transformed (a) and (b) to the user's perspective.}
+%        \label{fig:camera_shake_illu}
+%        \vspace{-4mm}
+%    \end{figure*}
 
-\section{Implementation Details}
-
-\subsection{Video preprocessing \label{sec:identify}}
-\label{section:recognition}
-The first step of our attack is to identify the unlocking process from the
-video footage. While all our
-participants (see Section~\ref{section:locking patterns}) consider this as a straightforward manual task, we developed a \emph{simple yet effective} heuristic to automatically detect the video segment in some typical scenarios. Our heuristic is based on the following observations: (1) before or after
-unlocking, users often pause for a few seconds; (2) two consecutive on-screen operations (e.g. swiping, zooming etc.) typically expose some spatial-temporal motion characteristics.
-
-In order to test our hypothesis, we have recorded 50 video streams (each
-video lasts around 2 minutes) of how ten of our participants drew
-patterns. During video recording, our participants firstly performed
-some on-screen activities such as web browsing and gaming as they wished;
-they then opened up a pattern lock screen to draw a pattern and
-continued to perform other on-screen operations afterwards.
-For each video stream, we then analyzed frames that are associated with pattern drawing and those are not.
-
-
-Figure~\ref{fig:time-interval} shows that all our participants paused at least $1.5$ seconds before or after pattern drawing due to delay of the user or the device.
-%Our algorithm leverages this characteristic to locate the start and end point of unlocking process.
-We also found that identical on-screen activities often follow closely. For example, on several occasions our participants had to swipe several times  to locate a program from the application list.
-These consecutive on-screen operations have some spatial-temporal motion characteristics that are different from pattern drawing.
-Figure~\ref{fig:gesture-distinction} shows the spatial-temporal motion structure for  two gestures, swiping and zooming, when they are performed once (a, c, e) and twice (b, d, f).
-This diagram indicates that the spatial-temporal motion of two identical on-sreen activities contains one or more looping structures for which pattern drawing does not have.
-
-
-Our heuristic for identifying the pattern drawing process is described
-in Algorithm~\ref{alg:recognition}. The input to the algorithm is a video capturing the unlocking process, and the output of the
-algorithm is a time-stamp tuple, $<$start, end$>$, which marks the start and the end
-of a video segment.
-To locate the video segment of pattern drawing, we first filter out on-screen activities where the
-fingertip location does not change within a timeframe of 1.5 seconds (lines 4 and 11). This
-allows us to exclude some basic on-screen activities such as clicking. We
-use the number of video frames, \emph{frameCount}, as a proxy to estimate the time interval between two on-screen operations. Here, a time
-interval of 1.5s translates to 45 frames or 90 frames when the video was shot
-at 30 or 60 frames per second (FPS) respectively. We also use the
-spatial-temporal characteristics described above to exclude two consecutive swiping or zooming gestures (line 8). Finally, we exploit the observation that users
-typically paused at least 1.5s before or after unlocking to locate the start
-and end points of pattern drawing (line 19).
-
-\noindent \textbf{Limitations} Our heuristic is not perfect. It is likely to fail if the user was typing
-using a Swype-like method (i.e. entering words by sliding a finger from
-the first letter of a word to its last letter) during video recording. In
-this case, our method will identify multiple video segments of which one may contain
-the pattern unlock process. If multiple segments are detected, the algorithm will ask the
-user to confirm which video segment to use.
-In this scenario, the first identified segment is likely to be the correct one.
-In practice, an experienced attacker would wait patiently to avoid this
-complicated situation by finding the right time for filming (e.g. for a screen
-lock, the time is just after the device is retrieved).
-The attacker could also watch the video to manually cut it to ensure to obtain the correct video segment.
-It is
-worthwhile to mention that automatically identifying the pattern unlocking process is
-not central to our attack because an attacker often can obtain a quality video input used the manual methods described above.
-Despite its limitations, our algorithm can reduce the efforts involved in some common scenarios.
-
-    \begin{figure*}[!t]
-        \centering
-        \subfigure{
-            \begin{minipage}[b]{0.24\textwidth}
-            \includegraphics[width=\textwidth]{fig/5-1.eps}\\
-            \centering  (a) w/o camera shake calibration
-            \end{minipage}
-        }
-        \hfill
-        \subfigure{
-            \begin{minipage}[b]{0.24\textwidth}
-            \includegraphics[width=\textwidth]{fig/5-2.eps}\\
-            \centering  (b) w/ camera shake calibration
-            \end{minipage}
-        }
-        \hfill
-        \subfigure{
-            \begin{minipage}[b]{0.18\textwidth}
-            \includegraphics[width=\textwidth]{fig/5-3.pdf}\\
-            \centering  (c) correct pattern
-            \end{minipage}
-        }
-        \vspace{-3mm}
-        \caption{The resulted fingertip movement trajectories without (a) and with (b) camera-shake calibration.  The correct pattern is shown in (c). To aid clarity we have transformed (a) and (b) to the user's perspective.}
-        \label{fig:camera_shake_illu}
-        \vspace{-4mm}
-    \end{figure*}
-
+\vspace{-3mm}
 \subsection{Track fingertip locations}
 \label{section:tld}
 
@@ -243,21 +249,21 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         appearances of the objects; and
         (3) a learner that estimates errors of the detector and updates the detector to avoid these errors in future
         frames.
-
-
-        The TLD learner automatically extracts features from the area of interest to build a K-Nearest Neighbor
-        classifier~\cite{hastie1996discriminant}
-        which is a part of the detector. In the following frames, the learner
-        estimates the detection errors and generates new training
-        examples (i.e. new appearances of the object) arose from object motion to
-        re-train the classifier to avoid these errors. For each video frame,
-        TLD calculates the tracking confidence and if the confidence is lower than the predefined threshold, the result of
-        this particular frame will be discarded. This allows the algorithm to
-        tolerate a certain degree of detection errors. Finally, the
-        successfully detected object locations will be put onto a single
-        image as the output. Detailed discussion of TLD can be found
+%        The TLD learner automatically extracts features from the area of interest to build a K-Nearest Neighbor
+%        classifier~\cite{hastie1996discriminant}
+%        which is a part of the detector. In the following frames, the learner
+%        estimates the detection errors and generates new training
+%        examples (i.e. new appearances of the object) arose from object motion to
+%        re-train the classifier to avoid these errors. For each video frame,
+%        TLD calculates the tracking confidence and if the confidence is lower than the predefined threshold, the result of
+%        this particular frame will be discarded. This allows the algorithm to
+%        tolerate a certain degree of detection errors. Finally, the
+%        successfully detected object locations will be put onto a single
+%        image as the output.
+        Detailed discussion of TLD can be found
         at~\cite{kalal2012tracking}.
-        Sometimes the algorithm may fail to detect the objects in many video frames due to poor selections of interesting areas. If this happens, our system will ask the user to re-select the areas to track.
+
+         In some specific cases, the algorithm may fail to detect the objects in many video frames due to poor selections of interesting areas. If this happens, our system will ask the user to re-select the areas to track.
         We have also extended TLD to report when a
         fingertip position is seen on the footage. This temporal information is recorded as the number
         of video frames seen with respect to the first frame of the video segment.
@@ -301,17 +307,18 @@ Despite its limitations, our algorithm can reduce the efforts involved in some c
         where both areas are successfully tracked, we
         compute the relative coordinates, ($\triangle X$, $\triangle Y$), which are reported as the location of the tracked fingertip.
 
-        Figure~\ref{fig:camera_shake_illu} shows the results when using TLD to process a video that was filmed with some camera shake effects.
-        Figure~\ref{fig:camera_shake_illu} illustrates the tracking results without (a) and with (b) camera-shake calibration.
-        To aid clarity, we have
-        converted the trajectories into the user's perspective. Without
-        camera-shake calibration, the resulted trajectory is significantly different from the actual pattern shown in Figure~\ref{fig:camera_shake_illu} (c).
-        Because of this great difference, using Figure~\ref{fig:camera_shake_illu} (a)  will lead to misidentification of
-        candidate patterns. By contrast, Figure~\ref{fig:camera_shake_illu} (b) generated with camera-shake calibration is more alike the correct pattern.
+%        Figure~\ref{fig:camera_shake_illu} shows the results when using TLD to process a video that was filmed with some camera shake effects.
+%        Figure~\ref{fig:camera_shake_illu} illustrates the tracking results without (a) and with (b) camera-shake calibration.
+%        To aid clarity, we have
+%        converted the trajectories into the user's perspective. Without
+%        camera-shake calibration, the resulted trajectory is significantly different from the actual pattern shown in Figure~\ref{fig:camera_shake_illu} (c).
+%        Because of this great difference, using Figure~\ref{fig:camera_shake_illu} (a)  will lead to misidentification of
+%        candidate patterns. By contrast, Figure~\ref{fig:camera_shake_illu} (b) generated with camera-shake calibration is more alike the correct pattern.
 
       %  \subsubsection{Noisy Points Calibration}
 %            During tracking process, the TLD algorithm may report mistaken position of a tracked object as rapid deformation of the tracked object. This can affect the shape of fingertip movement, leading to extract incorrect geometric information of fingertip movement.
 
+\vspace{-3mm}
 \subsection{Filming angle transformation}
 \label{sec:transformation}
 In practice, the filming camera will not directly face the target device to avoid raising suspicion by the target user. As a result, the
@@ -325,42 +332,42 @@ Therefore, we must transform the resulting trajectory to the user's view point. 
 We use an edge detection algorithm called Line Segment Detector (LSD)~\cite{grompone2010lsd} to detect the longer edge of the device.
 The filming angle is the angle between the detected edge line and a vertical line. This is illustrated in Figure~\ref{fig:line_detection}.
 In Section~\ref{sec:angle}, we show that a minor estimation error of the filming angle has little impact on the attacking success rate.
-By default, we assume that the pattern grid is presented in the portrait
-mode\footnote{The pattern grid of the Android native pattern lock is always presented in the portrait mode regardless of the orientation of the device.}. If this is
-not the case, i.e. the pattern grid is shown in the landscape mode, we need
-to use the shorter edge of the device to calculate the filming angle. We believe that an attacker interested in a particular target device would
-have some knowledge of how the pattern grid is presented under different orientation modes and be able to identify the device orientation by watching the video.
+%By default, we assume that the pattern grid is presented in the portrait
+%mode\footnote{The pattern grid of the Android native pattern lock is always presented in the portrait mode regardless of the orientation of the device.}. If this is
+%not the case, i.e. the pattern grid is shown in the landscape mode, we need
+%to use the shorter edge of the device to calculate the filming angle. We believe that an attacker interested in a particular target device would
+%have some knowledge of how the pattern grid is presented under different orientation modes and be able to identify the device orientation by watching the video.
 There are also other methods to be used to identify the filming angle~\cite{Torralba:2002:DEI:628330.628820}.
 
-\renewcommand{\algorithmicforall}{\textbf{for each}}
-    \begin{algorithm}[!t]
-        \caption{Candidate Pattern Identification Algorithm}
-        \label{alg:alg1}
-        \begin{algorithmic}[1]
-            \REQUIRE~~\\
-                $L[]$: Relative line length \\
-                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
-                $tn$: Number of turning points of fingertip trajectory \\
-                %$timeTh$ Threshold of considering the turning points.\\
-                $lengthTh$: Threshold of considering two lines to have the same length\\
-                $directionTh$: Threshold of considering two lines to be in the same direction\\
-            \ENSURE~~\\
-                $P[]$: Candidate patterns \\
-
-            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
-                \STATE $n \leftarrow getLineNumber(P[])$ \\
-                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
-                /*Relatvie line length for pattern $p$*/ \\
-                \STATE $pD[] \leftarrow getDirection(p)$ \\
-                \IF{match($pL[]$, $L[]$, $lengthTh$)}
-                    \IF{match($pD[]$, $D[]$, $directionTh$)}
-                        \STATE $P[] \leftarrow p$\\
-                    \ENDIF
-                \ENDIF
-            \ENDFOR
-            \STATE $P[] \leftarrow sort(P[])$
-        \end{algorithmic}
-    \end{algorithm}
+%\renewcommand{\algorithmicforall}{\textbf{for each}}
+%    \begin{algorithm}[!t]
+%        \caption{Candidate Pattern Identification Algorithm}
+%        \label{alg:alg1}
+%        \begin{algorithmic}[1]
+%            \REQUIRE~~\\
+%                $L[]$: Relative line length \\
+%                $D[]$: Direction number (see Figure~\ref{fig:fig7}) \\
+%                $tn$: Number of turning points of fingertip trajectory \\
+%                %$timeTh$ Threshold of considering the turning points.\\
+%                $lengthTh$: Threshold of considering two lines to have the same length\\
+%                $directionTh$: Threshold of considering two lines to be in the same direction\\
+%            \ENSURE~~\\
+%                $P[]$: Candidate patterns \\
+%
+%            \FOR{\textbf{each} possible pattern $p$ with $tn$ turning points}
+%                \STATE $n \leftarrow getLineNumber(P[])$ \\
+%                \STATE $pL[]  \leftarrow getRelativeLength(p)$ \\
+%                /*Relatvie line length for pattern $p$*/ \\
+%                \STATE $pD[] \leftarrow getDirection(p)$ \\
+%                \IF{match($pL[]$, $L[]$, $lengthTh$)}
+%                    \IF{match($pD[]$, $D[]$, $directionTh$)}
+%                        \STATE $P[] \leftarrow p$\\
+%                    \ENDIF
+%                \ENDIF
+%            \ENDFOR
+%            \STATE $P[] \leftarrow sort(P[])$
+%        \end{algorithmic}
+%    \end{algorithm}
 
 Based on the estimated filming angle, $\theta$, we use the following formula to transform the tracked fingertip movement trajectory from the camera's view point to the user's:
 
@@ -371,33 +378,34 @@ Based on the estimated filming angle, $\theta$, we use the following formula to 
 where $T$ is a Transformation Matrix, $S^{'}$ is the coordinate of a point of the tracked trajectory, and $S$ is the resulting coordinate after the transformation.
 For each video frame, our algorithm individually calculates the filming angle and perform the transformation, because the filming angle may change across video frames.
 
-\renewcommand{\algorithmicforall}{\textbf{for each}}
-    \begin{algorithm}[!t]
-        \caption{Line Segment Identification}
-        \label{alg:turning-point}
-        \begin{algorithmic}[1]
-            \REQUIRE~~\\
-                \textbf{struct} $T[]$: Temporal information of each tracked location\\
-                $timeTh$: Threshold of whether two line segments are overlapping \\
-            \ENSURE~~\\
-                $tp[]$ Turning points of fingertip movement. \\
-            \FOR{\textbf{each} fingertip movement with temporal sequences $T[]$}
-                \STATE $tpNum=0$; \\
-                \STATE \textbf{struct} $lines[] \leftarrow getLines(T[]) $ \\
-           % \FOR{\textbf{each} t in $T[]$}
-                \STATE $lNum \leftarrow getLinesNumber(lines[])$ \\
-                \FOR{$i=1:lNum$}
-                    %\STATE $tp[tpNum] \leftarrow getStartingPoints(lines[i],timeTh)$ \\
-                    \IF{$checkOverlap(lines[i],timeTh)$}
-                        \STATE $p[tpNum++] \leftarrow getOverlapPoints(line[i])$ \\
-                    \ENDIF
-                    \STATE $p[tpNum++] \leftarrow getTurningPoints(line[i])$ \\
-                \ENDFOR
-            \ENDFOR
-            \STATE $tp[]=p[0:end-1]$\\
-        \end{algorithmic}
-    \end{algorithm}
+%\renewcommand{\algorithmicforall}{\textbf{for each}}
+%    \begin{algorithm}[!t]
+%        \caption{Line Segment Identification}
+%        \label{alg:turning-point}
+%        \begin{algorithmic}[1]
+%            \REQUIRE~~\\
+%                \textbf{struct} $T[]$: Temporal information of each tracked location\\
+%                $timeTh$: Threshold of whether two line segments are overlapping \\
+%            \ENSURE~~\\
+%                $tp[]$ Turning points of fingertip movement. \\
+%            \FOR{\textbf{each} fingertip movement with temporal sequences $T[]$}
+%                \STATE $tpNum=0$; \\
+%                \STATE \textbf{struct} $lines[] \leftarrow getLines(T[]) $ \\
+%           % \FOR{\textbf{each} t in $T[]$}
+%                \STATE $lNum \leftarrow getLinesNumber(lines[])$ \\
+%                \FOR{$i=1:lNum$}
+%                    %\STATE $tp[tpNum] \leftarrow getStartingPoints(lines[i],timeTh)$ \\
+%                    \IF{$checkOverlap(lines[i],timeTh)$}
+%                        \STATE $p[tpNum++] \leftarrow getOverlapPoints(line[i])$ \\
+%                    \ENDIF
+%                    \STATE $p[tpNum++] \leftarrow getTurningPoints(line[i])$ \\
+%                \ENDFOR
+%            \ENDFOR
+%            \STATE $tp[]=p[0:end-1]$\\
+%        \end{algorithmic}
+%    \end{algorithm}
 
+\vspace{-3mm}
 \subsection{Identify and rank candidate patterns}
 \label{section:spea}
   In this step, the fingertip movement trajectory will be mapped to a number of candidate patterns to be tested on the target device.
@@ -425,44 +433,6 @@ For each video frame, our algorithm individually calculates the filming angle an
         \vspace{-4mm}
     \end{figure}
 
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[b]{0.37\textwidth}
-                \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
-                \centering  (a) overlapping lines
-                %\FIXME{Need to mark the starting point and turning point}
-                \end{minipage}
-            }
-            \hfill
-            \subfigure{
-                \begin{minipage}[b]{0.35\textwidth}
-                \includegraphics[width=\textwidth]{fig/line-identification2.pdf}\\
-                \centering  (b) zoom-in view
-                \end{minipage}
-            }
-            \caption{Separating two overlapping line segments by checking the number of overlapping points within a timeframe.}
-            \label{fig:line-idenfication}
-        \end{figure}
-
-        \begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[t]{0.29\textwidth}
-                \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
-                \centering (a) line direction number
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[t]{0.34\textwidth}
-                \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
-                \centering (b) numbering line segment of the tracked trajectory
-                \end{minipage}
-            }
-            \caption{All possible line directions on a $3 \times 3$ Android pattern grid (a) and an example trajectory (b).}
-            \label{fig:fig7}
-        \end{figure}
-
     \subsubsection{Extracting Structure Information}
         A pattern can be defined as a collection of line
         segments where each line segment has two properties:
@@ -471,7 +441,7 @@ For each video frame, our algorithm individually calculates the filming angle an
          pattern, $P$, as a collection of line segment prosperities,  $P=\{L, D\}$.
         Here $L=\{l_{1}, l_{2}, \cdots, l_{n}\}$ is a collection of the lengths
         of all line segments (that are numbered from $1$ to $n$) of the pattern, and $D=\{d_{1}, d_{2}, \cdots, d_{n}\}$ is the collection of directions for all line segments in $L$.
-        Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
+        %Algorithm~\ref{alg:alg1} describes how $P$ is extracted.
         We extract the length and the direction of each line segment from the tracked fingertip movement trajectory and store them
         into arrays $L[]$ and $D[]$ respectively.
 
@@ -479,10 +449,11 @@ For each video frame, our algorithm individually calculates the filming angle an
         The first step of geometry information extraction is to identify individual
         line segments from the trajectory. This can be achieved
         by finding turning points, the start and the end points of the pattern, because two points define a line segment. For example, turning points, A and B, in
-        Figure~\ref{fig:fig6} defines a line segment, AB. In
-        Algorithm~\ref{alg:turning-point}, we use a linear fitting
-        method~\cite{Kutner2004Applied} to discover turning points (line 3). A specific
-        challenge here is how to separate two overlapping line segments (see
+        Figure~\ref{fig:fig6} defines a line segment, AB.
+        %In Algorithm~\ref{alg:turning-point},
+        We use a linear fitting
+        method~\cite{Kutner2004Applied} to discover turning points. %(line 3).
+        A specific challenge here is how to separate two overlapping line segments (see
         Figure~\ref{fig:intersection-overlap} c for an example).
         It is to note that up to two lines can be overlapped on a pattern grid.
         The naive
@@ -490,13 +461,13 @@ For each video frame, our algorithm individually calculates the filming angle an
         single line as their points stay close to each other. We overcome this problem
        by using the temporal information (that is recorded by the
         tracking algorithm) to separate two overlapping points.
-        To do so, we visit all tracked points of each line segment given by the linear fitting algorithm (line
-        5) within a timeframe (\emph{timeTh}) of 20 video frames for a video of 30 FPS (40 for a video of 60 FPS).
-        For each point, we calculate its Euclidean distances to all other points within the timeframe.
-        We consider two points to be overlapping if their distance is less than 5 pixels.
-        For a video shot at 30 FPS, we consider there exist two overlapping line segments if 5 (10 for a 60 FPS video) or more overlapping points in the timeframe.
-        Again, these threshold values were determined through our initial design experiments.
-        Finally, we consider the center of all points as the turning point of the two overlapping line segments and use turning point to separate the two lines.
+%        To do so, we visit all tracked points of each line segment given by the linear fitting algorithm (line
+%        5) within a timeframe (\emph{timeTh}) of 20 video frames for a video of 30 FPS (40 for a video of 60 FPS).
+%        For each point, we calculate its Euclidean distances to all other points within the timeframe.
+%        We consider two points to be overlapping if their distance is less than 5 pixels.
+%        For a video shot at 30 FPS, we consider there exist two overlapping line segments if 5 (10 for a 60 FPS video) or more overlapping points in the timeframe.
+%        Again, these threshold values were determined through our initial design experiments.
+%        Finally, we consider the center of all points as the turning point of the two overlapping line segments and use turning point to separate the two lines.
 
         \noindent \emph{Example:} As an example, consider a fingertip movement trajectory shown in
         Figure~\ref{fig:line-idenfication} (a). The red rectangle on the
@@ -507,6 +478,52 @@ For each video frame, our algorithm individually calculates the filming angle an
         overlapping points in the timeframe, which are marked by a green
         circle. We use the center
         point (No.10) of the overlapping points as the turning point to separate the two line segments.
+
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[b]{0.23\textwidth}
+                \includegraphics[width=\textwidth]{fig/line-identification1.pdf}\\
+                \centering  (a) overlapping lines
+                %\FIXME{Need to mark the starting point and turning point}
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[b]{0.225\textwidth}
+                \includegraphics[width=\textwidth]{fig/line-identification2.pdf}\\
+                \centering  (b) zoom-in view
+                \end{minipage}
+            }
+            \caption{Separating two overlapping line segments by checking the number of overlapping points within a timeframe.}
+            \label{fig:line-idenfication}
+        \end{figure}
+        \vspace{2mm}
+        \noindent \textbf{Extract the Line Length.}
+        The physical length of a line segment depends
+        on the sizes of the screen and the pattern grid, and the space between two touch dots.
+        To ensure our approach is independent of the device, we normalize the physical length of a line segment to the
+        shortest line found on the tracked trajectory. For the
+        example shown in Figure~\ref{fig:fig6} (a), the line lengths for segments, SA, AB, BC, CD, and DE, are $2l_{s},l_{s},2l_{s},l,2l_{s}$, respectively.
+        Here segments AB and CD have the shortest length, $l_s$. The physical length of a line segment is calculated by computing the
+        Euclidean distance between the start and the end points of a segment.
+
+        \begin{figure}[!t]
+            \centering
+            \subfigure{
+                \begin{minipage}[t]{0.2\textwidth}
+                \includegraphics[width=\textwidth]{fig/7-1.pdf}\\
+                \centering (a) line direction number
+                \end{minipage}
+            }
+            \subfigure{
+                \begin{minipage}[t]{0.25\textwidth}
+                \includegraphics[width=\textwidth]{fig/7-2.pdf}\\
+                \centering (b) numbering line segment of the tracked trajectory
+                \end{minipage}
+            }
+            \caption{All possible line directions on a $3 \times 3$ Android pattern grid (a) and an example trajectory (b).}
+            \label{fig:fig7}
+        \end{figure}
 
         \begin{table}[t]
             \centering
@@ -522,18 +539,8 @@ For each video frame, our algorithm individually calculates the filming angle an
                 \textbf{slope (R $\rightarrow$ L)} & $-\infty$ & $2$ & $1$ & $\frac{1}{2}$ & $0$ & $-\frac{1}{2}$ & $-1$ & $-2$ \\
                 \bottomrule
             \end{tabular}
-            \vspace{-2mm}
+            \vspace{-5mm}
         \end{table}
-
-        \vspace{2mm}
-        \noindent \textbf{Extract the Line Length.}
-        The physical length of a line segment depends
-        on the sizes of the screen and the pattern grid, and the space between two touch dots.
-        To ensure our approach is independent of the device, we normalize the physical length of a line segment to the
-        shortest line found on the tracked trajectory. For the
-        example shown in Figure~\ref{fig:fig6} (a), the line lengths for segments, SA, AB, BC, CD, and DE, are $2l_{s},l_{s},2l_{s},l,2l_{s}$, respectively.
-        Here segments AB and CD have the shortest length, $l_s$. The physical length of a line segment is calculated by computing the
-        Euclidean distance between the start and the end points of a segment.
 
         \vspace{2mm}
        \noindent \textbf{Extract Direction Information.}
@@ -696,37 +703,38 @@ For each video frame, our algorithm individually calculates the filming angle an
         \caption{Possible mappings for the tracked fingertip movement trajectory presented in Figure~\ref{fig:fig2} (d). }
         \vspace{-2mm}
         \label{fig:fig3}
+        \vspace{-4mm}
     \end{figure}
 
-\begin{figure}[!t]
-    \centering
-    \subfigure{
-        \begin{minipage}[t]{0.11\textwidth}
-            \includegraphics[width=\textwidth]{fig/physical_length.pdf}\\
-            \centering  (a) line length
-        \end{minipage}
-    }
-    \hspace{0.1cm}
-    \subfigure{
-        \begin{minipage}[t]{0.11\textwidth}
-            \includegraphics[width=\textwidth]{fig/intersection.pdf}\\
-            \centering  (b) line intersection
-        \end{minipage}
-    }
-    \hspace{0.1cm}
-    \subfigure{
-        \begin{minipage}[t]{0.11\textwidth}
-            \includegraphics[width=\textwidth]{fig/overlap.pdf}\\
-            \centering  (c) overlapping lines
-        \end{minipage}
-    }
-    \caption{Illustrations of the terminologies used in Equation~\ref{equ:compscore}.}
-    \label{fig:intersection-overlap}
-    \vspace{-4mm}
-\end{figure}
+%\begin{figure}[!t]
+%    \centering
+%    \subfigure{
+%        \begin{minipage}[t]{0.11\textwidth}
+%            \includegraphics[width=\textwidth]{fig/physical_length.pdf}\\
+%            \centering  (a) line length
+%        \end{minipage}
+%    }
+%    \hspace{0.1cm}
+%    \subfigure{
+%        \begin{minipage}[t]{0.11\textwidth}
+%            \includegraphics[width=\textwidth]{fig/intersection.pdf}\\
+%            \centering  (b) line intersection
+%        \end{minipage}
+%    }
+%    \hspace{0.1cm}
+%    \subfigure{
+%        \begin{minipage}[t]{0.11\textwidth}
+%            \includegraphics[width=\textwidth]{fig/overlap.pdf}\\
+%            \centering  (c) overlapping lines
+%        \end{minipage}
+%    }
+%    \caption{Illustrations of the terminologies used in Equation~\ref{equ:compscore}.}
+%    \label{fig:intersection-overlap}
+%    \vspace{-5mm}
+%\end{figure}
 
     \subsubsection{Map the Tracked Trajectory to Candidate Patterns\label{section:identity}}
-       In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. This process is described in Algorithm~\ref{alg:alg1}.
+       In this step, we use the extracted geometry information to map the fingertip movement trajectory to a small number of candidate patterns which will then be ranked using a heuristic. %This process is described in Algorithm~\ref{alg:alg1}.
 
        \noindent \textbf{Identify Candidate Patterns.} Our implementation simply enumerates all possible
         patterns for a given pattern grid to identify candidate patterns, starting from the top-left touch point.
@@ -749,54 +757,54 @@ For each video frame, our algorithm individually calculates the filming angle an
        The patterns presented in b(1)--b(5) and c(1)--c(5) of Figure~\ref{fig:fig3}) will
        also be rejected for the same reason.
 
-\begin{figure}[!t]
-            \centering
-            \subfigure{
-                \begin{minipage}[b]{8cm}
-                \includegraphics[width=1.3cm]{fig/9-1.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-2.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-3.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-4.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-5.pdf}\\
-                \centering  (a) Example patterns belong to the simple category.
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{8cm}
-                \includegraphics[width=1.3cm]{fig/9-6.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-7.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-8.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-9.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-10.pdf}\\
-                \centering  (b) Example patterns belong to the median category.
-                \end{minipage}
-            }
-            \subfigure{
-                \begin{minipage}[b]{8cm}
-                \includegraphics[width=1.3cm]{fig/9-11.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-12.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-13.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-14.pdf}
-                \hspace{0.1cm}
-                \includegraphics[width=1.3cm]{fig/9-15.pdf}\\
-                \centering  (c) Example patterns belong to the complex category.
-                \end{minipage}
-            }
-            \caption{Examples of patterns collected from our participants. Patterns are grouped into \emph{simple}, \emph{median} and \emph{complex} categories, according to their complexity scores. }
-            \label{fig:fig8}
-            \vspace{-3mm}
-        \end{figure}
+%\begin{figure}[!t]
+%            \centering
+%            \subfigure{
+%                \begin{minipage}[b]{8cm}
+%                \includegraphics[width=1.3cm]{fig/9-1.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-2.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-3.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-4.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-5.pdf}\\
+%                \centering  (a) Example patterns belong to the simple category.
+%                \end{minipage}
+%            }
+%            \subfigure{
+%                \begin{minipage}[b]{8cm}
+%                \includegraphics[width=1.3cm]{fig/9-6.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-7.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-8.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-9.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-10.pdf}\\
+%                \centering  (b) Example patterns belong to the median category.
+%                \end{minipage}
+%            }
+%            \subfigure{
+%                \begin{minipage}[b]{8cm}
+%                \includegraphics[width=1.3cm]{fig/9-11.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-12.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-13.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-14.pdf}
+%                \hspace{0.1cm}
+%                \includegraphics[width=1.3cm]{fig/9-15.pdf}\\
+%                \centering  (c) Example patterns belong to the complex category.
+%                \end{minipage}
+%            }
+%            \caption{Examples of patterns collected from our participants. Patterns are grouped into \emph{simple}, \emph{median} and \emph{complex} categories, according to their complexity scores. }
+%            \label{fig:fig8}
+%            \vspace{-3mm}
+%        \end{figure}
 
        \noindent \textbf{Rank Patterns.} Candidates patterns are then ranked using a simple
         heuristic. The heuristic assumes a pattern starting from
@@ -809,9 +817,11 @@ For each video frame, our algorithm individually calculates the filming angle an
         longer total line length
         is more likely to be the correct pattern. Using these criteria,
         the five candidate patterns are ranked in order from subfigures d(1) to d(5) in
-        Figure~\ref{fig:fig3}. Therefore, an attacker would first try the candidate
-        pattern presented in Figure~\ref{fig:fig3} d(1).  This attempt will lead to a
-        successful attack for the example presented in Figure~\ref{fig:fig2}. Our experimental results show that
+        Figure~\ref{fig:fig3}.
+        %Therefore, an attacker would first try the candidate
+%        pattern presented in Figure~\ref{fig:fig3} d(1).  This attempt will lead to a
+%        successful attack for the example presented in Figure~\ref{fig:fig2}.
+        Our experimental results show that
         this heuristic is effective.
 
 

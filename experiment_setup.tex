@@ -17,10 +17,11 @@
 
     To collect the patterns, we have conducted a ``pen-and-paper" survey by asking participants to fill in an anonymized questionnaire.
     The questionnaire and survey were approved by the research ethics board (REB) of the host institution.
-    We have made sure that our survey complied with strict privacy regulations. For example, we did not collect any personally identifiable information other than the gender and age group of the participant. Our participants were well informed on the purpose
-    of the study and how the data will be managed and used. The survey forms were distributed as voluntary homework so that the participants can take the survey form away to fill in.
-     Users were invited to return the survey form anonymously within three weeks to a dedicated, locked mailbox, if they wish to participate in the study.
-     To avoid a user submits multiple copies of the same form, each survey form is given a unique, randomly generated 32-digital number.
+    We have made sure that our survey complied with strict privacy regulations.
+%    For example, we did not collect any personally identifiable information other than the gender and age group of the participant. Our participants were well informed on the purpose
+%    of the study and how the data will be managed and used. The survey forms were distributed as voluntary homework so that the participants can take the survey form away to fill in.
+%     Users were invited to return the survey form anonymously within three weeks to a dedicated, locked mailbox, if they wish to participate in the study.
+%     To avoid a user submits multiple copies of the same form, each survey form is given a unique, randomly generated 32-digital number.
      %The list of patterns we collected and the questionnaire can be found in the Appendix.
 
 
@@ -34,6 +35,7 @@
      that the patterns we collected represent some of the real world
      patterns. Finally, all participants believe that a complex pattern provides stronger protection than a simple counterpart.
 
+    \vspace{-4mm}
     \subsection{Pattern Complexity Classification}
     \label{section: pattern-complexity-classification}
     We quantify the complexity of a pattern using the complexity (strength) score proposed in~\cite{sun2014dissecting}.
@@ -43,13 +45,12 @@
     \label{equ:compscore}
     \end{equation}
     where $S_{P}$ is the number of connected dots, $L_{P}$ is the
-    total length of all line segments that form the pattern (see
-    Figure~\ref{fig:intersection-overlap}~a), $I_{P}$ is the number of
+    total length of all line segments that form the pattern,
+    %(see Figure~\ref{fig:intersection-overlap}~a),
+    $I_{P}$ is the number of
     intersections (which are also termed as "knight moves" in some prior
-    work~\cite{Von2015Easy}, see
-    Figure~\ref{fig:intersection-overlap}~b) and $O_{P}$ is the number of
-    overlapping linear segments (see
-    Figure~\ref{fig:intersection-overlap}~c).  To calculate the line length,
+    work~\cite{Von2015Easy}) and $O_{P}$ is the number of
+    overlapping linear segments.  To calculate the line length,
     we assume the length between two horizontally or vertically adjunct dots
     is one. Thus, our method is independent of the size of the screen and the
     grid.
@@ -57,16 +58,18 @@
 
     Intuitively, the more connected dots ($S_{P}$), line segments ($L_{P}$),
     intersections ($I_{P}$) and overlapping line segments ($O_{P}$) that a
-    pattern has, the more complex it is. For example, the patterns shown in
-    Figure~\ref{fig:fig8} (c) use all the nine dots of the grid, and have  at
-    least seven line segments and three intersections.
-    There are other methods to quantify the complexity score of pattern locks, including the methods proposed by Song \emph{et al.} ~\cite{Song2015On} and Andriotis \emph{et al.}
-    ~\cite{Andriotis2014Complexity}. These methods in general suggest that patterns with more connected dots and intersections are considered to provide stronger security strengths~\cite{Heidt2016Refining}.
+    pattern has, the more complex it is.
+%    For example, the patterns shown in
+%    Figure~\ref{fig:fig8} (c) use all the nine dots of the grid, and have  at
+%    least seven line segments and three intersections.
+    There are other methods to quantify the complexity score of pattern locks, including the methods proposed by Song \emph{et al.}~\cite{Song2015On} and Andriotis \emph{et al.}~\cite{Andriotis2014Complexity}. These methods in general suggest that patterns with more connected dots and intersections are considered to provide stronger security strengths~\cite{Heidt2016Refining}.
 
         \begin{figure}[!t]
             \centering
-            \includegraphics[width=0.5\textwidth]{fig/pattern-strength.pdf}
+            \includegraphics[width=0.4\textwidth]{fig/pattern-strength.pdf}
+            \vspace{-3mm}
             \caption{The distribution of complexity scores for the patterns given by our participants.}
+            \vspace{-3mm}
             \label{fig:pattern-strength}
         \end{figure}
 
@@ -101,13 +104,18 @@
     Base on the complexity score, we divide the collected patterns into three complexity categories: \emph{simple}, \emph{median} and \emph{complex}. A simple pattern has a score of less than 19,
     a median
     complex pattern has a score between 19 and 33, and a complex pattern must have a score greater than 33. This classification gives us roughly 40 patterns per
-    category. Figure~\ref{fig:fig8} gives some examples for each category while Figure~\ref{fig:pattern-strength} shows the distribution of these patterns according to their complexity scores.
-    Based on this definition, the most complex pattern on a $3 \times 3$ grid has a score of $46.8$ (see Figure~\ref{fig:most complex patterns}).  The complex scores of the patterns we collected range from $6.4$ to $46.8$.
+    category.
+   % Figure~\ref{fig:fig8} gives some examples for each category while
+    Figure~\ref{fig:pattern-strength} shows the distribution of these patterns according to their complexity scores.
+    Based on this definition, 
+%    the most complex pattern on a $3 \times 3$ grid has a score of $46.8$ (see Figure~\ref{fig:most complex patterns}).
+    the complex scores of the patterns we collected range from $6.4$ to $46.8$.
 
+    \vspace{-3mm}
     \subsection{Video Recording and Preprocessing}
 
     \noindent\textbf{User Participation} We recruited ten postgraduate students (five male and five female
-    students) from Northwest University to reproduce the 120 patterns (collected from users)
+    students) from Northwest University to reproduce the 120 patterns
     and the 60 most complex patterns (see Section~\ref{sec:overall_rate})  on three target mobile phones:
     a Xiaomi MI4, a Huawei Honor7 and a Samsung Note4. Table~\ref{tab:locking-screen-size} lists
     the screen size for each target mobile phone.
@@ -119,9 +127,10 @@
 
     \vspace{2mm}
    \noindent\textbf{Video Recording Setup.}
-    By default, we used the  Android $3 \times 3$ native pattern grid,
-    but we evaluated our approach using other pattern grids with different sizes in
-    Section~\ref{sec:scalability}. We recorded each pattern under three filming
+    By default, we used the  Android $3 \times 3$ native pattern grid.
+%    but we evaluated our approach using other pattern grids with different sizes in
+%    Section~\ref{sec:scalability}.
+    We recorded each pattern under three filming
     angles, 45, 90 and 135 degrees, by placing the camera on the left-front, front, and right-front
     of the target device respectively.
     By default, the video
@@ -129,18 +138,20 @@
     Section~\ref{sec:light} we evaluated our approach under different lighting conditions
     both indoor and outdoor. By default, videos were recorded at a distance of
     2 meters from the target device and we evaluated the impact of the filming distance in
-    Section~\ref{sec:scalability}.
+    Section~\ref{sec:distances}.
 
     \vspace{2mm}
     \noindent \textbf{Video Filming.}
      Before recording, our participants were given the opportunity to practice a pattern
-    several times, so that they can draw the pattern at
-    their natural speed. On average, this practice session took 10 trails per user per pattern.
-    When drawing the
-    pattern, some participants sat, while others stood, some hold the device
-    by hands, while others placed it on a table.
+    several times (average 10 trials), so that they can draw the pattern at
+    their natural speed. 
+    %On average, this practice session took 10 trials per user per pattern.
+%    When drawing the
+%    pattern, some participants sat, while others stood, some hold the device
+%    by hands, while others %placed it on a table.
     Each pattern was drawn on three target devices and
-    recorded under three filming angles. Thus, for the 120 patterns collected from users, we recorded 1,080 videos in total.
+    recorded under three filming angles.
+    Thus, for the 120 patterns collected from users, we recorded 1,080 videos in total.
 
     \vspace{2mm}
     \noindent\textbf{Video Preprocessing.}

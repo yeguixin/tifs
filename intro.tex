@@ -90,7 +90,7 @@ solutions to be constructed in the new application context of pattern lock.
         \subfigure{
             \begin{minipage}[t]{3.5cm}
             \includegraphics[height=3cm]{fig/1-1.pdf}\\
-             \footnotesize (a) A common attacking scenario.
+             \footnotesize (a) The video was recorded from a distance of 2.5 meters.%A common attacking scenario.
             \end{minipage}
         }
         \hspace{0.5cm}
@@ -100,35 +100,35 @@ solutions to be constructed in the new application context of pattern lock.
              \footnotesize (b) The device screen seen from the video filmed in (a).
             \end{minipage}
         }
-        \hspace{0.15cm}
-        \subfigure{
-            \begin{minipage}[t]{3.5cm}
-            \includegraphics[height=3cm]{fig/1-3.pdf}\\
-             \footnotesize (c) The video was recorded from a distance of 2.5 meters.
-            \end{minipage}
-        }
-        \hspace{0.5cm}
-        \subfigure{
-            \begin{minipage}[t]{3.5cm}
-            \includegraphics[height=3cm]{fig/1-4.pdf}\\
-             \footnotesize (d) The device screen seen from the video filmed in (c).
-            \end{minipage}
-        }
-        \subfigure{
-            \begin{minipage}[t]{3.5cm}
-            \includegraphics[height=3cm]{fig/1-5.pdf}\\
-             \footnotesize (e) An outdoor scenario.
-             %The user is focusing his attention on searching for learning material in classroom.
-            \end{minipage}
-        }
-        \hspace{0.5cm}
-        \subfigure{
-            \begin{minipage}[t]{3.5cm}
-            \includegraphics[height=3cm]{fig/1-6.pdf}\\
-             \footnotesize (f)
-             The device screen seen from the video filmed in (e).
-            \end{minipage}
-        }
+        %\hspace{0.15cm}
+%        \subfigure{
+%            \begin{minipage}[t]{3.5cm}
+%            \includegraphics[height=3cm]{fig/1-3.pdf}\\
+%             \footnotesize (c) The video was recorded from a distance of 2.5 meters.
+%            \end{minipage}
+%        }
+%        \hspace{0.5cm}
+%        \subfigure{
+%            \begin{minipage}[t]{3.5cm}
+%            \includegraphics[height=3cm]{fig/1-4.pdf}\\
+%             \footnotesize (d) The device screen seen from the video filmed in (c).
+%            \end{minipage}
+%        }
+%        \subfigure{
+%            \begin{minipage}[t]{3.5cm}
+%            \includegraphics[height=3cm]{fig/1-5.pdf}\\
+%             \footnotesize (e) An outdoor scenario.
+%             %The user is focusing his attention on searching for learning material in classroom.
+%            \end{minipage}
+%        }
+%        \hspace{0.5cm}
+%        \subfigure{
+%            \begin{minipage}[t]{3.5cm}
+%            \includegraphics[height=3cm]{fig/1-6.pdf}\\
+%             \footnotesize (f)
+%             The device screen seen from the video filmed in (e).
+%            \end{minipage}
+%        }
         \hspace{0.15cm}
         \subfigure{
             \begin{minipage}[t]{3.5cm}
@@ -177,19 +177,16 @@ Our finding suggests that using pattern lock to protect sensitive information co
 %\FIXED{Given the wide usage of pattern lock, we propose a countermeasure to defend against video-based attack without external hardware. This method can effectively confuse the attack to infer correct pattern by disabling a necessary attack factor--user can draw any pattern before or after drawing the correct pattern.}
 
 
-\noindent \textbf{Contributions} The key contribution of this paper is a new
-attack for Android pattern lock. Our attack exploits techniques
-developed in the computer vision domain to address the key
-challenges highlighted above.
-
-
+\noindent \textbf{Contributions} 
+%The key contribution of this paper is a new
+%attack for Android pattern lock. Our attack exploits techniques
+%developed in the computer vision domain to address the key
+%challenges highlighted above.
 This paper makes the following specific contributions:
 
 
 \begin{itemize}
-\item \emph{A New Attack.}% This is the first work on exploiting video-based side-channels to attack
-%Android pattern lock (Section~\ref{section:overview}).
-This is the first work to reconstruct locking patterns without relying on
+\item \emph{A New Attack.} This is the first work to reconstruct locking patterns without relying on
 the content shown on the screen (Section~\ref{sec:scenarios}). %Our approach can accurately
 %extract the correct pattern from video footage filmed using a mobile camera that does not directly faces the target device.
 Experimental results show that our method can break over
@@ -197,15 +194,17 @@ Experimental results show that our method can break over
 operating system (OS) allows five tries before
 locking the device, our attack represents a real threat for pattern lock.
 
-\item \emph{Identifying New Vulnerabilities.} According to a recent study~\cite{Harbach2014It}, direct
-observation techniques, e.g. shoulder surfing, is considered to be a low risk due to the close distance between the
-attacker and the user (in order to gain a clear sight of the device screen). As a result, many users may underestimate
-the risks of using pattern lock in public places. Under our attack, filming can be carried out at a distance of 2
-meters from the user and the camera does not need to directly face the target device. Such a camera setting makes our
-attack less likely to raise suspicion, but rather more likely to success when compared to direct observation
-techniques. For instance, the video can be filmed by an adversary who pretends to interact with his phone, sitting next
-to the user in a public place (see Figure~\ref{fig:fig1}). In many similar scenarios, many users will not be suspicious
-of the attacker's behavior.
+\item \emph{Identifying New Vulnerabilities.} Under our attack, filming can be carried out at a distance of 2 meters from the user and the camera does not need to directly face the target device. Such a camera setting makes our attack less likely to raise suspicion, but rather more likely to success when compared to direct observation, e.g. shoulder surfing.
+
+%According to a recent study~\cite{Harbach2014It}, direct
+%observation techniques, e.g. shoulder surfing, is considered to be a low risk due to the close distance between the
+%attacker and the user (in order to gain a clear sight of the device screen). As a result, many users may underestimate
+%the risks of using pattern lock in public places. Under our attack, filming can be carried out at a distance of 2
+%meters from the user and the camera does not need to directly face the target device. Such a camera setting makes our
+%attack less likely to raise suspicion, but rather more likely to success when compared to direct observation
+%techniques. For instance, the video can be filmed by an adversary who pretends to interact with his phone, sitting next
+%to the user in a public place (see Figure~\ref{fig:fig1}). In many similar scenarios, many users will not be suspicious
+%of the attacker's behavior.
 
 \item \emph{New Findings.} Our study suggests that complex patterns are more vulnerable
 under video-based attacks (Section~\ref{sec:overall_rate}). This finding debunks many people's conception

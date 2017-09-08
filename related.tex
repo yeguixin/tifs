@@ -7,8 +7,7 @@ tracking to develop a new attack. Our work is the first attempt
 of reconstructing a locking pattern from a video footage without
 capturing the content displayed on the screen.
 
-\vspace{2mm}
-\noindent \textbf{Computer Vision-based Attacks} No work has targeted using video
+\noindent \textbf{Computer Vision-based Attacks.} No work has targeted using video
 footage to crack Android pattern lock and this is the first to do so. Our work is inspired by the work
 presented by Shukla \emph{et al.}~\cite{shukla2014beware} on video-based attacks of
 PIN-based passwords. In addition to addressing the new challenges highlighted in Section~\ref{sec:intro}, our work differs to their approach in
@@ -20,7 +19,6 @@ Other work in the area including~\cite{yue2014blind} which attacks PIN-based pas
 But the subtle changes of the screen brightness can be dramatically affected by the lighting condition. This restricts the application of their approach.
 There is a body of work using reflections to recover information typed by the user~\cite{kuhn2002compromising,xu2013seeing,raguram2011ispy,backes2009tempest}. These schemes require having a clear vision of the content displayed on the screen while our approach does not have such a requirement.
 
-\vspace{2mm}
 \noindent \textbf{Cracking Graphical-based Passwords.} Aviv \emph{et al.} demonstrated that it is possible to
 reconstruct a locking pattern by analyzing the oily residues left on the screen~\cite{aviv2010smudge}. This method is
 highly restricted as oily residues can be messed up by any on-screen activities after pattern drawing. Abedlrahman
@@ -32,20 +30,18 @@ objects of the environment
 because the WiFi signal can be disrupted by a moving object.
 
 
-\vspace{2mm}
-\noindent \textbf{Attacks on Touch-based Authentication.}
-%\FIXME{See: When Kids' Toys Breach Mobile Phone Security, CCS 13 and other papers}
-Ballard \emph{et al.} implemented a forgery attack on handwriting
-authentication~\cite{ballard2007forgery}. Using a small number of training
-examples, they achieve a high success rate for this attack. More recently,
-Serwadda \emph{et al.} show that a simple robot can achieve high penetration
-rates against touch-based authentication systems by analyzing on-screen gestures including
-swiping and zooming~\cite{serwadda2013kids}.
-In this paper, we present a new, video-based attack for graphical-based passwords.
-Research in this area all demonstrates the need for a closer look of the security risks of touch-based authentication.
+%\vspace{2mm}
+%\noindent \textbf{Attacks on Touch-based Authentication.}
+%%\FIXME{See: When Kids' Toys Breach Mobile Phone Security, CCS 13 and other papers}
+%Ballard \emph{et al.} implemented a forgery attack on handwriting
+%authentication~\cite{ballard2007forgery}. Using a small number of training
+%examples, they achieve a high success rate for this attack. More recently,
+%Serwadda \emph{et al.} show that a simple robot can achieve high penetration
+%rates against touch-based authentication systems by analyzing on-screen gestures including
+%swiping and zooming~\cite{serwadda2013kids}.
+%In this paper, we present a new, video-based attack for graphical-based passwords.
+%Research in this area all demonstrates the need for a closer look of the security risks of touch-based authentication.
 
-
-\vspace{2mm}
 \noindent \textbf{Study of Android Pattern Lock.}
 Uellebenk \emph{et al.} study how people use Android pattern lock on
 a daily basis~\cite{uellenbeck2013quantifying}.  They found that although there
@@ -61,18 +57,19 @@ After conducting a larger user study, they developed a brutal-force  algorithm t
 crack the pattern lock~\cite{Aviv2015Is}. Their results show that 15\% and 20\% of the  patterns
 generated on a grid of $3\times3$ and $4\times4$ dots respectively can be cracked within 20 guesses.
 %within thousands of guesses, where simple patterns need less attempts.
-In a more recent work~\cite{Aviv2016Anlyzing}, they study the representativeness of
-pattern locks collected through various methods. Their work suggests
-that there are subtle differences for patterns collected using a pen-and-paper
- and online survey.
+%In a more recent work~\cite{Aviv2016Anlyzing}, they study the representativeness of
+%pattern locks collected through various methods. Their work suggests
+%that there are subtle differences for patterns collected using a pen-and-paper
+% and online survey.
 
-\vspace{2mm}
-\noindent \textbf{Motion Tracking.} In addition to TLD, there are other methods proposed in the past for tracking object
-motions. Some of them apply image analysis to track the hand and gesture
-motions from video
-footage~\cite{Yang:2002:EMT:605089.605095,Stenger:2006:MHT:1159166.1159342,
-Beh2014Rule}. In this paper we do not seek to advance the field of
-motion tracking. Instead we demonstrate that a new attack can be built
-using classical motion tracking algorithms. We show that the attack presented in
-this work can be a serious threat for Android pattern lock. %This has never been attempted in
+%\vspace{2mm}
+%\noindent \textbf{Motion Tracking.} In addition to TLD, there are other methods proposed in the past for tracking object
+%motions. Some of them apply image analysis to track the hand and gesture
+%motions from video
+%footage~\cite{Yang:2002:EMT:605089.605095,Stenger:2006:MHT:1159166.1159342,
+%Beh2014Rule}. In this paper we do not seek to advance the field of
+%motion tracking. Instead we demonstrate that a new attack can be built
+%using classical motion tracking algorithms. We show that the attack presented in
+%this work can be a serious threat for Android pattern lock.
+%This has never been attempted in
 %prior work on motion tracking.
