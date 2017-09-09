@@ -331,7 +331,7 @@ Therefore, we must transform the resulting trajectory to the user's view point. 
 
 We use an edge detection algorithm called Line Segment Detector (LSD)~\cite{grompone2010lsd} to detect the longer edge of the device.
 The filming angle is the angle between the detected edge line and a vertical line. This is illustrated in Figure~\ref{fig:line_detection}.
-In Section~\ref{sec:angle}, we show that a minor estimation error of the filming angle has little impact on the attacking success rate.
+%In Section~\ref{sec:angle}, we show that a minor estimation error of the filming angle has little impact on the attacking success rate.
 %By default, we assume that the pattern grid is presented in the portrait
 %mode\footnote{The pattern grid of the Android native pattern lock is always presented in the portrait mode regardless of the orientation of the device.}. If this is
 %not the case, i.e. the pattern grid is shown in the landscape mode, we need
@@ -453,7 +453,7 @@ For each video frame, our algorithm individually calculates the filming angle an
         %In Algorithm~\ref{alg:turning-point},
         We use a linear fitting
         method~\cite{Kutner2004Applied} to discover turning points. %(line 3).
-        A specific challenge here is how to separate two overlapping line segments 
+        A specific challenge here is how to separate two overlapping line segments
         %(see Figure~\ref{fig:intersection-overlap} c for an example).
         It is to note that up to two lines can be overlapped on a pattern grid.
         The naive
@@ -542,7 +542,7 @@ For each video frame, our algorithm individually calculates the filming angle an
             \end{tabular}
             \vspace{-5mm}
         \end{table}
-        
+
        \noindent \textbf{Extract Direction Information.}
        In addition to the line length, we also want to know to which
        direction the finger moves. This information is useful for inferring which dots are selected to unlock the pattern.
